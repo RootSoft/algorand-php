@@ -31,6 +31,7 @@ $algorand->assetManager()->createNewAsset($account, 'PHPCoin', 'PHP', 500000, 2)
 * Algod
 * Indexer
 * Transactions
+* Atomic Transfers
 * Account management
 * Asset management
 * TEAL compilation
@@ -148,6 +149,52 @@ $signedTransaction = $transaction->sign($account);
 $transactionId = $algorand->sendTransaction($signedTransaction);
 ```
 
+## Atomic Transfer
+An Atomic Transfer means that transactions that are part of the transfer either all succeed or all fail.
+Atomic transfers allow complete strangers to trade assets without the need for a trusted intermediary,
+all while guaranteeing that each party will receive what they agreed to.
+
+Atomic transfers enable use cases such as:
+
+* **Circular trades** - Alice pays Bob if and only if Bob pays Claire if and only if Claire pays Alice.
+* **Group payments** - Everyone pays or no one pays.
+* **Decentralized exchanges** - Trade one asset for another without going through a centralized exchange.
+* **Distributed payments** - Payments to multiple recipients.
+
+An atomic transfer can be created as following:
+
+```php
+// Create a new transaction
+$transaction1 = TransactionBuilder::payment()
+    ->sender($accountA->getAddress())
+    ->note('Atomic transfer from account A to account B')
+    ->amount(Algo::toMicroAlgos(1.2)) // 5 Algo
+    ->receiver($accountB->getAddress())
+    ->useSuggestedParams($algorand)
+    ->build();
+
+// Create a new transaction
+$transaction2 = TransactionBuilder::payment()
+    ->sender($accountB->getAddress())
+    ->note('Atomic transfer from account B to account A')
+    ->amount(Algo::toMicroAlgos(2)) // 5 Algo
+    ->receiver($accountA->getAddress())
+    ->useSuggestedParams($algorand)
+    ->build();
+
+// Combine the transactions and calculate the group id
+$transactions = AtomicTransfer::group([$transaction1, $transaction2]);
+
+// Sign the transaction
+$signedTransaction1 = $transaction1->sign($accountA);
+$signedTransaction2 = $transaction2->sign($accountB);
+
+// Assemble transactions group
+$signedTransactions = [$signedTransaction1, $signedTransaction2];
+
+$algorand->sendTransactions($signedTransactions);
+```
+
 ## Asset Management
 
 **Create a new asset**
@@ -254,6 +301,7 @@ transactions, assets, and so forth.
 At the moment we support queries on transactions, assets and accounts.
 
 ### Transactions
+Allow searching all transactions that have occurred on the blockchain.
 
 ```php
 $algorand->indexer()
@@ -267,6 +315,7 @@ $algorand->indexer()
 ```
 
 ### Assets
+Allow searching all assets that are created on the blockchain.
 
 ```php
 $algorand->indexer()
@@ -279,6 +328,7 @@ $algorand->indexer()
     ->search();
 ```
 ### Accounts
+Allow searching all accounts that are created on the blockchain.
 
 ```php
 Algorand::indexer()

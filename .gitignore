@@ -3,6 +3,7 @@
 
 ### Algorand ###
 /transactions/
+.php_cs.cache
 
 ### Laravel ###
 /vendor/
