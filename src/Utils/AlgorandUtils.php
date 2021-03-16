@@ -36,12 +36,12 @@ class AlgorandUtils
      * If the result is less than the minimum fee, the minimum fee is used instead.
      *
      * @param RawTransaction $transaction
-     * @param BigInteger $suggestedFreePerByte
+     * @param BigInteger $suggestedFeePerByte
      * @return BigInteger|BigNumber
      */
-    public static function calculate_fee_per_byte(RawTransaction  $transaction, BigInteger $suggestedFreePerByte)
+    public static function calculate_fee_per_byte(RawTransaction  $transaction, BigInteger $suggestedFeePerByte)
     {
-        $transactionFee = $suggestedFreePerByte->multipliedBy(self::estimateTransactionSize($transaction));
+        $transactionFee = $suggestedFeePerByte->multipliedBy(self::estimateTransactionSize($transaction));
         if ($transactionFee->compareTo(BigInteger::of(RawTransaction::MIN_TX_FEE_UALGOS)) < 0) {
             $transactionFee = BigInteger::of(RawTransaction::MIN_TX_FEE_UALGOS);
         }

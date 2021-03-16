@@ -76,7 +76,7 @@ class Account
     {
         $signatureSecretKey = new SignatureSecretKey(new HiddenString(hex2bin($secretKey)));
 
-        // Derive seed from our secret ket.
+        // Derive seed from our secret key.
         $seed = KeyPairGenerator::deriveSeedFromSignatureSecretKey($signatureSecretKey);
 
         return self::seed($seed);

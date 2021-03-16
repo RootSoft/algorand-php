@@ -3,9 +3,7 @@
 
 namespace Rootsoft\Algorand\Indexer\Builders;
 
-use Cassandra\Index;
 use DateTime;
-use GuzzleHttp\Client;
 use JsonMapper;
 use ParagonIE\ConstantTime\Base64;
 use Rootsoft\Algorand\Clients\IndexerClient;
@@ -18,7 +16,8 @@ use Rootsoft\Algorand\Models\Transactions\SearchTransactionsResult;
 use Rootsoft\Algorand\Models\Transactions\TransactionType;
 use Rootsoft\Algorand\Traits\MakesHttpRequests;
 
-class TransactionQueryBuilder extends QueryBuilder {
+class TransactionQueryBuilder extends QueryBuilder
+{
     use MakesHttpRequests;
     use ManagesIndexerTransactionsV2;
 
@@ -27,7 +26,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param IndexerClient $indexerClient
      * @param \JsonMapper $jsonMapper
      */
-    public function __construct(IndexerClient $indexerClient, JsonMapper $jsonMapper) {
+    public function __construct(IndexerClient $indexerClient, JsonMapper $jsonMapper)
+    {
         parent::__construct($indexerClient, $jsonMapper);
     }
 
@@ -37,7 +37,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param int $assetId
      * @return $this
      */
-    public function forAsset(int $assetId) {
+    public function forAsset(int $assetId)
+    {
         $this->setParameter('for_asset_id', $assetId);
 
         return $this;
@@ -49,7 +50,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param string $accountId
      * @return $this
      */
-    public function forAccount(string $accountId) {
+    public function forAccount(string $accountId)
+    {
         $this->setParameter('for_account_id', $accountId);
 
         return $this;
@@ -61,7 +63,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param Address $address
      * @return $this
      */
-    public function whereAddress(Address $address) {
+    public function whereAddress(Address $address)
+    {
         $this->setParameter('address', $address->encodedAddress);
 
         return $this;
@@ -73,7 +76,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param AddressRole $role
      * @return $this
      */
-    public function whereAddressRole(AddressRole $role) {
+    public function whereAddressRole(AddressRole $role)
+    {
         $this->setParameter('address-role', $role->getValue());
 
         return $this;
@@ -87,7 +91,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param int $amount
      * @return $this
      */
-    public function whereCurrencyIsGreaterThan(int $amount) {
+    public function whereCurrencyIsGreaterThan(int $amount)
+    {
         $this->setParameter('currency-greater-than', $amount);
 
         return $this;
@@ -101,7 +106,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param int $currency
      * @return $this
      */
-    public function whereCurrencyIsLessThan(int $currency) {
+    public function whereCurrencyIsLessThan(int $currency)
+    {
         $this->setParameter('currency-less-than', $currency);
 
         return $this;
@@ -114,7 +120,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param DateTime $dateTime
      * @return $this
      */
-    public function after(DateTime $dateTime) {
+    public function after(DateTime $dateTime)
+    {
         $this->setParameter('after-time', $dateTime->format(DateTime::RFC3339));
 
         return $this;
@@ -127,7 +134,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param DateTime $dateTime
      * @return $this
      */
-    public function before(DateTime $dateTime) {
+    public function before(DateTime $dateTime)
+    {
         $this->setParameter('before-time', $dateTime->format(DateTime::RFC3339));
 
         return $this;
@@ -141,7 +149,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param bool $excludeCloseTo
      * @return $this
      */
-    public function excludeCloseTo(bool $excludeCloseTo) {
+    public function excludeCloseTo(bool $excludeCloseTo)
+    {
         $this->setParameter('exclude-close-to', $excludeCloseTo);
 
         return $this;
@@ -153,7 +162,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param int $round
      * @return $this
      */
-    public function whereRound(int $round) {
+    public function whereRound(int $round)
+    {
         $this->setParameter('round', $round);
 
         return $this;
@@ -165,7 +175,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param int $maxRound
      * @return $this
      */
-    public function beforeMaxRound(int $maxRound) {
+    public function beforeMaxRound(int $maxRound)
+    {
         $this->setParameter('max-round', $maxRound);
 
         return $this;
@@ -177,7 +188,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param int $minRound
      * @return $this
      */
-    public function afterMinRound(int $minRound) {
+    public function afterMinRound(int $minRound)
+    {
         $this->setParameter('min-round', $minRound);
 
         return $this;
@@ -189,7 +201,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param int $applicationId
      * @return $this
      */
-    public function whereApplicationId(int $applicationId) {
+    public function whereApplicationId(int $applicationId)
+    {
         $this->setParameter('application-id', $applicationId);
 
         return $this;
@@ -201,7 +214,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param int $assetId
      * @return $this
      */
-    public function whereAssetId(int $assetId) {
+    public function whereAssetId(int $assetId)
+    {
         $this->setParameter('asset-id', $assetId);
 
         return $this;
@@ -213,7 +227,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param string $notePrefix
      * @return $this
      */
-    public function whereNotePrefix(string $notePrefix) {
+    public function whereNotePrefix(string $notePrefix)
+    {
         $this->setParameter('note-prefix', Base64::encode($notePrefix));
 
         return $this;
@@ -225,7 +240,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param bool $rekeyTo
      * @return $this
      */
-    public function rekeyTo(bool $rekeyTo) {
+    public function rekeyTo(bool $rekeyTo)
+    {
         $this->setParameter('rekey-to', $rekeyTo);
 
         return $this;
@@ -240,7 +256,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param SignatureType $signatureType
      * @return $this
      */
-    public function whereSignatureType(SignatureType $signatureType) {
+    public function whereSignatureType(SignatureType $signatureType)
+    {
         $this->setParameter('sig-type', $signatureType->getValue());
 
         return $this;
@@ -252,7 +269,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param TransactionType $transactionType
      * @return $this
      */
-    public function whereTransactionType(TransactionType $transactionType) {
+    public function whereTransactionType(TransactionType $transactionType)
+    {
         $this->setParameter('tx-type', $transactionType->getValue());
 
         return $this;
@@ -264,7 +282,8 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param string $transactionId
      * @return $this
      */
-    public function whereTransactionId(string $transactionId) {
+    public function whereTransactionId(string $transactionId)
+    {
         $this->setParameter('txid', $transactionId);
 
         return $this;
@@ -276,8 +295,9 @@ class TransactionQueryBuilder extends QueryBuilder {
      * @param int|null $limit
      * @return SearchTransactionsResult
      */
-    public function search(?int $limit = null) {
-        if (!is_null($limit)) {
+    public function search(?int $limit = null)
+    {
+        if (! is_null($limit)) {
             $this->limit($limit);
         }
 

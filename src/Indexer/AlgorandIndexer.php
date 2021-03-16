@@ -3,8 +3,6 @@
 
 namespace Rootsoft\Algorand\Indexer;
 
-use Cassandra\Index;
-use GuzzleHttp\Client;
 use JsonMapper;
 use Rootsoft\Algorand\Clients\IndexerClient;
 use Rootsoft\Algorand\Indexer\Builders\AccountQueryBuilder;
