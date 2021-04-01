@@ -3,7 +3,6 @@
 
 namespace Rootsoft\Algorand\Managers;
 
-use GuzzleHttp\Client;
 use JsonMapper;
 use Rootsoft\Algorand\Clients\AlgodClient;
 use Rootsoft\Algorand\Clients\IndexerClient;

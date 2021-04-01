@@ -3,10 +3,12 @@
 
 namespace Rootsoft\Algorand\Services;
 
+use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Models\PendingTransactionsResult;
 use Rootsoft\Algorand\Models\Transactions\Builders\TransactionBuilder;
+use Rootsoft\Algorand\Models\Transactions\PendingTransaction;
 use Rootsoft\Algorand\Models\Transactions\SignedTransaction;
 use Rootsoft\Algorand\Models\Transactions\TransactionResult;
 use Rootsoft\Algorand\Utils\Encoder;
@@ -62,13 +64,27 @@ trait ManagesTransactionsV2
     /**
      * Broadcast a new (signed) transaction on the network.
      *
-     * @param \Rootsoft\Algorand\Models\Transactions\SignedTransaction $transaction
+     * @param \Rootsoft\Algorand\Models\Transactions\SignedTransaction|string $transaction
+     * @param bool $waitForConfirmation True if you want to wait for confirmation.
+     * @param int $timeout How many rounds do you wish to check pending transactions for.
+     *
      * @return string The id of the transaction.
+     * @throws \Rootsoft\Algorand\Exceptions\AlgorandException
      */
-    public function sendTransaction(SignedTransaction $transaction)
+    public function sendTransaction($transaction, $waitForConfirmation = false, $timeout = 5)
     {
-        $encodedTxBytes = Encoder::getInstance()->encodeMessagePack($transaction->toArray());
+        $encodedTxBytes = $transaction;
+        if ($transaction instanceof SignedTransaction) {
+            $encodedTxBytes = Encoder::getInstance()->encodeMessagePack($transaction->toArray());
+        }
+
         $response = $this->post($this->algodClient, "/v2/transactions", [], ['body' => $encodedTxBytes], ['Content-Type' => 'application/x-binary']);
+
+        if (! $waitForConfirmation) {
+            return $response->txId;
+        }
+
+        $this->waitForConfirmation($response->txId, $timeout);
 
         return $response->txId;
     }
@@ -107,5 +123,61 @@ trait ManagesTransactionsV2
         $response = $this->get($this->algodClient, "/v2/accounts/$address/transactions/pending");
 
         return $this->jsonMapper->map($response, new PendingTransactionsResult(), ['max' => $max]);
+    }
+
+    /**
+     * Get a specific pending transaction.
+     *
+     * Given a transaction id of a recently submitted transaction, it returns information about it.
+     * There are several cases when this might succeed:
+     * - transaction committed (committed round > 0)
+     * - transaction still in the pool (committed round = 0, pool error = "")
+     * (committed round = 0, pool error != "")
+     *
+     * Or the transaction may have happened sufficiently long ago that the node
+     * no longer remembers it, and this will return an error.
+     *
+     * @param string $transactionId
+     * @return \Rootsoft\Algorand\Models\Transactions\PendingTransaction
+     */
+    public function getPendingTransactionById(string $transactionId)
+    {
+        $response = $this->get($this->algodClient, "/v2/transactions/pending/$transactionId");
+
+        return $this->jsonMapper->map($response, new PendingTransaction());
+    }
+
+    /**
+     * Utility function to wait on a transaction to be confirmed.
+     *
+     * The timeout parameter indicates how many rounds do you wish to check pending transactions for.
+     *
+     * On Algorand, transactions are final as soon as they are incorporated into a block and blocks are produced,
+     * on average, every 5 seconds.
+     *
+     * This means that transactions are confirmed, on average, in 5 seconds
+     * @param string $transactionId
+     * @param int $timeout
+     * @return \Rootsoft\Algorand\Models\Transactions\PendingTransaction
+     * @throws \Rootsoft\Algorand\Exceptions\AlgorandException
+     */
+    public function waitForConfirmation(string $transactionId, int $timeout = 5)
+    {
+        $status = $this->status();
+        $startRound = $status->lastRound + 1;
+        $currentRound = $startRound;
+
+        while ($currentRound < ($startRound + $timeout)) {
+            $pendingTx = $this->getPendingTransactionById($transactionId);
+            $confirmedRound = $pendingTx->confirmedRound;
+            if ($confirmedRound != null && $confirmedRound > 0) {
+                return $pendingTx;
+            }
+
+            $this->statusAfterRound($currentRound);
+            $currentRound++;
+        }
+
+        throw new AlgorandException("Transaction not confirmed after $timeout rounds.");
     }
 }

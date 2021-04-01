@@ -13,6 +13,12 @@ use Rootsoft\Algorand\Models\Transactions\TransactionParams;
 use Rootsoft\Algorand\Models\Transactions\TransactionType;
 use Rootsoft\Algorand\Utils\AlgorandUtils;
 
+/**
+ * TODO Make transaction abstract
+ *
+ * Class RawTransactionBuilder
+ * @package Rootsoft\Algorand\Models\Transactions\Builders
+ */
 abstract class RawTransactionBuilder
 {
 
@@ -24,6 +30,14 @@ abstract class RawTransactionBuilder
      * @var ?BigInteger
      */
     private ?BigInteger $fee = null;
+
+    /**
+     * A suggested fee per byte.
+     * The total fee is calculated by multiplying the entire size of the transaction times the suggested fee per byte.
+     *
+     * @var BigInteger|null
+     */
+    private ?BigInteger $suggestedFeePerByte = null;
 
     /**
      * This value will be used for the transaction fee, or 1000, whichever is higher.
@@ -91,7 +105,7 @@ abstract class RawTransactionBuilder
      */
     public function suggestedFeePerByte(int $fee)
     {
-        $this->fee = BigInteger::of($fee);
+        $this->suggestedFeePerByte = BigInteger::of($fee);
 
         return $this;
     }
@@ -113,7 +127,9 @@ abstract class RawTransactionBuilder
 
     public function suggestedParams(TransactionParams $params)
     {
-        $this->transaction->setFee(BigInteger::of($params->minFee));
+        // TODO Rework
+        $this->suggestedFeePerByte = BigInteger::of($params->fee);
+        $this->transaction->setFee(BigInteger::of($params->fee));
         $this->transaction->genesisId = $params->genesisId;
         $this->transaction->genesisHash = $params->genesisHash;
         $this->transaction->firstValid = BigInteger::of($params->lastRound);
@@ -125,7 +141,6 @@ abstract class RawTransactionBuilder
     public function useSuggestedParams(Algorand $algorand)
     {
         $params = $algorand->getSuggestedTransactionParams();
-
         return $this->suggestedParams($params);
     }
 
@@ -164,12 +179,12 @@ abstract class RawTransactionBuilder
     public function build()
     {
         // Fee Validation
-        if ($this->fee != null && $this->flatFee != null) {
+        if ($this->suggestedFeePerByte != null && $this->flatFee != null) {
             throw new AlgorandException("Cannot set both fee and flatFee.");
         }
 
-        if ($this->fee != null) {
-            $this->transaction->setFee(AlgorandUtils::calculate_fee_per_byte($this->transaction, $this->fee));
+        if ($this->suggestedFeePerByte != null) {
+            $this->transaction->setFee(AlgorandUtils::calculate_fee_per_byte($this->transaction, $this->suggestedFeePerByte));
         } elseif ($this->flatFee != null) {
             $this->transaction->setFee($this->flatFee);
         }
