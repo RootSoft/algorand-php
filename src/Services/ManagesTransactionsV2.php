@@ -68,7 +68,8 @@ trait ManagesTransactionsV2
      * @param bool $waitForConfirmation True if you want to wait for confirmation.
      * @param int $timeout How many rounds do you wish to check pending transactions for.
      *
-     * @return string The id of the transaction.
+     * @return string|\Rootsoft\Algorand\Models\Transactions\PendingTransaction The id of the transaction
+     * or the pending transaction when using wait for confirmation.
      * @throws \Rootsoft\Algorand\Exceptions\AlgorandException
      */
     public function sendTransaction($transaction, $waitForConfirmation = false, $timeout = 5)
@@ -84,9 +85,7 @@ trait ManagesTransactionsV2
             return $response->txId;
         }
 
-        $this->waitForConfirmation($response->txId, $timeout);
-
-        return $response->txId;
+        return $this->waitForConfirmation($response->txId, $timeout);
     }
 
     /**
