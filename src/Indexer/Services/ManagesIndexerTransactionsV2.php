@@ -23,7 +23,10 @@ trait ManagesIndexerTransactionsV2
 
         $response = $this->get($this->indexerClient, "/v2/transactions", $queryParams);
 
-        return $this->jsonMapper->map($response, new SearchTransactionsResult());
+        $result = new SearchTransactionsResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
     }
 
     /**
@@ -37,7 +40,10 @@ trait ManagesIndexerTransactionsV2
     {
         $response = $this->get($this->indexerClient, "/v2/assets/$assetId/transactions", $queryParams);
 
-        return $this->jsonMapper->map($response, new SearchTransactionsResult());
+        $result = new SearchTransactionsResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
     }
 
     /**
@@ -51,6 +57,9 @@ trait ManagesIndexerTransactionsV2
     {
         $response = $this->get($this->indexerClient, "/v2/accounts/$accountId/transactions", $queryParams);
 
-        return $this->jsonMapper->map($response, new SearchTransactionsResult());
+        $result = new SearchTransactionsResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
     }
 }

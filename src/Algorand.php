@@ -2,7 +2,9 @@
 
 namespace Rootsoft\Algorand;
 
-use JsonMapper;
+use JsonMapper\JsonMapperFactory;
+use JsonMapper\JsonMapperInterface;
+use JsonMapper\Middleware\CaseConversion;
 use Rootsoft\Algorand\Clients\AlgodClient;
 use Rootsoft\Algorand\Clients\IndexerClient;
 use Rootsoft\Algorand\Indexer\AlgorandIndexer;
@@ -50,7 +52,7 @@ class Algorand
     /**
      * Mapping responses to models.
      */
-    private JsonMapper $jsonMapper;
+    private JsonMapperInterface $jsonMapper;
 
     /**
      * The AlgorandIndexer provides a set of REST API calls for searching blockchain Transactions, Accounts, Assets and Blocks.
@@ -85,8 +87,11 @@ class Algorand
         $this->algodClient = $algodClient;
         $this->indexerClient = $indexerClient;
 
-        $this->jsonMapper = new JsonMapper();
-        $this->jsonMapper->bStrictNullTypes = false;
+        $this->jsonMapper = (new JsonMapperFactory())->bestFit();
+        $this->jsonMapper->push(new CaseConversion(
+            \JsonMapper\Enums\TextNotation::KEBAB_CASE(),
+            \JsonMapper\Enums\TextNotation::CAMEL_CASE()
+        ));
 
         $this->accountManager = new AccountManager($this->algodClient, $this->jsonMapper);
         $this->assetManager = new AssetManager($this->algodClient, $this->indexerClient, $this->jsonMapper);

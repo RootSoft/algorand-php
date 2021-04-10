@@ -20,6 +20,9 @@ trait ManagesApplicationsV2
     {
         $response = $this->get($this->algodClient, "/v2/applications/$applicationId");
 
-        return $this->jsonMapper->map($response, new Application());
+        $application = new Application();
+        $this->jsonMapper->mapObject($response, $application);
+
+        return $application;
     }
 }

@@ -7,7 +7,6 @@ use Brick\Math\BigInteger;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Models\Transactions\Assets\AssetConfigTransaction;
-use Rootsoft\Algorand\Models\Transactions\Assets\AssetTransferTransaction;
 use Rootsoft\Algorand\Models\Transactions\TransactionType;
 
 class AssetConfigTransactionBuilder extends RawTransactionBuilder

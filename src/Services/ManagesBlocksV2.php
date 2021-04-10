@@ -17,6 +17,9 @@ trait ManagesBlocksV2
     {
         $response = $this->get($this->algodClient, "/v2/blocks/$round");
 
-        return $this->jsonMapper->map($response, new BlockResult());
+        $result = new BlockResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
     }
 }

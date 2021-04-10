@@ -19,7 +19,10 @@ trait ManagesNodesV2
     {
         $response = $this->get($this->algodClient, '/genesis');
 
-        return $this->jsonMapper->map($response, new GenesisInformation());
+        $genesis = new GenesisInformation();
+        $this->jsonMapper->mapObject($response, $genesis);
+
+        return $genesis;
     }
 
     /**
@@ -45,7 +48,10 @@ trait ManagesNodesV2
     {
         $response = $this->get($this->algodClient, '/v2/status');
 
-        return $this->jsonMapper->map($response, new NodeStatus());
+        $status = new NodeStatus();
+        $this->jsonMapper->mapObject($response, $status);
+
+        return $status;
     }
 
     /**
@@ -60,6 +66,9 @@ trait ManagesNodesV2
     {
         $response = $this->get($this->algodClient, "/v2/status/wait-for-block-after/$round");
 
-        return $this->jsonMapper->map($response, new NodeStatus());
+        $status = new NodeStatus();
+        $this->jsonMapper->mapObject($response, $status);
+
+        return $status;
     }
 }

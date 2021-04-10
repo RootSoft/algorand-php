@@ -3,10 +3,13 @@
 
 namespace Rootsoft\Algorand\Services;
 
+use JsonMapper\JsonMapperInterface;
 use Rootsoft\Algorand\Models\Ledgers\LedgerSupplyResult;
 
 trait ManagesLedgerV2
 {
+    private JsonMapperInterface $jsonMapper;
+
     /**
      * Get the current supply reported by the ledger.
      *
@@ -18,6 +21,8 @@ trait ManagesLedgerV2
     {
         $response = $this->get($this->algodClient, "/v2/ledger/supply");
 
-        return $this->jsonMapper->map($response, new LedgerSupplyResult());
+        $result = new LedgerSupplyResult();
+        $this->jsonMapper->mapObject($response, $result);
+        return $result;
     }
 }

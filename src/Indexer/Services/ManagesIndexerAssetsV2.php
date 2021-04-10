@@ -18,7 +18,10 @@ trait ManagesIndexerAssetsV2
     {
         $response = $this->get($this->indexerClient, "/v2/assets", $queryParams);
 
-        return $this->jsonMapper->map($response, new SearchAssetsResult());
+        $result = new SearchAssetsResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
     }
 
 }

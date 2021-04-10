@@ -3,9 +3,8 @@
 
 namespace Rootsoft\Algorand\Indexer;
 
-use GuzzleHttp\Client;
 use Illuminate\Support\Arr;
-use JsonMapper;
+use JsonMapper\JsonMapperInterface;
 use Rootsoft\Algorand\Clients\IndexerClient;
 
 abstract class QueryBuilder
@@ -15,12 +14,12 @@ abstract class QueryBuilder
     protected array $payload = [];
 
     protected IndexerClient $indexerClient;
-    protected JsonMapper $jsonMapper;
+    protected JsonMapperInterface $jsonMapper;
 
     /**
      * QueryBuilder constructor.
      * @param IndexerClient $client
-     * @param Client|JsonMapper $jsonMapper
+     * @param JsonMapperInterface $jsonMapper
      */
     public function __construct(IndexerClient $client, $jsonMapper)
     {

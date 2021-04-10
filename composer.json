@@ -19,11 +19,11 @@
     "require": {
         "php": "^7.4|^8.0",
         "ext-json": "*",
-        "guzzlehttp/guzzle": "^7.2",
+        "guzzlehttp/guzzle": "^7.3",
         "illuminate/container": "~5.0|^6.0|^7.0|^8.0",
         "illuminate/support": "~5.0|^6.0|^7.0|^8.0",
+        "json-mapper/json-mapper": "^2.3",
         "myclabs/php-enum": "^1.8",
-        "netresearch/jsonmapper": "^4.0",
         "paragonie/constant_time_encoding": "^2.4",
         "paragonie/halite": "^4",
         "rybakit/msgpack": "^0.7.2"

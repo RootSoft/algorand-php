@@ -19,6 +19,9 @@ trait ManagesCatchupsV2
     {
         $response = $this->post($this->algodClient, "/v2/catchup/$catchpoint");
 
-        return $this->jsonMapper->map($response, new CatchupResult());
+        $result = new CatchupResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
     }
 }

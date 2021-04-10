@@ -137,4 +137,16 @@ class Transaction
      * @required
      */
     public string $txType;
+
+    /**
+     * The index of the created asset.
+     * @var int|null
+     */
+    public ?int $createdAssetIndex = null;
+
+    /**
+     * Contains more information about the configuration of an asset.
+     * @var AssetConfigTransactionResult|null
+     */
+    public ?AssetConfigTransactionResult $assetConfigTransaction = null;
 }

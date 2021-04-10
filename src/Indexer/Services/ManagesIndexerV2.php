@@ -16,6 +16,9 @@ trait ManagesIndexerV2
     {
         $response = $this->get($this->indexerClient, "/health");
 
-        return $this->jsonMapper->map($response, new IndexerHealth());
+        $health = new IndexerHealth();
+        $this->jsonMapper->mapObject($response, $health);
+
+        return $health;
     }
 }

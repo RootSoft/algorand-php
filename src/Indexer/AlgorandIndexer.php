@@ -3,7 +3,7 @@
 
 namespace Rootsoft\Algorand\Indexer;
 
-use JsonMapper;
+use JsonMapper\JsonMapperInterface;
 use Rootsoft\Algorand\Clients\IndexerClient;
 use Rootsoft\Algorand\Indexer\Builders\AccountQueryBuilder;
 use Rootsoft\Algorand\Indexer\Builders\AssetQueryBuilder;
@@ -24,16 +24,16 @@ class AlgorandIndexer
 
     /**
      * Automatically map json to PHP classes.
-     * @var JsonMapper
+     * @var JsonMapperInterface
      */
-    private JsonMapper $jsonMapper;
+    private JsonMapperInterface $jsonMapper;
 
     /**
      * AlgorandIndexer constructor.
      * @param IndexerClient $indexerClient
-     * @param JsonMapper $jsonMapper
+     * @param JsonMapperInterface $jsonMapper
      */
-    public function __construct(IndexerClient $indexerClient, \JsonMapper $jsonMapper)
+    public function __construct(IndexerClient $indexerClient, JsonMapperInterface $jsonMapper)
     {
         $this->indexerClient = $indexerClient;
         $this->jsonMapper = $jsonMapper;

@@ -3,6 +3,7 @@
 
 namespace Rootsoft\Algorand\Services;
 
+use JsonMapper\JsonMapperInterface;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Accounts\Address;
@@ -15,6 +16,8 @@ use Rootsoft\Algorand\Utils\Encoder;
 
 trait ManagesTransactionsV2
 {
+    private JsonMapperInterface $jsonMapper;
+
     /**
      * Send a payment to the given recipient with the recommended transaction parameters.
      *
@@ -58,7 +61,10 @@ trait ManagesTransactionsV2
     {
         $response = $this->get($this->indexerClient, "/v2/transactions/$transactionId");
 
-        return $this->jsonMapper->map($response, new TransactionResult());
+        $result = new TransactionResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
     }
 
     /**
@@ -119,9 +125,12 @@ trait ManagesTransactionsV2
      */
     public function getPendingTransactions(string $address, $max = 10)
     {
-        $response = $this->get($this->algodClient, "/v2/accounts/$address/transactions/pending");
+        $response = $this->get($this->algodClient, "/v2/accounts/$address/transactions/pending", ['max' => $max]);
 
-        return $this->jsonMapper->map($response, new PendingTransactionsResult(), ['max' => $max]);
+        $result = new PendingTransactionsResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
     }
 
     /**
@@ -143,7 +152,10 @@ trait ManagesTransactionsV2
     {
         $response = $this->get($this->algodClient, "/v2/transactions/pending/$transactionId");
 
-        return $this->jsonMapper->map($response, new PendingTransaction());
+        $result = new PendingTransaction();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
     }
 
     /**

@@ -3,10 +3,13 @@
 
 namespace Rootsoft\Algorand\Services;
 
+use JsonMapper\JsonMapperInterface;
 use Rootsoft\Algorand\Models\Transactions\TransactionParams;
 
 trait ManagesTransactionParamsV2
 {
+    private JsonMapperInterface $jsonMapper;
+
     /**
      * Get the suggested parameters for constructing a new transaction.
      *
@@ -16,6 +19,8 @@ trait ManagesTransactionParamsV2
     {
         $response = $this->get($this->algodClient, "/v2/transactions/params");
 
-        return $this->jsonMapper->map($response, new TransactionParams());
+        $params = new TransactionParams();
+        $this->jsonMapper->mapObject($response, $params);
+        return $params;
     }
 }

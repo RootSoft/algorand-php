@@ -3,7 +3,7 @@
 
 namespace Rootsoft\Algorand\Indexer\Builders;
 
-use JsonMapper;
+use JsonMapper\JsonMapperInterface;
 use Rootsoft\Algorand\Clients\IndexerClient;
 use Rootsoft\Algorand\Indexer\QueryBuilder;
 use Rootsoft\Algorand\Indexer\Services\ManagesIndexerAccountsV2;
@@ -19,9 +19,9 @@ class AccountQueryBuilder extends QueryBuilder
      * AccountQueryBuilder constructor.
      *
      * @param IndexerClient $client
-     * @param JsonMapper $jsonMapper
+     * @param JsonMapperInterface $jsonMapper
      */
-    public function __construct(IndexerClient $client, JsonMapper $jsonMapper)
+    public function __construct(IndexerClient $client, JsonMapperInterface $jsonMapper)
     {
         parent::__construct($client, $jsonMapper);
     }

@@ -22,7 +22,10 @@ trait ManagesTealV2
     {
         $response = $this->post($this->algodClient, "/v2/teal/compile", [], ['body' => $teal]);
 
-        return $this->jsonMapper->map($response, new TealCompilationResult());
+        $result = new TealCompilationResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
     }
 
 }

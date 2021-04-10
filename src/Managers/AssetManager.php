@@ -3,7 +3,7 @@
 
 namespace Rootsoft\Algorand\Managers;
 
-use JsonMapper;
+use JsonMapper\JsonMapperInterface;
 use Rootsoft\Algorand\Clients\AlgodClient;
 use Rootsoft\Algorand\Clients\IndexerClient;
 use Rootsoft\Algorand\Services\ManagesAssetsV2;
@@ -45,17 +45,17 @@ class AssetManager
 
     /**
      * Automatically map json to PHP classes.
-     * @var JsonMapper
+     * @var JsonMapperInterface
      */
-    private JsonMapper $jsonMapper;
+    private JsonMapperInterface $jsonMapper;
 
     /**
      * AssetManager constructor.
      * @param AlgodClient $algodClient
      * @param IndexerClient $indexerClient
-     * @param JsonMapper $jsonMapper
+     * @param JsonMapperInterface $jsonMapper
      */
-    public function __construct(AlgodClient $algodClient, IndexerClient $indexerClient, JsonMapper $jsonMapper)
+    public function __construct(AlgodClient $algodClient, IndexerClient $indexerClient, JsonMapperInterface $jsonMapper)
     {
         $this->algodClient = $algodClient;
         $this->indexerClient = $indexerClient;

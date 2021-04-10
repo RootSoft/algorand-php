@@ -4,7 +4,7 @@
 namespace Rootsoft\Algorand\Indexer\Builders;
 
 use DateTime;
-use JsonMapper;
+use JsonMapper\JsonMapperInterface;
 use ParagonIE\ConstantTime\Base64;
 use Rootsoft\Algorand\Clients\IndexerClient;
 use Rootsoft\Algorand\Indexer\QueryBuilder;
@@ -24,9 +24,9 @@ class TransactionQueryBuilder extends QueryBuilder
     /**
      * AlgorandIndexer constructor.
      * @param IndexerClient $indexerClient
-     * @param \JsonMapper $jsonMapper
+     * @param JsonMapperInterface $jsonMapper
      */
-    public function __construct(IndexerClient $indexerClient, JsonMapper $jsonMapper)
+    public function __construct(IndexerClient $indexerClient, JsonMapperInterface $jsonMapper)
     {
         parent::__construct($indexerClient, $jsonMapper);
     }

@@ -77,21 +77,9 @@ trait ManagesAccountsV2
     {
         $response = $this->get($this->algodClient, "/v2/accounts/$address");
 
-        return $this->jsonMapper->map($response, new AccountInformation());
-    }
+        $info = new AccountInformation();
+        $this->jsonMapper->mapObject($response, $info);
 
-    /**
-     * Generate (or renew) and register participation keys on the node for a given account address.
-     *
-     * @param string $address
-     * @param array $params
-     * @return mixed
-     */
-    public function generateParticipationKeys(string $address, array $params = [])
-    {
-        $response = $this->post($this->algodClient, "/v2/register-participation-keys/$address", $params);
-
-        // TODO Implementation
-        return $this->jsonMapper->map($response, new AccountInformation());
+        return $info;
     }
 }

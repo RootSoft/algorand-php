@@ -4,6 +4,7 @@
 namespace Rootsoft\Algorand\Services;
 
 use Brick\Math\BigInteger;
+use JsonMapper\JsonMapperInterface;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Accounts\Address;
@@ -28,7 +29,10 @@ trait ManagesAssetsV2
     {
         $response = $this->get($this->indexerClient, "/v2/assets/$assetId");
 
-        return $this->jsonMapper->map($response, new AssetResult());
+        $result = new AssetResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
     }
 
     /**

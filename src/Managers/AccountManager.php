@@ -4,7 +4,7 @@
 namespace Rootsoft\Algorand\Managers;
 
 use GuzzleHttp\Client;
-use JsonMapper;
+use JsonMapper\JsonMapperInterface;
 use Rootsoft\Algorand\Clients\AlgodClient;
 use Rootsoft\Algorand\Services\ManagesAccountsV2;
 use Rootsoft\Algorand\Services\ManagesBalanceV2;
@@ -37,17 +37,17 @@ class AccountManager
 
     /**
      * Automatically map json to PHP classes.
-     * @var JsonMapper
+     * @var JsonMapperInterface
      */
-    private JsonMapper $jsonMapper;
+    private JsonMapperInterface $jsonMapper;
 
     /**
      * AccountManager constructor.
      *
      * @param Client $client
-     * @param JsonMapper $jsonMapper
+     * @param JsonMapperInterface $jsonMapper
      */
-    public function __construct(AlgodClient $algodClient, JsonMapper $jsonMapper)
+    public function __construct(AlgodClient $algodClient, JsonMapperInterface $jsonMapper)
     {
         $this->algodClient = $algodClient;
         $this->jsonMapper = $jsonMapper;
