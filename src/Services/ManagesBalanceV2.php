@@ -18,10 +18,10 @@ trait ManagesBalanceV2
     {
         $response = $this->get($this->algodClient, "/v2/accounts/$address");
 
-        /** @var AccountInformation $accountInformation */
-        $accountInformation = $this->jsonMapper->map($response, new AccountInformation());
+        $accountInformation = new AccountInformation();
+        $this->jsonMapper->mapObject($response, $accountInformation);
 
-        return $accountInformation->amount;
+        return $accountInformation->amountWithoutPendingRewards;
     }
 
 }
