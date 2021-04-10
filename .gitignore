@@ -144,3 +144,6 @@ fabric.properties
 .idea/codestream.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/phpstorm
+
+.idea/algorand-php.iml
+.idea/php.xml
