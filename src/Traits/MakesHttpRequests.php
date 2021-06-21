@@ -87,7 +87,7 @@ trait MakesHttpRequests
     protected function request(AlgorandClient $client, string $verb, string $uri, array $queryParams = [], array $payload = [], array $headers = [])
     {
         // Strip leading slashes - RFC 3986
-        $uri = ltrim($uri, DIRECTORY_SEPARATOR);
+        $uri = ltrim($uri, '/');
 
         // Build the options
         $options = $this->buildOptions($verb, $queryParams, $payload, $headers);
