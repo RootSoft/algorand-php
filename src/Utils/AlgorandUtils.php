@@ -87,6 +87,6 @@ class AlgorandUtils
 
     public static function format_url(string $baseUrl)
     {
-        return rtrim($baseUrl, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+        return rtrim($baseUrl, '/') . '/';
     }
 }
