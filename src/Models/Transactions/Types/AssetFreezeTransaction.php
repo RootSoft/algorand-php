@@ -1,18 +1,17 @@
 <?php
 
 
-namespace Rootsoft\Algorand\Models\Transactions\Assets;
+namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Brick\Math\BigInteger;
 use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Models\Transactions\RawTransaction;
-use Rootsoft\Algorand\Utils\AlgorandUtils;
 
 /**
  * Freezing or unfreezing an asset for an account requires a transaction that is signed by the freeze account.
  *
  * Class AssetFreezeTransaction
- * @package Rootsoft\Algorand\Models\Transactions\Assets
+ * @package Rootsoft\Algorand\Models\Transactions\Types
  */
 class AssetFreezeTransaction extends RawTransaction
 {
@@ -40,14 +39,14 @@ class AssetFreezeTransaction extends RawTransaction
      */
     public ?bool $freeze = null;
 
-    public function toArray()
+    public function toMessagePack(): array
     {
-        $transaction = parent::toArray();
+        $fields = parent::toMessagePack();
 
-        $transaction['fadd'] = $this->freezeAddress->address ?? null;
-        $transaction['faid'] = $this->assetId ? $this->assetId->toInt() : null;
-        $transaction['afrz'] = $this->freeze;
+        $fields['fadd'] = $this->freezeAddress->address ?? null;
+        $fields['faid'] = $this->assetId ? $this->assetId->toInt() : null;
+        $fields['afrz'] = $this->freeze;
 
-        return AlgorandUtils::algorand_array_clean($transaction);
+        return $fields;
     }
 }

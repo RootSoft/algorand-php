@@ -1,13 +1,11 @@
 <?php
 
 
-namespace Rootsoft\Algorand\Models\Transactions\Payments;
+namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Brick\Math\BigInteger;
-use Rootsoft\Algorand\Facades\AlgorandFacade;
 use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Models\Transactions\RawTransaction;
-use Rootsoft\Algorand\Utils\AlgorandUtils;
 
 class RawPaymentTransaction extends RawTransaction
 {
@@ -34,15 +32,15 @@ class RawPaymentTransaction extends RawTransaction
      */
     public ?string $closeRemainderTo = null;
 
-    public function toArray()
+    public function toMessagePack(): array
     {
-        $transaction = parent::toArray();
+        $fields = parent::toMessagePack();
 
         $paymentFields = [
             'amt' => $this->amount->toInt(),
             'rcv' => $this->receiver->address,
         ];
 
-        return AlgorandUtils::algorand_array_clean(array_merge($transaction, $paymentFields));
+        return array_merge($fields, $paymentFields);
     }
 }

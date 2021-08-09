@@ -6,8 +6,7 @@ namespace Rootsoft\Algorand\Models\Transactions\Builders;
 use Brick\Math\BigInteger;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Address;
-use Rootsoft\Algorand\Models\Transactions\Assets\AssetFreezeTransaction;
-use Rootsoft\Algorand\Models\Transactions\Assets\AssetTransferTransaction;
+use Rootsoft\Algorand\Models\Transactions\Types\AssetFreezeTransaction;
 use Rootsoft\Algorand\Models\Transactions\TransactionType;
 
 class AssetFreezeTransactionBuilder extends RawTransactionBuilder

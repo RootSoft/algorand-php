@@ -6,7 +6,7 @@ namespace Rootsoft\Algorand\Models\Transactions\Builders;
 use Brick\Math\BigInteger;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Address;
-use Rootsoft\Algorand\Models\Transactions\Payments\RawPaymentTransaction;
+use Rootsoft\Algorand\Models\Transactions\Types\RawPaymentTransaction;
 use Rootsoft\Algorand\Models\Transactions\TransactionType;
 
 /**

@@ -78,7 +78,7 @@ trait ManagesTransactionsV2
      * or the pending transaction when using wait for confirmation.
      * @throws \Rootsoft\Algorand\Exceptions\AlgorandException
      */
-    public function sendTransaction($transaction, $waitForConfirmation = false, $timeout = 5)
+    public function sendTransaction($transaction, bool $waitForConfirmation = false, int $timeout = 5)
     {
         $encodedTxBytes = $transaction;
         if ($transaction instanceof SignedTransaction) {

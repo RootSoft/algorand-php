@@ -1,12 +1,11 @@
 <?php
 
 
-namespace Rootsoft\Algorand\Models\Transactions\Assets;
+namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Brick\Math\BigInteger;
 use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Models\Transactions\RawTransaction;
-use Rootsoft\Algorand\Utils\AlgorandUtils;
 
 class AssetTransferTransaction extends RawTransaction
 {
@@ -54,16 +53,16 @@ class AssetTransferTransaction extends RawTransaction
      */
     public ?Address $closeTo = null;
 
-    public function toArray()
+    public function toMessagePack(): array
     {
-        $transaction = parent::toArray();
+        $fields = parent::toMessagePack();
 
-        $transaction['xaid'] = $this->assetId ? $this->assetId->toInt() : null;
-        $transaction['aamt'] = $this->amount ? $this->amount->toInt() : null;
-        $transaction['asnd'] = $this->assetSender->address ?? null;
-        $transaction['arcv'] = $this->receiver->address ?? null;
-        $transaction['aclose'] = $this->closeTo->address ?? null;
+        $fields['xaid'] = $this->assetId ? $this->assetId->toInt() : null;
+        $fields['aamt'] = $this->amount ? $this->amount->toInt() : null;
+        $fields['asnd'] = $this->assetSender->address ?? null;
+        $fields['arcv'] = $this->receiver->address ?? null;
+        $fields['aclose'] = $this->closeTo->address ?? null;
 
-        return AlgorandUtils::algorand_array_clean($transaction);
+        return $fields;
     }
 }

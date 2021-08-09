@@ -62,12 +62,13 @@ class SignedTransaction
         $this->authAddr = $authAddr;
     }
 
+    // TODO Implements MessagePackable
     public function toArray()
     {
-        return AlgorandUtils::algorand_array_clean([
+        return [
             'sgnr' => $this->authAddr->address ?? null,
             'sig' => $this->signature,
-            'txn' => $this->transaction->toArray(),
-        ]);
+            'txn' => $this->transaction->toMessagePack(),
+        ];
     }
 }

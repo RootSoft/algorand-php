@@ -35,9 +35,29 @@ class Encoder
         return self::$instance;
     }
 
+    //
     public function encodeMessagePack(array $data)
     {
-        return $this->packer->pack($data);
+        $sanitizedMap = [];
+
+        // Sanitize and remove canonical values
+        foreach ($data as $key => $value) {
+            $v = $value;
+            if (is_array($value)) {
+                $v = $this->prepareMessagePack($value);
+            }
+
+            // TODO check if is messagepackable
+
+            $sanitizedMap[$key] = $v;
+        }
+
+        return $this->packer->pack($this->prepareMessagePack($sanitizedMap));
+    }
+
+    public function prepareMessagePack(array $data): array
+    {
+        return AlgorandUtils::algorand_array_clean($data);
     }
 
     public function packer()

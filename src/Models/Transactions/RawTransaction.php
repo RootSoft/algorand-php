@@ -11,7 +11,6 @@ use ParagonIE\Halite\Asymmetric\SignatureSecretKey;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Accounts\Address;
-use Rootsoft\Algorand\Utils\AlgorandUtils;
 use Rootsoft\Algorand\Utils\Encoder;
 use SodiumException;
 
@@ -198,7 +197,7 @@ class RawTransaction
     public function getEncodedTransaction()
     {
         // Encode transaction as msgpack
-        $encodedTx = Encoder::getInstance()->encodeMessagePack($this->toArray());
+        $encodedTx = Encoder::getInstance()->encodeMessagePack($this->toMessagePack());
 
         // Prepend the transaction prefix
         $txBytes = (implode(unpack("H*", 'TX')));
@@ -257,9 +256,9 @@ class RawTransaction
         $this->fee = $fee;
     }
 
-    public function toArray()
+    public function toMessagePack(): array
     {
-        return AlgorandUtils::algorand_array_clean([
+        return [
             'fee' => $this->fee->toInt(),
             'fv' => $this->firstValid->toInt(),
             'lv' => $this->lastValid->toInt(),
@@ -270,6 +269,6 @@ class RawTransaction
             'gh' => Base64::decode($this->genesisHash),
             'lx' => $this->lease,
             'grp' => $this->group ? new Bin($this->group) : null,
-        ]);
+        ];
     }
 }

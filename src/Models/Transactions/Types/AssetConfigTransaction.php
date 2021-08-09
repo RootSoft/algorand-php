@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Rootsoft\Algorand\Models\Transactions\Assets;
+namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Brick\Math\BigInteger;
 use Rootsoft\Algorand\Models\Accounts\Address;
@@ -120,15 +120,15 @@ class AssetConfigTransaction extends RawTransaction
      */
     public bool $destroy = false;
 
-    public function toArray()
+    public function toMessagePack(): array
     {
-        $transaction = parent::toArray();
+        $fields = parent::toMessagePack();
 
         // Add the asset id (if needed)
-        $transaction['caid'] = $this->assetId ? $this->assetId->toInt() : null;
+        $fields['caid'] = $this->assetId ? $this->assetId->toInt() : null;
 
         // Add the asset parameters
-        $transaction['apar'] = AlgorandUtils::algorand_array_clean([
+        $fields['apar'] = [
             't' => $this->total ? $this->total->toInt() : null,
             'dc' => $this->decimals,
             'df' => $this->defaultFrozen,
@@ -140,14 +140,14 @@ class AssetConfigTransaction extends RawTransaction
             'r' => $this->reserveAddress->address ?? null,
             'f' => $this->freezeAddress->address ?? null,
             'c' => $this->clawbackAddress->address ?? null,
-        ]);
+        ];
 
         // Should the asset be destroyed?
         if ($this->destroy) {
-            unset($transaction['apar']);
+            unset($fields['apar']);
         }
 
-        // Sort the damn keys
-        return AlgorandUtils::algorand_array_clean($transaction);
+        // Sort the keys
+        return $fields;
     }
 }

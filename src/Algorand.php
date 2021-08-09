@@ -16,6 +16,7 @@ use Rootsoft\Algorand\Services\ManagesBlocksV2;
 use Rootsoft\Algorand\Services\ManagesCatchupsV2;
 use Rootsoft\Algorand\Services\ManagesLedgerV2;
 use Rootsoft\Algorand\Services\ManagesNodesV2;
+use Rootsoft\Algorand\Services\ManagesParticipationV2;
 use Rootsoft\Algorand\Services\ManagesTealV2;
 use Rootsoft\Algorand\Services\ManagesTransactionParamsV2;
 use Rootsoft\Algorand\Services\ManagesTransactionsV2;
@@ -38,6 +39,7 @@ class Algorand
     use ManagesCatchupsV2;
     use ManagesLedgerV2;
     use ManagesTealV2;
+    use ManagesParticipationV2;
 
     /**
      * The Guzzle HTTP Client instance to interact with algod.

@@ -3,8 +3,6 @@
 
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
-use Rootsoft\Algorand\Models\Transactions\TransactionType;
-
 class TransactionBuilder extends RawTransactionBuilder
 {
 
@@ -43,5 +41,14 @@ class TransactionBuilder extends RawTransactionBuilder
     public static function assetFreeze()
     {
         return new AssetFreezeTransactionBuilder();
+    }
+
+    /**
+     *
+     * @return KeyRegistrationTransactionBuilder
+     */
+    public static function keyRegistration()
+    {
+        return new KeyRegistrationTransactionBuilder();
     }
 }

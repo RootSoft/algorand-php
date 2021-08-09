@@ -90,9 +90,9 @@ class AtomicTransfer
 
         // Encode transaction as msgpack
         $encodedTx = Encoder::getInstance()->encodeMessagePack(
-            AlgorandUtils::algorand_array_clean([
+            [
                 'txlist' => $transactionIds,
-            ])
+            ]
         );
 
         // Prepend the transaction group prefix
