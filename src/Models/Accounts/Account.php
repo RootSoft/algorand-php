@@ -3,13 +3,11 @@
 
 namespace Rootsoft\Algorand\Models\Accounts;
 
-use Exception;
 use ParagonIE\Halite\Alerts\InvalidKey;
 use ParagonIE\Halite\Asymmetric\SignatureSecretKey;
 use ParagonIE\Halite\HiddenString;
 use ParagonIE\Halite\KeyFactory;
 use ParagonIE\Halite\KeyPair;
-use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Exceptions\MnemonicException;
 use Rootsoft\Algorand\Exceptions\WordListException;
 use Rootsoft\Algorand\Mnemonic\Mnemonic;
@@ -139,6 +137,15 @@ class Account
     }
 
     /**
+     * Get the public key, in bytes.
+     * @return String
+     */
+    public function getPublicKey(): string
+    {
+        return $this->address->address;
+    }
+
+    /**
      * Get the public, human readable address of the account.
      * @return String
      */
@@ -183,5 +190,4 @@ class Account
         // Generate mnemonic from our seed (32 bytes)
         return Mnemonic::Entropy(bin2hex($seed));
     }
-
 }

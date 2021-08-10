@@ -3,18 +3,15 @@
 
 namespace Rootsoft\Algorand\Models\Transactions;
 
-use MessagePack\MessagePack;
-use MessagePack\Packer;
-use MessagePack\TypeTransformer\BinTransformer;
 use Rootsoft\Algorand\Models\Accounts\Address;
-use Rootsoft\Algorand\Utils\AlgorandUtils;
 use Rootsoft\Algorand\Utils\Encoder;
+use Rootsoft\Algorand\Utils\MessagePackable;
 
 /**
  * Class SignedTransaction
  * @package Rootsoft\Algorand\Models\Transactions
  */
-class SignedTransaction
+class SignedTransaction implements MessagePackable
 {
 
     /**
@@ -53,7 +50,7 @@ class SignedTransaction
      */
     public function export($fileName)
     {
-        $data = Encoder::getInstance()->encodeMessagePack($this->toArray());
+        $data = Encoder::getInstance()->encodeMessagePack($this->toMessagePack());
         file_put_contents($fileName, $data);
     }
 
@@ -62,8 +59,7 @@ class SignedTransaction
         $this->authAddr = $authAddr;
     }
 
-    // TODO Implements MessagePackable
-    public function toArray()
+    public function toMessagePack(): array
     {
         return [
             'sgnr' => $this->authAddr->address ?? null,

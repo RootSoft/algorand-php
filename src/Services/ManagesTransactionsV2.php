@@ -82,7 +82,7 @@ trait ManagesTransactionsV2
     {
         $encodedTxBytes = $transaction;
         if ($transaction instanceof SignedTransaction) {
-            $encodedTxBytes = Encoder::getInstance()->encodeMessagePack($transaction->toArray());
+            $encodedTxBytes = Encoder::getInstance()->encodeMessagePack($transaction->toMessagePack());
         }
 
         $response = $this->post($this->algodClient, "/v2/transactions", [], ['body' => $encodedTxBytes], ['Content-Type' => 'application/x-binary']);
@@ -104,7 +104,7 @@ trait ManagesTransactionsV2
     {
         $encodedTxBytes = '';
         foreach ($transactions as $transaction) {
-            $encodedTxBytes .= Encoder::getInstance()->encodeMessagePack($transaction->toArray());
+            $encodedTxBytes .= Encoder::getInstance()->encodeMessagePack($transaction->toMessagePack());
         }
 
         $response = $this->post($this->algodClient, "/v2/transactions", [], ['body' => $encodedTxBytes], ['Content-Type' => 'application/x-binary']);

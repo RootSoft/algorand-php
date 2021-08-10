@@ -51,4 +51,31 @@ class TransactionBuilder extends RawTransactionBuilder
     {
         return new KeyRegistrationTransactionBuilder();
     }
+
+    /**
+     *
+     * @return ApplicationCreateTransactionBuilder
+     */
+    public static function applicationCreate()
+    {
+        return new ApplicationCreateTransactionBuilder();
+    }
+
+    /**
+     *
+     * @return ApplicationBaseTransactionBuilder
+     */
+    public static function applicationCall()
+    {
+        return new ApplicationBaseTransactionBuilder();
+    }
+
+    /**
+     *
+     * @return ApplicationUpdateTransactionBuilder
+     */
+    public static function applicationUpdate()
+    {
+        return new ApplicationUpdateTransactionBuilder();
+    }
 }

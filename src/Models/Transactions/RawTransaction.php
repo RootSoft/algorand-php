@@ -11,6 +11,7 @@ use ParagonIE\Halite\Asymmetric\SignatureSecretKey;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Accounts\Address;
+use Rootsoft\Algorand\Models\Transactions\Builders\RawTransactionBuilder;
 use Rootsoft\Algorand\Utils\Encoder;
 use SodiumException;
 
@@ -25,6 +26,7 @@ use SodiumException;
  *  4. Every positive number must be encoded as uint
  *  5. Binary blob should be used for binary data and string for strings
  *
+ * TODO Rename to BaseTransaction
  * Class RawTransaction
  * @package Rootsoft\Algorand\Models\Transactions
  */
@@ -40,7 +42,7 @@ class RawTransaction
      * The minimum fee on Algorand is currently 1000 microAlgos.
      * This field cannot be combined with flat fee.
      *
-     * @var ?BigInteger
+     * @var ?BigInteger|null
      */
     private ?BigInteger $fee = null;
 
@@ -48,7 +50,7 @@ class RawTransaction
      * The first round for when the transaction is valid.
      * If the transaction is sent prior to this round it will be rejected by the network.
      *
-     * @var ?BigInteger
+     * @var ?BigInteger|null
      */
     public ?BigInteger $firstValid = null;
 
@@ -71,7 +73,7 @@ class RawTransaction
     /**
      * The address of the account that pays the fee and amount.
      *
-     * @var string|null
+     * @var Address|null
      */
     public ?Address $sender = null;
 
@@ -176,12 +178,12 @@ class RawTransaction
         $encodedTx = $this->getEncodedTransaction();
 
         // Sign the transaction with secret key
-        $signed = \sodium_crypto_sign_detached(
+        $signature = \sodium_crypto_sign_detached(
             $encodedTx,
             $secretKey->getRawKeyMaterial()
         );
 
-        $signedTransaction = new SignedTransaction($signed, $this);
+        $signedTransaction = new SignedTransaction($signature, $this);
 
         if ($this->sender != $account->getAddress()) {
             $signedTransaction->setAuthAddr($account->getAddress());

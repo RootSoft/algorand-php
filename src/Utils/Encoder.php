@@ -38,6 +38,13 @@ class Encoder
     //
     public function encodeMessagePack(array $data)
     {
+        $sanitizedMap = $this->prepareMessagePack($data);
+
+        return $this->packer->pack($this->prepareMessagePack($sanitizedMap));
+    }
+
+    public function prepareMessagePack(array $data): array
+    {
         $sanitizedMap = [];
 
         // Sanitize and remove canonical values
@@ -45,19 +52,14 @@ class Encoder
             $v = $value;
             if (is_array($value)) {
                 $v = $this->prepareMessagePack($value);
+            } elseif ($value instanceof MessagePackable) {
+                $v = $this->prepareMessagePack($value->toMessagePack());
             }
-
-            // TODO check if is messagepackable
 
             $sanitizedMap[$key] = $v;
         }
 
-        return $this->packer->pack($this->prepareMessagePack($sanitizedMap));
-    }
-
-    public function prepareMessagePack(array $data): array
-    {
-        return AlgorandUtils::algorand_array_clean($data);
+        return AlgorandUtils::algorand_array_clean($sanitizedMap);
     }
 
     public function packer()

@@ -3,6 +3,9 @@
 
 namespace Rootsoft\Algorand\Models\Teals;
 
+use ParagonIE\ConstantTime\Base64;
+use Rootsoft\Algorand\Models\Applications\TEALProgram;
+
 class TealCompilationResult
 {
 
@@ -19,4 +22,17 @@ class TealCompilationResult
      * @required
      */
     public string $result;
+
+    /// Get the base64 decoded program bytes.
+    public function bytes(): string
+    {
+        return Base64::decode($this->result);
+    }
+
+    /// Get the compiled TEAL program.
+    public function program(): TEALProgram
+    {
+        return new TEALProgram($this->bytes());
+    }
+
 }

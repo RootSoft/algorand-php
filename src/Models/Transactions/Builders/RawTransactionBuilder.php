@@ -141,6 +141,7 @@ abstract class RawTransactionBuilder
     public function useSuggestedParams(Algorand $algorand)
     {
         $params = $algorand->getSuggestedTransactionParams();
+
         return $this->suggestedParams($params);
     }
 
@@ -173,11 +174,21 @@ abstract class RawTransactionBuilder
     }
 
     /**
+     * @return BigInteger|null
+     */
+    public function getFee(): ?BigInteger
+    {
+        return $this->fee;
+    }
+
+    /**
      * @return RawTransaction
      * @throws AlgorandException
      */
     public function build()
     {
+        // TODO Work transaction out.
+
         // Fee Validation
         if ($this->suggestedFeePerByte != null && $this->flatFee != null) {
             throw new AlgorandException("Cannot set both fee and flatFee.");
@@ -193,6 +204,8 @@ abstract class RawTransactionBuilder
         if ($fee == null || $fee === BigInteger::of(0)) {
             $this->transaction->setFee(BigInteger::of(RawTransaction::MIN_TX_FEE_UALGOS));
         }
+
+        $this->fee = $this->transaction->getFee();
 
         return $this->transaction;
     }

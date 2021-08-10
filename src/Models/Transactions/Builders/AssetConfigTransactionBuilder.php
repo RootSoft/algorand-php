@@ -6,8 +6,8 @@ namespace Rootsoft\Algorand\Models\Transactions\Builders;
 use Brick\Math\BigInteger;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Address;
-use Rootsoft\Algorand\Models\Transactions\Types\AssetConfigTransaction;
 use Rootsoft\Algorand\Models\Transactions\TransactionType;
+use Rootsoft\Algorand\Models\Transactions\Types\AssetConfigTransaction;
 
 class AssetConfigTransactionBuilder extends RawTransactionBuilder
 {
@@ -219,5 +219,11 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
         parent::build();
         // TODO total and decimals are required on creation!
         return $this->assetTransaction;
+    }
+
+    public function estimateTransactionSize(): int
+    {
+        // TODO: Implement estimateTransactionSize() method.
+        return 0;
     }
 }

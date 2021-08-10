@@ -6,6 +6,8 @@ namespace Rootsoft\Algorand\Utils;
 use Brick\Math\BigInteger;
 use Brick\Math\BigNumber;
 use Exception;
+use MessagePack\Type\Bin;
+use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Transactions\RawTransaction;
 
@@ -66,7 +68,7 @@ class AlgorandUtils
             $signedTransaction = $transaction->sign($randomAccount);
 
             // Encode the transaction
-            return strlen(Encoder::getInstance()->encodeMessagePack($signedTransaction->toArray()));
+            return strlen(Encoder::getInstance()->encodeMessagePack($signedTransaction->toMessagePack()));
         } catch (Exception $e) {
             // Unable to calculate the fee, so use the min fee.
             return 0;
@@ -88,5 +90,29 @@ class AlgorandUtils
     public static function format_url(string $baseUrl)
     {
         return rtrim($baseUrl, '/') . '/';
+    }
+
+    /**
+     * Parse application arguments.
+     *
+     * @param string $arguments
+     * @return array|false[]|string[]
+     * @throws AlgorandException
+     */
+    public static function parse_application_arguments(string $arguments)
+    {
+        $args = explode(',', $arguments);
+
+        return array_map(function ($arg) {
+            $parts = explode(':', $arg);
+            switch ($parts[0]) {
+                case 'str':
+                    return new Bin(utf8_encode($parts[1]));
+                case 'int':
+                    return new Bin(BigInteger::of($parts[1])->toBytes());
+                default:
+                    throw new AlgorandException('Does not support conversion.');
+            }
+        }, $args);
     }
 }

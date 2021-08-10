@@ -20,7 +20,7 @@ trait ManagesTealV2
      */
     public function compileTEAL(string $teal)
     {
-        $response = $this->post($this->algodClient, "/v2/teal/compile", [], ['body' => $teal]);
+        $response = $this->post($this->algodClient, "/v2/teal/compile", [], ['body' => $teal], ['Content-Type' => 'application/x-binary']);
 
         $result = new TealCompilationResult();
         $this->jsonMapper->mapObject($response, $result);
