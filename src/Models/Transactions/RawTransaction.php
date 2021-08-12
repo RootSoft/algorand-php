@@ -8,6 +8,7 @@ use MessagePack\Type\Bin;
 use ParagonIE\ConstantTime\Base32;
 use ParagonIE\ConstantTime\Base64;
 use ParagonIE\Halite\Asymmetric\SignatureSecretKey;
+use Rootsoft\Algorand\Crypto\Signature;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Accounts\Address;
@@ -183,7 +184,7 @@ class RawTransaction
             $secretKey->getRawKeyMaterial()
         );
 
-        $signedTransaction = new SignedTransaction($signature, $this);
+        $signedTransaction = new SignedTransaction($this, new Signature($signature));
 
         if ($this->sender != $account->getAddress()) {
             $signedTransaction->setAuthAddr($account->getAddress());

@@ -21,7 +21,7 @@ class Address
     const ALGORAND_ZERO_ADDRESS_STRING = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ";
 
     /**
-     * The string representation of the address.
+     * The binary representation of the address.
      * @var string
      */
     public string $address;

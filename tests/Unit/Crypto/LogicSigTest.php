@@ -1,114 +1,50 @@
 <?php
 
 
-namespace Rootsoft\Algorand\Tests\Feature;
+namespace Rootsoft\Algorand\Tests\Unit\Crypto;
 
-use DateTime;
 use Orchestra\Testbench\TestCase;
-use Rootsoft\Algorand\Algorand;
+use Rootsoft\Algorand\Crypto\LogicSignature;
+use Rootsoft\Algorand\Crypto\Signature;
 use Rootsoft\Algorand\Models\Accounts\Account;
-use Rootsoft\Algorand\Models\Transactions\AtomicTransfer;
-use Rootsoft\Algorand\Models\Transactions\Builders\TransactionBuilder;
-use Rootsoft\Algorand\Utils\Algo;
+use Rootsoft\Algorand\Models\Accounts\Address;
 
-class AlgorandTest extends TestCase
+class LogicSigTest extends TestCase
 {
-
-    public function testExample()
+    protected function setUp(): void
     {
+        parent::setUp();
 
     }
 
-    private function asset()
+    public function testLogicSigCreation()
     {
-        // Create a new asset
-        //$algorand->assetManager()->createNewAsset($account, 'Laracoin', 'LARA', 50000, 2);
+        $program = pack('C*', ...[0x01, 0x20, 0x01, 0x01, 0x22]);
+        $programHash = '6Z3C3LDVWGMX23BMSYMANACQOSINPFIRF77H7N3AWJZYV6OH6GWTJKVMXY';
+        $sender = Address::fromAlgorandAddress($programHash);
+        $lsig = new LogicSignature($program);
 
-        // Edit an existing asset
-        //$algorand->assetManager()->editAsset(14192345, $account, $newAccount->getAddress());
+        $this->assertEquals($lsig->getLogic(), $program);
+        $this->assertNull($lsig->getArguments());
+        $this->assertNull($lsig->getSignature());
+        $this->assertNull($lsig->getMultiSignature());
 
-        // Destroy an existing asset
-        //$algorand->assetManager()->destroyAsset(14192345, $account);
-
-        // Opt in to the asset
-        //$algorand->assetManager()->optIn(14192345, $newAccount);
-
-        //sleep(10);
-
-        // Transfer the assets
-        //$algorand->assetManager()->transfer(14192345, $account, 1000, $newAccount->getAddress());
-
-        // Freeze an asset
-        //$algorand->assetManager()->freeze(14192345, $account, $newAccount->getAddress(), false);
-
-        // Revoke an asset
-        // $algorand->assetManager()->revoke(14192345, $account, 1000, $newAccount->getAddress());
+        $verified = $lsig->verify($sender);
+        $this->assertTrue($verified);
+        $this->assertEquals($lsig->toAddress(), $sender);
     }
 
-    private function sendTransaction(Algorand $algorand, Account $account, Account $newAccount)
+    public function testLogicSigSignature()
     {
-        // Create a new transaction
-        $transaction = TransactionBuilder::payment()
-            ->sender($account->getAddress())
-            ->note('Lets go! extra long text with some special things')
-            ->amount(Algo::toMicroAlgos(1.2)) // 5 Algo
-            ->receiver($newAccount->getAddress())
-            ->useSuggestedParams($algorand)
-            ->build();
+        $hex = '43c1ecbb7ff1bf19b61f84ce38b95eafde2ae13cae8995be532fb74f88db4b3254cb9eca14d821ea1708d41d62f6fdba6602c4e0158f7066be13d6d54b4a91a1';
+        $account = Account::fromSecretKey($hex);
 
-        // Sign the transaction
-        $signedTransaction = $transaction->sign($account);
+        $program = pack('C*', ...[0x01, 0x20, 0x01, 0x01, 0x22]);
+        $programHash = '6Z3C3LDVWGMX23BMSYMANACQOSINPFIRF77H7N3AWJZYV6OH6GWTJKVMXY';
+        $sender = Address::fromAlgorandAddress($programHash);
 
-        // Broadcast the transaction
-        $txId = $algorand->sendTransaction($signedTransaction);
-        dd($txId);
-    }
-
-    private function atomicTransfer(Algorand $algorand, Account $accountA, Account $accountB)
-    {
-        // Create a new transaction
-        $transaction1 = TransactionBuilder::payment()
-            ->sender($accountA->getAddress())
-            ->note('Atomic transfer from account A to account B')
-            ->amount(Algo::toMicroAlgos(1.2)) // 5 Algo
-            ->receiver($accountB->getAddress())
-            ->useSuggestedParams($algorand)
-            ->build();
-
-        // Create a new transaction
-        $transaction2 = TransactionBuilder::payment()
-            ->sender($accountB->getAddress())
-            ->note('Atomic transfer from account B to account A')
-            ->amount(Algo::toMicroAlgos(2)) // 5 Algo
-            ->receiver($accountA->getAddress())
-            ->useSuggestedParams($algorand)
-            ->build();
-
-        // Combine the transactions and calculate the group id
-        $transactions = AtomicTransfer::group([$transaction1, $transaction2]);
-
-        // Sign the transaction
-        $signedTransaction1 = $transaction1->sign($accountA);
-        $signedTransaction2 = $transaction2->sign($accountB);
-
-        // Assemble transactions group
-        $signedTransactions = [$signedTransaction1, $signedTransaction2];
-
-        $txId = $algorand->sendTransactions($signedTransactions);
-        dd($txId);
-    }
-
-    private function queryTransactions(Algorand $algorand, Account $account)
-    {
-        $afterDateTime = new DateTime();
-        $afterDateTime = $afterDateTime->modify('-10 hours');
-
-        // Query the indexer
-        $transactions = $algorand->indexer()
-            ->transactions()
-            ->whereAddress($account->getAddress())
-            ->search();
-
-        dd($transactions);
+        $lsig = new LogicSignature($program);
+        $lsig->sign($account);
+        $verified = $lsig->verify($account->getAddress());
     }
 }

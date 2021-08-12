@@ -3,6 +3,9 @@
 
 namespace Rootsoft\Algorand\Models\Transactions;
 
+use Rootsoft\Algorand\Crypto\LogicSignature;
+use Rootsoft\Algorand\Crypto\MultiSignature;
+use Rootsoft\Algorand\Crypto\Signature;
 use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Utils\Encoder;
 use Rootsoft\Algorand\Utils\MessagePackable;
@@ -15,12 +18,6 @@ class SignedTransaction implements MessagePackable
 {
 
     /**
-     * The signature of the transaction.
-     * @var string
-     */
-    private string $signature;
-
-    /**
      * The internal transaction
      * @var RawTransaction
      */
@@ -30,17 +27,79 @@ class SignedTransaction implements MessagePackable
      * The auth address.
      * @var Address|null
      */
-    private ?Address $authAddr;
+    private ?Address $authAddr = null;
+
+    /**
+     * The signature of the transaction.
+     * @var Signature|null
+     */
+    private ?Signature $signature;
+
+    /**
+     * The logic signature
+     * @var LogicSignature|null
+     */
+    private ?LogicSignature $logicSignature;
+
+    /**
+     * The multi signature
+     * @var MultiSignature|null
+     */
+    private ?MultiSignature $multiSignature;
 
     /**
      * SignedTransaction constructor.
-     * @param string $signature
      * @param RawTransaction $transaction
+     * @param Signature|null $signature
+     * @param LogicSignature|null $logicSignature
+     * @param MultiSignature|null $multiSignature
      */
-    public function __construct(string $signature, RawTransaction $transaction)
-    {
-        $this->signature = $signature;
+    public function __construct(
+        RawTransaction $transaction,
+        ?Signature $signature = null,
+        ?LogicSignature $logicSignature = null,
+        ?MultiSignature $multiSignature = null
+    ) {
         $this->transaction = $transaction;
+        $this->signature = $signature;
+        $this->logicSignature = $logicSignature;
+        $this->multiSignature = $multiSignature;
+    }
+
+    /**
+     * Create a new signed transaction and sign it with the given signature.
+     *
+     * @param RawTransaction $transaction
+     * @param Signature $signature
+     * @return SignedTransaction
+     */
+    public static function fromSignature(RawTransaction $transaction, Signature $signature): SignedTransaction
+    {
+        return new self($transaction, $signature);
+    }
+
+    /**
+     * Create a new signed transaction and sign it with the logic signature.
+     *
+     * @param RawTransaction $transaction
+     * @param LogicSignature $logicSignature
+     * @return SignedTransaction
+     */
+    public static function fromLogicSignature(RawTransaction $transaction, LogicSignature $logicSignature): SignedTransaction
+    {
+        return new self($transaction, null, $logicSignature);
+    }
+
+    /**
+     * Create a new signed transaction and sign it with the multi signature.
+     *
+     * @param RawTransaction $transaction
+     * @param MultiSignature $multiSignature
+     * @return SignedTransaction
+     */
+    public static function fromMultiSignature(RawTransaction $transaction, MultiSignature $multiSignature): SignedTransaction
+    {
+        return new self($transaction, null, null, $multiSignature);
     }
 
     /**
@@ -62,9 +121,11 @@ class SignedTransaction implements MessagePackable
     public function toMessagePack(): array
     {
         return [
-            'sgnr' => $this->authAddr->address ?? null,
-            'sig' => $this->signature,
+            'sgnr' => isset($this->authAddr) ? $this->authAddr->address : null,
+            'sig' => isset($this->signature) ? $this->signature->bytes() : null,
             'txn' => $this->transaction->toMessagePack(),
+            'lsig' => $this->logicSignature,
+            'msig' => $this->multiSignature,
         ];
     }
 }
