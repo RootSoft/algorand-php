@@ -5,7 +5,6 @@ namespace Rootsoft\Algorand\Models\Accounts;
 
 use Rootsoft\Algorand\Models\AccountParticipation;
 use Rootsoft\Algorand\Models\ApplicationStateSchema;
-use Rootsoft\Algorand\Models\Assets\Asset;
 
 /**
  * Accounts information at a given round.

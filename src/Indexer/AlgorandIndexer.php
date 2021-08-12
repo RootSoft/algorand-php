@@ -6,6 +6,7 @@ namespace Rootsoft\Algorand\Indexer;
 use JsonMapper\JsonMapperInterface;
 use Rootsoft\Algorand\Clients\IndexerClient;
 use Rootsoft\Algorand\Indexer\Builders\AccountQueryBuilder;
+use Rootsoft\Algorand\Indexer\Builders\ApplicationQueryBuilder;
 use Rootsoft\Algorand\Indexer\Builders\AssetQueryBuilder;
 use Rootsoft\Algorand\Indexer\Builders\TransactionQueryBuilder;
 use Rootsoft\Algorand\Indexer\Services\ManagesIndexerV2;
@@ -70,5 +71,16 @@ class AlgorandIndexer
     public function accounts() : AccountQueryBuilder
     {
         return new AccountQueryBuilder($this->indexerClient, $this->jsonMapper);
+    }
+
+    /**
+     * Allow searching all applications on the blockchain.
+     * This call contains many parameters to refine the search for specific values.
+     *
+     * @return ApplicationQueryBuilder
+     */
+    public function applications() : ApplicationQueryBuilder
+    {
+        return new ApplicationQueryBuilder($this->indexerClient, $this->jsonMapper);
     }
 }

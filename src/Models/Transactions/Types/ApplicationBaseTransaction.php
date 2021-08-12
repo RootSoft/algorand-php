@@ -4,7 +4,9 @@
 namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Brick\Math\BigInteger;
+use MessagePack\Type\Bin;
 use Rootsoft\Algorand\Models\Accounts\Account;
+use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Models\Applications\OnCompletion;
 use Rootsoft\Algorand\Models\Transactions\Builders\ApplicationBaseTransactionBuilder;
 use Rootsoft\Algorand\Models\Transactions\RawTransaction;
@@ -96,8 +98,8 @@ class ApplicationBaseTransaction extends RawTransaction
         $fields = parent::toMessagePack();
         $fields['apid'] = $this->applicationId->toInt();
         $fields['apan'] = $this->onCompletion->getValue();
-        $fields['apaa'] = $this->arguments;
-        $fields['apat'] = ! empty($this->accounts) ? array_map(fn (Account $account) => $account->getPublicKey(), $this->accounts ?? []) : null;
+        $fields['apaa'] = ! empty($this->arguments) ? array_map(fn ($value) => new Bin($value), $this->arguments) : null;
+        $fields['apat'] = ! empty($this->accounts) ? array_map(fn (Address $address) => $address->address, $this->accounts) : null;
         $fields['apfa'] = $this->foreignApps;
         $fields['apas'] = $this->foreignAssets;
 

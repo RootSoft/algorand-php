@@ -23,4 +23,25 @@ class Application
      * @required
      */
     public ApplicationParams $params;
+
+    /**
+     * Round when this application was created.
+     *
+     * @var int|null
+     */
+    public ?int $createdAtRound = null;
+
+    /**
+     * Whether this application is currently deleted.
+     *
+     * @var bool|null
+     */
+    public ?bool $deleted = null;
+
+    /**
+     * Round when this application was deleted.
+     *
+     * @var int|null
+     */
+    public ?int $deletedAtRound = null;
 }

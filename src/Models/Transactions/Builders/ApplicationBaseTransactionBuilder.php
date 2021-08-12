@@ -66,7 +66,7 @@ class ApplicationBaseTransactionBuilder extends RawTransactionBuilder
      * @param array $arguments
      * @return $this
      */
-    public function arguments(array $arguments): ApplicationBaseTransactionBuilder
+    public function arguments(?array $arguments): ApplicationBaseTransactionBuilder
     {
         $this->applicationTransaction->arguments = $arguments;
 

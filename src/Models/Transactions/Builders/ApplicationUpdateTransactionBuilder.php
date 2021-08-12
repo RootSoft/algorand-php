@@ -21,7 +21,7 @@ class ApplicationUpdateTransactionBuilder extends ApplicationBaseTransactionBuil
     ) {
         $this->applicationTransaction = $applicationTransaction ?? new ApplicationUpdateTransaction();
         $this->applicationTransaction->onCompletion = $onCompletion ?? OnCompletion::UPDATE_APPLICATION_OC();
-        parent::__construct($this->applicationTransaction, $onCompletion);
+        parent::__construct($this->applicationTransaction, $this->applicationTransaction->onCompletion);
     }
 
     /**

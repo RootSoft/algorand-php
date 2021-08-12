@@ -3,6 +3,8 @@
 
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
+use Rootsoft\Algorand\Models\Applications\OnCompletion;
+
 class TransactionBuilder extends RawTransactionBuilder
 {
 
@@ -63,6 +65,24 @@ class TransactionBuilder extends RawTransactionBuilder
 
     /**
      *
+     * @return ApplicationUpdateTransactionBuilder
+     */
+    public static function applicationUpdate()
+    {
+        return new ApplicationUpdateTransactionBuilder(null);
+    }
+
+    /**
+     *
+     * @return ApplicationBaseTransactionBuilder
+     */
+    public static function applicationOptIn()
+    {
+        return new ApplicationBaseTransactionBuilder(null, OnCompletion::OPT_IN_OC());
+    }
+
+    /**
+     *
      * @return ApplicationBaseTransactionBuilder
      */
     public static function applicationCall()
@@ -72,10 +92,28 @@ class TransactionBuilder extends RawTransactionBuilder
 
     /**
      *
-     * @return ApplicationUpdateTransactionBuilder
+     * @return ApplicationBaseTransactionBuilder
      */
-    public static function applicationUpdate()
+    public static function applicationClearState()
     {
-        return new ApplicationUpdateTransactionBuilder();
+        return new ApplicationBaseTransactionBuilder(null, OnCompletion::CLEAR_STATE_OC());
+    }
+
+    /**
+     *
+     * @return ApplicationBaseTransactionBuilder
+     */
+    public static function applicationCloseOut()
+    {
+        return new ApplicationBaseTransactionBuilder(null, OnCompletion::CLOSE_OUT_OC());
+    }
+
+    /**
+     *
+     * @return ApplicationBaseTransactionBuilder
+     */
+    public static function applicationDelete()
+    {
+        return new ApplicationBaseTransactionBuilder(null, OnCompletion::DELETE_APPLICATION_OC());
     }
 }

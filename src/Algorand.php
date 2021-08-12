@@ -9,15 +9,14 @@ use Rootsoft\Algorand\Clients\AlgodClient;
 use Rootsoft\Algorand\Clients\IndexerClient;
 use Rootsoft\Algorand\Indexer\AlgorandIndexer;
 use Rootsoft\Algorand\Managers\AccountManager;
+use Rootsoft\Algorand\Managers\ApplicationManager;
 use Rootsoft\Algorand\Managers\AssetManager;
-use Rootsoft\Algorand\Services\ManagesApplicationsV2;
 use Rootsoft\Algorand\Services\ManagesBalanceV2;
 use Rootsoft\Algorand\Services\ManagesBlocksV2;
 use Rootsoft\Algorand\Services\ManagesCatchupsV2;
 use Rootsoft\Algorand\Services\ManagesLedgerV2;
 use Rootsoft\Algorand\Services\ManagesNodesV2;
 use Rootsoft\Algorand\Services\ManagesParticipationV2;
-use Rootsoft\Algorand\Services\ManagesTealV2;
 use Rootsoft\Algorand\Services\ManagesTransactionParamsV2;
 use Rootsoft\Algorand\Services\ManagesTransactionsV2;
 use Rootsoft\Algorand\Traits\MakesHttpRequests;
@@ -34,11 +33,9 @@ class Algorand
     use ManagesTransactionsV2;
     use ManagesTransactionParamsV2;
     use ManagesBalanceV2;
-    use ManagesApplicationsV2;
     use ManagesBlocksV2;
     use ManagesCatchupsV2;
     use ManagesLedgerV2;
-    use ManagesTealV2;
     use ManagesParticipationV2;
 
     /**
@@ -79,6 +76,13 @@ class Algorand
     private AssetManager $assetManager;
 
     /**
+     * Handles everything related to applications.
+     *
+     * @var ApplicationManager
+     */
+    private ApplicationManager $applicationManager;
+
+    /**
      * Algorand constructor.
      *
      * @param AlgodClient $algodClient
@@ -97,6 +101,7 @@ class Algorand
 
         $this->accountManager = new AccountManager($this->algodClient, $this->jsonMapper);
         $this->assetManager = new AssetManager($this->algodClient, $this->indexerClient, $this->jsonMapper);
+        $this->applicationManager = new ApplicationManager($this->algodClient, $this->jsonMapper);
         $this->indexer = new AlgorandIndexer($this->indexerClient, $this->jsonMapper);
     }
 
@@ -152,6 +157,16 @@ class Algorand
     public function assetManager(): AssetManager
     {
         return $this->assetManager;
+    }
+
+    /**
+     * Manager related to everything regarding Applications.
+     *
+     * @return \Rootsoft\Algorand\Managers\ApplicationManager
+     */
+    public function applicationManager(): ApplicationManager
+    {
+        return $this->applicationManager;
     }
 
     /**

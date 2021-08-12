@@ -107,9 +107,9 @@ class AlgorandUtils
             $parts = explode(':', $arg);
             switch ($parts[0]) {
                 case 'str':
-                    return new Bin(utf8_encode($parts[1]));
+                    return utf8_encode($parts[1]);
                 case 'int':
-                    return new Bin(BigInteger::of($parts[1])->toBytes());
+                    return BigInteger::of($parts[1])->toBytes();
                 default:
                     throw new AlgorandException('Does not support conversion.');
             }

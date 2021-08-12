@@ -72,6 +72,7 @@ trait ManagesAccountsV2
      *
      * @param string $address
      * @return AccountInformation The account information at a given round.
+     * @throws \Rootsoft\Algorand\Exceptions\AlgorandException
      */
     public function getAccountInformation(string $address)
     {
