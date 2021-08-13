@@ -65,7 +65,8 @@ class LogicSignature implements MessagePackable
         $this->signature = $signature;
         $this->multiSignature = $multiSignature;
 
-        // TODO Validate program/logic
+        // Validate program/logic
+        Logic::checkProgram($logic, $arguments);
     }
 
     /**
@@ -103,7 +104,7 @@ class LogicSignature implements MessagePackable
         }
 
         try {
-            //TODO Check program
+            Logic::checkProgram($this->logic, $this->arguments);
         } catch (Exception $ex) {
             return false;
         }
@@ -129,14 +130,18 @@ class LogicSignature implements MessagePackable
     /**
      * Sign a logic signature with account secret key.
      *
-     * TODO multisig signing
      * @param Account $account
+     * @param MultiSignatureAddress|null $multiSignatureAddress
      * @return LogicSignature
      * @throws AlgorandException
      * @throws \SodiumException
      */
-    public function sign(Account $account)
+    public function sign(Account $account, ?MultiSignatureAddress $multiSignatureAddress = null)
     {
+        if ($multiSignatureAddress != null) {
+            return $this->signLogicSigAsMultiSig($account, $multiSignatureAddress);
+        }
+
         $secretKey = $account->getPrivateKeyPair()->getSecretKey();
         if (! ($secretKey instanceof SignatureSecretKey)) {
             throw new AlgorandException('Private key is not a valid signing key.');
@@ -151,6 +156,43 @@ class LogicSignature implements MessagePackable
         $this->signature = new Signature($signature);
 
         return $this;
+    }
+
+    /**
+     * Sign this logic signature with the the multi sig address.
+     *
+     * @param Account $account
+     * @param MultiSignatureAddress $address
+     * @return LogicSignature
+     * @throws AlgorandException
+     * @throws \SodiumException
+     */
+    private function signLogicSigAsMultiSig(Account $account, MultiSignatureAddress $address) : LogicSignature
+    {
+        $publicKey = new Ed25519PublicKey($account->getPublicKey());
+        $index = array_search($publicKey, $address->getPublicKeys());
+        if ($index === false) {
+            throw new AlgorandException('Multisig account does not contain this secret key');
+        }
+
+        // Sign the program
+        $signature = $account->sign($this->getEncodedProgram());
+
+        // Create the multi signature
+        $msig = new MultiSignature($address->getVersion(), $address->getThreshold(), []);
+
+        for ($i = 0; $i < count($address->getPublicKeys()); $i++) {
+            if ($i == $index) {
+                $msig->addSubsig(new MultisigSubsig($publicKey, $signature));
+            } else {
+                $msig->addSubsig(new MultisigSubsig($address->getPublicKeys()[$i]));
+            }
+        }
+
+        $lsig = clone $this;
+        $lsig->multiSignature = $msig;
+
+        return $lsig;
     }
 
     /**
@@ -240,6 +282,38 @@ class LogicSignature implements MessagePackable
 
         // Create signed transaction with lsig
         return SignedTransaction::fromLogicSignature($transaction, $this);
+    }
+
+    /**
+     * Appends a signature to multisig logic signed transaction
+     *
+     * @param Account $account
+     * @return LogicSignature
+     * @throws AlgorandException
+     * @throws \SodiumException
+     */
+    public function append(Account $account) : LogicSignature
+    {
+        $msig = $this->getMultiSignature();
+        if (is_null($msig)) {
+            throw new AlgorandException('The logicsig has no valid multisig');
+        }
+
+        $publicKey = new Ed25519PublicKey($account->getPublicKey());
+        $keys = array_map(fn ($subsig) => $subsig->getPublicKey(), $msig->getSubsigs());
+        $index = array_search($publicKey, $keys);
+
+        if ($index === false) {
+            throw new AlgorandException('Multisig account does not contain this secret key');
+        }
+
+        $signature = $account->sign($this->getEncodedProgram());
+        $msig->updateSubsig($index, new MultisigSubsig($publicKey, $signature));
+
+        $lsig = clone $this;
+        $lsig->multiSignature = $msig;
+
+        return $lsig;
     }
 
     public function toMessagePack(): array

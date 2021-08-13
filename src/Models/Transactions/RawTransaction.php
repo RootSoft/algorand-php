@@ -168,7 +168,7 @@ class RawTransaction
      * @throws SodiumException
      * @throws AlgorandException
      */
-    public function sign(Account $account)
+    public function sign(Account $account): SignedTransaction
     {
         $secretKey = $account->getPrivateKeyPair()->getSecretKey();
         if (! ($secretKey instanceof SignatureSecretKey)) {

@@ -24,7 +24,7 @@ class CryptoUtils
      * @return bool
      * @throws \SodiumException
      */
-    public static function verify($message, $signature, $publicKey) : bool
+    public static function verify(string $message, string $signature, string $publicKey) : bool
     {
         return sodium_crypto_sign_verify_detached($signature, $message, $publicKey);
     }

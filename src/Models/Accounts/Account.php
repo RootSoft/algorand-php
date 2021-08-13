@@ -8,12 +8,15 @@ use ParagonIE\Halite\Asymmetric\SignatureSecretKey;
 use ParagonIE\Halite\HiddenString;
 use ParagonIE\Halite\KeyFactory;
 use ParagonIE\Halite\KeyPair;
+use Rootsoft\Algorand\Crypto\Signature;
+use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Exceptions\MnemonicException;
 use Rootsoft\Algorand\Exceptions\WordListException;
 use Rootsoft\Algorand\Mnemonic\Mnemonic;
 use Rootsoft\Algorand\Mnemonic\SeedPhrase;
 use Rootsoft\Algorand\Mnemonic\WordList;
 use Rootsoft\Algorand\Traits\KeyPairGenerator;
+use Rootsoft\Algorand\Utils\CryptoUtils;
 use SodiumException;
 
 /**
@@ -118,6 +121,24 @@ class Account
         $instance = new self($keyPair);
 
         return $instance;
+    }
+
+    /**
+     * Sign the given data with the secret key.
+     *
+     * @param string $data
+     * @return Signature The signature
+     * @throws AlgorandException
+     * @throws SodiumException
+     */
+    public function sign(string $data) : Signature
+    {
+        $secretKey = $this->privateKeyPair->getSecretKey();
+        if (! ($secretKey instanceof SignatureSecretKey)) {
+            throw new AlgorandException('Private key is not a valid signing key.');
+        }
+
+        return new Signature(CryptoUtils::sign($data, $secretKey));
     }
 
     /**

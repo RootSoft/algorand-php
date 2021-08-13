@@ -97,8 +97,10 @@ class SignedTransaction implements MessagePackable
      * @param MultiSignature $multiSignature
      * @return SignedTransaction
      */
-    public static function fromMultiSignature(RawTransaction $transaction, MultiSignature $multiSignature): SignedTransaction
-    {
+    public static function fromMultiSignature(
+        RawTransaction $transaction,
+        MultiSignature $multiSignature
+    ): SignedTransaction {
         return new self($transaction, null, null, $multiSignature);
     }
 
@@ -113,9 +115,53 @@ class SignedTransaction implements MessagePackable
         file_put_contents($fileName, $data);
     }
 
+    /**
+     * @return Address|null
+     */
+    public function getAuthAddr(): ?Address
+    {
+        return $this->authAddr;
+    }
+
+    /**
+     * Set the auth address.
+     * @param Address $authAddr
+     */
     public function setAuthAddr(Address $authAddr)
     {
         $this->authAddr = $authAddr;
+    }
+
+    /**
+     * @return RawTransaction
+     */
+    public function getTransaction(): RawTransaction
+    {
+        return $this->transaction;
+    }
+
+    /**
+     * @return Signature|null
+     */
+    public function getSignature(): ?Signature
+    {
+        return $this->signature;
+    }
+
+    /**
+     * @return LogicSignature|null
+     */
+    public function getLogicSignature(): ?LogicSignature
+    {
+        return $this->logicSignature;
+    }
+
+    /**
+     * @return MultiSignature|null
+     */
+    public function getMultiSignature(): ?MultiSignature
+    {
+        return $this->multiSignature;
     }
 
     public function toMessagePack(): array
