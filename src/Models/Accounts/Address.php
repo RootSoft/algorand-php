@@ -5,7 +5,9 @@ namespace Rootsoft\Algorand\Models\Accounts;
 
 use Exception;
 use ParagonIE\ConstantTime\Base32;
+use Rootsoft\Algorand\Crypto\Signature;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
+use Rootsoft\Algorand\Models\Applications\TEALProgram;
 use SodiumException;
 
 class Address
@@ -75,6 +77,25 @@ class Address
         $instance->encodedAddress = $encodedAddress;
 
         return $instance;
+    }
+
+    /**
+     * Creates Signature compatible with ed25519verify TEAL opcode from data and contract address (program hash).
+     *
+     * @param Account $account
+     * @param string $data
+     * @return Signature
+     * @throws AlgorandException
+     * @throws SodiumException
+     */
+    public function sign(Account $account, string $data) :Signature
+    {
+        $buffer = '';
+        $buffer .= utf8_encode(TEALProgram::PROGDATA_SIGN_PREFIX);
+        $buffer .= $this->address;
+        $buffer .= $data;
+
+        return $account->sign($buffer);
     }
 
     /**

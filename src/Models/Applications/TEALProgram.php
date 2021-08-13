@@ -2,8 +2,17 @@
 
 namespace Rootsoft\Algorand\Models\Applications;
 
+use Rootsoft\Algorand\Crypto\LogicSignature;
+use Rootsoft\Algorand\Crypto\Signature;
+use Rootsoft\Algorand\Models\Accounts\Account;
+
 class TEALProgram
 {
+    /**
+     * Prefix for signing TEAL program data
+     */
+    const PROGDATA_SIGN_PREFIX = 'ProgData';
+
     private string $program;
 
     /**
@@ -35,9 +44,18 @@ class TEALProgram
         return $this->program;
     }
 
-    /// Creates Signature compatible with ed25519verify TEAL opcode from data and program bytes.
-    public function sign()
+    /**
+     * Creates Signature compatible with ed25519verify TEAL opcode from data and program bytes.
+     *
+     * @param Account $account
+     * @param string $data
+     * @return Signature
+     * @throws \Rootsoft\Algorand\Exceptions\AlgorandException
+     * @throws \SodiumException
+     */
+    public function sign(Account $account, string $data) : Signature
     {
-        // TODO Implementation
+        $lsig = new LogicSignature($this->program);
+        return $lsig->toAddress()->sign($account, $data);
     }
 }
