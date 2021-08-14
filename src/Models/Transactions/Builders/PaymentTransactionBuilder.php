@@ -6,8 +6,8 @@ namespace Rootsoft\Algorand\Models\Transactions\Builders;
 use Brick\Math\BigInteger;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Address;
-use Rootsoft\Algorand\Models\Transactions\Types\RawPaymentTransaction;
 use Rootsoft\Algorand\Models\Transactions\TransactionType;
+use Rootsoft\Algorand\Models\Transactions\Types\RawPaymentTransaction;
 
 /**
  * TODO Use generics
@@ -26,6 +26,21 @@ class PaymentTransactionBuilder extends RawTransactionBuilder
     {
         $this->paymentTransaction = new RawPaymentTransaction();
         parent::__construct(TransactionType::PAYMENT(), $this->paymentTransaction);
+    }
+
+    /**
+     * The address of the account that will be rekeyed to.
+     * Rekeying is a powerful protocol feature which enables an Algorand account holder to maintain a static public
+     * address while dynamically rotating the authoritative private spending key(s).
+     *
+     * @param Address $receiver
+     * @return $this
+     */
+    public function rekeyTo(Address $address)
+    {
+        $this->paymentTransaction->rekeyTo = $address;
+
+        return $this;
     }
 
     /**

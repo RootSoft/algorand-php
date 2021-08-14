@@ -12,7 +12,6 @@ use Rootsoft\Algorand\Crypto\Signature;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Accounts\Address;
-use Rootsoft\Algorand\Models\Transactions\Builders\RawTransactionBuilder;
 use Rootsoft\Algorand\Utils\Encoder;
 use SodiumException;
 
@@ -130,11 +129,11 @@ class RawTransaction
 
     /**
      * Specifies the authorized address.
-     * This address will be used to authorize all future transactions. Learn more about Rekeying accounts.
+     * This address will be used to authorize all future transactions.
      *
-     * @var string|null
+     * @var Address|null
      */
-    public ?string $rekeyTo = null;
+    public ?Address $rekeyTo = null;
 
     /**
      * Export the (encoded) transaction.
@@ -266,12 +265,13 @@ class RawTransaction
             'fv' => $this->firstValid->toInt(),
             'lv' => $this->lastValid->toInt(),
             'note' => $this->note ? new Bin(utf8_encode($this->note)) : null,
-            'snd' => $this->sender->address,
+            'snd' => isset($this->sender) ? $this->sender->address : null,
             'type' => $this->type,
             'gen' => $this->genesisId,
             'gh' => Base64::decode($this->genesisHash),
             'lx' => $this->lease,
             'grp' => $this->group ? new Bin($this->group) : null,
+            'rekey' => isset($this->rekeyTo) ? $this->rekeyTo->address : null,
         ];
     }
 }
