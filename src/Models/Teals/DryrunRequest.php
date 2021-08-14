@@ -3,8 +3,9 @@
 
 namespace Rootsoft\Algorand\Models\Teals;
 
-use Rootsoft\Algorand\Models\Account;
+use Rootsoft\Algorand\Models\Accounts\AccountInformation;
 use Rootsoft\Algorand\Models\Application;
+use Rootsoft\Algorand\Utils\MessagePackable;
 
 /**
  * Request data type for dryrun endpoint.
@@ -12,11 +13,11 @@ use Rootsoft\Algorand\Models\Application;
  * Class DryrunRequest
  * @package Rootsoft\Algorand\Models\Teals
  */
-class DryrunRequest
+class DryrunRequest implements MessagePackable
 {
     /**
      *
-     * @var Account[]
+     * @var AccountInformation[]
      */
     public array $accounts = [];
 
@@ -24,7 +25,7 @@ class DryrunRequest
      *
      * @var Application[]
      */
-    public array $apps;
+    public array $apps = [];
 
     /**
      * LatestTimestamp is available to some TEAL scripts.
@@ -34,7 +35,7 @@ class DryrunRequest
      * TODO int64 - long
      * @var int
      */
-    public int $latestTimestamp;
+    public ?int $latestTimestamp = null;
 
     /**
      * ProtocolVersion specifies a specific version string to operate under,
@@ -42,7 +43,7 @@ class DryrunRequest
      *
      * @var string
      */
-    public string $protocolVersion;
+    public ?string $protocolVersion = null;
 
     /**
      * Round is available to some TEAL scripts.
@@ -50,15 +51,28 @@ class DryrunRequest
      *
      * @var int
      */
-    public int $round;
+    public ?int $round = null;
 
     /**
      * @var DryrunSource[]
      */
-    public array $sources;
+    public array $sources = [];
 
     /**
      * @var array
      */
-    public array $txns;
+    public array $txns = [];
+
+    public function toMessagePack(): array
+    {
+        return [
+            'accounts' => $this->accounts,
+            'apps' => $this->apps,
+            'latest-timestamp' => $this->latestTimestamp,
+            'protocol-version' => $this->protocolVersion,
+            'round' => $this->round,
+            'sources' => $this->sources,
+            'txns' => $this->txns,
+        ];
+    }
 }

@@ -12,42 +12,41 @@ class ApplicationParams
 {
     /**
      * The approval program.
-     * @var string
+     * @var string|null
      * @required
      */
-    public string $approvalProgram;
+    public ?string $approvalProgram = null;
 
     /**
      * The approval program.
-     * @var string
+     * @var string|null
      * @required
      */
-    public string $clearStateProgram;
+    public ?string $clearStateProgram = null;
 
     /**
      * The address that created this application.
      *
      * This is the address where the parameters and global state for this application can be found.
-     * @var string
-     * @required
+     * @var string|null
      */
-    public string $creator;
+    public ?string $creator = null;
 
     /**
      * Global schema
-     * @var TealKeyValueStore[]
+     * @var TealKeyValueStore[]|null
      */
-    public array $globalState;
+    public ?array $globalState = null;
 
     /**
      * Global schema
-     * @var ApplicationStateSchema
+     * @var ApplicationStateSchema|null
      */
-    public ApplicationStateSchema $globalStateSchema;
+    public ?ApplicationStateSchema $globalStateSchema = null;
 
     /**
      * Local schema
-     * @var ApplicationStateSchema
+     * @var ApplicationStateSchema|null
      */
-    public ApplicationStateSchema $localStateSchema;
+    public ?ApplicationStateSchema $localStateSchema = null;
 }

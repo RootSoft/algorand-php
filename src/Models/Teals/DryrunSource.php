@@ -12,25 +12,25 @@ namespace Rootsoft\Algorand\Models\Teals;
 class DryrunSource
 {
     /**
-     * @var int
+     * @var int|null
      */
-    public int $appIndex;
+    public ?int $appIndex = null;
 
     /**
      * FieldName is what kind of sources this is.
      * If lsig then it goes into the transactions[this.TxnIndex].
      * If approv or clearp it goes into the Approval Program or Clear State Program of application.
-     * @var string
+     * @var string|null
      */
-    public string $fieldName;
+    public ?string $fieldName = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public string $source;
+    public ?string $source = null;
 
     /**
-     * @var string
+     * @var int|null
      */
-    public string $txnIndex;
+    public ?int $txnIndex = null;
 }

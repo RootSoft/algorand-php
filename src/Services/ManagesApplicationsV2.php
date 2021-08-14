@@ -9,8 +9,11 @@ use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Application;
 use Rootsoft\Algorand\Models\Applications\StateSchema;
 use Rootsoft\Algorand\Models\Applications\TEALProgram;
+use Rootsoft\Algorand\Models\Teals\DryrunRequest;
+use Rootsoft\Algorand\Models\Teals\DryrunResponse;
 use Rootsoft\Algorand\Models\Teals\TealCompilationResult;
 use Rootsoft\Algorand\Models\Transactions\Builders\TransactionBuilder;
+use Rootsoft\Algorand\Utils\Encoder;
 
 trait ManagesApplicationsV2
 {
@@ -36,6 +39,24 @@ trait ManagesApplicationsV2
         $this->jsonMapper->mapObject($response, $application);
 
         return $application;
+    }
+
+    /**
+     * Executes TEAL program(s) in context and returns debugging information about the execution.
+     * This endpoint is only enabled when a node's configuration file sets EnableDeveloperAPI to true.
+     *
+     * @param DryrunRequest $request
+     * @return DryrunResponse
+     * @throws AlgorandException
+     */
+    public function dryrun(DryrunRequest $request)
+    {
+        $data = Encoder::getInstance()->encodeMessagePack($request->toMessagePack());
+        $response = $this->post($this->algodClient, "/v2/teal/dryrun", [], ['body' => $data], ['Content-Type' => 'application/x-binary']);
+
+        $result = new DryrunResponse();
+        $this->jsonMapper->mapObject($response, $result);
+        return $result;
     }
 
     /**
