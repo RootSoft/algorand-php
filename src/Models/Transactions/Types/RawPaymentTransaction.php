@@ -28,9 +28,9 @@ class RawPaymentTransaction extends RawTransaction
      * When set, it indicates that the transaction is requesting that the Sender account should be closed,
      * and all remaining funds, after the fee and amount are paid, be transferred to this address.
      *
-     * @var string|null
+     * @var Address|null
      */
-    public ?string $closeRemainderTo = null;
+    public ?Address $closeRemainderTo = null;
 
     public function toMessagePack(): array
     {
@@ -39,6 +39,7 @@ class RawPaymentTransaction extends RawTransaction
         $paymentFields = [
             'amt' => $this->amount->toInt(),
             'rcv' => $this->receiver->address,
+            'close' => isset($this->closeRemainderTo) ? $this->closeRemainderTo->address : null,
         ];
 
         return array_merge($fields, $paymentFields);

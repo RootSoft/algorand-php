@@ -29,7 +29,7 @@ class PaymentTransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     * The address of the account that will be rekeyed to.
+     * Specifies the authorized address. This address will be used to authorize all future transactions.
      * Rekeying is a powerful protocol feature which enables an Algorand account holder to maintain a static public
      * address while dynamically rotating the authoritative private spending key(s).
      *
@@ -39,6 +39,20 @@ class PaymentTransactionBuilder extends RawTransactionBuilder
     public function rekeyTo(Address $address)
     {
         $this->paymentTransaction->rekeyTo = $address;
+
+        return $this;
+    }
+
+    /**
+     * When set, it indicates that the transaction is requesting that the Sender account should be closed, and all
+     * remaining funds, after the fee and amount are paid, be transferred to this address.
+     *
+     * @param Address $closeRemainderTo
+     * @return $this
+     */
+    public function closeRemainderTo(Address $closeRemainderTo)
+    {
+        $this->paymentTransaction->closeRemainderTo = $closeRemainderTo;
 
         return $this;
     }
