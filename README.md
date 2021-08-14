@@ -32,7 +32,7 @@ $algorand->assetManager()->createNewAsset($account, 'PHPCoin', 'PHP', 500000, 2)
 * Indexer
 * Transactions
 * Key registration
-* Authorization * rekeying
+* Authorization & rekeying
 * Atomic Transfers
 * Account management
 * Asset management
