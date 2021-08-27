@@ -149,4 +149,10 @@ class Transaction
      * @var AssetConfigTransactionResult|null
      */
     public ?AssetConfigTransactionResult $assetConfigTransaction = null;
+
+    /**
+     * Contains more information about the transfer of an asset.
+     * @var AssetTransferTransactionResult|null
+     */
+    public ?AssetTransferTransactionResult $assetTransferTransaction = null;
 }
