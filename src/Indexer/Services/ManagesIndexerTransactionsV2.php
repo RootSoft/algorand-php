@@ -3,6 +3,7 @@
 
 namespace Rootsoft\Algorand\Indexer\Services;
 
+use Rootsoft\Algorand\Models\Transactions\TransactionResult;
 use Rootsoft\Algorand\Models\Transactions\SearchTransactionsResult;
 
 trait ManagesIndexerTransactionsV2
@@ -58,6 +59,22 @@ trait ManagesIndexerTransactionsV2
         $response = $this->get($this->indexerClient, "/v2/accounts/$accountId/transactions", $queryParams);
 
         $result = new SearchTransactionsResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
+    }
+
+    /**
+     * Lookup a single transaction.
+     *
+     * @param string $txId
+     * @return TransactionResult Single transaction.
+     */
+    public function find(string $txId)
+    {
+        $response = $this->get($this->indexerClient, "/v2/transactions/{$txId}");
+
+        $result = new TransactionResult();
         $this->jsonMapper->mapObject($response, $result);
 
         return $result;
