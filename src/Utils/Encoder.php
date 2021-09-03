@@ -3,6 +3,7 @@
 
 namespace Rootsoft\Algorand\Utils;
 
+use MessagePack\BufferUnpacker;
 use MessagePack\Packer;
 use MessagePack\TypeTransformer\BinTransformer;
 use Rootsoft\Algorand\Utils\Transformers\SignedTransactionTransformer;
@@ -21,9 +22,12 @@ class Encoder
      */
     public Packer $packer;
 
+    public BufferUnpacker $unpacker;
+
     private function __construct()
     {
         $this->packer = new Packer(null, [new BinTransformer(), new SignedTransactionTransformer()]);
+        $this->unpacker = new BufferUnpacker();
     }
 
     public static function getInstance()
@@ -60,6 +64,13 @@ class Encoder
         }
 
         return AlgorandUtils::algorand_array_clean($sanitizedMap);
+    }
+
+    public function decodeMessagePack(string $data)
+    {
+        $this->unpacker->reset($data);
+        $value = $this->unpacker->unpack();
+        dd($value);
     }
 
     public function packer()

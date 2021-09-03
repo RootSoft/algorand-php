@@ -5,6 +5,7 @@ namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Brick\Math\BigInteger;
 use Illuminate\Support\Arr;
+use ParagonIE\ConstantTime\Base64;
 use Rootsoft\Algorand\Algorand;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Address;
@@ -125,13 +126,133 @@ abstract class RawTransactionBuilder
         return $this;
     }
 
+    /**
+     * The first round for when the transaction is valid.
+     * If the transaction is sent prior to this round it will be rejected by the network.
+     *
+     *
+     * @return RawTransactionBuilder
+     * @var int
+     */
+    public function firstValid(int $firstValid)
+    {
+        $this->transaction->firstValid = BigInteger::of($firstValid);
+
+        return $this;
+    }
+
+    /**
+     * The ending round for which the transaction is valid.
+     * After this round, the transaction will be rejected by the network.
+     *
+     *
+     * @return RawTransactionBuilder
+     * @var int
+     */
+    public function lastValid(int $lastValid)
+    {
+        $this->transaction->lastValid = BigInteger::of($lastValid);
+
+        return $this;
+    }
+
+    /**
+     * The human-readable string that identifies the network for the transaction.
+     * The genesis ID is found in the genesis block.
+     *
+     * See the genesis ID for MainNet, TestNet, and BetaNet.
+     *
+     * @return RawTransactionBuilder
+     * @var string
+     */
+    public function genesisId(string $genesisId): RawTransactionBuilder
+    {
+        $this->transaction->genesisId = $genesisId;
+
+        return $this;
+    }
+
+    /**
+     * The hash of the genesis block of the network for which the transaction is valid.
+     * See the genesis hash for MainNet, TestNet, and BetaNet.
+     *
+     * @param string $genesisHash
+     * @return RawTransactionBuilder
+     */
+    public function genesisHash(string $genesisHash): RawTransactionBuilder
+    {
+        $this->transaction->genesisHash = $genesisHash;
+
+        return $this;
+    }
+
+    /**
+     * The hash of the genesis block of the network for which the transaction is valid.
+     * See the genesis hash for MainNet, TestNet, and BetaNet.
+     *
+     * @param string $genesisHash
+     * @return RawTransactionBuilder
+     */
+    public function genesisHashB64(string $genesisHash): RawTransactionBuilder
+    {
+        $this->transaction->genesisHash = Base64::decode($genesisHash);
+
+        return $this;
+    }
+
+    /**
+     * A lease enforces mutual exclusion of transactions.
+     * If this field is nonzero, then once the transaction is confirmed, it acquires the lease identified by the
+     * (Sender, Lease) pair of the transaction until the LastValid round passes.
+     *
+     * While this transaction possesses the lease, no other transaction specifying this lease can be confirmed.
+     *
+     * A lease is often used in the context of Algorand Smart Contracts to prevent replay attacks.
+     * Read more about Algorand Smart Contracts and see the Delegate Key Registration TEAL template for an example
+     * implementation of leases.
+     *
+     * Leases can also be used to safeguard against unintended duplicate spends.
+     *
+     * @param string $lease
+     * @return RawTransactionBuilder
+     */
+    public function lease(string $lease): RawTransactionBuilder
+    {
+        $this->transaction->lease = $lease;
+
+        return $this;
+    }
+
+    /**
+     * A lease enforces mutual exclusion of transactions.
+     * If this field is nonzero, then once the transaction is confirmed, it acquires the lease identified by the
+     * (Sender, Lease) pair of the transaction until the LastValid round passes.
+     *
+     * While this transaction possesses the lease, no other transaction specifying this lease can be confirmed.
+     *
+     * A lease is often used in the context of Algorand Smart Contracts to prevent replay attacks.
+     * Read more about Algorand Smart Contracts and see the Delegate Key Registration TEAL template for an example
+     * implementation of leases.
+     *
+     * Leases can also be used to safeguard against unintended duplicate spends.
+     *
+     * @param string $lease
+     * @return RawTransactionBuilder
+     */
+    public function leaseB64(string $lease): RawTransactionBuilder
+    {
+        $this->transaction->lease = Base64::decode($lease);
+
+        return $this;
+    }
+
     public function suggestedParams(TransactionParams $params)
     {
         // TODO Rework
         $this->suggestedFeePerByte = BigInteger::of($params->fee);
         $this->transaction->setFee(BigInteger::of($params->fee));
         $this->transaction->genesisId = $params->genesisId;
-        $this->transaction->genesisHash = $params->genesisHash;
+        $this->transaction->genesisHash = Base64::decode($params->genesisHash);
         $this->transaction->firstValid = BigInteger::of($params->lastRound);
         $this->transaction->lastValid = BigInteger::of($params->lastRound + 1000);
 
@@ -195,7 +316,13 @@ abstract class RawTransactionBuilder
         }
 
         if ($this->suggestedFeePerByte != null) {
-            $this->transaction->setFee(AlgorandUtils::calculate_fee_per_byte($this->transaction, $this->suggestedFeePerByte));
+            // Set the fee to calculate correct estimated transaction size
+            // see setFeeByFeePerByte in Java
+            $this->transaction->setFee($this->suggestedFeePerByte);
+
+            // Calculate the fee
+            $fee = AlgorandUtils::calculate_fee_per_byte($this->transaction, $this->suggestedFeePerByte);
+            $this->transaction->setFee($fee);
         } elseif ($this->flatFee != null) {
             $this->transaction->setFee($this->flatFee);
         }

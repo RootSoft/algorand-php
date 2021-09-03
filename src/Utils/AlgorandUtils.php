@@ -6,10 +6,10 @@ namespace Rootsoft\Algorand\Utils;
 use Brick\Math\BigInteger;
 use Brick\Math\BigNumber;
 use Exception;
-use MessagePack\Type\Bin;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Transactions\RawTransaction;
+use Rootsoft\Algorand\Models\Transactions\SignedTransaction;
 
 class AlgorandUtils
 {
@@ -60,12 +60,13 @@ class AlgorandUtils
      */
     public static function estimateTransactionSize(RawTransaction $transaction)
     {
-        // Create a random account to sign the transaction
         try {
+            // Create a random account to sign the transaction
             $randomAccount = Account::random();
 
-            // Sign the transaction
-            $signedTransaction = $transaction->sign($randomAccount);
+            // Sign the transaction (with the account)
+            $signature = $randomAccount->sign($transaction->getEncodedTransaction());
+            $signedTransaction = new SignedTransaction($transaction, $signature);
 
             // Encode the transaction
             return strlen(Encoder::getInstance()->encodeMessagePack($signedTransaction->toMessagePack()));

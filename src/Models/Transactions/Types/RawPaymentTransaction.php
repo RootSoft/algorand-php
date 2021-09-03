@@ -37,8 +37,8 @@ class RawPaymentTransaction extends RawTransaction
         $fields = parent::toMessagePack();
 
         $paymentFields = [
-            'amt' => $this->amount->toInt(),
-            'rcv' => $this->receiver->address,
+            'amt' => isset($this->amount) ? $this->amount->toInt() : null,
+            'rcv' => isset($this->receiver) ? $this->receiver->address : null,
             'close' => isset($this->closeRemainderTo) ? $this->closeRemainderTo->address : null,
         ];
 
