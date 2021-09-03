@@ -95,21 +95,25 @@ class Logic
                         $intsBlock = self::readIntConstBlock($buffer, $pc);
                         $size += $intsBlock->getSize();
                         array_push($ints, ...$intsBlock->getResults());
+
                         break;
                     case self::BYTECBLOCK_OPCODE:
                         $bytesBlock = self::readByteConstBlock($buffer, $pc);
                         $size += $bytesBlock->getSize();
                         array_push($bytes, ...$bytesBlock->getResults());
+
                         break;
                     case self::PUSHINT_OPCODE:
                         $pushInt = self::readPushIntOp($buffer, $pc);
                         $size += $pushInt->getSize();
                         array_push($ints, ...$pushInt->getResults());
+
                         break;
                     case self::PUSHBYTES_OPCODE:
                         $pushBytes = self::readPushByteOp($buffer, $pc);
                         $size += $pushBytes->getSize();
                         array_push($bytes, ...$pushBytes->getResults());
+
                         break;
                     default:
                         throw new AlgorandException('Invalid instruction');
@@ -176,6 +180,31 @@ class Logic
         }
 
         return new VarintResult();
+    }
+
+    /**
+     * Varints are a method of serializing integers using one or more bytes.
+     * Smaller numbers take a smaller number of bytes.
+     * Each byte in a varint, except the last byte, has the most significant bit (msb) set – this indicates that there
+     * are further bytes to come.
+     * The lower 7 bits of each byte are used to store the two's complement representation of the number in groups of
+     * 7 bits, least significant group first.
+     *
+     * https://developers.google.com/protocol-buffers/docs/encoding
+     *
+     * @param int $value the value being serialized
+     * @return array the byte array holding the serialized bits
+     */
+    public static function putUVarint(int $value) : array
+    {
+        $buffer = [];
+        while ($value >= 0x80) {
+            $buffer[] = (($value & 0xFF) | 0x80);
+            $value >>= 7;
+        }
+
+        $buffer[] = $value & 0xFF;
+        return $buffer;
     }
 
     public static function readIntConstBlock(array $buffer, int $pc) :IntConstBlock

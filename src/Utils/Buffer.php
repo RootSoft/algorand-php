@@ -15,4 +15,15 @@ class Buffer
 
         return array_values($buffer);
     }
+
+    /**
+     * Pack data to a binary string.
+     * @param array $buffer
+     * @return string
+     */
+    public static function toBinaryString(array $buffer) : string
+    {
+        return pack('C*', ...$buffer);
+    }
+
 }

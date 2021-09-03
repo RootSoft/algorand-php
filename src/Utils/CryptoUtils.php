@@ -17,6 +17,16 @@ class CryptoUtils
     }
 
     /**
+     * Generate the hash for the given data using sha256.
+     * @param $data
+     * @return string
+     */
+    public static function sha256($data)
+    {
+        return hash('sha256', $data, true);
+    }
+
+    /**
      * Verify a message with the given signature.
      * @param $message
      * @param $signature

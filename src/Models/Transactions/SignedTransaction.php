@@ -3,6 +3,7 @@
 
 namespace Rootsoft\Algorand\Models\Transactions;
 
+use ParagonIE\ConstantTime\Base64;
 use Rootsoft\Algorand\Crypto\LogicSignature;
 use Rootsoft\Algorand\Crypto\MultiSignature;
 use Rootsoft\Algorand\Crypto\Signature;
@@ -173,5 +174,15 @@ class SignedTransaction implements MessagePackable
             'lsig' => $this->logicSignature,
             'msig' => $this->multiSignature,
         ];
+    }
+
+    /**
+     * Get the base64-encoded representation of the transaction.
+     *
+     * @return string
+     */
+    public function toBase64(): string
+    {
+        return Base64::encode(Encoder::getInstance()->encodeMessagePack($this->toMessagePack()));
     }
 }

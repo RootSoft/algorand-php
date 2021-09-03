@@ -4,6 +4,7 @@ namespace Rootsoft\Algorand\Crypto;
 
 use Exception;
 use MessagePack\Type\Bin;
+use ParagonIE\ConstantTime\Base64;
 use ParagonIE\Halite\Asymmetric\SignatureSecretKey;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
@@ -13,6 +14,7 @@ use Rootsoft\Algorand\Models\Transactions\RawTransaction;
 use Rootsoft\Algorand\Models\Transactions\SignedTransaction;
 use Rootsoft\Algorand\Utils\AlgorandUtils;
 use Rootsoft\Algorand\Utils\CryptoUtils;
+use Rootsoft\Algorand\Utils\Encoder;
 use Rootsoft\Algorand\Utils\MessagePackable;
 
 /**
@@ -324,5 +326,15 @@ class LogicSignature implements MessagePackable
             'sig' => isset($this->signature) ? $this->signature->bytes() : null,
             'msig' => $this->multiSignature,
         ];
+    }
+
+    /**
+     * Get the base64-encoded representation of this logic signature.
+     *
+     * @return string
+     */
+    public function toBase64(): string
+    {
+        return Base64::encode(Encoder::getInstance()->encodeMessagePack($this->toMessagePack()));
     }
 }

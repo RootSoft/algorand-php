@@ -13,6 +13,7 @@ use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Utils\Encoder;
+use Rootsoft\Algorand\Utils\FeeCalculator;
 use SodiumException;
 
 /**
@@ -258,20 +259,36 @@ class RawTransaction
         $this->fee = $fee;
     }
 
+    public function setFeeByFeePerByte(BigInteger $feePerByte)
+    {
+        $this->fee = $feePerByte;
+        $this->setFee(FeeCalculator::calculateFeePerByte($this, $feePerByte));
+    }
+
     public function toMessagePack(): array
     {
         return [
-            'fee' => $this->fee->toInt(),
+            'fee' => isset($this->fee) ? $this->fee->toInt() : null,
             'fv' => $this->firstValid->toInt(),
             'lv' => $this->lastValid->toInt(),
             'note' => $this->note ? new Bin(utf8_encode($this->note)) : null,
             'snd' => isset($this->sender) ? $this->sender->address : null,
             'type' => $this->type,
             'gen' => $this->genesisId,
-            'gh' => Base64::decode($this->genesisHash),
-            'lx' => $this->lease,
+            'gh' => $this->genesisHash,
+            'lx' => $this->lease ? new Bin($this->lease) : null,
             'grp' => $this->group ? new Bin($this->group) : null,
             'rekey' => isset($this->rekeyTo) ? $this->rekeyTo->address : null,
         ];
+    }
+
+    /**
+     * Get the base64-encoded representation of this transaction.
+     *
+     * @return string
+     */
+    public function toBase64(): string
+    {
+        return Base64::encode(Encoder::getInstance()->encodeMessagePack($this->toMessagePack()));
     }
 }
