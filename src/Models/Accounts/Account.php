@@ -31,6 +31,9 @@ use SodiumException;
  */
 class Account
 {
+    /// Prefix for signing bytes
+    const BYTES_SIGN_PREFIX = 'MX';
+
     private KeyPair $privateKeyPair;
 
     private Address $address;
@@ -139,6 +142,23 @@ class Account
         }
 
         return new Signature(CryptoUtils::sign($data, $secretKey));
+    }
+
+    /**
+     * Sign the given bytes, and wrap in signature.
+     * The message is prepended with "MX" for domain separation.
+     *
+     * @param string $data
+     * @return Signature
+     * @throws AlgorandException
+     * @throws SodiumException
+     */
+    public function signBytes(string $data): Signature
+    {
+        // Prepend the bytes
+        $signPrefix = utf8_encode(self::BYTES_SIGN_PREFIX);
+
+        return $this->sign($signPrefix . $data);
     }
 
     /**

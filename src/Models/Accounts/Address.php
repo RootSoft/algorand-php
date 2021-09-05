@@ -8,10 +8,14 @@ use ParagonIE\ConstantTime\Base32;
 use Rootsoft\Algorand\Crypto\Signature;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Applications\TEALProgram;
+use Rootsoft\Algorand\Utils\CryptoUtils;
 use SodiumException;
 
 class Address
 {
+    /// Prefix for signing bytes
+    const BYTES_SIGN_PREFIX = 'MX';
+
     const PUBLIC_KEY_LENGTH = 32;
 
     const ALGORAND_ADDRESS_BYTE_LENGTH = 36;
@@ -88,7 +92,7 @@ class Address
      * @throws AlgorandException
      * @throws SodiumException
      */
-    public function sign(Account $account, string $data) :Signature
+    public function sign(Account $account, string $data): Signature
     {
         $buffer = '';
         $buffer .= utf8_encode(TEALProgram::PROGDATA_SIGN_PREFIX);
@@ -96,6 +100,25 @@ class Address
         $buffer .= $data;
 
         return $account->sign($buffer);
+    }
+
+    /**
+     * Verifies that the signature for the message is valid for the public key.
+     * The message should have been prepended with "MX" when signing.
+     * @param string $data
+     * @param Signature $signature
+     * @return bool
+     * @throws SodiumException
+     */
+    public function verify(string $data, Signature $signature): bool
+    {
+        // Prepend the bytes
+        $signPrefix = utf8_encode(self::BYTES_SIGN_PREFIX);
+
+        // Merge the bytes
+        $buffer = $signPrefix . $data;
+
+        return CryptoUtils::verify($buffer, $signature->bytes(), $this->address);
     }
 
     /**
