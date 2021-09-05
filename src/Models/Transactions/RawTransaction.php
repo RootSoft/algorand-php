@@ -268,17 +268,17 @@ class RawTransaction
     public function toMessagePack(): array
     {
         return [
-            'fee' => isset($this->fee) ? $this->fee->toInt() : null,
+            'fee' => $this->fee ? $this->fee->toInt() : null,
             'fv' => $this->firstValid->toInt(),
             'lv' => $this->lastValid->toInt(),
-            'note' => $this->note ? new Bin(utf8_encode($this->note)) : null,
-            'snd' => isset($this->sender) ? $this->sender->address : null,
+            'note' => $this->note ? new Bin($this->note) : null,
+            'snd' => $this->sender ? $this->sender->address : null,
             'type' => $this->type,
             'gen' => $this->genesisId,
             'gh' => $this->genesisHash,
             'lx' => $this->lease ? new Bin($this->lease) : null,
             'grp' => $this->group ? new Bin($this->group) : null,
-            'rekey' => isset($this->rekeyTo) ? $this->rekeyTo->address : null,
+            'rekey' => $this->rekeyTo ? $this->rekeyTo->address : null,
         ];
     }
 

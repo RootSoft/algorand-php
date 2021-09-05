@@ -83,14 +83,42 @@ abstract class RawTransactionBuilder
 
     /**
      * Any data up to 1000 bytes.
-     * The note is Base64 encoded.
+     * This is the raw data.
      *
      * @param ?string $note
      * @return $this
      */
-    public function note(?string $note)
+    public function note(?string $note): RawTransactionBuilder
     {
         $this->transaction->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * Any data up to 1000 bytes.
+     * The note should be UTF-8 text.
+     *
+     * @param ?string $note
+     * @return $this
+     */
+    public function noteText(string $note): RawTransactionBuilder
+    {
+        $this->transaction->note = utf8_encode($note);
+
+        return $this;
+    }
+
+    /**
+     * Any data up to 1000 bytes.
+     * The note should be Base64 encoded.
+     *
+     * @param ?string $note
+     * @return $this
+     */
+    public function noteB64(string $note): RawTransactionBuilder
+    {
+        $this->transaction->note = Base64::decode($note);
 
         return $this;
     }
