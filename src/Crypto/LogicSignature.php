@@ -138,7 +138,7 @@ class LogicSignature implements MessagePackable
      * @throws AlgorandException
      * @throws \SodiumException
      */
-    public function sign(Account $account, ?MultiSignatureAddress $multiSignatureAddress = null)
+    public function sign(Account $account, ?MultiSignatureAddress $multiSignatureAddress = null): LogicSignature
     {
         if ($multiSignatureAddress != null) {
             return $this->signLogicSigAsMultiSig($account, $multiSignatureAddress);
@@ -321,9 +321,9 @@ class LogicSignature implements MessagePackable
     public function toMessagePack(): array
     {
         return [
-            'l' => $this->logic,
+            'l' => $this->logic ? new Bin($this->logic) : null,
             'arg' => ! empty($this->arguments) ? array_map(fn ($value) => new Bin($value), $this->arguments) : null,
-            'sig' => isset($this->signature) ? $this->signature->bytes() : null,
+            'sig' => $this->signature ? new Bin($this->signature->bytes()) : null,
             'msig' => $this->multiSignature,
         ];
     }

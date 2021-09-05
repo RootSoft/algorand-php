@@ -11,15 +11,6 @@ use Rootsoft\Algorand\Models\Applications\TEALProgram;
 use Rootsoft\Algorand\Templates\Parameters\ParameterValue;
 use Rootsoft\Algorand\Utils\Buffer;
 
-/**
- * Hash Time Locked Contract allows a user to receive the Algo prior to a deadline (in terms of a round) by proving
- * knowledge of a special value or to forfeit the ability to claim, returning it to the payer.
- *
- * This contract is usually used to perform cross-chained atomic swaps.
- * More formally, algos can be transfered under only two circumstances:
- * 1. To receiver if hash_function(arg_0) = hash_value
- * 2. To owner if txn.FirstValid &gt; expiry_round
- */
 class ContractTemplate
 {
     private Address $address;

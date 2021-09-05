@@ -54,4 +54,13 @@ class CryptoUtils
             $secretKey->getRawKeyMaterial()
         );
     }
+
+    public static function fillBytes(int $value, int $size = 32)
+    {
+        for ($i = 0; $i < $size; $i++) {
+            $common[] = mt_rand(0, 255);
+        }
+
+        return $common;
+    }
 }
