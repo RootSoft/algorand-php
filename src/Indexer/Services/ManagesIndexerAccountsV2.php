@@ -16,7 +16,9 @@ trait ManagesIndexerAccountsV2
     protected function searchAccounts(array $queryParams)
     {
         if (array_key_exists('balance-asset-id', $queryParams)) {
-            return $this->searchAccountForBalances($queryParams['balance-asset-id'], $queryParams);
+            $balanceAssetId = $queryParams['balance-asset-id'];
+            //unset($queryParams['balance-asset-id']);
+            return $this->searchAccountForBalances($balanceAssetId, $queryParams);
         }
 
         $response = $this->get($this->indexerClient, "/v2/accounts", $queryParams);
