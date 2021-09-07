@@ -35,38 +35,4 @@ class MultiSigAddressTest extends TestCase
         $this->assertEquals($msigAddr->toString(), 'UCE2U2JC4O4ZR6W763GUQCG57HQCDZEUJY4J5I6VYY4HQZUJDF7AKZO5GM');
     }
 
-    public function testSignTransactionMultiSig()
-    {
-        $seed1 = Base64::decode('jBtuijiJFPZZsbgAiLSjtgBXPk3YaYmt2EMoScaYDxc=');
-        $seed2 = Base64::decode('Q8Hsu3/xvxm2H4TOOLler94q4TyuiZW+Uy+3T4jbSzI=');
-        $seed3 = Base64::decode('6WX10LQ6BkItrzHS5CgfsZuKrqFGOLNdV8A4FQdpawE=');
-
-        $account1 = Account::seed($seed1);
-        $account2 = Account::seed($seed2);
-        $account3 = Account::seed($seed3);
-
-        $publicKeys = array_map(fn (Account $value) => new Ed25519PublicKey($value->getPublicKey()), [$account1, $account2, $account3]);
-        $msigAddr = new MultiSignatureAddress(1, 2, $publicKeys);
-
-        $params = new TransactionParams();
-        $params->consensusVersion = 'https://github.com/algorandfoundation/specs/tree/65b4ab3266c52c56a0fa7d591754887d68faad0a';
-        $params->fee = 0;
-        $params->genesisId = 'testnet-v1.0';
-        $params->genesisHash = 'SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9';
-        $params->lastRound = 15993578;
-        $params->minFee = 1000;
-
-        $transaction = TransactionBuilder::payment()
-            ->sender($msigAddr->toAddress())
-            ->note('MSA')
-            ->amount(1000000)
-            ->receiver($account3->getAddress())
-            ->suggestedParams($params)
-            ->build();
-        dump($msigAddr->toAddress());
-
-        $signedTx = $msigAddr->sign($account1, $transaction);
-        $completeTx = $msigAddr->append($account2, $signedTx);
-    }
-
 }

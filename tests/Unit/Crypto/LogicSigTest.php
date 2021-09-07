@@ -5,10 +5,13 @@ namespace Rootsoft\Algorand\Tests\Unit\Crypto;
 
 use Orchestra\Testbench\TestCase;
 use Rootsoft\Algorand\Crypto\Ed25519PublicKey;
+use Rootsoft\Algorand\Crypto\Logic;
 use Rootsoft\Algorand\Crypto\LogicSignature;
 use Rootsoft\Algorand\Crypto\MultiSignatureAddress;
+use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Accounts\Address;
+use Rootsoft\Algorand\Utils\Buffer;
 
 class LogicSigTest extends TestCase
 {
@@ -33,6 +36,29 @@ class LogicSigTest extends TestCase
         $verified = $lsig->verify($sender);
         $this->assertTrue($verified);
         $this->assertEquals($lsig->toAddress(), $sender);
+    }
+
+    public function testLogicSigInvalidProgram()
+    {
+        $this->expectException(AlgorandException::class);
+        $program = Buffer::toBinaryString([0x07, 0x20, 0x01, 0x01, 0x22]);
+        $lsig = new LogicSignature($program);
+    }
+
+    public function testLogicSignature()
+    {
+        $program = Buffer::toBinaryString([0x01, 0x20, 0x01, 0x01, 0x22]);
+        $account = Account::random();
+        $lsig = new LogicSignature($program);
+        $lsig = $lsig->sign($account);
+
+        $this->assertEquals($lsig->getLogic(), $program);
+        $this->assertNull($lsig->getArguments());
+        $this->assertNotNull($lsig->getSignature());
+        $this->assertNull($lsig->getMultiSignature());
+
+        $verified = $lsig->verify($account->getAddress());
+        $this->assertTrue($verified);
     }
 
     public function testLogicSigMultiSignature()
