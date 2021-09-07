@@ -10,12 +10,14 @@ use Rootsoft\Algorand\Indexer\Builders\ApplicationQueryBuilder;
 use Rootsoft\Algorand\Indexer\Builders\AssetQueryBuilder;
 use Rootsoft\Algorand\Indexer\Builders\TransactionQueryBuilder;
 use Rootsoft\Algorand\Indexer\Services\ManagesIndexerV2;
+use Rootsoft\Algorand\Services\ManagesBlocksV2;
 use Rootsoft\Algorand\Traits\MakesHttpRequests;
 
 class AlgorandIndexer
 {
     use MakesHttpRequests;
     use ManagesIndexerV2;
+    use ManagesBlocksV2;
 
     /**
      * Client used to perform indexing operations.
