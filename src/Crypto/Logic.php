@@ -154,6 +154,24 @@ class Logic
         $jsonMapper->mapObjectFromString($jsonString, self::$langSpec);
     }
 
+    public static function evalMaxVersion(): int
+    {
+        if (is_null(self::$langSpec)) {
+            self::loadLangSpec();
+        }
+
+        return self::$langSpec->evalMaxVersion;
+    }
+
+    public static function logicSigVersion(): int
+    {
+        if (is_null(self::$langSpec)) {
+            self::loadLangSpec();
+        }
+
+        return self::$langSpec->logicSigVersion;
+    }
+
     /**
      * Given a varint, get the integer value
      *
@@ -204,6 +222,7 @@ class Logic
         }
 
         $buffer[] = $value & 0xFF;
+
         return $buffer;
     }
 
@@ -278,7 +297,7 @@ class Logic
 
         $size += $result->getLength();
 
-        return new IntConstBlock($size, [$result]);
+        return new IntConstBlock($size, [$result->getValue()]);
     }
 
     public static function readPushByteOp(array $buffer, int $pc) :ByteConstBlock
@@ -303,8 +322,8 @@ class Logic
 
 class LangSpec
 {
-    public int $evalMaxVersion;
-    public int $logicSignVersion;
+    public int $evalMaxVersion = 0;
+    public int $logicSigVersion = 0;
 
     /**
      * @var Operation[]
