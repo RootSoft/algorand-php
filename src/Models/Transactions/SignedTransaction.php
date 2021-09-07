@@ -109,11 +109,13 @@ class SignedTransaction implements MessagePackable
      * Export the (encoded) transaction.
      *
      * @param $fileName
+     * @return int|false The function returns the number of bytes that were written to the file, or
+     * false on failure.
      */
     public function export($fileName)
     {
         $data = Encoder::getInstance()->encodeMessagePack($this->toMessagePack());
-        file_put_contents($fileName, $data);
+        return file_put_contents($fileName, $data);
     }
 
     /**
