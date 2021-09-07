@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/laravel
 # Edit at https://www.toptal.com/developers/gitignore?templates=laravel
 
+### General ###
+.idea/
+
 ### Algorand ###
 /transactions/
 .php_cs.cache

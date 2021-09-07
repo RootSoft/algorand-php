@@ -17,15 +17,15 @@ abstract class AlgorandClient
 
     /**
      * The API Key
-     * @var string
+     * @var string|null
      */
-    private string $apiKey;
+    private ?string $apiKey;
 
     /**
      * The token header key to be used.
-     * @var string
+     * @var string|null
      */
-    private string $tokenKey;
+    private ?string $tokenKey;
 
     /**
      * Number of seconds describing the total timeout of the request in seconds.
@@ -49,11 +49,11 @@ abstract class AlgorandClient
      * AlgorandClient constructor.
      *
      * @param string $apiUrl
-     * @param string $apiKey
-     * @param string $tokenKey
+     * @param string|null $apiKey
+     * @param string|null $tokenKey
      * @param int $timeout
      */
-    public function __construct(string $apiUrl, string $apiKey, string $tokenKey, int $timeout = 0)
+    public function __construct(string $apiUrl, ?string $apiKey = null, ?string $tokenKey = null, int $timeout = 0)
     {
         $this->apiUrl = $apiUrl;
         $this->apiKey = $apiKey;
@@ -66,10 +66,10 @@ abstract class AlgorandClient
     /**
      * Set the api key and setup the Guzzle client.
      *
-     * @param string $apiKey
+     * @param string|null $apiKey
      * @return $this
      */
-    public function setApiKey(string $apiKey)
+    public function setApiKey(?string $apiKey): AlgorandClient
     {
         $this->apiKey = $apiKey;
 

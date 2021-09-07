@@ -26,7 +26,7 @@ class AlgodClient extends AlgorandClient
      * @param string $tokenKey
      * @param int $timeout
      */
-    public function __construct(string $algodApiUrl, string $apiKey, string $tokenKey = self::ALGOD_API_TOKEN, int $timeout = 0)
+    public function __construct(string $algodApiUrl, ?string $apiKey = null, string $tokenKey = self::ALGOD_API_TOKEN, int $timeout = 0)
     {
         parent::__construct($algodApiUrl, $apiKey, $tokenKey, $timeout);
     }

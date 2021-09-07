@@ -28,7 +28,7 @@ class IndexerClient extends AlgorandClient
      * @param string $tokenKey
      * @param int $timeout
      */
-    public function __construct(string $indexerUrl, string $apiKey, string $tokenKey = self::INDEXER_API_TOKEN, int $timeout = 0)
+    public function __construct(string $indexerUrl, ?string $apiKey = null, string $tokenKey = self::INDEXER_API_TOKEN, int $timeout = 0)
     {
         parent::__construct($indexerUrl, $apiKey, $tokenKey, $timeout);
     }
