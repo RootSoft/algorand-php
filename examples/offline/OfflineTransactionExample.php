@@ -8,6 +8,8 @@ use Rootsoft\Algorand\Clients\IndexerClient;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Models\Transactions\Builders\TransactionBuilder;
+use Rootsoft\Algorand\Models\Transactions\SignedTransaction;
+use Rootsoft\Algorand\Utils\Encoder;
 
 class OfflineTransactionExample
 {
@@ -25,9 +27,15 @@ class OfflineTransactionExample
         // Export the transaction
         self::exportTransaction($algorand, $account, 'signed.txn');
 
-        // TODO Import the transaction
+        // Import the transaction
+        $signedTx = self::importTransaction('signed.txn');
 
-        // TODO Broadcast the imported transaction
+        // Broadcast the imported transaction
+        $txId = $algorand->sendTransaction($signedTx);
+        prettyPrint('Transaction id: ' . $txId);
+        prettyPrint('Waiting for confirmation');
+        $response = $algorand->waitForConfirmation($txId);
+        prettyPrint('Transaction confirmed in round ' . $response->confirmedRound);
     }
 
     public static function exportTransaction(Algorand $algorand, Account $account, string $fileName)
@@ -53,9 +61,16 @@ class OfflineTransactionExample
         $signedTx->export($fileName);
     }
 
-    public static function importTransaction()
+    public static function importTransaction(string $fileName) : SignedTransaction
     {
-        // TODO Implement messagepack decoding
+        // Import the transaction
+        $data = file_get_contents($fileName);
+
+        // Decode the messagepack to a signed transaction
+        /** @var SignedTransaction $signedTx */
+        $signedTx = Encoder::getInstance()->decodeMessagePack($data, SignedTransaction::class);
+
+        return $signedTx;
     }
 }
 
