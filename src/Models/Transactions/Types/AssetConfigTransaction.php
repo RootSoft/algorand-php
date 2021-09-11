@@ -4,9 +4,9 @@
 namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Brick\Math\BigInteger;
+use MessagePack\Type\Bin;
 use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Models\Transactions\RawTransaction;
-use Rootsoft\Algorand\Utils\AlgorandUtils;
 
 class AssetConfigTransaction extends RawTransaction
 {
@@ -78,7 +78,7 @@ class AssetConfigTransaction extends RawTransaction
      *
      * @var string|null
      */
-    public ?string $metaDataHash = null;
+    public ?string $metaData = null;
 
     /**
      * The address of the account that can manage the configuration of the asset and destroy it.
@@ -135,7 +135,7 @@ class AssetConfigTransaction extends RawTransaction
             'un' => $this->unitName,
             'an' => $this->assetName,
             'au' => $this->url,
-            'am' => $this->metaDataHash,
+            'am' => new Bin($this->metaData),
             'm' => $this->managerAddress->address ?? null,
             'r' => $this->reserveAddress->address ?? null,
             'f' => $this->freezeAddress->address ?? null,
