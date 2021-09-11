@@ -66,7 +66,7 @@ class AccountTest extends TestCase
 
     public function testToMnemonic()
     {
-        $words = 'actress tongue harbor tray suspect odor load topple vocal avoid ignore apple lunch unknown tissue museum once switch captain place lemon sail outdoor absent creek';
+        $words = 'tongue tongue harbor tray suspect odor load topple vocal avoid ignore apple lunch unknown tissue museum once switch captain place lemon sail outdoor absent creek';
         $account = Account::mnemonic($words);
         $seedphrase = $account->getSeedPhrase();
         $this->assertEquals($seedphrase->words, explode(' ', $words));
