@@ -28,7 +28,7 @@ class KeyRegistrationTransactionBuilder extends RawTransactionBuilder
      * @param ParticipationPublicKey|null $votePublicKey
      * @return $this
      */
-    public function votePublicKey(?ParticipationPublicKey $votePublicKey)
+    public function votePublicKey(?ParticipationPublicKey $votePublicKey): KeyRegistrationTransactionBuilder
     {
         $this->keyRegTransacion->votePK = $votePublicKey;
 
@@ -41,7 +41,7 @@ class KeyRegistrationTransactionBuilder extends RawTransactionBuilder
      * @param VRFPublicKey|null $selectionPublicKey
      * @return $this
      */
-    public function selectionPublicKey(?VRFPublicKey $selectionPublicKey)
+    public function selectionPublicKey(?VRFPublicKey $selectionPublicKey): KeyRegistrationTransactionBuilder
     {
         $this->keyRegTransacion->selectionPK = $selectionPublicKey;
 
@@ -55,7 +55,7 @@ class KeyRegistrationTransactionBuilder extends RawTransactionBuilder
      * @param int|null $voteFirst
      * @return $this
      */
-    public function voteFirst(?int $voteFirst)
+    public function voteFirst(?int $voteFirst): KeyRegistrationTransactionBuilder
     {
         $this->keyRegTransacion->voteFirst = $voteFirst;
 
@@ -69,7 +69,7 @@ class KeyRegistrationTransactionBuilder extends RawTransactionBuilder
      * @param int|null $voteLast
      * @return $this
      */
-    public function voteLast(?int $voteLast)
+    public function voteLast(?int $voteLast): KeyRegistrationTransactionBuilder
     {
         $this->keyRegTransacion->voteLast = $voteLast;
 
@@ -82,7 +82,7 @@ class KeyRegistrationTransactionBuilder extends RawTransactionBuilder
      * @param int|null $dilution
      * @return $this
      */
-    public function voteKeyDilution(?int $dilution)
+    public function voteKeyDilution(?int $dilution): KeyRegistrationTransactionBuilder
     {
         $this->keyRegTransacion->voteKeyDilution = $dilution;
 

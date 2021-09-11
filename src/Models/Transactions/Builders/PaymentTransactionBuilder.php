@@ -29,28 +29,13 @@ class PaymentTransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     * Specifies the authorized address. This address will be used to authorize all future transactions.
-     * Rekeying is a powerful protocol feature which enables an Algorand account holder to maintain a static public
-     * address while dynamically rotating the authoritative private spending key(s).
-     *
-     * @param Address $receiver
-     * @return $this
-     */
-    public function rekeyTo(Address $address)
-    {
-        $this->paymentTransaction->rekeyTo = $address;
-
-        return $this;
-    }
-
-    /**
      * When set, it indicates that the transaction is requesting that the Sender account should be closed, and all
      * remaining funds, after the fee and amount are paid, be transferred to this address.
      *
-     * @param Address $closeRemainderTo
+     * @param Address|null $closeRemainderTo
      * @return $this
      */
-    public function closeRemainderTo(Address $closeRemainderTo)
+    public function closeRemainderTo(?Address $closeRemainderTo): PaymentTransactionBuilder
     {
         $this->paymentTransaction->closeRemainderTo = $closeRemainderTo;
 
@@ -60,10 +45,10 @@ class PaymentTransactionBuilder extends RawTransactionBuilder
     /**
      * The address of the account that receives the amount.
      *
-     * @param Address $receiver
+     * @param Address|null $receiver
      * @return $this
      */
-    public function receiver(Address $receiver)
+    public function receiver(?Address $receiver): PaymentTransactionBuilder
     {
         $this->paymentTransaction->receiver = $receiver;
 
@@ -75,10 +60,10 @@ class PaymentTransactionBuilder extends RawTransactionBuilder
      * Amounts are returned in microAlgos - the base unit for Algos.
      * Micro denotes a unit x 10^-6. Therefore, 1 Algo equals 1,000,000 microAlgos.
      *
-     * @param int $amount
+     * @param int|null $amount
      * @return $this
      */
-    public function amount(int $amount)
+    public function amount(?int $amount): PaymentTransactionBuilder
     {
         $this->paymentTransaction->amount = BigInteger::of($amount);
 
@@ -90,10 +75,10 @@ class PaymentTransactionBuilder extends RawTransactionBuilder
      * Amounts are returned in microAlgos - the base unit for Algos.
      * Micro denotes a unit x 10^-6. Therefore, 1 Algo equals 1,000,000 microAlgos.
      *
-     * @param int $amount
+     * @param BigInteger $amount
      * @return $this
      */
-    public function bigAmount(BigInteger $amount)
+    public function bigAmount(BigInteger $amount): PaymentTransactionBuilder
     {
         $this->paymentTransaction->amount = $amount;
 

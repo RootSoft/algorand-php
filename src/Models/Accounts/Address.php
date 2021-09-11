@@ -52,11 +52,11 @@ class Address
     /**
      * Create a new Address from a given Public Key.
      *
-     * @param string $publicKey
+     * @param string|null $publicKey
      * @return Address
      * @throws SodiumException
      */
-    public static function fromPublicKey(string $publicKey)
+    public static function fromPublicKey(?string $publicKey)
     {
         $instance = new self($publicKey);
         $instance->encodedAddress = self::encodeAddress($publicKey);

@@ -4,9 +4,19 @@
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Rootsoft\Algorand\Models\Applications\OnCompletion;
+use Rootsoft\Algorand\Models\Transactions\TransactionType;
 
 class TransactionBuilder extends RawTransactionBuilder
 {
+
+    /**
+     *
+     * @return RawTransactionBuilder
+     */
+    public static function raw()
+    {
+        return new RawTransactionBuilder(TransactionType::RAW());
+    }
 
     /**
      *
@@ -79,6 +89,15 @@ class TransactionBuilder extends RawTransactionBuilder
     public static function applicationOptIn()
     {
         return new ApplicationBaseTransactionBuilder(null, OnCompletion::OPT_IN_OC());
+    }
+
+    /**
+     *
+     * @return ApplicationBaseTransactionBuilder
+     */
+    public static function applicationBase()
+    {
+        return new ApplicationBaseTransactionBuilder();
     }
 
     /**

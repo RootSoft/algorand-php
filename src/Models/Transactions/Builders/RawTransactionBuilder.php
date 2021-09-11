@@ -20,7 +20,7 @@ use Rootsoft\Algorand\Utils\AlgorandUtils;
  * Class RawTransactionBuilder
  * @package Rootsoft\Algorand\Models\Transactions\Builders
  */
-abstract class RawTransactionBuilder
+class RawTransactionBuilder
 {
 
     /**
@@ -69,12 +69,35 @@ abstract class RawTransactionBuilder
     }
 
     /**
-     * The address of the account that pays the fee and amount.
+     * Append and overwrite an existing transaction to this one.
      *
-     * @param Address $sender
+     * @param RawTransaction $transaction
      * @return $this
      */
-    public function sender(Address $sender)
+    public function append(RawTransaction $transaction): RawTransactionBuilder
+    {
+        $this->type($transaction->type);
+        $this->flatFee($transaction->getFee()->toInt());
+        $this->firstValid($transaction->firstValid->toInt());
+        $this->lastValid($transaction->lastValid->toInt());
+        $this->note($transaction->note);
+        $this->sender($transaction->sender);
+        $this->genesisId($transaction->genesisId);
+        $this->genesisHash($transaction->genesisHash);
+        $this->lease($transaction->lease);
+        $this->group($transaction->group);
+        $this->rekeyTo($transaction->rekeyTo);
+
+        return $this;
+    }
+
+    /**
+     * The address of the account that pays the fee and amount.
+     *
+     * @param Address|null $sender
+     * @return $this
+     */
+    public function sender(?Address $sender)
     {
         $this->transaction->sender = $sender;
 
@@ -132,7 +155,7 @@ abstract class RawTransactionBuilder
      * @param int $fee
      * @return $this
      */
-    public function suggestedFeePerByte(int $fee)
+    public function suggestedFeePerByte(int $fee): RawTransactionBuilder
     {
         $this->suggestedFeePerByte = BigInteger::of($fee);
 
@@ -144,11 +167,15 @@ abstract class RawTransactionBuilder
      * This value will be used for the transaction fee, or 1000, whichever is higher.
      * This field cannot be combined with fee.
      *
-     * @param int $fee
+     * @param int|null $fee
      * @return $this
      */
-    public function flatFee(int $fee)
+    public function flatFee(?int $fee): RawTransactionBuilder
     {
+        if ($fee == null) {
+            return $this;
+        }
+
         $this->flatFee = BigInteger::of($fee);
 
         return $this;
@@ -159,10 +186,10 @@ abstract class RawTransactionBuilder
      * If the transaction is sent prior to this round it will be rejected by the network.
      *
      *
+     * @param int|null $firstValid
      * @return RawTransactionBuilder
-     * @var int
      */
-    public function firstValid(int $firstValid)
+    public function firstValid(?int $firstValid): RawTransactionBuilder
     {
         $this->transaction->firstValid = BigInteger::of($firstValid);
 
@@ -174,10 +201,10 @@ abstract class RawTransactionBuilder
      * After this round, the transaction will be rejected by the network.
      *
      *
+     * @param int|null $lastValid
      * @return RawTransactionBuilder
-     * @var int
      */
-    public function lastValid(int $lastValid)
+    public function lastValid(?int $lastValid): RawTransactionBuilder
     {
         $this->transaction->lastValid = BigInteger::of($lastValid);
 
@@ -190,10 +217,10 @@ abstract class RawTransactionBuilder
      *
      * See the genesis ID for MainNet, TestNet, and BetaNet.
      *
+     * @param string|null $genesisId
      * @return RawTransactionBuilder
-     * @var string
      */
-    public function genesisId(string $genesisId): RawTransactionBuilder
+    public function genesisId(?string $genesisId): RawTransactionBuilder
     {
         $this->transaction->genesisId = $genesisId;
 
@@ -204,10 +231,10 @@ abstract class RawTransactionBuilder
      * The hash of the genesis block of the network for which the transaction is valid.
      * See the genesis hash for MainNet, TestNet, and BetaNet.
      *
-     * @param string $genesisHash
+     * @param string|null $genesisHash
      * @return RawTransactionBuilder
      */
-    public function genesisHash(string $genesisHash): RawTransactionBuilder
+    public function genesisHash(?string $genesisHash): RawTransactionBuilder
     {
         $this->transaction->genesisHash = $genesisHash;
 
@@ -241,10 +268,10 @@ abstract class RawTransactionBuilder
      *
      * Leases can also be used to safeguard against unintended duplicate spends.
      *
-     * @param string $lease
+     * @param string|null $lease
      * @return RawTransactionBuilder
      */
-    public function lease(string $lease): RawTransactionBuilder
+    public function lease(?string $lease): RawTransactionBuilder
     {
         $this->transaction->lease = $lease;
 
@@ -270,6 +297,52 @@ abstract class RawTransactionBuilder
     public function leaseB64(string $lease): RawTransactionBuilder
     {
         $this->transaction->lease = Base64::decode($lease);
+
+        return $this;
+    }
+
+    /**
+     * The group specifies that the transaction is part of a group and, if so,
+     * specifies the hash of the transaction group.
+     *
+     * Assign a group ID to a transaction through the workflow described in the Atomic Transfers Guide.
+     *
+     *
+     * @param string|null $group
+     * @return RawTransactionBuilder
+     */
+    public function group(?string $group): RawTransactionBuilder
+    {
+        $this->transaction->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Specifies the type of transaction.
+     * This value is automatically generated using any of the developer tools.
+     *
+     * @param string|null $type
+     * @return RawTransactionBuilder
+     */
+    public function type(?string $type): RawTransactionBuilder
+    {
+        $this->transaction->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Specifies the authorized address. This address will be used to authorize all future transactions.
+     * Rekeying is a powerful protocol feature which enables an Algorand account holder to maintain a static public
+     * address while dynamically rotating the authoritative private spending key(s).
+     *
+     * @param Address|null $address
+     * @return $this
+     */
+    public function rekeyTo(?Address $address): RawTransactionBuilder
+    {
+        $this->transaction->rekeyTo = $address;
 
         return $this;
     }

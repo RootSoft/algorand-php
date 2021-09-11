@@ -4,6 +4,7 @@
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Brick\Math\BigInteger;
+use ParagonIE\ConstantTime\Base64;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Models\Transactions\TransactionType;
@@ -28,10 +29,10 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * For re-configure or destroy transactions, this is the unique asset ID.
      * On asset creation, the ID is set to zero.
      *
-     * @param BigInteger $assetId
+     * @param BigInteger|null $assetId
      * @return $this
      */
-    public function assetId(BigInteger $assetId)
+    public function assetId(?BigInteger $assetId): AssetConfigTransactionBuilder
     {
         $this->assetTransaction->assetId = $assetId;
 
@@ -41,11 +42,11 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
     /**
      * The total number of base units of the asset to create. This number cannot be changed.
      *
-     * @param BigInteger $total
-     * @required on creation
+     * @param BigInteger|null $total
      * @return $this
+     * @required on creation
      */
-    public function totalAssetsToCreate(BigInteger $total)
+    public function totalAssetsToCreate(?BigInteger $total): AssetConfigTransactionBuilder
     {
         $this->assetTransaction->total = $total;
 
@@ -58,11 +59,11 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * If 1, the base unit of the asset is in tenths.
      * If 2, the base unit of the asset is in hundredths.
      *
-     * @param int $decimals
-     * @required on creation
+     * @param int|null $decimals
      * @return $this
+     * @required on creation
      */
-    public function decimals(int $decimals)
+    public function decimals(?int $decimals): AssetConfigTransactionBuilder
     {
         $this->assetTransaction->decimals = $decimals;
 
@@ -72,10 +73,10 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
     /**
      * True to freeze holdings for this asset by default.
      *
-     * @param bool $defaultFrozen
+     * @param bool|null $defaultFrozen
      * @return $this
      */
-    public function defaultFrozen(bool $defaultFrozen)
+    public function defaultFrozen(?bool $defaultFrozen): AssetConfigTransactionBuilder
     {
         $this->assetTransaction->defaultFrozen = $defaultFrozen;
 
@@ -85,10 +86,10 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
     /**
      * The name of a unit of this asset. Supplied on creation. Example: USDT
      *
-     * @param string
+     * @param string|null $unitName
      * @return $this
      */
-    public function unitName(string $unitName)
+    public function unitName(?string $unitName): AssetConfigTransactionBuilder
     {
         $this->assetTransaction->unitName = $unitName;
 
@@ -98,10 +99,10 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
     /**
      * The name of the asset. Supplied on creation. Example: Tether
      *
-     * @param string $assetName
+     * @param string|null $assetName
      * @return $this
      */
-    public function assetName(string $assetName)
+    public function assetName(?string $assetName): AssetConfigTransactionBuilder
     {
         $this->assetTransaction->assetName = $assetName;
 
@@ -111,10 +112,10 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
     /**
      * Specifies a URL where more information about the asset can be retrieved. Max size is 32 bytes.
      *
-     * @param string $url
+     * @param string|null $url
      * @return $this
      */
-    public function url(string $url)
+    public function url(?string $url): AssetConfigTransactionBuilder
     {
         $this->assetTransaction->url = $url;
 
@@ -128,12 +129,46 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      *
      * An example might be the hash of some certificate that acknowledges the digitized asset as the official representation of a particular real-world asset.
      *
-     * @param string $metaData
+     * @param string|null $data
      * @return $this
      */
-    public function metaDataHash(string $metaData)
+    public function metadata(?string $data): AssetConfigTransactionBuilder
     {
-        $this->assetTransaction->metaDataHash = $metaData;
+        $this->assetTransaction->metaData = $data;
+
+        return $this;
+    }
+
+    /**
+     * This field is intended to be a 32-byte hash of some metadata that is relevant to your asset and/or asset holders.
+     * The format of this metadata is up to the application.
+     * This field can only be specified upon creation.
+     *
+     * An example might be the hash of some certificate that acknowledges the digitized asset as the official representation of a particular real-world asset.
+     *
+     * @param string $data
+     * @return $this
+     */
+    public function metadataText(string $data)
+    {
+        $this->assetTransaction->metaData = utf8_encode($data);
+
+        return $this;
+    }
+
+    /**
+     * This field is intended to be a 32-byte hash of some metadata that is relevant to your asset and/or asset holders.
+     * The format of this metadata is up to the application.
+     * This field can only be specified upon creation.
+     *
+     * An example might be the hash of some certificate that acknowledges the digitized asset as the official representation of a particular real-world asset.
+     *
+     * @param string $data
+     * @return $this
+     */
+    public function metadataB64(string $data)
+    {
+        $this->assetTransaction->metaData = Base64::decode($data);
 
         return $this;
     }
@@ -144,7 +179,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function managerAddress(?Address $address)
+    public function managerAddress(?Address $address): AssetConfigTransactionBuilder
     {
         $this->assetTransaction->managerAddress = $address;
 
@@ -161,7 +196,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function reserveAddress(?Address $address)
+    public function reserveAddress(?Address $address): AssetConfigTransactionBuilder
     {
         $this->assetTransaction->reserveAddress = $address;
 
@@ -175,7 +210,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function freezeAddress(?Address $address)
+    public function freezeAddress(?Address $address): AssetConfigTransactionBuilder
     {
         $this->assetTransaction->freezeAddress = $address;
 
@@ -189,7 +224,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function clawbackAddress(?Address $address)
+    public function clawbackAddress(?Address $address): AssetConfigTransactionBuilder
     {
         $this->assetTransaction->clawbackAddress = $address;
 
@@ -203,7 +238,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      *
      * @return AssetConfigTransaction
      */
-    public function destroy()
+    public function destroy(): AssetConfigTransaction
     {
         $this->assetTransaction->destroy = true;
 

@@ -3,6 +3,7 @@
 
 namespace Rootsoft\Algorand\Models\Transactions;
 
+use MessagePack\Type\Bin;
 use ParagonIE\ConstantTime\Base64;
 use Rootsoft\Algorand\Crypto\LogicSignature;
 use Rootsoft\Algorand\Crypto\MultiSignature;
@@ -128,9 +129,9 @@ class SignedTransaction implements MessagePackable
 
     /**
      * Set the auth address.
-     * @param Address $authAddr
+     * @param Address|null $authAddr
      */
-    public function setAuthAddr(Address $authAddr)
+    public function setAuthAddr(?Address $authAddr)
     {
         $this->authAddr = $authAddr;
     }
@@ -170,8 +171,8 @@ class SignedTransaction implements MessagePackable
     public function toMessagePack(): array
     {
         return [
-            'sgnr' => isset($this->authAddr) ? $this->authAddr->address : null,
-            'sig' => isset($this->signature) ? $this->signature->bytes() : null,
+            'sgnr' => $this->authAddr ? $this->authAddr->address : null,
+            'sig' => $this->signature ? new Bin($this->signature->bytes()) : null,
             'txn' => $this->transaction->toMessagePack(),
             'lsig' => $this->logicSignature,
             'msig' => $this->multiSignature,

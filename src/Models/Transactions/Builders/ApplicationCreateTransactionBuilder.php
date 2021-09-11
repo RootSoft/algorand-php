@@ -24,10 +24,10 @@ class ApplicationCreateTransactionBuilder extends ApplicationUpdateTransactionBu
     /**
      * Holds the maximum number of local state values defined within aStateSchema object.
      *
-     * @param StateSchema $localStateSchema
+     * @param StateSchema|null $localStateSchema
      * @return $this
      */
-    public function localStateSchema(StateSchema $localStateSchema): ApplicationCreateTransactionBuilder
+    public function localStateSchema(?StateSchema $localStateSchema): ApplicationCreateTransactionBuilder
     {
         $this->applicationTransaction->localStateSchema = $localStateSchema;
 
@@ -37,10 +37,10 @@ class ApplicationCreateTransactionBuilder extends ApplicationUpdateTransactionBu
     /**
      * Holds the maximum number of global state values defined within aStateSchema object.
      *
-     * @param StateSchema $globalStateSchema
+     * @param StateSchema|null $globalStateSchema
      * @return $this
      */
-    public function globalStateSchema(StateSchema $globalStateSchema): ApplicationCreateTransactionBuilder
+    public function globalStateSchema(?StateSchema $globalStateSchema): ApplicationCreateTransactionBuilder
     {
         $this->applicationTransaction->globalStateSchema = $globalStateSchema;
 
@@ -53,10 +53,10 @@ class ApplicationCreateTransactionBuilder extends ApplicationUpdateTransactionBu
      *
      * The sum of ApprovalProgram and ClearStateProgram may not exceed 2048*(1+ExtraProgramPages) bytes.
      *
-     * @param int $extraPages
-     * @return ApplicationUpdateTransactionBuilder
+     * @param int|null $extraPages
+     * @return ApplicationCreateTransactionBuilder
      */
-    public function extraPages(int $extraPages): ApplicationCreateTransactionBuilder
+    public function extraPages(?int $extraPages): ApplicationCreateTransactionBuilder
     {
         $this->applicationTransaction->extraPages = $extraPages;
 

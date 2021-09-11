@@ -6,8 +6,8 @@ namespace Rootsoft\Algorand\Models\Transactions\Builders;
 use Brick\Math\BigInteger;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Address;
-use Rootsoft\Algorand\Models\Transactions\Types\AssetFreezeTransaction;
 use Rootsoft\Algorand\Models\Transactions\TransactionType;
+use Rootsoft\Algorand\Models\Transactions\Types\AssetFreezeTransaction;
 
 class AssetFreezeTransactionBuilder extends RawTransactionBuilder
 {
@@ -25,10 +25,10 @@ class AssetFreezeTransactionBuilder extends RawTransactionBuilder
     /**
      * The ID of the asset being frozen or unfrozen.
      *
-     * @param BigInteger $assetId
+     * @param BigInteger|null $assetId
      * @return $this
      */
-    public function assetId(BigInteger $assetId)
+    public function assetId(?BigInteger $assetId): AssetFreezeTransactionBuilder
     {
         $this->assetTransaction->assetId = $assetId;
 
@@ -38,10 +38,10 @@ class AssetFreezeTransactionBuilder extends RawTransactionBuilder
     /**
      * The address of the account whose asset is being frozen or unfrozen.
      *
-     * @param Address $address
+     * @param Address|null $address
      * @return $this
      */
-    public function freezeTarget(Address $address)
+    public function freezeTarget(?Address $address): AssetFreezeTransactionBuilder
     {
         $this->assetTransaction->freezeAddress = $address;
 
@@ -51,10 +51,10 @@ class AssetFreezeTransactionBuilder extends RawTransactionBuilder
     /**
      * True to freeze the asset.
      *
-     * @param bool $freeze
+     * @param bool|null $freeze
      * @return $this
      */
-    public function freeze(bool $freeze)
+    public function freeze(?bool $freeze): AssetFreezeTransactionBuilder
     {
         $this->assetTransaction->freeze = $freeze;
 
