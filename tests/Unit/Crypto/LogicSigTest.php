@@ -5,7 +5,6 @@ namespace Rootsoft\Algorand\Tests\Unit\Crypto;
 
 use Orchestra\Testbench\TestCase;
 use Rootsoft\Algorand\Crypto\Ed25519PublicKey;
-use Rootsoft\Algorand\Crypto\Logic;
 use Rootsoft\Algorand\Crypto\LogicSignature;
 use Rootsoft\Algorand\Crypto\MultiSignatureAddress;
 use Rootsoft\Algorand\Exceptions\AlgorandException;

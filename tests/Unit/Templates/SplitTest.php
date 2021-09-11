@@ -7,7 +7,6 @@ use Orchestra\Testbench\TestCase;
 use ParagonIE\ConstantTime\Base64;
 use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Templates\Split;
-use Rootsoft\Algorand\Utils\Buffer;
 
 class SplitTest extends TestCase
 {

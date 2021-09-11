@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Rootsoft\Algorand\Tests\Unit\Crypto;
+namespace Rootsoft\Algorand\Tests\Unit\Teal;
 
 use Orchestra\Testbench\TestCase;
 use ParagonIE\ConstantTime\Base64;
