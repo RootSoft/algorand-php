@@ -6,7 +6,19 @@ namespace Rootsoft\Algorand\Utils;
 use MessagePack\BufferUnpacker;
 use MessagePack\Packer;
 use MessagePack\TypeTransformer\BinTransformer;
+use Rootsoft\Algorand\Utils\Transformers\ApplicationBaseTransformer;
+use Rootsoft\Algorand\Utils\Transformers\ApplicationCreateTransformer;
+use Rootsoft\Algorand\Utils\Transformers\ApplicationTransformer;
+use Rootsoft\Algorand\Utils\Transformers\ApplicationUpdateTransformer;
+use Rootsoft\Algorand\Utils\Transformers\AssetConfigTransformer;
+use Rootsoft\Algorand\Utils\Transformers\AssetFreezeTransformer;
+use Rootsoft\Algorand\Utils\Transformers\AssetTransferTransformer;
+use Rootsoft\Algorand\Utils\Transformers\BaseTransactionTransformer;
+use Rootsoft\Algorand\Utils\Transformers\KeyRegistrationTransformer;
+use Rootsoft\Algorand\Utils\Transformers\LogicSignatureTransformer;
+use Rootsoft\Algorand\Utils\Transformers\PaymentTransactionTransformer;
 use Rootsoft\Algorand\Utils\Transformers\SignedTransactionTransformer;
+use Rootsoft\Algorand\Utils\Transformers\TransformerFactory;
 
 class Encoder
 {
@@ -24,10 +36,26 @@ class Encoder
 
     public BufferUnpacker $unpacker;
 
+    public TransformerFactory $transformerFactory;
+
     private function __construct()
     {
         $this->packer = new Packer(null, [new BinTransformer(), new SignedTransactionTransformer()]);
         $this->unpacker = new BufferUnpacker();
+        $this->transformerFactory = new TransformerFactory($this->unpacker);
+        $this->transformerFactory->registerTransformer(new BaseTransactionTransformer());
+        $this->transformerFactory->registerTransformer(new SignedTransactionTransformer($this->transformerFactory));
+        $this->transformerFactory->registerTransformer(new PaymentTransactionTransformer());
+        $this->transformerFactory->registerTransformer(new AssetConfigTransformer());
+        $this->transformerFactory->registerTransformer(new AssetTransferTransformer());
+        $this->transformerFactory->registerTransformer(new AssetFreezeTransformer());
+        $this->transformerFactory->registerTransformer(new KeyRegistrationTransformer());
+
+        $this->transformerFactory->registerTransformer(new ApplicationTransformer());
+        $this->transformerFactory->registerTransformer(new ApplicationUpdateTransformer());
+        $this->transformerFactory->registerTransformer(new ApplicationCreateTransformer());
+
+        $this->transformerFactory->registerTransformer(new LogicSignatureTransformer());
     }
 
     public static function getInstance()
@@ -66,11 +94,17 @@ class Encoder
         return AlgorandUtils::algorand_array_clean($sanitizedMap);
     }
 
-    public function decodeMessagePack(string $data)
+    /**
+     * Decode a binary MessagePack string into the class object.
+     * @param string $data
+     * @param string $class
+     * @return mixed
+     */
+    public function decodeMessagePack(string $data, string $className)
     {
-        $this->unpacker->reset($data);
-        $value = $this->unpacker->unpack();
-        dd($value);
+        $data = $this->transformerFactory->transform($data, $className);
+
+        return $data;
     }
 
     public function packer()
