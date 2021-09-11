@@ -3,6 +3,7 @@
 
 namespace Rootsoft\Algorand\Models\Transactions\Types;
 
+use MessagePack\Type\Bin;
 use Rootsoft\Algorand\Models\Keys\ParticipationPublicKey;
 use Rootsoft\Algorand\Models\Keys\VRFPublicKey;
 use Rootsoft\Algorand\Models\Transactions\RawTransaction;
@@ -50,8 +51,8 @@ class KeyRegistrationTransaction extends RawTransaction
     public function toMessagePack(): array
     {
         $fields = parent::toMessagePack();
-        $fields['votekey'] = $this->votePK != null ? $this->votePK->getBytes() : null;
-        $fields['selkey'] = $this->selectionPK != null ? $this->selectionPK->getBytes() : null;
+        $fields['votekey'] = $this->votePK != null ? new Bin($this->votePK->getBytes()) : null;
+        $fields['selkey'] = $this->selectionPK != null ? new Bin($this->selectionPK->getBytes()) : null;
         $fields['votefst'] = $this->voteFirst;
         $fields['votelst'] = $this->voteLast;
         $fields['votekd'] = $this->voteKeyDilution;
