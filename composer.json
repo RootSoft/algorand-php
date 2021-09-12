@@ -19,15 +19,16 @@
     "require": {
         "php": "^7.4|^8.0",
         "ext-json": "*",
+        "brick/math": "^0.9.3",
         "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^1.8.2",
         "illuminate/container": "~5.0|^6.0|^7.0|^8.0",
         "illuminate/support": "~5.0|^6.0|^7.0|^8.0",
         "json-mapper/json-mapper": "^2.3",
         "myclabs/php-enum": "^1.8",
         "paragonie/constant_time_encoding": "^2.4",
         "paragonie/halite": "^4",
-        "rybakit/msgpack": "^0.7.2",
-        "brick/math": "^0.9.3"
+        "rybakit/msgpack": "^0.7.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.18",

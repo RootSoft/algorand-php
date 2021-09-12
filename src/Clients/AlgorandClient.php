@@ -132,4 +132,5 @@ abstract class AlgorandClient
     {
         return $this->version;
     }
+
 }
