@@ -1,5 +1,6 @@
 <?php
-require_once('../../vendor/autoload.php');
+
+require_once '../../vendor/autoload.php';
 
 use Brick\Math\BigInteger;
 use Rootsoft\Algorand\Algorand;
@@ -20,7 +21,7 @@ class ContractAccountExample
         $algorand = new Algorand($algodClient, $indexerClient);
 
         $account = Account::mnemonic('year crumble opinion local grid injury rug happy away castle minimum bitter upon romance federal entire rookie net fabric soft comic trouble business above talent');
-        prettyPrint("Account: " . $account->getPublicAddress());
+        prettyPrint('Account: ' . $account->getPublicAddress());
 
         // Compile TEAL
         prettyPrint('Compiling TEAL code');

@@ -1,5 +1,6 @@
 <?php
-require_once('../../vendor/autoload.php');
+
+require_once '../../vendor/autoload.php';
 
 use Rootsoft\Algorand\Algorand;
 use Rootsoft\Algorand\Clients\AlgodClient;
@@ -37,10 +38,10 @@ class KmdExample
 
     public static function createWallet(Algorand $algorand, Account $account)
     {
-       $request = new CreateWalletRequest([
-           "wallet_name" => "test1",
-           "wallet_password" => "test",
-           "wallet_driver_name" => "sqlite",
+        $request = new CreateWalletRequest([
+           'wallet_name' => 'test1',
+           'wallet_password' => 'test',
+           'wallet_driver_name' => 'sqlite',
        ]);
 
         try {
