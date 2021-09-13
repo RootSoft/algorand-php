@@ -10,9 +10,6 @@ $rules = [
     'blank_line_after_opening_tag' => true,
     'braces' => true,
     'cast_spaces' => true,
-    'concat_space' => [
-        'spacing' => 'none',
-    ],
     'declare_equal_normalize' => true,
     'elseif' => true,
     'encoding' => true,
@@ -150,6 +147,7 @@ $finder = Finder::create()
     ->in([
         __DIR__ . '/src',
         __DIR__ . '/tests',
+        __DIR__ . '/examples',
     ])
     ->name('*.php')
     ->notName('*.blade.php')
