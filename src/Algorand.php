@@ -6,6 +6,7 @@ use JsonMapper\JsonMapperFactory;
 use JsonMapper\JsonMapperInterface;
 use JsonMapper\Middleware\CaseConversion;
 use Rootsoft\Algorand\Clients\AlgodClient;
+use Rootsoft\Algorand\Clients\AlgoExplorer;
 use Rootsoft\Algorand\Clients\IndexerClient;
 use Rootsoft\Algorand\Clients\KmdClient;
 use Rootsoft\Algorand\Indexer\AlgorandIndexer;
@@ -90,14 +91,17 @@ class Algorand
     /**
      * Algorand constructor.
      *
-     * @param AlgodClient $algodClient
-     * @param IndexerClient $indexerClient
+     * @param AlgodClient|null $algodClient
+     * @param IndexerClient|null $indexerClient
      * @param KmdClient|null $kmdClient
      */
-    public function __construct(AlgodClient $algodClient, IndexerClient $indexerClient, ?KmdClient $kmdClient = null)
-    {
-        $this->algodClient = $algodClient;
-        $this->indexerClient = $indexerClient;
+    public function __construct(
+        ?AlgodClient $algodClient = null,
+        ?IndexerClient $indexerClient = null,
+        ?KmdClient $kmdClient = null
+    ) {
+        $this->algodClient = $algodClient ?? new AlgodClient(AlgoExplorer::TESTNET_ALGOD_API_URL);
+        $this->indexerClient = $indexerClient ?? new IndexerClient(AlgoExplorer::TESTNET_INDEXER_API_URL);
         $this->kmdClient = $kmdClient ?? new KmdClient('127.0.0.1');
 
         $this->jsonMapper = (new JsonMapperFactory())->bestFit();
