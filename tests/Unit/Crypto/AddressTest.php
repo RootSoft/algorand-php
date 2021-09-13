@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Tests\Unit\Crypto;
 
 use Orchestra\Testbench\TestCase;
@@ -13,7 +12,6 @@ class AddressTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-
     }
 
     public function testEncodeDecodeStr()

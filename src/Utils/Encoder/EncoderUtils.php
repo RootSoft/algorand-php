@@ -72,7 +72,7 @@ class EncoderUtils
     }
 
     /**
-     * Encode a binary string to a TEAL program, or returns null;
+     * Encode a binary string to a TEAL program, or returns null;.
      *
      * @param string|null $value
      * @return TEALProgram|null

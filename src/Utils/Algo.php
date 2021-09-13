@@ -1,17 +1,16 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Utils;
 
 /**
- * TODO big int or validation
+ * TODO big int or validation.
  *
  * Class Algo
- * @package Rootsoft\Algorand\Utils\Units
  */
 class Algo
 {
     public const MICROALGOS = 'microAlgos';
+
     public const ALGOS = 'Algos';
 
     /**

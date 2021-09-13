@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Services;
 
 use Rootsoft\Algorand\Exceptions\AlgorandException;
@@ -10,7 +9,7 @@ use Rootsoft\Algorand\Models\NodeStatus;
 trait ManagesNodesV2
 {
     /**
-     * Gets the genesis information
+     * Gets the genesis information.
      *
      * @return \Rootsoft\Algorand\Models\GenesisInformation The entire genesis file.
      * @throws AlgorandException

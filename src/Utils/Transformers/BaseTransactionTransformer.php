@@ -9,7 +9,6 @@ use Rootsoft\Algorand\Utils\ArrayUtils;
 
 class BaseTransactionTransformer implements MessagePackTransformer
 {
-
     public function transform(string $className, array $value): RawTransaction
     {
         $sender = ArrayUtils::findValueOrNull($value, 'snd');
@@ -34,5 +33,4 @@ class BaseTransactionTransformer implements MessagePackTransformer
     {
         return RawTransaction::class;
     }
-
 }

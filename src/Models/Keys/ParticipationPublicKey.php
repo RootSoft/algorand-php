@@ -9,7 +9,7 @@ class ParticipationPublicKey
     /**
      * The length of the public key.
      */
-    const PUBLIC_KEY_LENGTH = 32;
+    public const PUBLIC_KEY_LENGTH = 32;
 
     private string $bytes;
 

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Rootsoft\Algorand\Models\Applications\StateSchema;
@@ -8,7 +7,6 @@ use Rootsoft\Algorand\Models\Applications\TEALProgram;
 
 class ApplicationCreateTransaction extends ApplicationUpdateTransaction
 {
-
     /**
      * Holds the maximum number of local state values defined within aStateSchema object.
      *

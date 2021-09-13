@@ -13,7 +13,7 @@ class BytesParameterValue extends ParameterValue
         parent::__construct($offset, self::convertToBytes($value));
     }
 
-    public static function fromBase64(int $offset, string $source): BytesParameterValue
+    public static function fromBase64(int $offset, string $source): self
     {
         $buffer = Base64::decode($source);
 

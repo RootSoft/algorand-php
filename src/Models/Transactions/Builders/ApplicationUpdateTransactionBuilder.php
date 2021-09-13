@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Rootsoft\Algorand\Exceptions\AlgorandException;
@@ -32,7 +31,7 @@ class ApplicationUpdateTransactionBuilder extends ApplicationBaseTransactionBuil
      * @return $this
      * @throws AlgorandException
      */
-    public function append(RawTransaction $transaction): ApplicationUpdateTransactionBuilder
+    public function append(RawTransaction $transaction): self
     {
         parent::append($transaction);
         if ($transaction instanceof ApplicationUpdateTransaction) {
@@ -51,7 +50,7 @@ class ApplicationUpdateTransactionBuilder extends ApplicationBaseTransactionBuil
      * @param TEALProgram|null $approvalProgram
      * @return $this
      */
-    public function approvalProgram(?TEALProgram $approvalProgram): ApplicationUpdateTransactionBuilder
+    public function approvalProgram(?TEALProgram $approvalProgram): self
     {
         $this->applicationTransaction->approvalProgram = $approvalProgram;
 
@@ -66,7 +65,7 @@ class ApplicationUpdateTransactionBuilder extends ApplicationBaseTransactionBuil
      * @param TEALProgram|null $clearStateProgram
      * @return $this
      */
-    public function clearStateProgram(?TEALProgram $clearStateProgram): ApplicationUpdateTransactionBuilder
+    public function clearStateProgram(?TEALProgram $clearStateProgram): self
     {
         $this->applicationTransaction->clearStateProgram = $clearStateProgram;
 

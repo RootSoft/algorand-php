@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Indexer\Services;
 
 use Rootsoft\Algorand\Models\Transactions\SearchTransactionsResult;
@@ -21,7 +20,7 @@ trait ManagesIndexerTransactionsV2
             return $this->searchTransactionsForAccount($queryParams['for_account_id'], $queryParams);
         }
 
-        $response = $this->get($this->indexerClient, "/v2/transactions", $queryParams);
+        $response = $this->get($this->indexerClient, '/v2/transactions', $queryParams);
 
         $result = new SearchTransactionsResult();
         $this->jsonMapper->mapObject($response, $result);

@@ -1,17 +1,14 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models;
 
 /**
- * A simplified version of AssetHolding
+ * A simplified version of AssetHolding.
  *
  * Class MiniAssetHolding
- * @package Rootsoft\Algorand\Models
  */
 class MiniAssetHolding
 {
-
     /**
      * @var string
      * @required

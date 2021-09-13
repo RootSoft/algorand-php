@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models;
 
 /**
@@ -9,7 +8,6 @@ namespace Rootsoft\Algorand\Models;
  * You can compute whether or not the list is truncated if the number of elements in the top-transactions
  * array is fewer than total-transactions.
  * Class PendingTransactionsResult
- * @package Rootsoft\Algorand\Models
  */
 class PendingTransactionsResult
 {

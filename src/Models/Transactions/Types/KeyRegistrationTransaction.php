@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use MessagePack\Type\Bin;
@@ -10,9 +9,8 @@ use Rootsoft\Algorand\Models\Transactions\RawTransaction;
 
 class KeyRegistrationTransaction extends RawTransaction
 {
-
     /**
-     * The root participation public key
+     * The root participation public key.
      *
      * @var ParticipationPublicKey|null
      */
@@ -59,5 +57,4 @@ class KeyRegistrationTransaction extends RawTransaction
 
         return $fields;
     }
-
 }

@@ -1,16 +1,11 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Applications;
 
 use Rootsoft\Algorand\Models\Application;
 
-/**
- *
- */
 class SearchApplicationsResult
 {
-
     /**
      * Round at which the results were computed.
      * @var int

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Applications;
 
 use Rootsoft\Algorand\Utils\MessagePackable;
@@ -9,14 +8,12 @@ use Rootsoft\Algorand\Utils\MessagePackable;
  * Specifies maximums on the number of each type that may be stored.
  *
  * Class StateSchema
- * @package Rootsoft\Algorand\Models\Applications
  */
 class StateSchema implements MessagePackable
 {
-
     /**
      * The number of unsigned integers.
-     * TODO bigint
+     * TODO bigint.
      *
      * @var int
      * @required
@@ -25,7 +22,7 @@ class StateSchema implements MessagePackable
 
     /**
      * The number of byte slices.
-     * TODO bigint
+     * TODO bigint.
      *
      * @var int
      * @required

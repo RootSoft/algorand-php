@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Tests\Unit\Logic;
 
 use Orchestra\Testbench\TestCase;
@@ -145,7 +144,7 @@ class LogicTest extends TestCase
         $this->assertTrue($programData->good);
 
         $keccakx800 = Buffer::toBinaryString(CryptoUtils::fillBytes(0x02, 800));
-        $program2 = $program . $keccakx800;
+        $program2 = $program.$keccakx800;
         foreach ($oldVersions as $v) {
             $program2[0] = chr($v);
             $this->testBadProgram($program2, $args);
@@ -257,5 +256,4 @@ class LogicTest extends TestCase
         $valid = Logic::checkProgram($program);
         $this->assertTrue($valid);
     }
-
 }

@@ -14,9 +14,10 @@ use Rootsoft\Algorand\Utils\Buffer;
 class ContractTemplate
 {
     private Address $address;
+
     private string $program;
 
-    public function __construct(LogicSignature  $signature)
+    public function __construct(LogicSignature $signature)
     {
         $this->address = $signature->toAddress();
         $this->program = $signature->getLogic();
@@ -39,7 +40,7 @@ class ContractTemplate
      * @param array|ParameterValue[] $values
      * @return ContractTemplate
      */
-    public static function inject(string $program, array $values): ContractTemplate
+    public static function inject(string $program, array $values): self
     {
         $program = Buffer::toArray($program);
         $updatedProgram = [];
@@ -61,7 +62,7 @@ class ContractTemplate
 
         $lsig = new LogicSignature(Buffer::toBinaryString($updatedProgram));
 
-        return new ContractTemplate($lsig);
+        return new self($lsig);
     }
 
     /**

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions;
 
 use MessagePack\Type\Bin;
@@ -13,14 +12,12 @@ use Rootsoft\Algorand\Utils\Encoder;
 use Rootsoft\Algorand\Utils\MessagePackable;
 
 /**
- * Class SignedTransaction
- * @package Rootsoft\Algorand\Models\Transactions
+ * Class SignedTransaction.
  */
 class SignedTransaction implements MessagePackable
 {
-
     /**
-     * The internal transaction
+     * The internal transaction.
      * @var RawTransaction
      */
     private RawTransaction $transaction;
@@ -38,13 +35,13 @@ class SignedTransaction implements MessagePackable
     private ?Signature $signature;
 
     /**
-     * The logic signature
+     * The logic signature.
      * @var LogicSignature|null
      */
     private ?LogicSignature $logicSignature;
 
     /**
-     * The multi signature
+     * The multi signature.
      * @var MultiSignature|null
      */
     private ?MultiSignature $multiSignature;
@@ -75,7 +72,7 @@ class SignedTransaction implements MessagePackable
      * @param Signature $signature
      * @return SignedTransaction
      */
-    public static function fromSignature(RawTransaction $transaction, Signature $signature): SignedTransaction
+    public static function fromSignature(RawTransaction $transaction, Signature $signature): self
     {
         return new self($transaction, $signature);
     }
@@ -87,7 +84,7 @@ class SignedTransaction implements MessagePackable
      * @param LogicSignature $logicSignature
      * @return SignedTransaction
      */
-    public static function fromLogicSignature(RawTransaction $transaction, LogicSignature $logicSignature): SignedTransaction
+    public static function fromLogicSignature(RawTransaction $transaction, LogicSignature $logicSignature): self
     {
         return new self($transaction, null, $logicSignature);
     }
@@ -102,7 +99,7 @@ class SignedTransaction implements MessagePackable
     public static function fromMultiSignature(
         RawTransaction $transaction,
         MultiSignature $multiSignature
-    ): SignedTransaction {
+    ): self {
         return new self($transaction, null, null, $multiSignature);
     }
 
@@ -116,6 +113,7 @@ class SignedTransaction implements MessagePackable
     public function export($fileName)
     {
         $data = Encoder::getInstance()->encodeMessagePack($this->toMessagePack());
+
         return file_put_contents($fileName, $data);
     }
 

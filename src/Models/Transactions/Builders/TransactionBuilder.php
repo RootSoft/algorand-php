@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Rootsoft\Algorand\Models\Applications\OnCompletion;
@@ -8,9 +7,7 @@ use Rootsoft\Algorand\Models\Transactions\TransactionType;
 
 class TransactionBuilder extends RawTransactionBuilder
 {
-
     /**
-     *
      * @return RawTransactionBuilder
      */
     public static function raw()
@@ -19,17 +16,14 @@ class TransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     *
      * @return PaymentTransactionBuilder
      */
     public static function payment()
     {
-
         return new PaymentTransactionBuilder();
     }
 
     /**
-     *
      * @return AssetConfigTransactionBuilder
      */
     public static function assetConfig()
@@ -38,7 +32,6 @@ class TransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     *
      * @return AssetTransferTransactionBuilder
      */
     public static function assetTransfer()
@@ -47,7 +40,6 @@ class TransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     *
      * @return AssetFreezeTransactionBuilder
      */
     public static function assetFreeze()
@@ -56,7 +48,6 @@ class TransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     *
      * @return KeyRegistrationTransactionBuilder
      */
     public static function keyRegistration()
@@ -65,7 +56,6 @@ class TransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     *
      * @return ApplicationCreateTransactionBuilder
      */
     public static function applicationCreate()
@@ -74,7 +64,6 @@ class TransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     *
      * @return ApplicationUpdateTransactionBuilder
      */
     public static function applicationUpdate()
@@ -83,7 +72,6 @@ class TransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     *
      * @return ApplicationBaseTransactionBuilder
      */
     public static function applicationOptIn()
@@ -92,7 +80,6 @@ class TransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     *
      * @return ApplicationBaseTransactionBuilder
      */
     public static function applicationBase()
@@ -101,7 +88,6 @@ class TransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     *
      * @return ApplicationBaseTransactionBuilder
      */
     public static function applicationCall()
@@ -110,7 +96,6 @@ class TransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     *
      * @return ApplicationBaseTransactionBuilder
      */
     public static function applicationClearState()
@@ -119,7 +104,6 @@ class TransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     *
      * @return ApplicationBaseTransactionBuilder
      */
     public static function applicationCloseOut()
@@ -128,7 +112,6 @@ class TransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     *
      * @return ApplicationBaseTransactionBuilder
      */
     public static function applicationDelete()

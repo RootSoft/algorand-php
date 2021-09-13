@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Utils;
 
 use Brick\Math\BigInteger;
@@ -41,7 +40,7 @@ class AlgorandUtils
      * @param BigInteger $suggestedFeePerByte
      * @return BigInteger|BigNumber
      */
-    public static function calculate_fee_per_byte(RawTransaction  $transaction, BigInteger $suggestedFeePerByte)
+    public static function calculate_fee_per_byte(RawTransaction $transaction, BigInteger $suggestedFeePerByte)
     {
         $transactionFee = $suggestedFeePerByte->multipliedBy(self::estimateTransactionSize($transaction));
         if ($transactionFee->compareTo(BigInteger::of(RawTransaction::MIN_TX_FEE_UALGOS)) < 0) {
@@ -90,7 +89,7 @@ class AlgorandUtils
 
     public static function format_url(string $baseUrl)
     {
-        return rtrim($baseUrl, '/') . '/';
+        return rtrim($baseUrl, '/').'/';
     }
 
     /**

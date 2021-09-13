@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Brick\Math\BigInteger;
@@ -10,10 +9,9 @@ use Rootsoft\Algorand\Models\Transactions\TransactionType;
 use Rootsoft\Algorand\Models\Transactions\Types\RawPaymentTransaction;
 
 /**
- * TODO Use generics
+ * TODO Use generics.
  *
  * Class PaymentTransactionBuilder
- * @package Rootsoft\Algorand\Models\Transactions\Builders
  */
 class PaymentTransactionBuilder extends RawTransactionBuilder
 {
@@ -35,7 +33,7 @@ class PaymentTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $closeRemainderTo
      * @return $this
      */
-    public function closeRemainderTo(?Address $closeRemainderTo): PaymentTransactionBuilder
+    public function closeRemainderTo(?Address $closeRemainderTo): self
     {
         $this->paymentTransaction->closeRemainderTo = $closeRemainderTo;
 
@@ -48,7 +46,7 @@ class PaymentTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $receiver
      * @return $this
      */
-    public function receiver(?Address $receiver): PaymentTransactionBuilder
+    public function receiver(?Address $receiver): self
     {
         $this->paymentTransaction->receiver = $receiver;
 
@@ -63,7 +61,7 @@ class PaymentTransactionBuilder extends RawTransactionBuilder
      * @param int|null $amount
      * @return $this
      */
-    public function amount(?int $amount): PaymentTransactionBuilder
+    public function amount(?int $amount): self
     {
         $this->paymentTransaction->amount = BigInteger::of($amount);
 
@@ -78,7 +76,7 @@ class PaymentTransactionBuilder extends RawTransactionBuilder
      * @param BigInteger $amount
      * @return $this
      */
-    public function bigAmount(BigInteger $amount): PaymentTransactionBuilder
+    public function bigAmount(BigInteger $amount): self
     {
         $this->paymentTransaction->amount = $amount;
 

@@ -1,5 +1,6 @@
 <?php
-require_once('../../vendor/autoload.php');
+
+require_once '../../vendor/autoload.php';
 
 use Rootsoft\Algorand\Algorand;
 use Rootsoft\Algorand\Clients\AlgodClient;
@@ -22,9 +23,9 @@ class AtomicTransferExample
         $accountB = Account::mnemonic('beauty nurse season autumn curve slice cry strategy frozen spy panic hobby strong goose employ review love fee pride enlist friend enroll clip ability runway');
         $accountC = Account::mnemonic('picnic bright know ticket purity pluck stumble destroy ugly tuna luggage quote frame loan wealth edge carpet drift cinnamon resemble shrimp grain dynamic absorb edge');
 
-        prettyPrint("Account 1: " . $accountA->getPublicAddress());
-        prettyPrint("Account 2: " . $accountB->getPublicAddress());
-        prettyPrint("Account 3: " . $accountC->getPublicAddress());
+        prettyPrint('Account 1: ' . $accountA->getPublicAddress());
+        prettyPrint('Account 2: ' . $accountB->getPublicAddress());
+        prettyPrint('Account 3: ' . $accountC->getPublicAddress());
 
         // Get the suggested transaction parameters
         $params = $algorand->getSuggestedTransactionParams();

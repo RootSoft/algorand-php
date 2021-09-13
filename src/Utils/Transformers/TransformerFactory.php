@@ -7,7 +7,7 @@ use MessagePack\BufferUnpacker;
 class TransformerFactory
 {
     /**
-     * Messagepack decoder
+     * Messagepack decoder.
      * @var BufferUnpacker
      */
     public BufferUnpacker $unpacker;

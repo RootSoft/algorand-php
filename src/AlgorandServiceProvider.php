@@ -1,19 +1,18 @@
 <?php
 
-
 namespace Rootsoft\Algorand;
 
 use Illuminate\Support\ServiceProvider;
 use Rootsoft\Algorand\Clients\AlgodClient;
+use Rootsoft\Algorand\Clients\AlgoExplorer;
 use Rootsoft\Algorand\Clients\IndexerClient;
-use Rootsoft\Algorand\Clients\PureStake;
+use Rootsoft\Algorand\Clients\KmdClient;
 
 class AlgorandServiceProvider extends ServiceProvider
 {
     public function boot()
     {
         $this->registerPublishables();
-
     }
 
     public function register()
@@ -21,18 +20,23 @@ class AlgorandServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/config/algorand.php', 'algorand');
 
         $this->app->singleton(Algorand::class, function ($app) {
-            $algodApiUrl = config('algorand.algod.api_url', PureStake::TESTNET_ALGOD_API_URL);
+            $algodUrl = config('algorand.algod.api_url', AlgoExplorer::TESTNET_ALGOD_API_URL);
             $algodApiKey = config('algorand.algod.api_key', '');
-            $algodApiTokenHeader = config('algorand.algod.api_token_header', PureStake::API_TOKEN_HEADER);
+            $algodTokenHeader = config('algorand.algod.api_token_header', AlgodClient::ALGOD_API_TOKEN);
 
-            $indexerApiUrl = config('algorand.indexer.api_url', PureStake::TESTNET_ALGOD_API_URL);
+            $indexerUrl = config('algorand.indexer.api_url', AlgoExplorer::TESTNET_INDEXER_API_URL);
             $indexerApiKey = config('algorand.indexer.api_key', '');
-            $indexerApiTokenHeader = config('algorand.indexer.api_token_header', PureStake::API_TOKEN_HEADER);
+            $indexerTokenHeader = config('algorand.indexer.api_token_header', IndexerClient::INDEXER_API_TOKEN);
 
-            $algodClient = new AlgodClient($algodApiUrl, $algodApiKey, $algodApiTokenHeader);
-            $indexerClient = new IndexerClient($indexerApiUrl, $indexerApiKey, $indexerApiTokenHeader);
+            $kmdUrl = config('algorand.kmd.api_url', '127.0.0.1');
+            $kmdApiKey = config('algorand.kmd.api_key', '');
+            $kmdTokenHeader = config('algorand.kmd.api_token_header', KmdClient::KMD_API_TOKEN);
 
-            return new Algorand($algodClient, $indexerClient);
+            $algodClient = new AlgodClient($algodUrl, $algodApiKey, $algodTokenHeader);
+            $indexerClient = new IndexerClient($indexerUrl, $indexerApiKey, $indexerTokenHeader);
+            $kmdClient = new KmdClient($kmdUrl, $kmdApiKey, $kmdTokenHeader);
+
+            return new Algorand($algodClient, $indexerClient, $kmdClient);
         });
     }
 

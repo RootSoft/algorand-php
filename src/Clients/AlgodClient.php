@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Clients;
 
 /**
@@ -9,14 +8,13 @@ namespace Rootsoft\Algorand\Clients;
  * connected to the network you plan to interact with.
  *
  * Class AlgodClient
- * @package Rootsoft\Algorand\Clients
  */
 class AlgodClient extends AlgorandClient
 {
     /**
      * The default API Token Header for Algorand nodes.
      */
-    const ALGOD_API_TOKEN = 'X-Algo-API-Token';
+    public const ALGOD_API_TOKEN = 'X-Algo-API-Token';
 
     /**
      * AlgodClient constructor.
@@ -30,5 +28,4 @@ class AlgodClient extends AlgorandClient
     {
         parent::__construct($algodApiUrl, $apiKey, $tokenKey, $timeout);
     }
-
 }

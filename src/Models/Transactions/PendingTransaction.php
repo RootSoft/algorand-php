@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions;
 
 /**
@@ -10,7 +9,7 @@ namespace Rootsoft\Algorand\Models\Transactions;
  * - transaction committed (committed round > 0)
  * - transaction still in the pool (committed round = 0, pool error = "")
  * - transaction removed from pool due to error
- * (committed round = 0, pool error != "")
+ * (committed round = 0, pool error != "").
  *
  * Or the transaction may have happened sufficiently long ago that the node
  * no longer remembers it, and this will return an error.

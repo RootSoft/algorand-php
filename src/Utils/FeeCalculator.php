@@ -17,7 +17,7 @@ class FeeCalculator
      * @param BigInteger $suggestedFeePerByte
      * @return BigInteger|BigNumber
      */
-    public static function calculateFeePerByte(RawTransaction  $transaction, BigInteger $suggestedFeePerByte) : BigInteger
+    public static function calculateFeePerByte(RawTransaction $transaction, BigInteger $suggestedFeePerByte) : BigInteger
     {
         return AlgorandUtils::calculate_fee_per_byte($transaction, $suggestedFeePerByte);
     }

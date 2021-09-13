@@ -2,7 +2,7 @@
 
 /**
  * This file is a part of "furqansiddiqui/bip39-mnemonics-php" package.
- * https://github.com/furqansiddiqui/bip39-mnemonics-php
+ * https://github.com/furqansiddiqui/bip39-mnemonics-php.
  *
  * Copyright (c) 2019 Furqan A. Siddiqui <hello@furqansiddiqui.com>
  *
@@ -15,16 +15,20 @@ namespace Rootsoft\Algorand\Mnemonic;
 
 class SeedPhrase
 {
-    const MNEMONIC_DELIM = ' ';
+    public const MNEMONIC_DELIM = ' ';
 
     /** @var string */
     public $entropy;
+
     /** @var int */
     public $wordsCount;
+
     /** @var array */
     public $wordsIndex;
+
     /** @var array */
     public $words;
+
     /** @var array */
     public $rawBinaryChunks;
 
@@ -46,12 +50,12 @@ class SeedPhrase
      * @param int $bytes
      * @return string
      */
-    public function generateSeed(string $passphrase = "", int $bytes = 0): string
+    public function generateSeed(string $passphrase = '', int $bytes = 0): string
     {
         return hash_pbkdf2(
-            "sha512",
-            implode(" ", $this->words),
-            "mnemonic" . $passphrase,
+            'sha512',
+            implode(' ', $this->words),
+            'mnemonic'.$passphrase,
             2048,
             $bytes
         );

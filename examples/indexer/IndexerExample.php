@@ -1,5 +1,6 @@
 <?php
-require_once('../../vendor/autoload.php');
+
+require_once '../../vendor/autoload.php';
 
 use Rootsoft\Algorand\Algorand;
 use Rootsoft\Algorand\Clients\AlgodClient;
@@ -21,7 +22,7 @@ class IndexerExample
 
         // Import your account
         $account = Account::mnemonic('year crumble opinion local grid injury rug happy away castle minimum bitter upon romance federal entire rookie net fabric soft comic trouble business above talent');
-        prettyPrint("Account: " . $account->getPublicAddress());
+        prettyPrint('Account: ' . $account->getPublicAddress());
 
         // Get the account information
         self::getAccountInformation($algorand, $account);
@@ -168,7 +169,6 @@ class IndexerExample
 
             prettyPrint(json_encode($response));
         }
-
     }
 
     public static function searchTxAddressAsset(Algorand $algorand, Account $account)

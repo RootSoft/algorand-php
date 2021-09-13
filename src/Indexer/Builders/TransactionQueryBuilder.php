@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Indexer\Builders;
 
 use DateTime;
@@ -251,7 +250,7 @@ class TransactionQueryBuilder extends QueryBuilder
      * SigType filters just results using the specified type of signature:
      *   sig - Standard
      *   msig - MultiSig
-     *   lsig - LogicSig
+     *   lsig - LogicSig.
      *
      * @param SignatureType $signatureType
      * @return $this

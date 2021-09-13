@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Brick\Math\BigInteger;
@@ -9,7 +8,6 @@ use Rootsoft\Algorand\Models\Transactions\RawTransaction;
 
 class RawPaymentTransaction extends RawTransaction
 {
-
     /**
      * The address of the account that receives the amount.
      *

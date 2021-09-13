@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Brick\Math\BigInteger;
@@ -28,7 +27,7 @@ class AssetTransferTransactionBuilder extends RawTransactionBuilder
      * @param BigInteger|null $assetId
      * @return $this
      */
-    public function assetId(?BigInteger $assetId): AssetTransferTransactionBuilder
+    public function assetId(?BigInteger $assetId): self
     {
         $this->assetTransaction->assetId = $assetId;
 
@@ -42,7 +41,7 @@ class AssetTransferTransactionBuilder extends RawTransactionBuilder
      * @param int|null $amount
      * @return $this
      */
-    public function amount(?int $amount): AssetTransferTransactionBuilder
+    public function amount(?int $amount): self
     {
         $this->assetTransaction->amount = BigInteger::of($amount ?? 0);
 
@@ -56,7 +55,7 @@ class AssetTransferTransactionBuilder extends RawTransactionBuilder
      * @param BigInteger|null $amount
      * @return $this
      */
-    public function bigAmount(?BigInteger $amount): AssetTransferTransactionBuilder
+    public function bigAmount(?BigInteger $amount): self
     {
         $this->assetTransaction->amount = $amount;
 
@@ -72,7 +71,7 @@ class AssetTransferTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function assetSender(?Address $address): AssetTransferTransactionBuilder
+    public function assetSender(?Address $address): self
     {
         $this->assetTransaction->assetSender = $address;
 
@@ -85,7 +84,7 @@ class AssetTransferTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function assetReceiver(?Address $address): AssetTransferTransactionBuilder
+    public function assetReceiver(?Address $address): self
     {
         $this->assetTransaction->receiver = $address;
 
@@ -98,7 +97,7 @@ class AssetTransferTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function assetCloseTo(?Address $address): AssetTransferTransactionBuilder
+    public function assetCloseTo(?Address $address): self
     {
         $this->assetTransaction->closeTo = $address;
 

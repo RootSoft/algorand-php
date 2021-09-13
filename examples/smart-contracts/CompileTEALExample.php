@@ -1,5 +1,6 @@
 <?php
-require_once('../../vendor/autoload.php');
+
+require_once '../../vendor/autoload.php';
 
 use Rootsoft\Algorand\Algorand;
 use Rootsoft\Algorand\Clients\AlgodClient;

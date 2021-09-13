@@ -30,9 +30,10 @@ $algorand->assetManager()->createNewAsset($account, 'PHPCoin', 'PHP', 500000, 2)
 ## Features
 * Algod
 * Indexer
+* KMD
 * Transactions
 * Key registration
-* Authorization & rekeying
+* Authorization
 * Atomic Transfers
 * Account management
 * Asset management
@@ -51,13 +52,14 @@ composer require rootsoft/algorand-php
 ```
 
 ## Usage
-Create an ```AlgodClient``` and ```IndexerClient``` and pass them to the ```Algorand``` constructor.
+Create an ```AlgodClient```, ```IndexerClient``` and ```KmdClient``` and pass them to the ```Algorand``` constructor.
 We added extra support for locally hosted nodes & third party services (like PureStake).
 
 ```php
 $algodClient = new AlgodClient(PureStake::MAINNET_ALGOD_API_URL, 'YOUR-API-KEY');
 $indexerClient = new IndexerClient(PureStake::MAINNET_INDEXER_API_URL, 'YOUR-API-KEY');
-$algorand = new Algorand($algodClient, $indexerClient);
+$kmdClient = new KmdClient('127.0.0.1', 'YOUR-API-KEY');
+$algorand = new Algorand($algodClient, $indexerClient, $kdmClient);
 ```
 
 ### Laravel :heart:
@@ -69,6 +71,7 @@ php artisan vendor:publish --provider="Rootsoft\Algorand\AlgorandServiceProvider
 ```
 
 Open the ```config/algorand.php``` file in your project and insert your credentials
+
 ```php
 return [
     'algod' => [
@@ -80,6 +83,11 @@ return [
         'api_url' => 'https://testnet-algorand.api.purestake.io/idx2',
         'api_key' => 'YOUR API KEY',
         'api_token_header' => 'x-api-key',
+    ],
+    'kmd' => [
+        'api_url' => '127.0.0.1',
+        'api_key' => '',
+        'api_token_header' => 'X-KMD-API-Token',
     ],
 ];
 ```
@@ -144,7 +152,7 @@ $transaction = TransactionBuilder::payment()
     ->suggestedFeePerByte(10)
     ->build();
 
-/// Sign the transaction
+// Sign the transaction
 $signedTransaction = $transaction->sign($account);
 
 // Send the transaction
@@ -594,6 +602,34 @@ $completeTx2 = $msigAddr->append($account3, $completeTx);
 $txId = $this->algorand->sendTransaction($completeTx2);
 ```
 
+## Key Management Daemon
+
+The Key Management Daemon (kmd) is a low level wallet and key management tool. It works in conjunction with algod and goal to keep secrets safe.
+kmd tries to ensure that secret keys never touch the disk unencrypted.
+
+* kmd has a data directory separate from algod's data directory. By default, however, the kmd data directory is in the kmd subdirectory of algod's data directory.
+* kmd starts an HTTP API server on localhost:7833 by default.
+* You talk to the HTTP API by sending json-serialized request structs from the kmdapi package.
+
+Note: If you are using a third-party API service, this process likely will not be available to you.
+
+```php
+$request = new CreateWalletRequest([
+   "wallet_name" => "test1",
+   "wallet_password" => "test",
+   "wallet_driver_name" => "sqlite",
+]);
+
+try {
+    $result = $algorand->kmd()->createWallet($request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->createWallet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+Check out the [Algorand Developer documentation ](https://developer.algorand.org/docs/features/accounts/create/#wallet-derived-kmd) to learn more about the Key Management Daemon.
+
 ## Indexer
 Algorand provides a standalone daemon algorand-indexer that reads committed blocks from the Algorand blockchain and
 maintains a local database of transactions and accounts that are searchable and indexed.
@@ -654,13 +690,6 @@ Algorand::indexer()
     ->search();
 ```
 
-## Roadmap
-* Better support for Big Integers
-* KMD
-* Templates
-* Examples
-* Tests
-
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
@@ -669,6 +698,9 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 Feel free to send pull requests.
 
 Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
+
+## Questions?
+Do you have any questions, join us at the official Algorand [Discord](https://discord.com/invite/84AActu3at)!
 
 ## Credits
 

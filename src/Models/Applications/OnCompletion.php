@@ -15,9 +15,14 @@ use MyCLabs\Enum\Enum;
 final class OnCompletion extends Enum
 {
     private const NO_OP_OC = 0;
+
     private const OPT_IN_OC = 1;
+
     private const CLOSE_OUT_OC = 2;
+
     private const CLEAR_STATE_OC = 3;
+
     private const UPDATE_APPLICATION_OC = 4;
+
     private const DELETE_APPLICATION_OC = 5;
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Services;
 
 use JsonMapper\JsonMapperInterface;
@@ -85,7 +84,7 @@ trait ManagesTransactionsV2
             $encodedTxBytes = Encoder::getInstance()->encodeMessagePack($transaction->toMessagePack());
         }
 
-        $response = $this->post($this->algodClient, "/v2/transactions", [], ['body' => $encodedTxBytes], ['Content-Type' => 'application/x-binary']);
+        $response = $this->post($this->algodClient, '/v2/transactions', [], ['body' => $encodedTxBytes], ['Content-Type' => 'application/x-binary']);
 
         if (! $waitForConfirmation) {
             return $response->txId;
@@ -107,7 +106,7 @@ trait ManagesTransactionsV2
             $encodedTxBytes .= Encoder::getInstance()->encodeMessagePack($transaction->toMessagePack());
         }
 
-        $response = $this->post($this->algodClient, "/v2/transactions", [], ['body' => $encodedTxBytes], ['Content-Type' => 'application/x-binary']);
+        $response = $this->post($this->algodClient, '/v2/transactions', [], ['body' => $encodedTxBytes], ['Content-Type' => 'application/x-binary']);
 
         return $response->txId;
     }

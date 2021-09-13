@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Services;
 
 use Exception;

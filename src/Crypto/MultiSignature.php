@@ -8,9 +8,10 @@ use Rootsoft\Algorand\Utils\MessagePackable;
 
 class MultiSignature implements MessagePackable
 {
-    const MULTISIG_VERSION = 1;
+    public const MULTISIG_VERSION = 1;
 
     private int $version;
+
     private int $threshold;
 
     /**
@@ -92,7 +93,7 @@ class MultiSignature implements MessagePackable
     }
 
     /**
-     * Updates a multisig subsig at the given index
+     * Updates a multisig subsig at the given index.
      * @param int $index
      * @param MultisigSubsig $subsig
      */

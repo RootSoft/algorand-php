@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Tests\Unit\Templates;
 
 use Orchestra\Testbench\TestCase;

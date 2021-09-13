@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models;
 
 /**
  * Describes an asset held by an account.
- * Class AssetHolding
- * @package Rootsoft\Algorand\Models
+ * Class AssetHolding.
  */
 class AssetHolding
 {

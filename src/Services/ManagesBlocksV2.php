@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Services;
 
 use Rootsoft\Algorand\Models\Blocks\BlockResult;

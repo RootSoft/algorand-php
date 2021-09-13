@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Indexer\Services;
 
 use Rootsoft\Algorand\Models\Accounts\SearchAccountsResult;
@@ -21,7 +20,7 @@ trait ManagesIndexerAccountsV2
             return $this->searchAccountForBalances($balanceAssetId, $queryParams);
         }
 
-        $response = $this->get($this->indexerClient, "/v2/accounts", $queryParams);
+        $response = $this->get($this->indexerClient, '/v2/accounts', $queryParams);
 
         $result = new SearchAccountsResult();
         $this->jsonMapper->mapObject($response, $result);

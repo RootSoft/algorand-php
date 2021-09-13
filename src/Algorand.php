@@ -6,8 +6,11 @@ use JsonMapper\JsonMapperFactory;
 use JsonMapper\JsonMapperInterface;
 use JsonMapper\Middleware\CaseConversion;
 use Rootsoft\Algorand\Clients\AlgodClient;
+use Rootsoft\Algorand\Clients\AlgoExplorer;
 use Rootsoft\Algorand\Clients\IndexerClient;
+use Rootsoft\Algorand\Clients\KmdClient;
 use Rootsoft\Algorand\Indexer\AlgorandIndexer;
+use Rootsoft\Algorand\KMD\Api\KmdApi;
 use Rootsoft\Algorand\Managers\AccountManager;
 use Rootsoft\Algorand\Managers\ApplicationManager;
 use Rootsoft\Algorand\Managers\AssetManager;
@@ -22,9 +25,7 @@ use Rootsoft\Algorand\Services\ManagesTransactionsV2;
 use Rootsoft\Algorand\Traits\MakesHttpRequests;
 
 /**
- *
- * Class Algorand
- * @package Rootsoft\Algorand
+ * Class Algorand.
  */
 class Algorand
 {
@@ -47,6 +48,11 @@ class Algorand
      * The Guzzle HTTP Client instance to interact with the indexer.
      */
     private IndexerClient $indexerClient;
+
+    /**
+     * The Guzzle HTTP Client instance to interact with the key management daemon.
+     */
+    private KmdClient $kmdClient;
 
     /**
      * Mapping responses to models.
@@ -85,13 +91,18 @@ class Algorand
     /**
      * Algorand constructor.
      *
-     * @param AlgodClient $algodClient
-     * @param IndexerClient $indexerClient
+     * @param AlgodClient|null $algodClient
+     * @param IndexerClient|null $indexerClient
+     * @param KmdClient|null $kmdClient
      */
-    public function __construct(AlgodClient $algodClient, IndexerClient $indexerClient)
-    {
-        $this->algodClient = $algodClient;
-        $this->indexerClient = $indexerClient;
+    public function __construct(
+        ?AlgodClient $algodClient = null,
+        ?IndexerClient $indexerClient = null,
+        ?KmdClient $kmdClient = null
+    ) {
+        $this->algodClient = $algodClient ?? new AlgodClient(AlgoExplorer::TESTNET_ALGOD_API_URL);
+        $this->indexerClient = $indexerClient ?? new IndexerClient(AlgoExplorer::TESTNET_INDEXER_API_URL);
+        $this->kmdClient = $kmdClient ?? new KmdClient('127.0.0.1');
 
         $this->jsonMapper = (new JsonMapperFactory())->bestFit();
         $this->jsonMapper->push(new CaseConversion(
@@ -139,6 +150,18 @@ class Algorand
     public function indexer(): AlgorandIndexer
     {
         return $this->indexer;
+    }
+
+    /**
+     * The Key Management Daemon (kmd) is a low level wallet and key management tool.
+     * It works in conjunction with algod and goal to keep secrets safe.
+     * kmd tries to ensure that secret keys never touch the disk unencrypted.
+     *
+     * @return \Rootsoft\Algorand\KMD\Api\KmdApi
+     */
+    public function kmd(): KmdApi
+    {
+        return $this->kmdClient->getApi();
     }
 
     /**

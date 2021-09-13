@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Brick\Math\BigInteger;
@@ -28,7 +27,7 @@ class AssetFreezeTransactionBuilder extends RawTransactionBuilder
      * @param BigInteger|null $assetId
      * @return $this
      */
-    public function assetId(?BigInteger $assetId): AssetFreezeTransactionBuilder
+    public function assetId(?BigInteger $assetId): self
     {
         $this->assetTransaction->assetId = $assetId;
 
@@ -41,7 +40,7 @@ class AssetFreezeTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function freezeTarget(?Address $address): AssetFreezeTransactionBuilder
+    public function freezeTarget(?Address $address): self
     {
         $this->assetTransaction->freezeAddress = $address;
 
@@ -54,7 +53,7 @@ class AssetFreezeTransactionBuilder extends RawTransactionBuilder
      * @param bool|null $freeze
      * @return $this
      */
-    public function freeze(?bool $freeze): AssetFreezeTransactionBuilder
+    public function freeze(?bool $freeze): self
     {
         $this->assetTransaction->freeze = $freeze;
 

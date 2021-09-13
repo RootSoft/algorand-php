@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Rootsoft\Algorand\Models\Applications\TEALProgram;
 
 class ApplicationUpdateTransaction extends ApplicationBaseTransaction
 {
-
     /**
      * Logic executed for every application transaction, except when on-completion is set to "clear".
      * It can read and write global state for the application, as well as account-specific local state.

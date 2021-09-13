@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Services;
 
 use JsonMapper\JsonMapperInterface;
@@ -17,10 +16,11 @@ trait ManagesTransactionParamsV2
      */
     public function getSuggestedTransactionParams()
     {
-        $response = $this->get($this->algodClient, "/v2/transactions/params");
+        $response = $this->get($this->algodClient, '/v2/transactions/params');
 
         $params = new TransactionParams();
         $this->jsonMapper->mapObject($response, $params);
+
         return $params;
     }
 }

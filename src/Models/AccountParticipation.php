@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models;
 
 /**
  * Describes the parameters used by this account in consensus protocol.
  *
  * Class AccountParticipation
- * @package Rootsoft\Algorand\Models
  */
 class AccountParticipation
 {

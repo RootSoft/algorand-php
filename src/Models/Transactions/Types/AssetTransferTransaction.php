@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Brick\Math\BigInteger;
@@ -9,7 +8,6 @@ use Rootsoft\Algorand\Models\Transactions\RawTransaction;
 
 class AssetTransferTransaction extends RawTransaction
 {
-
     /**
      * The unique ID of the asset to be transferred.
      *

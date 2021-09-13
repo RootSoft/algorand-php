@@ -7,8 +7,7 @@ use Rootsoft\Algorand\Utils\MessagePackable;
 
 class Signature implements MessagePackable
 {
-
-    const ED25519_SIG_SIZE = 64;
+    public const ED25519_SIG_SIZE = 64;
 
     private string $bytes;
 

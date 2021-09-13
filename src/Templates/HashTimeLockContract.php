@@ -25,7 +25,7 @@ use Rootsoft\Algorand\Utils\CryptoUtils;
  */
 class HashTimeLockContract
 {
-    const REFERENCE_PROGRAM = 'ASAEBQEABiYDIP68oLsUSlpOp7Q4pGgayA5soQW8tgf8VlMlyVaV9qITAQYg5pqWHm8tX3rIZgeSZVK+mCNe0zNjyoiRi7nJOKkVtvkxASIOMRAjEhAxBzIDEhAxCCQSEDEJKBItASkSEDEJKhIxAiUNEBEQ';
+    public const REFERENCE_PROGRAM = 'ASAEBQEABiYDIP68oLsUSlpOp7Q4pGgayA5soQW8tgf8VlMlyVaV9qITAQYg5pqWHm8tX3rIZgeSZVK+mCNe0zNjyoiRi7nJOKkVtvkxASIOMRAjEhAxBzIDEhAxCCQSEDEJKBItASkSEDEJKhIxAiUNEBEQ';
 
     /**
      * Create a new Hash Time Locked Contract.

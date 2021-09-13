@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Brick\Math\BigInteger;
@@ -33,7 +32,7 @@ class ApplicationBaseTransactionBuilder extends RawTransactionBuilder
      * @return $this
      * @throws AlgorandException
      */
-    public function append(RawTransaction $transaction): ApplicationBaseTransactionBuilder
+    public function append(RawTransaction $transaction): self
     {
         parent::append($transaction);
         if ($transaction instanceof ApplicationBaseTransaction) {
@@ -57,7 +56,7 @@ class ApplicationBaseTransactionBuilder extends RawTransactionBuilder
      * @return $this
      * @throws AlgorandException
      */
-    public function applicationId(?BigInteger $applicationId): ApplicationBaseTransactionBuilder
+    public function applicationId(?BigInteger $applicationId): self
     {
         if (is_null($applicationId)) {
             return $this;
@@ -79,7 +78,7 @@ class ApplicationBaseTransactionBuilder extends RawTransactionBuilder
      * @param OnCompletion|null $onCompletion
      * @return $this
      */
-    public function onCompletion(?OnCompletion $onCompletion): ApplicationBaseTransactionBuilder
+    public function onCompletion(?OnCompletion $onCompletion): self
     {
         $this->applicationTransaction->onCompletion = $onCompletion;
 
@@ -93,7 +92,7 @@ class ApplicationBaseTransactionBuilder extends RawTransactionBuilder
      * @param array|null $arguments
      * @return $this
      */
-    public function arguments(?array $arguments): ApplicationBaseTransactionBuilder
+    public function arguments(?array $arguments): self
     {
         $this->applicationTransaction->arguments = $arguments;
 
@@ -107,7 +106,7 @@ class ApplicationBaseTransactionBuilder extends RawTransactionBuilder
      * @param array|null $accounts
      * @return $this
      */
-    public function accounts(?array $accounts): ApplicationBaseTransactionBuilder
+    public function accounts(?array $accounts): self
     {
         if (is_null($accounts) || empty($accounts)) {
             $accounts = null;
@@ -125,7 +124,7 @@ class ApplicationBaseTransactionBuilder extends RawTransactionBuilder
      * @param array|null $foreignApps
      * @return $this
      */
-    public function foreignApps(?array $foreignApps): ApplicationBaseTransactionBuilder
+    public function foreignApps(?array $foreignApps): self
     {
         $this->applicationTransaction->foreignApps = $foreignApps;
 
@@ -139,7 +138,7 @@ class ApplicationBaseTransactionBuilder extends RawTransactionBuilder
      * @param array|null $foreignAssets
      * @return $this
      */
-    public function foreignAssets(?array $foreignAssets): ApplicationBaseTransactionBuilder
+    public function foreignAssets(?array $foreignAssets): self
     {
         $this->applicationTransaction->foreignAssets = $foreignAssets;
 

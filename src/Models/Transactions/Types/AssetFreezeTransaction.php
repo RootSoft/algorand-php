@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Brick\Math\BigInteger;
@@ -11,11 +10,9 @@ use Rootsoft\Algorand\Models\Transactions\RawTransaction;
  * Freezing or unfreezing an asset for an account requires a transaction that is signed by the freeze account.
  *
  * Class AssetFreezeTransaction
- * @package Rootsoft\Algorand\Models\Transactions\Types
  */
 class AssetFreezeTransaction extends RawTransaction
 {
-
     /**
      * The address of the account whose asset is being frozen or unfrozen.
      *

@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions;
 
 use Rootsoft\Algorand\Models\Assets\AssetParams;
 
 class AssetConfigTransactionResult
 {
-
     /**
      * The id of the asset.
      * @var int

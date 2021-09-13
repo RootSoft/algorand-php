@@ -1,5 +1,6 @@
 <?php
-require_once('../../vendor/autoload.php');
+
+require_once '../../vendor/autoload.php';
 
 use Rootsoft\Algorand\Algorand;
 use Rootsoft\Algorand\Clients\AlgodClient;
@@ -20,7 +21,7 @@ class YourFirstTransactionExample
 
         // Import your account
         $account = Account::mnemonic('year crumble opinion local grid injury rug happy away castle minimum bitter upon romance federal entire rookie net fabric soft comic trouble business above talent');
-        prettyPrint("Account: " . $account->getPublicAddress());
+        prettyPrint('Account: ' . $account->getPublicAddress());
 
         // Specify the receiver
         $receiver = Address::fromAlgorandAddress('KTFZ5SQU3AQ6UFYI2QOWF5X5XJTAFRHACWHXAZV6CPLNKS2KSGQWPT4ACE');

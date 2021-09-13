@@ -23,7 +23,7 @@ use Rootsoft\Algorand\Utils\Encoder;
  */
 class DynamicFee
 {
-    const REFERENCE_PROGRAM = 'ASAFAgEFBgcmAyD+vKC7FEpaTqe0OKRoGsgObKEFvLYH/FZTJclWlfaiEyDmmpYeby1feshmB5JlUr6YI17TM2PKiJGLuck4qRW2+QEGMgQiEjMAECMSEDMABzEAEhAzAAgxARIQMRYjEhAxECMSEDEHKBIQMQkpEhAxCCQSEDECJRIQMQQhBBIQMQYqEhA=';
+    public const REFERENCE_PROGRAM = 'ASAFAgEFBgcmAyD+vKC7FEpaTqe0OKRoGsgObKEFvLYH/FZTJclWlfaiEyDmmpYeby1feshmB5JlUr6YI17TM2PKiJGLuck4qRW2+QEGMgQiEjMAECMSEDMABzEAEhAzAAgxARIQMRYjEhAxECMSEDEHKBIQMQkpEhAxCCQSEDECJRIQMQQhBBIQMQYqEhA=';
 
     /**
      * Create a new dynamic fee.
@@ -114,7 +114,7 @@ class DynamicFee
      * @throws \Rootsoft\Algorand\Exceptions\AlgorandException
      * @throws \SodiumException
      */
-    public static function getReimbursementTransactions(RawTransaction  $transaction, LogicSignature $signature, Account $account, BigInteger $feePerByte) : string
+    public static function getReimbursementTransactions(RawTransaction $transaction, LogicSignature $signature, Account $account, BigInteger $feePerByte) : string
     {
         $transaction->setFeeByFeePerByte($feePerByte);
 
@@ -139,6 +139,6 @@ class DynamicFee
         $encoded1 = Encoder::getInstance()->encodeMessagePack($signedReimbursementTx->toMessagePack());
         $encoded2 = Encoder::getInstance()->encodeMessagePack($signedTx->toMessagePack());
 
-        return $encoded1 . $encoded2;
+        return $encoded1.$encoded2;
     }
 }

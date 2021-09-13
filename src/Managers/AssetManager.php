@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Managers;
 
 use JsonMapper\JsonMapperInterface;
@@ -24,7 +23,6 @@ use Rootsoft\Algorand\Traits\MakesHttpRequests;
  *
  * More information see: https://developer.algorand.org/docs/features/asa/
  * Class AccountManager
- * @package Rootsoft\Algorand\Managers
  */
 class AssetManager
 {
@@ -61,5 +59,4 @@ class AssetManager
         $this->indexerClient = $indexerClient;
         $this->jsonMapper = $jsonMapper;
     }
-
 }

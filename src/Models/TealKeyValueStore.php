@@ -1,24 +1,22 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models;
 
 /**
  * Represents a key-value store for use in an application.
- * Class TealKeyValueStore
- * @package Rootsoft\Algorand\Models
+ * Class TealKeyValueStore.
  */
 class TealKeyValueStore
 {
     /**
-     * The teal key
+     * The teal key.
      * @var string
      * @required
      */
     public string $key;
 
     /**
-     * The TEAL value for the given key
+     * The TEAL value for the given key.
      * @var TealValue
      * @required
      */

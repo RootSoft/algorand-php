@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Services;
 
 use Rootsoft\Algorand\Models\Accounts\AccountInformation;
 
 trait ManagesBalanceV2
 {
-
     /**
      * Get the balance (in microAlgos) of the given address.
      *
@@ -23,5 +21,4 @@ trait ManagesBalanceV2
 
         return $accountInformation->amountWithoutPendingRewards;
     }
-
 }

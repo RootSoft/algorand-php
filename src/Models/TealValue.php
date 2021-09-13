@@ -1,31 +1,29 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models;
 
 /**
  * Represents a TEAL value.
- * Class TealValue
- * @package Rootsoft\Algorand\Models
+ * Class TealValue.
  */
 class TealValue
 {
     /**
-     * bytes value
+     * bytes value.
      * @var string
      * @required
      */
     public string $bytes;
 
     /**
-     * Value type
+     * Value type.
      * @var int
      * @required
      */
     public int $type;
 
     /**
-     * Uint value
+     * Uint value.
      * @var int
      * @required
      */

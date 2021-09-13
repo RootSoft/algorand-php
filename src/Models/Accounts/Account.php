@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Accounts;
 
 use ParagonIE\Halite\Alerts\InvalidKey;
@@ -27,12 +26,11 @@ use SodiumException;
  * sending Algos to the address on Algorand will initialize its state on the Algorand blockchain.
  *
  * Class Account
- * @package Rootsoft\Algorand\Models\Accounts
  */
 class Account
 {
     /// Prefix for signing bytes
-    const BYTES_SIGN_PREFIX = 'MX';
+    public const BYTES_SIGN_PREFIX = 'MX';
 
     private KeyPair $privateKeyPair;
 
@@ -87,7 +85,7 @@ class Account
     }
 
     /**
-     * Create an account from an rfc8037 private key
+     * Create an account from an rfc8037 private key.
      *
      * @param string $seed
      * @return Account
@@ -158,7 +156,7 @@ class Account
         // Prepend the bytes
         $signPrefix = utf8_encode(self::BYTES_SIGN_PREFIX);
 
-        return $this->sign($signPrefix . $data);
+        return $this->sign($signPrefix.$data);
     }
 
     /**
@@ -179,7 +177,7 @@ class Account
 
     /**
      * Get the public key, in bytes.
-     * @return String
+     * @return string
      */
     public function getPublicKey(): string
     {
@@ -188,7 +186,7 @@ class Account
 
     /**
      * Get the public, human readable address of the account.
-     * @return String
+     * @return string
      */
     public function getPublicAddress()
     {

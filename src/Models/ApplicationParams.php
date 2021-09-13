@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models;
 
 /**
  * The global information associated with an application.
- * Class ApplicationParams
- * @package Rootsoft\Algorand\Models
+ * Class ApplicationParams.
  */
 class ApplicationParams
 {
@@ -33,19 +31,19 @@ class ApplicationParams
     public ?string $creator = null;
 
     /**
-     * Global schema
+     * Global schema.
      * @var TealKeyValueStore[]|null
      */
     public ?array $globalState = null;
 
     /**
-     * Global schema
+     * Global schema.
      * @var ApplicationStateSchema|null
      */
     public ?ApplicationStateSchema $globalStateSchema = null;
 
     /**
-     * Local schema
+     * Local schema.
      * @var ApplicationStateSchema|null
      */
     public ?ApplicationStateSchema $localStateSchema = null;

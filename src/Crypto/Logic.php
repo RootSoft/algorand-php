@@ -9,13 +9,17 @@ use Rootsoft\Algorand\Utils\Buffer;
 
 class Logic
 {
-    const MAX_COST = 20000;
-    const MAX_LENGTH = 1000;
+    public const MAX_COST = 20000;
 
-    const INTCBLOCK_OPCODE = 32;
-    const BYTECBLOCK_OPCODE = 38;
-    const PUSHBYTES_OPCODE = 128;
-    const PUSHINT_OPCODE = 129;
+    public const MAX_LENGTH = 1000;
+
+    public const INTCBLOCK_OPCODE = 32;
+
+    public const BYTECBLOCK_OPCODE = 38;
+
+    public const PUSHBYTES_OPCODE = 128;
+
+    public const PUSHINT_OPCODE = 129;
 
     private static ?LangSpec $langSpec = null;
 
@@ -31,7 +35,7 @@ class Logic
     }
 
     /**
-     * Performs basic program validation: instruction count and program cost
+     * Performs basic program validation: instruction count and program cost.
      *
      * @param string $program
      * @param array $arguments
@@ -173,7 +177,7 @@ class Logic
     }
 
     /**
-     * Given a varint, get the integer value
+     * Given a varint, get the integer value.
      *
      * @param string $buffer
      * @param int $bufferOffset
@@ -245,7 +249,7 @@ class Logic
 
             $result = self::getUVarint($buffer, $pc + $size);
             if ($result->getLength() <= 0) {
-                throw new AlgorandException("could not decode int const[" . $i . "] block at pc=" . ($pc + $size));
+                throw new AlgorandException('could not decode int const['.$i.'] block at pc='.($pc + $size));
             }
             $size += $result->getLength();
             $results[] = $result->getValue();
@@ -273,7 +277,7 @@ class Logic
 
             $result = self::getUVarint($buffer, $pc + $size);
             if ($result->getLength() <= 0) {
-                throw new AlgorandException("could not decode int const[" . $i . "] block at pc=" . ($pc + $size));
+                throw new AlgorandException('could not decode int const['.$i.'] block at pc='.($pc + $size));
             }
             $size += $result->getLength();
             if ($pc + $size + $result->getValue() > count($buffer)) {
@@ -310,7 +314,7 @@ class Logic
 
         $size += $result->getLength();
         if ($pc + $size + $result->getValue() > count($buffer)) {
-            throw new AlgorandException("byte[] const block exceeds program length");
+            throw new AlgorandException('byte[] const block exceeds program length');
         }
 
         $b = array_slice($buffer, $pc + $size, $result->getValue());
@@ -323,6 +327,7 @@ class Logic
 class LangSpec
 {
     public int $evalMaxVersion = 0;
+
     public int $logicSigVersion = 0;
 
     /**
@@ -334,21 +339,32 @@ class LangSpec
 class Operation
 {
     public int $opcode;
+
     public string $name;
+
     public int $cost;
+
     public int $size;
+
     public ?string $returns = null;
+
     public ?array $argEnum = null;
+
     public ?string $argEnumTypes = null;
+
     public ?string $doc = null;
+
     public ?string $immediateNote = null;
+
     public ?array $group = null;
 }
 
 class ProgramData
 {
     public bool $good;
+
     public array $intBlock;
+
     public array $byteBlock;
 
     /**
@@ -367,6 +383,7 @@ class ProgramData
 class VarintResult
 {
     private int $value;
+
     private int $length;
 
     /**

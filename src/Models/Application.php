@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models;
 
 /**
  * Application index and its parameters
- * Class Application
- * @package Rootsoft\Algorand\Models
+ * Class Application.
  */
 class Application
 {
@@ -18,7 +16,7 @@ class Application
     public int $id;
 
     /**
-     * The application parameters
+     * The application parameters.
      * @var ApplicationParams
      * @required
      */

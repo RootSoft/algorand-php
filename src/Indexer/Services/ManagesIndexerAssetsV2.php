@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Indexer\Services;
 
 use Rootsoft\Algorand\Models\Assets\SearchAssetsResult;
 
 trait ManagesIndexerAssetsV2
 {
-
     /**
      * Search assets using the indexer.
      *
@@ -16,12 +14,11 @@ trait ManagesIndexerAssetsV2
      */
     protected function searchAssets(array $queryParams)
     {
-        $response = $this->get($this->indexerClient, "/v2/assets", $queryParams);
+        $response = $this->get($this->indexerClient, '/v2/assets', $queryParams);
 
         $result = new SearchAssetsResult();
         $this->jsonMapper->mapObject($response, $result);
 
         return $result;
     }
-
 }
