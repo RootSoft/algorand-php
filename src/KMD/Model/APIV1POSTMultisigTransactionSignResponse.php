@@ -1,17 +1,16 @@
 <?php
 /**
- * APIV1POSTMultisigTransactionSignResponse
+ * APIV1POSTMultisigTransactionSignResponse.
  *
  * PHP version 7.3
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -29,15 +28,14 @@
 
 namespace Rootsoft\Algorand\KMD\Model;
 
-use \ArrayAccess;
-use \Rootsoft\Algorand\KMD\ObjectSerializer;
+use ArrayAccess;
+use Rootsoft\Algorand\KMD\ObjectSerializer;
 
 /**
- * APIV1POSTMultisigTransactionSignResponse Class Doc Comment
+ * APIV1POSTMultisigTransactionSignResponse Class Doc Comment.
  *
  * @category Class
  * @description APIV1POSTMultisigTransactionSignResponse is the response to &#x60;POST /v1/multisig/sign&#x60; friendly:SignMultisigResponse
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -49,38 +47,38 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'APIV1POSTMultisigTransactionSignResponse';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'error' => 'bool',
         'message' => 'string',
-        'multisig' => 'string'
+        'multisig' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'error' => null,
         'message' => null,
-        'multisig' => 'byte'
+        'multisig' => 'byte',
     ];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
+     * Array of property to type mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -90,7 +88,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Array of property to format mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -101,41 +99,41 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
     protected static $attributeMap = [
         'error' => 'error',
         'message' => 'message',
-        'multisig' => 'multisig'
+        'multisig' => 'multisig',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
     protected static $setters = [
         'error' => 'setError',
         'message' => 'setMessage',
-        'multisig' => 'setMultisig'
+        'multisig' => 'setMultisig',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
     protected static $getters = [
         'error' => 'getError',
         'message' => 'getMessage',
-        'multisig' => 'getMultisig'
+        'multisig' => 'getMultisig',
     ];
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -145,7 +143,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -155,7 +153,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -174,16 +172,15 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
         return self::$openAPIModelName;
     }
 
-
     /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -204,7 +201,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['multisig']) && !preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['multisig'])) {
+        if (! is_null($this->container['multisig']) && ! preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['multisig'])) {
             $invalidProperties[] = "invalid value for 'multisig', must be conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.";
         }
 
@@ -213,7 +210,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
@@ -222,9 +219,8 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
-     * Gets error
+     * Gets error.
      *
      * @return bool|null
      */
@@ -234,7 +230,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     }
 
     /**
-     * Sets error
+     * Sets error.
      *
      * @param bool|null $error error
      *
@@ -248,7 +244,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     }
 
     /**
-     * Gets message
+     * Gets message.
      *
      * @return string|null
      */
@@ -258,7 +254,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     }
 
     /**
-     * Sets message
+     * Sets message.
      *
      * @param string|null $message message
      *
@@ -272,7 +268,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     }
 
     /**
-     * Gets multisig
+     * Gets multisig.
      *
      * @return string|null
      */
@@ -282,7 +278,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     }
 
     /**
-     * Sets multisig
+     * Sets multisig.
      *
      * @param string|null $multisig multisig
      *
@@ -290,8 +286,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
      */
     public function setMultisig($multisig)
     {
-
-        if (!is_null($multisig) && (!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $multisig))) {
+        if (! is_null($multisig) && (! preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $multisig))) {
             throw new \InvalidArgumentException("invalid value for $multisig when calling APIV1POSTMultisigTransactionSignResponse., must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.");
         }
 
@@ -299,12 +294,13 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return boolean
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -314,7 +310,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
@@ -343,7 +339,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return void
      */
@@ -361,11 +357,11 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
+     * Gets the string presentation of the object.
      *
      * @return string
      */
@@ -378,7 +374,7 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
     }
 
     /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -387,5 +383,3 @@ class APIV1POSTMultisigTransactionSignResponse implements ModelInterface, ArrayA
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

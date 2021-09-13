@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Assets;
 
 /**
@@ -8,7 +7,6 @@ namespace Rootsoft\Algorand\Models\Assets;
  * [apar] when part of an AssetConfig transaction.
  *
  * Class AssetParams
- * @package Rootsoft\Algorand\Models
  */
 class AssetParams
 {

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Services;
 
 use JsonMapper\JsonMapperInterface;
@@ -19,10 +18,11 @@ trait ManagesLedgerV2
      */
     public function getSupply()
     {
-        $response = $this->get($this->algodClient, "/v2/ledger/supply");
+        $response = $this->get($this->algodClient, '/v2/ledger/supply');
 
         $result = new LedgerSupplyResult();
         $this->jsonMapper->mapObject($response, $result);
+
         return $result;
     }
 }

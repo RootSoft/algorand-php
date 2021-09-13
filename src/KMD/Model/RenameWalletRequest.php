@@ -1,17 +1,16 @@
 <?php
 /**
- * RenameWalletRequest
+ * RenameWalletRequest.
  *
  * PHP version 7.3
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -29,15 +28,14 @@
 
 namespace Rootsoft\Algorand\KMD\Model;
 
-use \ArrayAccess;
-use \Rootsoft\Algorand\KMD\ObjectSerializer;
+use ArrayAccess;
+use Rootsoft\Algorand\KMD\ObjectSerializer;
 
 /**
- * RenameWalletRequest Class Doc Comment
+ * RenameWalletRequest Class Doc Comment.
  *
  * @category Class
  * @description APIV1POSTWalletRenameRequest is the request for &#x60;POST /v1/wallet/rename&#x60;
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -49,38 +47,38 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'RenameWalletRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'wallet_id' => 'string',
         'wallet_name' => 'string',
-        'wallet_password' => 'string'
+        'wallet_password' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'wallet_id' => null,
         'wallet_name' => null,
-        'wallet_password' => null
+        'wallet_password' => null,
     ];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
+     * Array of property to type mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -90,7 +88,7 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Array of property to format mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -101,41 +99,41 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
     protected static $attributeMap = [
         'wallet_id' => 'wallet_id',
         'wallet_name' => 'wallet_name',
-        'wallet_password' => 'wallet_password'
+        'wallet_password' => 'wallet_password',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
     protected static $setters = [
         'wallet_id' => 'setWalletId',
         'wallet_name' => 'setWalletName',
-        'wallet_password' => 'setWalletPassword'
+        'wallet_password' => 'setWalletPassword',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
     protected static $getters = [
         'wallet_id' => 'getWalletId',
         'wallet_name' => 'getWalletName',
-        'wallet_password' => 'getWalletPassword'
+        'wallet_password' => 'getWalletPassword',
     ];
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -145,7 +143,7 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -155,7 +153,7 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -174,16 +172,15 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
-
     /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -209,7 +206,7 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
@@ -218,9 +215,8 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
-     * Gets wallet_id
+     * Gets wallet_id.
      *
      * @return string|null
      */
@@ -230,7 +226,7 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Sets wallet_id
+     * Sets wallet_id.
      *
      * @param string|null $wallet_id wallet_id
      *
@@ -244,7 +240,7 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets wallet_name
+     * Gets wallet_name.
      *
      * @return string|null
      */
@@ -254,7 +250,7 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Sets wallet_name
+     * Sets wallet_name.
      *
      * @param string|null $wallet_name wallet_name
      *
@@ -268,7 +264,7 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets wallet_password
+     * Gets wallet_password.
      *
      * @return string|null
      */
@@ -278,7 +274,7 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Sets wallet_password
+     * Sets wallet_password.
      *
      * @param string|null $wallet_password wallet_password
      *
@@ -290,12 +286,13 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return boolean
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -305,7 +302,7 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
@@ -334,7 +331,7 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return void
      */
@@ -352,11 +349,11 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
+     * Gets the string presentation of the object.
      *
      * @return string
      */
@@ -369,7 +366,7 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -378,5 +375,3 @@ class RenameWalletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

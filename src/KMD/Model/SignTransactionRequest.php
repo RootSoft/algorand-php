@@ -1,17 +1,16 @@
 <?php
 /**
- * SignTransactionRequest
+ * SignTransactionRequest.
  *
  * PHP version 7.3
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -29,15 +28,14 @@
 
 namespace Rootsoft\Algorand\KMD\Model;
 
-use \ArrayAccess;
-use \Rootsoft\Algorand\KMD\ObjectSerializer;
+use ArrayAccess;
+use Rootsoft\Algorand\KMD\ObjectSerializer;
 
 /**
- * SignTransactionRequest Class Doc Comment
+ * SignTransactionRequest Class Doc Comment.
  *
  * @category Class
  * @description APIV1POSTTransactionSignRequest is the request for &#x60;POST /v1/transaction/sign&#x60;
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -49,40 +47,40 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SignTransactionRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'public_key' => 'int[]',
         'transaction' => 'string',
         'wallet_handle_token' => 'string',
-        'wallet_password' => 'string'
+        'wallet_password' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'public_key' => 'uint8',
         'transaction' => 'byte',
         'wallet_handle_token' => null,
-        'wallet_password' => null
+        'wallet_password' => null,
     ];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
+     * Array of property to type mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -92,7 +90,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Array of property to format mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -103,7 +101,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
@@ -111,11 +109,11 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'public_key' => 'public_key',
         'transaction' => 'transaction',
         'wallet_handle_token' => 'wallet_handle_token',
-        'wallet_password' => 'wallet_password'
+        'wallet_password' => 'wallet_password',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
@@ -123,11 +121,11 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'public_key' => 'setPublicKey',
         'transaction' => 'setTransaction',
         'wallet_handle_token' => 'setWalletHandleToken',
-        'wallet_password' => 'setWalletPassword'
+        'wallet_password' => 'setWalletPassword',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
@@ -135,12 +133,12 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'public_key' => 'getPublicKey',
         'transaction' => 'getTransaction',
         'wallet_handle_token' => 'getWalletHandleToken',
-        'wallet_password' => 'getWalletPassword'
+        'wallet_password' => 'getWalletPassword',
     ];
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -150,7 +148,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -160,7 +158,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -179,16 +177,15 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
-
     /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -210,7 +207,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['transaction']) && !preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['transaction'])) {
+        if (! is_null($this->container['transaction']) && ! preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['transaction'])) {
             $invalidProperties[] = "invalid value for 'transaction', must be conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.";
         }
 
@@ -219,7 +216,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
@@ -228,9 +225,8 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
-     * Gets public_key
+     * Gets public_key.
      *
      * @return int[]|null
      */
@@ -240,7 +236,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Sets public_key
+     * Sets public_key.
      *
      * @param int[]|null $public_key public_key
      *
@@ -254,7 +250,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets transaction
+     * Gets transaction.
      *
      * @return string|null
      */
@@ -264,7 +260,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Sets transaction
+     * Sets transaction.
      *
      * @param string|null $transaction Base64 encoding of msgpack encoding of a `Transaction` object Note: SDK and goal usually generate `SignedTxn` objects in that case, the field `txn` / `Transaction` of the generated `SignedTxn` object needs to be used
      *
@@ -272,8 +268,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function setTransaction($transaction)
     {
-
-        if (!is_null($transaction) && (!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $transaction))) {
+        if (! is_null($transaction) && (! preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $transaction))) {
             throw new \InvalidArgumentException("invalid value for $transaction when calling SignTransactionRequest., must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.");
         }
 
@@ -283,7 +278,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets wallet_handle_token
+     * Gets wallet_handle_token.
      *
      * @return string|null
      */
@@ -293,7 +288,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Sets wallet_handle_token
+     * Sets wallet_handle_token.
      *
      * @param string|null $wallet_handle_token wallet_handle_token
      *
@@ -307,7 +302,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets wallet_password
+     * Gets wallet_password.
      *
      * @return string|null
      */
@@ -317,7 +312,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Sets wallet_password
+     * Sets wallet_password.
      *
      * @param string|null $wallet_password wallet_password
      *
@@ -329,12 +324,13 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return boolean
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -344,7 +340,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
@@ -373,7 +369,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return void
      */
@@ -391,11 +387,11 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
+     * Gets the string presentation of the object.
      *
      * @return string
      */
@@ -408,7 +404,7 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -417,5 +413,3 @@ class SignTransactionRequest implements ModelInterface, ArrayAccess, \JsonSerial
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

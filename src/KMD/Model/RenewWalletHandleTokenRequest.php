@@ -1,17 +1,16 @@
 <?php
 /**
- * RenewWalletHandleTokenRequest
+ * RenewWalletHandleTokenRequest.
  *
  * PHP version 7.3
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -29,15 +28,14 @@
 
 namespace Rootsoft\Algorand\KMD\Model;
 
-use \ArrayAccess;
-use \Rootsoft\Algorand\KMD\ObjectSerializer;
+use ArrayAccess;
+use Rootsoft\Algorand\KMD\ObjectSerializer;
 
 /**
- * RenewWalletHandleTokenRequest Class Doc Comment
+ * RenewWalletHandleTokenRequest Class Doc Comment.
  *
  * @category Class
  * @description APIV1POSTWalletRenewRequest is the request for &#x60;POST /v1/wallet/renew&#x60;
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -49,34 +47,34 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'RenewWalletHandleTokenRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
-        'wallet_handle_token' => 'string'
+        'wallet_handle_token' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
-        'wallet_handle_token' => null
+        'wallet_handle_token' => null,
     ];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
+     * Array of property to type mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -86,7 +84,7 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Array of property to format mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -97,35 +95,35 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
     protected static $attributeMap = [
-        'wallet_handle_token' => 'wallet_handle_token'
+        'wallet_handle_token' => 'wallet_handle_token',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
     protected static $setters = [
-        'wallet_handle_token' => 'setWalletHandleToken'
+        'wallet_handle_token' => 'setWalletHandleToken',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
     protected static $getters = [
-        'wallet_handle_token' => 'getWalletHandleToken'
+        'wallet_handle_token' => 'getWalletHandleToken',
     ];
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -135,7 +133,7 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -145,7 +143,7 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -164,16 +162,15 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
         return self::$openAPIModelName;
     }
 
-
     /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -197,7 +194,7 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
@@ -206,9 +203,8 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
-     * Gets wallet_handle_token
+     * Gets wallet_handle_token.
      *
      * @return string|null
      */
@@ -218,7 +214,7 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
-     * Sets wallet_handle_token
+     * Sets wallet_handle_token.
      *
      * @param string|null $wallet_handle_token wallet_handle_token
      *
@@ -230,12 +226,13 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return boolean
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -245,7 +242,7 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
@@ -274,7 +271,7 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return void
      */
@@ -292,11 +289,11 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
+     * Gets the string presentation of the object.
      *
      * @return string
      */
@@ -309,7 +306,7 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -318,5 +315,3 @@ class RenewWalletHandleTokenRequest implements ModelInterface, ArrayAccess, \Jso
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

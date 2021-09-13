@@ -1,16 +1,15 @@
 <?php
 /**
  * ApiException
- * PHP version 7.3
+ * PHP version 7.3.
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -28,19 +27,15 @@
 
 namespace Rootsoft\Algorand\KMD;
 
-use \Exception;
-
 /**
- * ApiException Class Doc Comment
+ * ApiException Class Doc Comment.
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 class HeaderSelector
 {
-
     /**
      * @param string[] $accept
      * @param string[] $contentTypes
@@ -56,6 +51,7 @@ class HeaderSelector
         }
 
         $headers['Content-Type'] = $this->selectContentTypeHeader($contentTypes);
+
         return $headers;
     }
 
@@ -68,11 +64,12 @@ class HeaderSelector
         $headers = $this->selectHeaders($accept, []);
 
         unset($headers['Content-Type']);
+
         return $headers;
     }
 
     /**
-     * Return the header 'Accept' based on an array of Accept provided
+     * Return the header 'Accept' based on an array of Accept provided.
      *
      * @param string[] $accept Array of header
      *
@@ -90,7 +87,7 @@ class HeaderSelector
     }
 
     /**
-     * Return the content type based on an array of content-type provided
+     * Return the content type based on an array of content-type provided.
      *
      * @param string[] $contentType Array fo content-type
      *
@@ -107,4 +104,3 @@ class HeaderSelector
         }
     }
 }
-

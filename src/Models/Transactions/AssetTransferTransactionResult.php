@@ -1,11 +1,9 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions;
 
 class AssetTransferTransactionResult
 {
-
     /**
      * Amount of asset to transfer.
      * @var int

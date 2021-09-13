@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Tests\Unit\Teal;
 
 use Orchestra\Testbench\TestCase;

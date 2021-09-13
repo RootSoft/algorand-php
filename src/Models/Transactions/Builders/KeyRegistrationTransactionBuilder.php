@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Rootsoft\Algorand\Exceptions\AlgorandException;
@@ -23,12 +22,12 @@ class KeyRegistrationTransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     * The root participation public key
+     * The root participation public key.
      *
      * @param ParticipationPublicKey|null $votePublicKey
      * @return $this
      */
-    public function votePublicKey(?ParticipationPublicKey $votePublicKey): KeyRegistrationTransactionBuilder
+    public function votePublicKey(?ParticipationPublicKey $votePublicKey): self
     {
         $this->keyRegTransacion->votePK = $votePublicKey;
 
@@ -41,7 +40,7 @@ class KeyRegistrationTransactionBuilder extends RawTransactionBuilder
      * @param VRFPublicKey|null $selectionPublicKey
      * @return $this
      */
-    public function selectionPublicKey(?VRFPublicKey $selectionPublicKey): KeyRegistrationTransactionBuilder
+    public function selectionPublicKey(?VRFPublicKey $selectionPublicKey): self
     {
         $this->keyRegTransacion->selectionPK = $selectionPublicKey;
 
@@ -55,7 +54,7 @@ class KeyRegistrationTransactionBuilder extends RawTransactionBuilder
      * @param int|null $voteFirst
      * @return $this
      */
-    public function voteFirst(?int $voteFirst): KeyRegistrationTransactionBuilder
+    public function voteFirst(?int $voteFirst): self
     {
         $this->keyRegTransacion->voteFirst = $voteFirst;
 
@@ -69,7 +68,7 @@ class KeyRegistrationTransactionBuilder extends RawTransactionBuilder
      * @param int|null $voteLast
      * @return $this
      */
-    public function voteLast(?int $voteLast): KeyRegistrationTransactionBuilder
+    public function voteLast(?int $voteLast): self
     {
         $this->keyRegTransacion->voteLast = $voteLast;
 
@@ -82,7 +81,7 @@ class KeyRegistrationTransactionBuilder extends RawTransactionBuilder
      * @param int|null $dilution
      * @return $this
      */
-    public function voteKeyDilution(?int $dilution): KeyRegistrationTransactionBuilder
+    public function voteKeyDilution(?int $dilution): self
     {
         $this->keyRegTransacion->voteKeyDilution = $dilution;
 

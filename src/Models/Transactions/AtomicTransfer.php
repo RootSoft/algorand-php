@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions;
 
 use Rootsoft\Algorand\Exceptions\AlgorandException;
@@ -22,22 +21,21 @@ use Rootsoft\Algorand\Utils\Encoder;
  * Transactions can contain Algos or Algorand Standard Assets and may also be governed by Algorand Smart Contracts.
  *
  * Class AtomicTransfer
- * @package Rootsoft\Algorand\Models\Transactions
  */
 class AtomicTransfer
 {
     /**
      * The prefix for a transaction group.
      */
-    const TG_PREFIX = 'TG';
+    public const TG_PREFIX = 'TG';
 
     /**
      * The maximum allowed number of transactions in an atomic transfer.
      */
-    const MAX_TRANSACTION_GROUP_SIZE = 16;
+    public const MAX_TRANSACTION_GROUP_SIZE = 16;
 
     /**
-     * The transactions
+     * The transactions.
      * @var RawTransaction[]
      */
     private array $transactions;
@@ -79,7 +77,7 @@ class AtomicTransfer
         }
 
         if (count($transactions) > self::MAX_TRANSACTION_GROUP_SIZE) {
-            throw new AlgorandException("Max. group size is " . self::MAX_TRANSACTION_GROUP_SIZE);
+            throw new AlgorandException('Max. group size is '.self::MAX_TRANSACTION_GROUP_SIZE);
         }
 
         // Calculate the transaction ids for every transaction
@@ -96,8 +94,8 @@ class AtomicTransfer
         );
 
         // Prepend the transaction group prefix
-        $txBytes = implode(unpack("H*", self::TG_PREFIX));
-        $encodedTx = hex2bin($txBytes) . $encodedTx;
+        $txBytes = implode(unpack('H*', self::TG_PREFIX));
+        $encodedTx = hex2bin($txBytes).$encodedTx;
 
         return AlgorandUtils::hash($encodedTx);
     }

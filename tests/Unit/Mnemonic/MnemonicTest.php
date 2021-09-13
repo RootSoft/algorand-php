@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Tests\Unit\Mnemonic;
 
 use Orchestra\Testbench\TestCase;
@@ -60,6 +59,7 @@ class MnemonicTest extends TestCase
 
             $words[count($words) - 1] = $newWord;
             $expectedException = false;
+
             try {
                 Mnemonic::Words($words);
             } catch (MnemonicException $ex) {
@@ -77,6 +77,7 @@ class MnemonicTest extends TestCase
             $randomBytes = random_bytes($badLen);
 
             $expectedException = false;
+
             try {
                 Mnemonic::Entropy(bin2hex($randomBytes));
             } catch (MnemonicException $ex) {

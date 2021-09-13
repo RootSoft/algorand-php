@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Brick\Math\BigInteger;
@@ -15,14 +14,12 @@ use Rootsoft\Algorand\Models\Transactions\TransactionType;
 use Rootsoft\Algorand\Utils\AlgorandUtils;
 
 /**
- * TODO Make transaction abstract
+ * TODO Make transaction abstract.
  *
  * Class RawTransactionBuilder
- * @package Rootsoft\Algorand\Models\Transactions\Builders
  */
 class RawTransactionBuilder
 {
-
     /**
      * Paid by the sender to the FeeSink to prevent denial-of-service.
      * The minimum fee on Algorand is currently 1000 microAlgos.
@@ -53,7 +50,6 @@ class RawTransactionBuilder
     protected array $payload = [];
 
     /**
-     *
      * @var RawTransaction
      */
     private RawTransaction $transaction;
@@ -74,7 +70,7 @@ class RawTransactionBuilder
      * @param RawTransaction $transaction
      * @return $this
      */
-    public function append(RawTransaction $transaction): RawTransactionBuilder
+    public function append(RawTransaction $transaction): self
     {
         $this->type($transaction->type);
         $this->flatFee($transaction->getFee()->toInt());
@@ -111,7 +107,7 @@ class RawTransactionBuilder
      * @param ?string $note
      * @return $this
      */
-    public function note(?string $note): RawTransactionBuilder
+    public function note(?string $note): self
     {
         $this->transaction->note = $note;
 
@@ -125,7 +121,7 @@ class RawTransactionBuilder
      * @param ?string $note
      * @return $this
      */
-    public function noteText(string $note): RawTransactionBuilder
+    public function noteText(string $note): self
     {
         $this->transaction->note = utf8_encode($note);
 
@@ -139,7 +135,7 @@ class RawTransactionBuilder
      * @param ?string $note
      * @return $this
      */
-    public function noteB64(string $note): RawTransactionBuilder
+    public function noteB64(string $note): self
     {
         $this->transaction->note = Base64::decode($note);
 
@@ -155,7 +151,7 @@ class RawTransactionBuilder
      * @param int $fee
      * @return $this
      */
-    public function suggestedFeePerByte(int $fee): RawTransactionBuilder
+    public function suggestedFeePerByte(int $fee): self
     {
         $this->suggestedFeePerByte = BigInteger::of($fee);
 
@@ -170,7 +166,7 @@ class RawTransactionBuilder
      * @param int|null $fee
      * @return $this
      */
-    public function flatFee(?int $fee): RawTransactionBuilder
+    public function flatFee(?int $fee): self
     {
         if ($fee == null) {
             return $this;
@@ -189,7 +185,7 @@ class RawTransactionBuilder
      * @param int|null $firstValid
      * @return RawTransactionBuilder
      */
-    public function firstValid(?int $firstValid): RawTransactionBuilder
+    public function firstValid(?int $firstValid): self
     {
         $this->transaction->firstValid = BigInteger::of($firstValid);
 
@@ -204,7 +200,7 @@ class RawTransactionBuilder
      * @param int|null $lastValid
      * @return RawTransactionBuilder
      */
-    public function lastValid(?int $lastValid): RawTransactionBuilder
+    public function lastValid(?int $lastValid): self
     {
         $this->transaction->lastValid = BigInteger::of($lastValid);
 
@@ -220,7 +216,7 @@ class RawTransactionBuilder
      * @param string|null $genesisId
      * @return RawTransactionBuilder
      */
-    public function genesisId(?string $genesisId): RawTransactionBuilder
+    public function genesisId(?string $genesisId): self
     {
         $this->transaction->genesisId = $genesisId;
 
@@ -234,7 +230,7 @@ class RawTransactionBuilder
      * @param string|null $genesisHash
      * @return RawTransactionBuilder
      */
-    public function genesisHash(?string $genesisHash): RawTransactionBuilder
+    public function genesisHash(?string $genesisHash): self
     {
         $this->transaction->genesisHash = $genesisHash;
 
@@ -248,7 +244,7 @@ class RawTransactionBuilder
      * @param string $genesisHash
      * @return RawTransactionBuilder
      */
-    public function genesisHashB64(string $genesisHash): RawTransactionBuilder
+    public function genesisHashB64(string $genesisHash): self
     {
         $this->transaction->genesisHash = Base64::decode($genesisHash);
 
@@ -271,7 +267,7 @@ class RawTransactionBuilder
      * @param string|null $lease
      * @return RawTransactionBuilder
      */
-    public function lease(?string $lease): RawTransactionBuilder
+    public function lease(?string $lease): self
     {
         $this->transaction->lease = $lease;
 
@@ -294,7 +290,7 @@ class RawTransactionBuilder
      * @param string $lease
      * @return RawTransactionBuilder
      */
-    public function leaseB64(string $lease): RawTransactionBuilder
+    public function leaseB64(string $lease): self
     {
         $this->transaction->lease = Base64::decode($lease);
 
@@ -311,7 +307,7 @@ class RawTransactionBuilder
      * @param string|null $group
      * @return RawTransactionBuilder
      */
-    public function group(?string $group): RawTransactionBuilder
+    public function group(?string $group): self
     {
         $this->transaction->group = $group;
 
@@ -325,7 +321,7 @@ class RawTransactionBuilder
      * @param string|null $type
      * @return RawTransactionBuilder
      */
-    public function type(?string $type): RawTransactionBuilder
+    public function type(?string $type): self
     {
         $this->transaction->type = $type;
 
@@ -340,7 +336,7 @@ class RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function rekeyTo(?Address $address): RawTransactionBuilder
+    public function rekeyTo(?Address $address): self
     {
         $this->transaction->rekeyTo = $address;
 
@@ -413,7 +409,7 @@ class RawTransactionBuilder
 
         // Fee Validation
         if ($this->suggestedFeePerByte != null && $this->flatFee != null) {
-            throw new AlgorandException("Cannot set both fee and flatFee.");
+            throw new AlgorandException('Cannot set both fee and flatFee.');
         }
 
         if ($this->suggestedFeePerByte != null) {

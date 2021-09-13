@@ -1,7 +1,7 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Exceptions;
 
-
-class OverQueryLimitException extends AlgorandException {}
+class OverQueryLimitException extends AlgorandException
+{
+}

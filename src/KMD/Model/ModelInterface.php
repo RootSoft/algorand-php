@@ -1,17 +1,16 @@
 <?php
 /**
- * ModelInterface
+ * ModelInterface.
  *
  * PHP version 7.3
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD\Model
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -32,7 +31,6 @@ namespace Rootsoft\Algorand\KMD\Model;
 /**
  * Interface abstracting model access.
  *
- * @package Rootsoft\Algorand\KMD\Model
  * @author  OpenAPI Generator team
  */
 interface ModelInterface
@@ -45,35 +43,35 @@ interface ModelInterface
     public function getModelName();
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
+     * Array of property to type mappings. Used for (de)serialization.
      *
      * @return array
      */
     public static function openAPITypes();
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Array of property to format mappings. Used for (de)serialization.
      *
      * @return array
      */
     public static function openAPIFormats();
 
     /**
-     * Array of attributes where the key is the local name, and the value is the original name
+     * Array of attributes where the key is the local name, and the value is the original name.
      *
      * @return array
      */
     public static function attributeMap();
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
     public static function setters();
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -88,7 +86,7 @@ interface ModelInterface
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool
      */

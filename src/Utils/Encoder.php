@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Utils;
 
 use MessagePack\BufferUnpacker;
 use MessagePack\Packer;
 use MessagePack\TypeTransformer\BinTransformer;
-use Rootsoft\Algorand\Utils\Transformers\ApplicationBaseTransformer;
 use Rootsoft\Algorand\Utils\Transformers\ApplicationCreateTransformer;
 use Rootsoft\Algorand\Utils\Transformers\ApplicationTransformer;
 use Rootsoft\Algorand\Utils\Transformers\ApplicationUpdateTransformer;

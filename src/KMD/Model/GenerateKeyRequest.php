@@ -1,17 +1,16 @@
 <?php
 /**
- * GenerateKeyRequest
+ * GenerateKeyRequest.
  *
  * PHP version 7.3
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -29,15 +28,14 @@
 
 namespace Rootsoft\Algorand\KMD\Model;
 
-use \ArrayAccess;
-use \Rootsoft\Algorand\KMD\ObjectSerializer;
+use ArrayAccess;
+use Rootsoft\Algorand\KMD\ObjectSerializer;
 
 /**
- * GenerateKeyRequest Class Doc Comment
+ * GenerateKeyRequest Class Doc Comment.
  *
  * @category Class
  * @description APIV1POSTKeyRequest is the request for &#x60;POST /v1/key&#x60;
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -49,36 +47,36 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'GenerateKeyRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'display_mnemonic' => 'bool',
-        'wallet_handle_token' => 'string'
+        'wallet_handle_token' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'display_mnemonic' => null,
-        'wallet_handle_token' => null
+        'wallet_handle_token' => null,
     ];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
+     * Array of property to type mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -88,7 +86,7 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Array of property to format mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -99,38 +97,38 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
     protected static $attributeMap = [
         'display_mnemonic' => 'display_mnemonic',
-        'wallet_handle_token' => 'wallet_handle_token'
+        'wallet_handle_token' => 'wallet_handle_token',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
     protected static $setters = [
         'display_mnemonic' => 'setDisplayMnemonic',
-        'wallet_handle_token' => 'setWalletHandleToken'
+        'wallet_handle_token' => 'setWalletHandleToken',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
     protected static $getters = [
         'display_mnemonic' => 'getDisplayMnemonic',
-        'wallet_handle_token' => 'getWalletHandleToken'
+        'wallet_handle_token' => 'getWalletHandleToken',
     ];
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -140,7 +138,7 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -150,7 +148,7 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -169,16 +167,15 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
-
     /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -203,7 +200,7 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
@@ -212,9 +209,8 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
-     * Gets display_mnemonic
+     * Gets display_mnemonic.
      *
      * @return bool|null
      */
@@ -224,7 +220,7 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Sets display_mnemonic
+     * Sets display_mnemonic.
      *
      * @param bool|null $display_mnemonic display_mnemonic
      *
@@ -238,7 +234,7 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets wallet_handle_token
+     * Gets wallet_handle_token.
      *
      * @return string|null
      */
@@ -248,7 +244,7 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Sets wallet_handle_token
+     * Sets wallet_handle_token.
      *
      * @param string|null $wallet_handle_token wallet_handle_token
      *
@@ -260,12 +256,13 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return boolean
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -275,7 +272,7 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
@@ -304,7 +301,7 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return void
      */
@@ -322,11 +319,11 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
+     * Gets the string presentation of the object.
      *
      * @return string
      */
@@ -339,7 +336,7 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -348,5 +345,3 @@ class GenerateKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -31,11 +31,10 @@ use Rootsoft\Algorand\Utils\MessagePackable;
  */
 class LogicSignature implements MessagePackable
 {
-
     /**
      * The prefix for a program.
      */
-    const LOGIC_PREFIX = 'Program';
+    public const LOGIC_PREFIX = 'Program';
 
     private string $logic;
 
@@ -138,7 +137,7 @@ class LogicSignature implements MessagePackable
      * @throws AlgorandException
      * @throws \SodiumException
      */
-    public function sign(Account $account, ?MultiSignatureAddress $multiSignatureAddress = null): LogicSignature
+    public function sign(Account $account, ?MultiSignatureAddress $multiSignatureAddress = null): self
     {
         if ($multiSignatureAddress != null) {
             return $this->signLogicSigAsMultiSig($account, $multiSignatureAddress);
@@ -169,7 +168,7 @@ class LogicSignature implements MessagePackable
      * @throws AlgorandException
      * @throws \SodiumException
      */
-    private function signLogicSigAsMultiSig(Account $account, MultiSignatureAddress $address) : LogicSignature
+    private function signLogicSigAsMultiSig(Account $account, MultiSignatureAddress $address) : self
     {
         $publicKey = new Ed25519PublicKey($account->getPublicKey());
         $index = array_search($publicKey, $address->getPublicKeys());
@@ -212,13 +211,13 @@ class LogicSignature implements MessagePackable
 
     /**
      * Get the encoded representation of the program with a prefix suitable for signing.
-     * @return String
+     * @return string
      */
     public function getEncodedProgram(): String
     {
         // Prepend the transaction prefix
         $txBytes = utf8_encode(self::LOGIC_PREFIX);
-        $encodedProgram = $txBytes . $this->logic;
+        $encodedProgram = $txBytes.$this->logic;
 
         return $encodedProgram;
     }
@@ -287,14 +286,14 @@ class LogicSignature implements MessagePackable
     }
 
     /**
-     * Appends a signature to multisig logic signed transaction
+     * Appends a signature to multisig logic signed transaction.
      *
      * @param Account $account
      * @return LogicSignature
      * @throws AlgorandException
      * @throws \SodiumException
      */
-    public function append(Account $account) : LogicSignature
+    public function append(Account $account) : self
     {
         $msig = $this->getMultiSignature();
         if (is_null($msig)) {

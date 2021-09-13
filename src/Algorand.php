@@ -24,9 +24,7 @@ use Rootsoft\Algorand\Services\ManagesTransactionsV2;
 use Rootsoft\Algorand\Traits\MakesHttpRequests;
 
 /**
- *
- * Class Algorand
- * @package Rootsoft\Algorand
+ * Class Algorand.
  */
 class Algorand
 {

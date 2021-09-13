@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand;
 
 use Illuminate\Support\ServiceProvider;
@@ -13,7 +12,6 @@ class AlgorandServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPublishables();
-
     }
 
     public function register()

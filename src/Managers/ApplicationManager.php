@@ -1,21 +1,17 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Managers;
 
 use GuzzleHttp\Client;
 use JsonMapper\JsonMapperInterface;
 use Rootsoft\Algorand\Clients\AlgodClient;
-use Rootsoft\Algorand\Services\ManagesAccountsV2;
 use Rootsoft\Algorand\Services\ManagesApplicationsV2;
-use Rootsoft\Algorand\Services\ManagesBalanceV2;
 use Rootsoft\Algorand\Traits\MakesHttpRequests;
 
 /**
  * A Manager class used to easily perform application related tasks.
  *
  * Class AccountManager
- * @package Rootsoft\Algorand\Managers
  */
 class ApplicationManager
 {
@@ -23,7 +19,6 @@ class ApplicationManager
     use ManagesApplicationsV2;
 
     /**
-     *
      * @var Client
      */
     private AlgodClient $algodClient;

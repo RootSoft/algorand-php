@@ -1,16 +1,13 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Assets;
 
 /**
  * A single asset result.
- * Class AssetResult
- * @package Rootsoft\Algorand\Models\Assets
+ * Class AssetResult.
  */
 class AssetResult
 {
-
     /**
      * Round at which the results were computed.
      * @var int
@@ -19,7 +16,7 @@ class AssetResult
     public int $currentRound = 0;
 
     /**
-     * The asset
+     * The asset.
      * @var Asset
      * @required
      */

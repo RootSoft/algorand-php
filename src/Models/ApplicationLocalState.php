@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models;
 
 class ApplicationLocalState
@@ -13,7 +12,7 @@ class ApplicationLocalState
     public int $id;
 
     /**
-     * The schema (required)
+     * The schema (required).
      *
      * @var \Rootsoft\Algorand\Models\ApplicationStateSchema
      */
@@ -34,7 +33,7 @@ class ApplicationLocalState
     public ?bool $deleted = null;
 
     /**
-     * storage
+     * storage.
      * @var \Rootsoft\Algorand\Models\TealKeyValueStore[]
      */
     public array $keyValue;

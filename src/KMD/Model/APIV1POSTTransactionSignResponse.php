@@ -1,17 +1,16 @@
 <?php
 /**
- * APIV1POSTTransactionSignResponse
+ * APIV1POSTTransactionSignResponse.
  *
  * PHP version 7.3
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -29,15 +28,14 @@
 
 namespace Rootsoft\Algorand\KMD\Model;
 
-use \ArrayAccess;
-use \Rootsoft\Algorand\KMD\ObjectSerializer;
+use ArrayAccess;
+use Rootsoft\Algorand\KMD\ObjectSerializer;
 
 /**
- * APIV1POSTTransactionSignResponse Class Doc Comment
+ * APIV1POSTTransactionSignResponse Class Doc Comment.
  *
  * @category Class
  * @description APIV1POSTTransactionSignResponse is the response to &#x60;POST /v1/transaction/sign&#x60; friendly:SignTransactionResponse
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -49,38 +47,38 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'APIV1POSTTransactionSignResponse';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'error' => 'bool',
         'message' => 'string',
-        'signed_transaction' => 'string'
+        'signed_transaction' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'error' => null,
         'message' => null,
-        'signed_transaction' => 'byte'
+        'signed_transaction' => 'byte',
     ];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
+     * Array of property to type mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -90,7 +88,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Array of property to format mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -101,41 +99,41 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
     protected static $attributeMap = [
         'error' => 'error',
         'message' => 'message',
-        'signed_transaction' => 'signed_transaction'
+        'signed_transaction' => 'signed_transaction',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
     protected static $setters = [
         'error' => 'setError',
         'message' => 'setMessage',
-        'signed_transaction' => 'setSignedTransaction'
+        'signed_transaction' => 'setSignedTransaction',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
     protected static $getters = [
         'error' => 'getError',
         'message' => 'getMessage',
-        'signed_transaction' => 'getSignedTransaction'
+        'signed_transaction' => 'getSignedTransaction',
     ];
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -145,7 +143,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -155,7 +153,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -174,16 +172,15 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
         return self::$openAPIModelName;
     }
 
-
     /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -204,7 +201,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['signed_transaction']) && !preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['signed_transaction'])) {
+        if (! is_null($this->container['signed_transaction']) && ! preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['signed_transaction'])) {
             $invalidProperties[] = "invalid value for 'signed_transaction', must be conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.";
         }
 
@@ -213,7 +210,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
@@ -222,9 +219,8 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
-     * Gets error
+     * Gets error.
      *
      * @return bool|null
      */
@@ -234,7 +230,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Sets error
+     * Sets error.
      *
      * @param bool|null $error error
      *
@@ -248,7 +244,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Gets message
+     * Gets message.
      *
      * @return string|null
      */
@@ -258,7 +254,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Sets message
+     * Sets message.
      *
      * @param string|null $message message
      *
@@ -272,7 +268,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Gets signed_transaction
+     * Gets signed_transaction.
      *
      * @return string|null
      */
@@ -282,7 +278,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Sets signed_transaction
+     * Sets signed_transaction.
      *
      * @param string|null $signed_transaction signed_transaction
      *
@@ -290,8 +286,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
      */
     public function setSignedTransaction($signed_transaction)
     {
-
-        if (!is_null($signed_transaction) && (!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $signed_transaction))) {
+        if (! is_null($signed_transaction) && (! preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $signed_transaction))) {
             throw new \InvalidArgumentException("invalid value for $signed_transaction when calling APIV1POSTTransactionSignResponse., must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.");
         }
 
@@ -299,12 +294,13 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return boolean
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -314,7 +310,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
@@ -343,7 +339,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return void
      */
@@ -361,11 +357,11 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
+     * Gets the string presentation of the object.
      *
      * @return string
      */
@@ -378,7 +374,7 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -387,5 +383,3 @@ class APIV1POSTTransactionSignResponse implements ModelInterface, ArrayAccess, \
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

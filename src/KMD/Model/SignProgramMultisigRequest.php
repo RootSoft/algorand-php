@@ -1,17 +1,16 @@
 <?php
 /**
- * SignProgramMultisigRequest
+ * SignProgramMultisigRequest.
  *
  * PHP version 7.3
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -29,15 +28,14 @@
 
 namespace Rootsoft\Algorand\KMD\Model;
 
-use \ArrayAccess;
-use \Rootsoft\Algorand\KMD\ObjectSerializer;
+use ArrayAccess;
+use Rootsoft\Algorand\KMD\ObjectSerializer;
 
 /**
- * SignProgramMultisigRequest Class Doc Comment
+ * SignProgramMultisigRequest Class Doc Comment.
  *
  * @category Class
  * @description APIV1POSTMultisigProgramSignRequest is the request for &#x60;POST /v1/multisig/signprogram&#x60;
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -49,44 +47,44 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SignProgramMultisigRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'address' => 'string',
         'data' => 'string',
         'partial_multisig' => '\Rootsoft\Algorand\KMD\Model\MultisigSig',
         'public_key' => 'int[]',
         'wallet_handle_token' => 'string',
-        'wallet_password' => 'string'
+        'wallet_password' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'address' => null,
         'data' => 'byte',
         'partial_multisig' => null,
         'public_key' => 'uint8',
         'wallet_handle_token' => null,
-        'wallet_password' => null
+        'wallet_password' => null,
     ];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
+     * Array of property to type mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -96,7 +94,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Array of property to format mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -107,7 +105,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
@@ -117,11 +115,11 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
         'partial_multisig' => 'partial_multisig',
         'public_key' => 'public_key',
         'wallet_handle_token' => 'wallet_handle_token',
-        'wallet_password' => 'wallet_password'
+        'wallet_password' => 'wallet_password',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
@@ -131,11 +129,11 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
         'partial_multisig' => 'setPartialMultisig',
         'public_key' => 'setPublicKey',
         'wallet_handle_token' => 'setWalletHandleToken',
-        'wallet_password' => 'setWalletPassword'
+        'wallet_password' => 'setWalletPassword',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
@@ -145,12 +143,12 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
         'partial_multisig' => 'getPartialMultisig',
         'public_key' => 'getPublicKey',
         'wallet_handle_token' => 'getWalletHandleToken',
-        'wallet_password' => 'getWalletPassword'
+        'wallet_password' => 'getWalletPassword',
     ];
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -160,7 +158,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -170,7 +168,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -189,16 +187,15 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
-
     /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -222,7 +219,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['data']) && !preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['data'])) {
+        if (! is_null($this->container['data']) && ! preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['data'])) {
             $invalidProperties[] = "invalid value for 'data', must be conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.";
         }
 
@@ -231,7 +228,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
@@ -240,9 +237,8 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
-     * Gets address
+     * Gets address.
      *
      * @return string|null
      */
@@ -252,7 +248,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Sets address
+     * Sets address.
      *
      * @param string|null $address address
      *
@@ -266,7 +262,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets data
+     * Gets data.
      *
      * @return string|null
      */
@@ -276,7 +272,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Sets data
+     * Sets data.
      *
      * @param string|null $data data
      *
@@ -284,8 +280,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setData($data)
     {
-
-        if (!is_null($data) && (!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $data))) {
+        if (! is_null($data) && (! preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $data))) {
             throw new \InvalidArgumentException("invalid value for $data when calling SignProgramMultisigRequest., must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.");
         }
 
@@ -295,7 +290,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets partial_multisig
+     * Gets partial_multisig.
      *
      * @return \Rootsoft\Algorand\KMD\Model\MultisigSig|null
      */
@@ -305,7 +300,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Sets partial_multisig
+     * Sets partial_multisig.
      *
      * @param \Rootsoft\Algorand\KMD\Model\MultisigSig|null $partial_multisig partial_multisig
      *
@@ -319,7 +314,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets public_key
+     * Gets public_key.
      *
      * @return int[]|null
      */
@@ -329,7 +324,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Sets public_key
+     * Sets public_key.
      *
      * @param int[]|null $public_key public_key
      *
@@ -343,7 +338,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets wallet_handle_token
+     * Gets wallet_handle_token.
      *
      * @return string|null
      */
@@ -353,7 +348,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Sets wallet_handle_token
+     * Sets wallet_handle_token.
      *
      * @param string|null $wallet_handle_token wallet_handle_token
      *
@@ -367,7 +362,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets wallet_password
+     * Gets wallet_password.
      *
      * @return string|null
      */
@@ -377,7 +372,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Sets wallet_password
+     * Sets wallet_password.
      *
      * @param string|null $wallet_password wallet_password
      *
@@ -389,12 +384,13 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return boolean
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -404,7 +400,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
@@ -433,7 +429,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return void
      */
@@ -451,11 +447,11 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
+     * Gets the string presentation of the object.
      *
      * @return string
      */
@@ -468,7 +464,7 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -477,5 +473,3 @@ class SignProgramMultisigRequest implements ModelInterface, ArrayAccess, \JsonSe
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

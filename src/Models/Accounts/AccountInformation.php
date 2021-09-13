@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Accounts;
 
 use Rootsoft\Algorand\Models\AccountParticipation;
@@ -8,21 +7,19 @@ use Rootsoft\Algorand\Models\ApplicationStateSchema;
 
 /**
  * Accounts information at a given round.
- * Class Accounts
- * @package Rootsoft\Algorand\Models
+ * Class Accounts.
  */
 class AccountInformation
 {
-
     /**
-     * The account public key
+     * The account public key.
      * @var string
      * @required
      */
     public string $address;
 
     /**
-     * Total number of MicroAlgos in the account
+     * Total number of MicroAlgos in the account.
      * @var int
      * @required
      */
@@ -115,7 +112,7 @@ class AccountInformation
      * Indicates what type of signature is used by this account, must be one of:
      *  * sig
      *  * msig
-     *  * lsig
+     *  * lsig.
      * @var string|null
      */
     public string $sigType;

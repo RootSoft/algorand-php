@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Brick\Math\BigInteger;
@@ -10,7 +9,6 @@ use Rootsoft\Algorand\Models\Transactions\RawTransaction;
 
 class AssetConfigTransaction extends RawTransaction
 {
-
     /**
      * For re-configure or destroy transactions, this is the unique asset ID.
      * On asset creation, the ID is set to zero.
@@ -49,14 +47,14 @@ class AssetConfigTransaction extends RawTransaction
     public ?bool $defaultFrozen = null;
 
     /**
-     * The name of a unit of this asset. Supplied on creation. Example: USDT
+     * The name of a unit of this asset. Supplied on creation. Example: USDT.
      *
      * @var string|null
      */
     public ?string $unitName = null;
 
     /**
-     * The name of the asset. Supplied on creation. Example: Tether
+     * The name of the asset. Supplied on creation. Example: Tether.
      *
      * @var string|null
      */

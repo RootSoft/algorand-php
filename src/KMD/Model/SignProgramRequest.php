@@ -1,17 +1,16 @@
 <?php
 /**
- * SignProgramRequest
+ * SignProgramRequest.
  *
  * PHP version 7.3
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -29,15 +28,14 @@
 
 namespace Rootsoft\Algorand\KMD\Model;
 
-use \ArrayAccess;
-use \Rootsoft\Algorand\KMD\ObjectSerializer;
+use ArrayAccess;
+use Rootsoft\Algorand\KMD\ObjectSerializer;
 
 /**
- * SignProgramRequest Class Doc Comment
+ * SignProgramRequest Class Doc Comment.
  *
  * @category Class
  * @description APIV1POSTProgramSignRequest is the request for &#x60;POST /v1/program/sign&#x60;
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -49,40 +47,40 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SignProgramRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'address' => 'string',
         'data' => 'string',
         'wallet_handle_token' => 'string',
-        'wallet_password' => 'string'
+        'wallet_password' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'address' => null,
         'data' => 'byte',
         'wallet_handle_token' => null,
-        'wallet_password' => null
+        'wallet_password' => null,
     ];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
+     * Array of property to type mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -92,7 +90,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Array of property to format mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -103,7 +101,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
@@ -111,11 +109,11 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'address' => 'address',
         'data' => 'data',
         'wallet_handle_token' => 'wallet_handle_token',
-        'wallet_password' => 'wallet_password'
+        'wallet_password' => 'wallet_password',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
@@ -123,11 +121,11 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'address' => 'setAddress',
         'data' => 'setData',
         'wallet_handle_token' => 'setWalletHandleToken',
-        'wallet_password' => 'setWalletPassword'
+        'wallet_password' => 'setWalletPassword',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
@@ -135,12 +133,12 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'address' => 'getAddress',
         'data' => 'getData',
         'wallet_handle_token' => 'getWalletHandleToken',
-        'wallet_password' => 'getWalletPassword'
+        'wallet_password' => 'getWalletPassword',
     ];
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -150,7 +148,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -160,7 +158,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -179,16 +177,15 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
-
     /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -210,7 +207,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['data']) && !preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['data'])) {
+        if (! is_null($this->container['data']) && ! preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $this->container['data'])) {
             $invalidProperties[] = "invalid value for 'data', must be conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.";
         }
 
@@ -219,7 +216,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
@@ -228,9 +225,8 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
-     * Gets address
+     * Gets address.
      *
      * @return string|null
      */
@@ -240,7 +236,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Sets address
+     * Sets address.
      *
      * @param string|null $address address
      *
@@ -254,7 +250,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets data
+     * Gets data.
      *
      * @return string|null
      */
@@ -264,7 +260,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Sets data
+     * Sets data.
      *
      * @param string|null $data data
      *
@@ -272,8 +268,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function setData($data)
     {
-
-        if (!is_null($data) && (!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $data))) {
+        if (! is_null($data) && (! preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $data))) {
             throw new \InvalidArgumentException("invalid value for $data when calling SignProgramRequest., must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.");
         }
 
@@ -283,7 +278,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets wallet_handle_token
+     * Gets wallet_handle_token.
      *
      * @return string|null
      */
@@ -293,7 +288,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Sets wallet_handle_token
+     * Sets wallet_handle_token.
      *
      * @param string|null $wallet_handle_token wallet_handle_token
      *
@@ -307,7 +302,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets wallet_password
+     * Gets wallet_password.
      *
      * @return string|null
      */
@@ -317,7 +312,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Sets wallet_password
+     * Sets wallet_password.
      *
      * @param string|null $wallet_password wallet_password
      *
@@ -329,12 +324,13 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return boolean
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -344,7 +340,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
@@ -373,7 +369,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return void
      */
@@ -391,11 +387,11 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
+     * Gets the string presentation of the object.
      *
      * @return string
      */
@@ -408,7 +404,7 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -417,5 +413,3 @@ class SignProgramRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

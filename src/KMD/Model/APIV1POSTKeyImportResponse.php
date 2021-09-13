@@ -1,17 +1,16 @@
 <?php
 /**
- * APIV1POSTKeyImportResponse
+ * APIV1POSTKeyImportResponse.
  *
  * PHP version 7.3
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -29,15 +28,14 @@
 
 namespace Rootsoft\Algorand\KMD\Model;
 
-use \ArrayAccess;
-use \Rootsoft\Algorand\KMD\ObjectSerializer;
+use ArrayAccess;
+use Rootsoft\Algorand\KMD\ObjectSerializer;
 
 /**
- * APIV1POSTKeyImportResponse Class Doc Comment
+ * APIV1POSTKeyImportResponse Class Doc Comment.
  *
  * @category Class
  * @description APIV1POSTKeyImportResponse is the response to &#x60;POST /v1/key/import&#x60; friendly:ImportKeyResponse
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -49,38 +47,38 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'APIV1POSTKeyImportResponse';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'address' => 'string',
         'error' => 'bool',
-        'message' => 'string'
+        'message' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'address' => null,
         'error' => null,
-        'message' => null
+        'message' => null,
     ];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
+     * Array of property to type mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -90,7 +88,7 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Array of property to format mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -101,41 +99,41 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
     protected static $attributeMap = [
         'address' => 'address',
         'error' => 'error',
-        'message' => 'message'
+        'message' => 'message',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
     protected static $setters = [
         'address' => 'setAddress',
         'error' => 'setError',
-        'message' => 'setMessage'
+        'message' => 'setMessage',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
     protected static $getters = [
         'address' => 'getAddress',
         'error' => 'getError',
-        'message' => 'getMessage'
+        'message' => 'getMessage',
     ];
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -145,7 +143,7 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -155,7 +153,7 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -174,16 +172,15 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
-
     /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -209,7 +206,7 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
@@ -218,9 +215,8 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
-     * Gets address
+     * Gets address.
      *
      * @return string|null
      */
@@ -230,7 +226,7 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Sets address
+     * Sets address.
      *
      * @param string|null $address address
      *
@@ -244,7 +240,7 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets error
+     * Gets error.
      *
      * @return bool|null
      */
@@ -254,7 +250,7 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Sets error
+     * Sets error.
      *
      * @param bool|null $error error
      *
@@ -268,7 +264,7 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets message
+     * Gets message.
      *
      * @return string|null
      */
@@ -278,7 +274,7 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Sets message
+     * Sets message.
      *
      * @param string|null $message message
      *
@@ -290,12 +286,13 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return boolean
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -305,7 +302,7 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
@@ -334,7 +331,7 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return void
      */
@@ -352,11 +349,11 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
+     * Gets the string presentation of the object.
      *
      * @return string
      */
@@ -369,7 +366,7 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -378,5 +375,3 @@ class APIV1POSTKeyImportResponse implements ModelInterface, ArrayAccess, \JsonSe
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

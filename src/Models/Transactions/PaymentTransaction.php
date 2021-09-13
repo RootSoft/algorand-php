@@ -1,17 +1,14 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions;
 
 /**
  * Fields for a payment transaction.
  *
  * Class PaymentTransaction
- * @package Rootsoft\Algorand\Models\Transactions
  */
 class PaymentTransaction
 {
-
     /**
      * Number of MicroAlgos intended to be transferred.
      * @var int

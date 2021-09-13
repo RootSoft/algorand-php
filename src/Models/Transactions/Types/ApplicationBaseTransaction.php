@@ -1,11 +1,9 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Types;
 
 use Brick\Math\BigInteger;
 use MessagePack\Type\Bin;
-use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Accounts\Address;
 use Rootsoft\Algorand\Models\Applications\OnCompletion;
 use Rootsoft\Algorand\Models\Transactions\Builders\ApplicationBaseTransactionBuilder;
@@ -13,7 +11,6 @@ use Rootsoft\Algorand\Models\Transactions\RawTransaction;
 
 class ApplicationBaseTransaction extends RawTransaction
 {
-
     /**
      * ApplicationID is the application being interacted with,
      * or 0 if creating a new application.
@@ -62,9 +59,6 @@ class ApplicationBaseTransaction extends RawTransaction
      */
     public ?array $foreignAssets = null;
 
-    /**
-     *
-     */
     public function __construct()
     {
         $this->applicationId = BigInteger::zero();
@@ -86,9 +80,9 @@ class ApplicationBaseTransaction extends RawTransaction
      * @param ApplicationBaseTransactionBuilder $builder
      * @return ApplicationBaseTransaction
      */
-    public static function builder(ApplicationBaseTransactionBuilder $builder): ApplicationBaseTransaction
+    public static function builder(ApplicationBaseTransactionBuilder $builder): self
     {
-        $transaction = new ApplicationBaseTransaction();
+        $transaction = new self();
 
         return $transaction;
     }

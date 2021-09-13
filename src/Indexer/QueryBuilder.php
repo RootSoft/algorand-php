@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Indexer;
 
 use Illuminate\Support\Arr;
@@ -9,11 +8,11 @@ use Rootsoft\Algorand\Clients\IndexerClient;
 
 abstract class QueryBuilder
 {
-
     /** @var array */
     protected array $payload = [];
 
     protected IndexerClient $indexerClient;
+
     protected JsonMapperInterface $jsonMapper;
 
     /**

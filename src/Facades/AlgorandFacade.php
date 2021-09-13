@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Facades;
 
 use Illuminate\Support\Facades\Facade;

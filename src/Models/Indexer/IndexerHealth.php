@@ -1,15 +1,12 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Indexer;
 
 /**
- * Class IndexerHealth
- * @package Rootsoft\Algorand\Models\Indexer
+ * Class IndexerHealth.
  */
 class IndexerHealth
 {
-
     /**
      * @var array|null
      */

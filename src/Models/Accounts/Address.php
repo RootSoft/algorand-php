@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Accounts;
 
 use Exception;
@@ -14,17 +13,17 @@ use SodiumException;
 class Address
 {
     /// Prefix for signing bytes
-    const BYTES_SIGN_PREFIX = 'MX';
+    public const BYTES_SIGN_PREFIX = 'MX';
 
-    const PUBLIC_KEY_LENGTH = 32;
+    public const PUBLIC_KEY_LENGTH = 32;
 
-    const ALGORAND_ADDRESS_BYTE_LENGTH = 36;
+    public const ALGORAND_ADDRESS_BYTE_LENGTH = 36;
 
-    const ALGORAND_CHECKSUM_BYTE_LENGTH = 4;
+    public const ALGORAND_CHECKSUM_BYTE_LENGTH = 4;
 
-    const ALGORAND_ADDRESS_LENGTH = 58;
+    public const ALGORAND_ADDRESS_LENGTH = 58;
 
-    const ALGORAND_ZERO_ADDRESS_STRING = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ";
+    public const ALGORAND_ZERO_ADDRESS_STRING = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ';
 
     /**
      * The binary representation of the address.
@@ -116,7 +115,7 @@ class Address
         $signPrefix = utf8_encode(self::BYTES_SIGN_PREFIX);
 
         // Merge the bytes
-        $buffer = $signPrefix . $data;
+        $buffer = $signPrefix.$data;
 
         return CryptoUtils::verify($buffer, $signature->bytes(), $this->address);
     }
@@ -137,7 +136,7 @@ class Address
 
         // Take the last 4 bytes and append to addr
         $checksum = substr($hashedAddress, -4);
-        $encodedAddress = Base32::encodeUpperUnpadded($address . $checksum);
+        $encodedAddress = Base32::encodeUpperUnpadded($address.$checksum);
 
         return $encodedAddress;
     }
@@ -156,7 +155,7 @@ class Address
 
         // Sanity check length
         if (strlen($checksumAddress) != self::PUBLIC_KEY_LENGTH + self::ALGORAND_CHECKSUM_BYTE_LENGTH) {
-            throw new AlgorandException("Input string is an invalid address. Wrong length");
+            throw new AlgorandException('Input string is an invalid address. Wrong length');
         }
 
         // Find public key & checksum

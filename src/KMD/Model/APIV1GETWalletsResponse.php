@@ -1,17 +1,16 @@
 <?php
 /**
- * APIV1GETWalletsResponse
+ * APIV1GETWalletsResponse.
  *
  * PHP version 7.3
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -29,15 +28,14 @@
 
 namespace Rootsoft\Algorand\KMD\Model;
 
-use \ArrayAccess;
-use \Rootsoft\Algorand\KMD\ObjectSerializer;
+use ArrayAccess;
+use Rootsoft\Algorand\KMD\ObjectSerializer;
 
 /**
- * APIV1GETWalletsResponse Class Doc Comment
+ * APIV1GETWalletsResponse Class Doc Comment.
  *
  * @category Class
  * @description APIV1GETWalletsResponse is the response to &#x60;GET /v1/wallets&#x60; friendly:ListWalletsResponse
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -49,38 +47,38 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'APIV1GETWalletsResponse';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'error' => 'bool',
         'message' => 'string',
-        'wallets' => '\Rootsoft\Algorand\KMD\Model\APIV1Wallet[]'
+        'wallets' => '\Rootsoft\Algorand\KMD\Model\APIV1Wallet[]',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'error' => null,
         'message' => null,
-        'wallets' => null
+        'wallets' => null,
     ];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
+     * Array of property to type mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -90,7 +88,7 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Array of property to format mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -101,41 +99,41 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
     protected static $attributeMap = [
         'error' => 'error',
         'message' => 'message',
-        'wallets' => 'wallets'
+        'wallets' => 'wallets',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
     protected static $setters = [
         'error' => 'setError',
         'message' => 'setMessage',
-        'wallets' => 'setWallets'
+        'wallets' => 'setWallets',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
     protected static $getters = [
         'error' => 'getError',
         'message' => 'getMessage',
-        'wallets' => 'getWallets'
+        'wallets' => 'getWallets',
     ];
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -145,7 +143,7 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -155,7 +153,7 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -174,16 +172,15 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
-
     /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -209,7 +206,7 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
@@ -218,9 +215,8 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
-     * Gets error
+     * Gets error.
      *
      * @return bool|null
      */
@@ -230,7 +226,7 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Sets error
+     * Sets error.
      *
      * @param bool|null $error error
      *
@@ -244,7 +240,7 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets message
+     * Gets message.
      *
      * @return string|null
      */
@@ -254,7 +250,7 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Sets message
+     * Sets message.
      *
      * @param string|null $message message
      *
@@ -268,7 +264,7 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets wallets
+     * Gets wallets.
      *
      * @return \Rootsoft\Algorand\KMD\Model\APIV1Wallet[]|null
      */
@@ -278,7 +274,7 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Sets wallets
+     * Sets wallets.
      *
      * @param \Rootsoft\Algorand\KMD\Model\APIV1Wallet[]|null $wallets wallets
      *
@@ -290,12 +286,13 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return boolean
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -305,7 +302,7 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
@@ -334,7 +331,7 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return void
      */
@@ -352,11 +349,11 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
+     * Gets the string presentation of the object.
      *
      * @return string
      */
@@ -369,7 +366,7 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -378,5 +375,3 @@ class APIV1GETWalletsResponse implements ModelInterface, ArrayAccess, \JsonSeria
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -22,12 +22,11 @@ use Rootsoft\Algorand\Utils\Encoder;
  * other asset.
  * Works on two cases:
  * - trading Algos for some other asset
- * - closing out Algos back to the originator after a timeout
- *
+ * - closing out Algos back to the originator after a timeout.
  */
 class LimitOrder
 {
-    const REFERENCE_PROGRAM = 'ASAKAAEFAgYEBwgJCiYBIP68oLsUSlpOp7Q4pGgayA5soQW8tgf8VlMlyVaV9qITMRYiEjEQIxIQMQEkDhAyBCMSQABVMgQlEjEIIQQNEDEJMgMSEDMBECEFEhAzAREhBhIQMwEUKBIQMwETMgMSEDMBEiEHHTUCNQExCCEIHTUENQM0ATQDDUAAJDQBNAMSNAI0BA8QQAAWADEJKBIxAiEJDRAxBzIDEhAxCCISEBA=';
+    public const REFERENCE_PROGRAM = 'ASAKAAEFAgYEBwgJCiYBIP68oLsUSlpOp7Q4pGgayA5soQW8tgf8VlMlyVaV9qITMRYiEjEQIxIQMQEkDhAyBCMSQABVMgQlEjEIIQQNEDEJMgMSEDMBECEFEhAzAREhBhIQMwEUKBIQMwETMgMSEDMBEiEHHTUCNQExCCEIHTUENQM0ATQDDUAAJDQBNAMSNAI0BA8QQAAWADEJKBIxAiEJDRAxBzIDEhAxCCISEBA=';
 
     /**
      * Create a new limit order contract.
@@ -65,7 +64,7 @@ class LimitOrder
     }
 
     /**
-     * Creates a group transaction array which transfer funds according to the contract's ratio
+     * Creates a group transaction array which transfer funds according to the contract's ratio.
      *
      * @param ContractTemplate $contract
      * @param Account $sender
@@ -128,7 +127,7 @@ class LimitOrder
             ->build();
 
         if ($tx1->getFee()->toInt() > $maxFee || $tx2->getFee()->toInt() > $maxFee) {
-            throw new InvalidArgumentException("Transaction fee is greater than maxFee");
+            throw new InvalidArgumentException('Transaction fee is greater than maxFee');
         }
 
         AtomicTransfer::group([$tx1, $tx2]);
@@ -139,6 +138,7 @@ class LimitOrder
 
         $encoded1 = Encoder::getInstance()->encodeMessagePack($signedTx1->toMessagePack());
         $encoded2 = Encoder::getInstance()->encodeMessagePack($signedTx2->toMessagePack());
-        return $encoded1 . $encoded2;
+
+        return $encoded1.$encoded2;
     }
 }

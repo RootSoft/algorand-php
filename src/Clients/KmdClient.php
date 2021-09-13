@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Clients;
 
 use Rootsoft\Algorand\KMD\Api\KmdApi;
@@ -18,7 +17,7 @@ class KmdClient extends AlgorandClient
     /**
      * The default API Token Header for Algorand nodes.
      */
-    const KMD_API_TOKEN = 'X-KMD-API-Token';
+    public const KMD_API_TOKEN = 'X-KMD-API-Token';
 
     private KmdApi $api;
 
@@ -46,8 +45,8 @@ class KmdClient extends AlgorandClient
     /**
      * @return KmdApi
      */
-    public function getApi(): KmdApi {
+    public function getApi(): KmdApi
+    {
         return $this->api;
     }
-
 }

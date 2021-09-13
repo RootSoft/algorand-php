@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Teals;
 
 use ParagonIE\ConstantTime\Base64;
@@ -8,16 +7,15 @@ use Rootsoft\Algorand\Models\Applications\TEALProgram;
 
 class TealCompilationResult
 {
-
     /**
-     * base32 SHA512_256 of program bytes (Address style)
+     * base32 SHA512_256 of program bytes (Address style).
      * @var string
      * @required
      */
     public string $hash;
 
     /**
-     * base64 encoded program bytes
+     * base64 encoded program bytes.
      * @var string
      * @required
      */
@@ -34,5 +32,4 @@ class TealCompilationResult
     {
         return new TEALProgram($this->bytes());
     }
-
 }

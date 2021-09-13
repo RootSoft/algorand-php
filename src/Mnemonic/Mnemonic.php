@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Mnemonic;
 
 use Rootsoft\Algorand\Exceptions\MnemonicException;
@@ -25,12 +24,13 @@ use Rootsoft\Algorand\Exceptions\WordListException;
  * https://github.com/furqansiddiqui/bip39-mnemonic-php
  *
  * Class Mnemonic
- * @package Rootsoft\Algorand\Mnemonic
  */
 class Mnemonic
 {
-    public const VERSION = "0.1.2";
+    public const VERSION = '0.1.2';
+
     public const BITS_PER_WORD = 11;
+
     public const KEY_LEN_BYTES = 32;
 
     public const ALGORAND_WORD_COUNT = 25;
@@ -81,7 +81,7 @@ class Mnemonic
     public static function Words($words, ?WordList $wordList = null): SeedPhrase
     {
         if (is_string($words)) {
-            $words = explode(" ", $words);
+            $words = explode(' ', $words);
         }
 
         if (! is_array($words)) {
@@ -286,7 +286,7 @@ class Mnemonic
     }
 
     /**
-     * Turn an unsigned 11bit integer array to a byte array
+     * Turn an unsigned 11bit integer array to a byte array.
      * @param array $arr
      * @return array
      */

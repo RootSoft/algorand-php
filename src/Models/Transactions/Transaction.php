@@ -1,19 +1,16 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions;
 
 /**
  * Contains all fields common to all transactions and serves as an envelope to all transactions type.
  * TODO Add other fields
- * https://developer.algorand.org/docs/reference/rest-apis/indexer/#transaction
+ * https://developer.algorand.org/docs/reference/rest-apis/indexer/#transaction.
  *
  * Class Transaction
- * @package Rootsoft\Algorand\Models\Transactions
  */
 class Transaction
 {
-
     /**
      * Rewards applied to close-remainder-to account.
      * @var int|null
@@ -40,7 +37,7 @@ class Transaction
     public int $fee;
 
     /**
-     * First valid round for this transaction
+     * First valid round for this transaction.
      * @var int
      * @required
      */
@@ -59,7 +56,7 @@ class Transaction
     public ?string $genesisId = null;
 
     /**
-     * Transaction ID
+     * Transaction ID.
      * @var string
      * @required
      */
@@ -131,7 +128,7 @@ class Transaction
      * [acfg] asset-config-transaction
      * [axfer] asset-transfer-transaction
      * [afrz] asset-freeze-transaction
-     * [appl] application-transaction
+     * [appl] application-transaction.
      *
      * @var string
      * @required

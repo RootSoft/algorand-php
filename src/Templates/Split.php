@@ -17,7 +17,7 @@ use Rootsoft\Algorand\Utils\Encoder;
 
 /**
  * Split allows locking algos in an account which allows transfering to two predefined addresses in a specified ratio
- * such that for the given ratn and ratd parameters we have:
+ * such that for the given ratn and ratd parameters we have:.
  *
  * first_recipient_amount * rat_2 == second_recipient_amount * rat_1
  *
@@ -25,12 +25,12 @@ use Rootsoft\Algorand\Utils\Encoder;
  */
 class Split
 {
-    const REFERENCE_PROGRAM = 'ASAIAQUCAAYHCAkmAyDYHIR7TIW5eM/WAZcXdEDqv7BD+baMN6i2/A5JatGbNCDKsaoZHPQ3Zg8zZB/BZ1oDgt77LGo5np3rbto3/gloTyB40AS2H3I72YCbDk4hKpm7J7NnFy2Xrt39TJG0ORFg+zEQIhIxASMMEDIEJBJAABkxCSgSMQcyAxIQMQglEhAxAiEEDRAiQAAuMwAAMwEAEjEJMgMSEDMABykSEDMBByoSEDMACCEFCzMBCCEGCxIQMwAIIQcPEBA=';
+    public const REFERENCE_PROGRAM = 'ASAIAQUCAAYHCAkmAyDYHIR7TIW5eM/WAZcXdEDqv7BD+baMN6i2/A5JatGbNCDKsaoZHPQ3Zg8zZB/BZ1oDgt77LGo5np3rbto3/gloTyB40AS2H3I72YCbDk4hKpm7J7NnFy2Xrt39TJG0ORFg+zEQIhIxASMMEDIEJBJAABkxCSgSMQcyAxIQMQglEhAxAiEEDRAiQAAuMwAAMwEAEjEJMgMSEDMABykSEDMBByoSEDMACCEFCzMBCCEGCxIQMwAIIQcPEBA=';
 
     /**
      * Create a new Split contract.
      * Split allows locking algos in an account which allows transfering to two predefined addresses in a specified ratio
-     * such that for the given ratn and ratd parameters we have:
+     * such that for the given ratn and ratd parameters we have:.
      *
      * first_recipient_amount * rat_2 == second_recipient_amount * rat_1
      *
@@ -113,7 +113,7 @@ class Split
         $rcv1 = BigInteger::of($amountReceiverOne)->multipliedBy(BigInteger::of($rat2));
         $rcv2 = BigInteger::of($amountReceiverTwo)->multipliedBy(BigInteger::of($rat1));
         if ($rcv1 != $rcv2) {
-            throw new AlgorandException("The token split must be exactly");
+            throw new AlgorandException('The token split must be exactly');
         }
 
         $receiver1 = Address::fromPublicKey(Buffer::toBinaryString($data->byteBlock[1]));
@@ -148,6 +148,7 @@ class Split
 
         $encoded1 = Encoder::getInstance()->encodeMessagePack($signedTx1->toMessagePack());
         $encoded2 = Encoder::getInstance()->encodeMessagePack($signedTx2->toMessagePack());
-        return $encoded1 . $encoded2;
+
+        return $encoded1.$encoded2;
     }
 }

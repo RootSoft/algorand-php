@@ -1,17 +1,12 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Accounts;
 
-
 /**
- *
- * Class SearchAccountsResult
- * @package Rootsoft\Algorand\Models\Accounts
+ * Class SearchAccountsResult.
  */
 class SearchAccountsResult
 {
-
     /**
      * Round at which the results were computed.
      * @var int

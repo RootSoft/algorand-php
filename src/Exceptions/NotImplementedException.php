@@ -1,7 +1,7 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Exceptions;
 
-
-class NotImplementedException extends AlgorandException {}
+class NotImplementedException extends AlgorandException
+{
+}

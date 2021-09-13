@@ -7,7 +7,7 @@ use Rootsoft\Algorand\Utils\MessagePackable;
 
 class Ed25519PublicKey implements MessagePackable
 {
-    const ED25519_KEY_SIZE = 32;
+    public const ED25519_KEY_SIZE = 32;
 
     private string $bytes;
 

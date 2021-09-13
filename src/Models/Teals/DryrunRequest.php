@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Teals;
 
 use Rootsoft\Algorand\Models\Accounts\AccountInformation;
@@ -10,19 +9,16 @@ use Rootsoft\Algorand\Utils\MessagePackable;
 /**
  * Request data type for dryrun endpoint.
  * Given the Transactions and simulated ledger state upload, run TEAL scripts and return debugging information.
- * Class DryrunRequest
- * @package Rootsoft\Algorand\Models\Teals
+ * Class DryrunRequest.
  */
 class DryrunRequest implements MessagePackable
 {
     /**
-     *
      * @var AccountInformation[]
      */
     public array $accounts = [];
 
     /**
-     *
      * @var Application[]
      */
     public array $apps = [];

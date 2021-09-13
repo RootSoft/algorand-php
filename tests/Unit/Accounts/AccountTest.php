@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Tests\Unit\Accounts;
 
 use Orchestra\Testbench\TestCase;
@@ -179,7 +178,7 @@ class AccountTest extends TestCase
 
         // Verify data
         $progDataBytes = utf8_encode('ProgData');
-        $buffer = $progDataBytes . $address->address . $data;
+        $buffer = $progDataBytes.$address->address.$data;
         $verified = CryptoUtils::verify($buffer, $signature1->bytes(), $account->getAddress()->address);
 
         $this->assertTrue($verified);

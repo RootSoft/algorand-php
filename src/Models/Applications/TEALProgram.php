@@ -9,9 +9,9 @@ use Rootsoft\Algorand\Models\Accounts\Account;
 class TEALProgram
 {
     /**
-     * Prefix for signing TEAL program data
+     * Prefix for signing TEAL program data.
      */
-    const PROGDATA_SIGN_PREFIX = 'ProgData';
+    public const PROGDATA_SIGN_PREFIX = 'ProgData';
 
     private string $program;
 
@@ -29,7 +29,7 @@ class TEALProgram
      * @param string $source
      * @return TEALProgram
      */
-    public static function fromSourceCode(string $source): TEALProgram
+    public static function fromSourceCode(string $source): self
     {
         return new self(utf8_encode($source));
     }
@@ -56,6 +56,7 @@ class TEALProgram
     public function sign(Account $account, string $data) : Signature
     {
         $lsig = new LogicSignature($this->program);
+
         return $lsig->toAddress()->sign($account, $data);
     }
 }

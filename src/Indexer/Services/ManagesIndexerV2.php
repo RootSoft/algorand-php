@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Indexer\Services;
 
 use Rootsoft\Algorand\Models\Indexer\IndexerHealth;
@@ -14,7 +13,7 @@ trait ManagesIndexerV2
      */
     public function health()
     {
-        $response = $this->get($this->indexerClient, "/health");
+        $response = $this->get($this->indexerClient, '/health');
 
         $health = new IndexerHealth();
         $this->jsonMapper->mapObject($response, $health);

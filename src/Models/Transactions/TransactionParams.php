@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions;
 
 /**
  * TransactionParams contains the parameters that help a client construct a new transaction.
  *
  * Class TransactionParams
- * @package Rootsoft\Algorand\Models\Transactions
  */
 class TransactionParams
 {
@@ -48,7 +46,7 @@ class TransactionParams
     public string $genesisHash;
 
     /**
-     * LastRound indicates the last round seen
+     * LastRound indicates the last round seen.
      *
      * todo Uint64
      * @var int

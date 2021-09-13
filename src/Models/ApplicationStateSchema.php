@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models;
 
 /**
  * Specifies maximums on the number of each type that may be stored.
- * Class ApplicationStateSchema
- * @package Rootsoft\Algorand\Models
+ * Class ApplicationStateSchema.
  */
 class ApplicationStateSchema
 {

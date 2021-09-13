@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Exceptions;
 
 class AlgorandException extends \Exception
@@ -16,7 +15,7 @@ class AlgorandException extends \Exception
      * @param string $message
      * @param mixed $error_message
      */
-    public function __construct($message = "", $error_message = null)
+    public function __construct($message = '', $error_message = null)
     {
         parent::__construct($message);
 
@@ -24,7 +23,7 @@ class AlgorandException extends \Exception
     }
 
     /**
-     * Get the error message
+     * Get the error message.
      *
      * @return mixed
      */

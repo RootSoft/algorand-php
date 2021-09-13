@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Managers;
 
 use GuzzleHttp\Client;
@@ -21,7 +20,6 @@ use Rootsoft\Algorand\Traits\MakesHttpRequests;
  *
  * More information see: https://developer.algorand.org/docs/features/accounts/
  * Class AccountManager
- * @package Rootsoft\Algorand\Managers
  */
 class AccountManager
 {
@@ -30,7 +28,6 @@ class AccountManager
     use ManagesBalanceV2;
 
     /**
-     *
      * @var Client
      */
     private AlgodClient $algodClient;

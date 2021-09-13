@@ -1,17 +1,16 @@
 <?php
 /**
- * APIV1Wallet
+ * APIV1Wallet.
  *
  * PHP version 7.3
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -29,15 +28,14 @@
 
 namespace Rootsoft\Algorand\KMD\Model;
 
-use \ArrayAccess;
-use \Rootsoft\Algorand\KMD\ObjectSerializer;
+use ArrayAccess;
+use Rootsoft\Algorand\KMD\ObjectSerializer;
 
 /**
- * APIV1Wallet Class Doc Comment
+ * APIV1Wallet Class Doc Comment.
  *
  * @category Class
  * @description APIV1Wallet is the API&#39;s representation of a wallet
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -49,44 +47,44 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'APIV1Wallet';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'driver_name' => 'string',
         'driver_version' => 'int',
         'id' => 'string',
         'mnemonic_ux' => 'bool',
         'name' => 'string',
-        'supported_txs' => 'string[]'
+        'supported_txs' => 'string[]',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'driver_name' => null,
         'driver_version' => 'uint32',
         'id' => null,
         'mnemonic_ux' => null,
         'name' => null,
-        'supported_txs' => null
+        'supported_txs' => null,
     ];
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
+     * Array of property to type mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -96,7 +94,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Array of property to format mappings. Used for (de)serialization.
      *
      * @return array
      */
@@ -107,7 +105,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @var string[]
      */
@@ -117,11 +115,11 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'mnemonic_ux' => 'mnemonic_ux',
         'name' => 'name',
-        'supported_txs' => 'supported_txs'
+        'supported_txs' => 'supported_txs',
     ];
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @var string[]
      */
@@ -131,11 +129,11 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'mnemonic_ux' => 'setMnemonicUx',
         'name' => 'setName',
-        'supported_txs' => 'setSupportedTxs'
+        'supported_txs' => 'setSupportedTxs',
     ];
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @var string[]
      */
@@ -145,12 +143,12 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'mnemonic_ux' => 'getMnemonicUx',
         'name' => 'getName',
-        'supported_txs' => 'getSupportedTxs'
+        'supported_txs' => 'getSupportedTxs',
     ];
 
     /**
      * Array of attributes where the key is the local name,
-     * and the value is the original name
+     * and the value is the original name.
      *
      * @return array
      */
@@ -160,7 +158,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Array of attributes to setter functions (for deserialization of responses)
+     * Array of attributes to setter functions (for deserialization of responses).
      *
      * @return array
      */
@@ -170,7 +168,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Array of attributes to getter functions (for serialization of requests)
+     * Array of attributes to getter functions (for serialization of requests).
      *
      * @return array
      */
@@ -189,16 +187,15 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-
     /**
-     * Associative array for storing property values
+     * Associative array for storing property values.
      *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
@@ -227,7 +224,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Validate all the properties in the model
-     * return true if all passed
+     * return true if all passed.
      *
      * @return bool True if all properties are valid
      */
@@ -236,9 +233,8 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
-     * Gets driver_name
+     * Gets driver_name.
      *
      * @return string|null
      */
@@ -248,7 +244,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets driver_name
+     * Sets driver_name.
      *
      * @param string|null $driver_name driver_name
      *
@@ -262,7 +258,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets driver_version
+     * Gets driver_version.
      *
      * @return int|null
      */
@@ -272,7 +268,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets driver_version
+     * Sets driver_version.
      *
      * @param int|null $driver_version driver_version
      *
@@ -286,7 +282,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets id
+     * Gets id.
      *
      * @return string|null
      */
@@ -296,7 +292,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets id
+     * Sets id.
      *
      * @param string|null $id id
      *
@@ -310,7 +306,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets mnemonic_ux
+     * Gets mnemonic_ux.
      *
      * @return bool|null
      */
@@ -320,7 +316,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets mnemonic_ux
+     * Sets mnemonic_ux.
      *
      * @param bool|null $mnemonic_ux mnemonic_ux
      *
@@ -334,7 +330,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets name
+     * Gets name.
      *
      * @return string|null
      */
@@ -344,7 +340,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets name
+     * Sets name.
      *
      * @param string|null $name name
      *
@@ -358,7 +354,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets supported_txs
+     * Gets supported_txs.
      *
      * @return string[]|null
      */
@@ -368,7 +364,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Sets supported_txs
+     * Sets supported_txs.
      *
      * @param string[]|null $supported_txs supported_txs
      *
@@ -380,12 +376,13 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
-     * @return boolean
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -395,7 +392,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
@@ -424,7 +421,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return void
      */
@@ -442,11 +439,11 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
-     * Gets the string presentation of the object
+     * Gets the string presentation of the object.
      *
      * @return string
      */
@@ -459,7 +456,7 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets a header-safe presentation of the object
+     * Gets a header-safe presentation of the object.
      *
      * @return string
      */
@@ -468,5 +465,3 @@ class APIV1Wallet implements ModelInterface, ArrayAccess, \JsonSerializable
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

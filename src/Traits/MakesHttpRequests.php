@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Traits;
 
 use GuzzleHttp\Exception\GuzzleException;

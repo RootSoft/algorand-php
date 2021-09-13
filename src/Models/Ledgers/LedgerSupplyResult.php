@@ -1,11 +1,9 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Ledgers;
 
 class LedgerSupplyResult
 {
-
     /**
      * @var int
      * @required
@@ -23,5 +21,4 @@ class LedgerSupplyResult
      * @required
      */
     public int $totalMoney;
-
 }

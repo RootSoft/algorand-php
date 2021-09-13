@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Utils;
 
 class ArrayUtils

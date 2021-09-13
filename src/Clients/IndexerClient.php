@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Clients;
 
 /**
@@ -11,14 +10,13 @@ namespace Rootsoft\Algorand\Clients;
  * transactions, assets, and so forth.
  *
  * Class IndexerClient
- * @package Rootsoft\Algorand\Clients
  */
 class IndexerClient extends AlgorandClient
 {
     /**
      * The default API Token Header for Indexer Algorand nodes.
      */
-    const INDEXER_API_TOKEN = 'X-Indexer-API-Token';
+    public const INDEXER_API_TOKEN = 'X-Indexer-API-Token';
 
     /**
      * IndexerClient constructor.

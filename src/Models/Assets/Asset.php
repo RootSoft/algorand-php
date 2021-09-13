@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Assets;
 
 /**
  * Specifies both the unique identifier and the parameters for an asset.
- * Class Asset
- * @package Rootsoft\Algorand\Models
+ * Class Asset.
  */
 class Asset
 {
@@ -18,7 +16,7 @@ class Asset
     public int $index;
 
     /**
-     * The asset parameters
+     * The asset parameters.
      * @var AssetParams
      * @required
      */

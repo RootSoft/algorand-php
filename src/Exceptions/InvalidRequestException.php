@@ -1,7 +1,7 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Exceptions;
 
-
-class InvalidRequestException extends AlgorandException {}
+class InvalidRequestException extends AlgorandException
+{
+}

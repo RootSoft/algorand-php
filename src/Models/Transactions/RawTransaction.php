@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions;
 
 use Brick\Math\BigInteger;
@@ -29,14 +28,13 @@ use SodiumException;
  *
  * TODO Rename to BaseTransaction
  * Class RawTransaction
- * @package Rootsoft\Algorand\Models\Transactions
  */
 class RawTransaction
 {
     /**
      * The minimum transaction fees (in micro algos).
      */
-    const MIN_TX_FEE_UALGOS = 1000;
+    public const MIN_TX_FEE_UALGOS = 1000;
 
     /**
      * Paid by the sender to the FeeSink to prevent denial-of-service.
@@ -203,8 +201,8 @@ class RawTransaction
         $encodedTx = Encoder::getInstance()->encodeMessagePack($this->toMessagePack());
 
         // Prepend the transaction prefix
-        $txBytes = (implode(unpack("H*", 'TX')));
-        $encodedTx = hex2bin($txBytes) . $encodedTx;
+        $txBytes = (implode(unpack('H*', 'TX')));
+        $encodedTx = hex2bin($txBytes).$encodedTx;
 
         return $encodedTx;
     }
@@ -226,7 +224,7 @@ class RawTransaction
 
     /**
      * Get the binary representation of the transaction id.
-     * The encoded transaction is hashed using sha512/256 without base32 encoding
+     * The encoded transaction is hashed using sha512/256 without base32 encoding.
      *
      * @return string
      */

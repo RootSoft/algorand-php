@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Services;
 
 use Brick\Math\BigInteger;
@@ -52,10 +51,11 @@ trait ManagesApplicationsV2
     public function dryrun(DryrunRequest $request)
     {
         $data = Encoder::getInstance()->encodeMessagePack($request->toMessagePack());
-        $response = $this->post($this->algodClient, "/v2/teal/dryrun", [], ['body' => $data], ['Content-Type' => 'application/x-binary']);
+        $response = $this->post($this->algodClient, '/v2/teal/dryrun', [], ['body' => $data], ['Content-Type' => 'application/x-binary']);
 
         $result = new DryrunResponse();
         $this->jsonMapper->mapObject($response, $result);
+
         return $result;
     }
 
@@ -73,7 +73,7 @@ trait ManagesApplicationsV2
      */
     public function compileTEAL(string $teal)
     {
-        $response = $this->post($this->algodClient, "/v2/teal/compile", [], ['body' => $teal], ['Content-Type' => 'application/x-binary']);
+        $response = $this->post($this->algodClient, '/v2/teal/compile', [], ['body' => $teal], ['Content-Type' => 'application/x-binary']);
 
         $result = new TealCompilationResult();
         $this->jsonMapper->mapObject($response, $result);

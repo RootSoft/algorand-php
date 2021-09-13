@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Indexer\Builders;
 
 use JsonMapper\JsonMapperInterface;

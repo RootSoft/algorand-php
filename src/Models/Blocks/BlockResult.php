@@ -1,12 +1,11 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Blocks;
 
 class BlockResult
 {
     /**
-     * The block header data
+     * The block header data.
      * @var array
      * @required
      */

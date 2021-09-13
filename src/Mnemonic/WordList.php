@@ -1,7 +1,7 @@
 <?php
 /**
  * This file is a part of "furqansiddiqui/bip39-mnemonics-php" package.
- * https://github.com/furqansiddiqui/bip39-mnemonics-php
+ * https://github.com/furqansiddiqui/bip39-mnemonics-php.
  *
  * Copyright (c) 2019 Furqan A. Siddiqui <hello@furqansiddiqui.com>
  *
@@ -17,8 +17,7 @@ namespace Rootsoft\Algorand\Mnemonic;
 use Rootsoft\Algorand\Exceptions\WordListException;
 
 /**
- * Class WordList
- * @package FurqanSiddiqui\BIP39
+ * Class WordList.
  */
 class WordList
 {
@@ -26,8 +25,10 @@ class WordList
 
     /** @var string */
     private $language;
+
     /** @var array */
     private $words;
+
     /** @var int */
     private $count;
 
@@ -37,7 +38,7 @@ class WordList
      */
     public static function English(): self
     {
-        return self::getLanguage("english");
+        return self::getLanguage('english');
     }
 
     /**
@@ -46,7 +47,7 @@ class WordList
      */
     public static function French(): self
     {
-        return self::getLanguage("french");
+        return self::getLanguage('french');
     }
 
     /**
@@ -55,7 +56,7 @@ class WordList
      */
     public static function Italian(): self
     {
-        return self::getLanguage("italian");
+        return self::getLanguage('italian');
     }
 
     /**
@@ -64,7 +65,7 @@ class WordList
      */
     public static function Spanish(): self
     {
-        return self::getLanguage("spanish");
+        return self::getLanguage('spanish');
     }
 
     /**
@@ -72,7 +73,7 @@ class WordList
      * @return WordList
      * @throws WordListException
      */
-    public static function getLanguage(string $lang = "english"): self
+    public static function getLanguage(string $lang = 'english'): self
     {
         $instance = self::$instances[$lang] ?? null;
         if ($instance) {
@@ -90,7 +91,7 @@ class WordList
      * @param string $language
      * @throws WordListException
      */
-    public function __construct(string $language = "english")
+    public function __construct(string $language = 'english')
     {
         $this->language = trim($language);
         $this->words = [];

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Brick\Math\BigInteger;
@@ -32,7 +31,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @param BigInteger|null $assetId
      * @return $this
      */
-    public function assetId(?BigInteger $assetId): AssetConfigTransactionBuilder
+    public function assetId(?BigInteger $assetId): self
     {
         $this->assetTransaction->assetId = $assetId;
 
@@ -46,7 +45,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @return $this
      * @required on creation
      */
-    public function totalAssetsToCreate(?BigInteger $total): AssetConfigTransactionBuilder
+    public function totalAssetsToCreate(?BigInteger $total): self
     {
         $this->assetTransaction->total = $total;
 
@@ -63,7 +62,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @return $this
      * @required on creation
      */
-    public function decimals(?int $decimals): AssetConfigTransactionBuilder
+    public function decimals(?int $decimals): self
     {
         $this->assetTransaction->decimals = $decimals;
 
@@ -76,7 +75,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @param bool|null $defaultFrozen
      * @return $this
      */
-    public function defaultFrozen(?bool $defaultFrozen): AssetConfigTransactionBuilder
+    public function defaultFrozen(?bool $defaultFrozen): self
     {
         $this->assetTransaction->defaultFrozen = $defaultFrozen;
 
@@ -84,12 +83,12 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     * The name of a unit of this asset. Supplied on creation. Example: USDT
+     * The name of a unit of this asset. Supplied on creation. Example: USDT.
      *
      * @param string|null $unitName
      * @return $this
      */
-    public function unitName(?string $unitName): AssetConfigTransactionBuilder
+    public function unitName(?string $unitName): self
     {
         $this->assetTransaction->unitName = $unitName;
 
@@ -97,12 +96,12 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
     }
 
     /**
-     * The name of the asset. Supplied on creation. Example: Tether
+     * The name of the asset. Supplied on creation. Example: Tether.
      *
      * @param string|null $assetName
      * @return $this
      */
-    public function assetName(?string $assetName): AssetConfigTransactionBuilder
+    public function assetName(?string $assetName): self
     {
         $this->assetTransaction->assetName = $assetName;
 
@@ -115,7 +114,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @param string|null $url
      * @return $this
      */
-    public function url(?string $url): AssetConfigTransactionBuilder
+    public function url(?string $url): self
     {
         $this->assetTransaction->url = $url;
 
@@ -132,7 +131,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @param string|null $data
      * @return $this
      */
-    public function metadata(?string $data): AssetConfigTransactionBuilder
+    public function metadata(?string $data): self
     {
         $this->assetTransaction->metaData = $data;
 
@@ -179,7 +178,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function managerAddress(?Address $address): AssetConfigTransactionBuilder
+    public function managerAddress(?Address $address): self
     {
         $this->assetTransaction->managerAddress = $address;
 
@@ -196,7 +195,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function reserveAddress(?Address $address): AssetConfigTransactionBuilder
+    public function reserveAddress(?Address $address): self
     {
         $this->assetTransaction->reserveAddress = $address;
 
@@ -210,7 +209,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function freezeAddress(?Address $address): AssetConfigTransactionBuilder
+    public function freezeAddress(?Address $address): self
     {
         $this->assetTransaction->freezeAddress = $address;
 
@@ -224,7 +223,7 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * @param Address|null $address
      * @return $this
      */
-    public function clawbackAddress(?Address $address): AssetConfigTransactionBuilder
+    public function clawbackAddress(?Address $address): self
     {
         $this->assetTransaction->clawbackAddress = $address;
 

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions\Builders;
 
 use Rootsoft\Algorand\Exceptions\AlgorandException;
@@ -27,7 +26,7 @@ class ApplicationCreateTransactionBuilder extends ApplicationUpdateTransactionBu
      * @param StateSchema|null $localStateSchema
      * @return $this
      */
-    public function localStateSchema(?StateSchema $localStateSchema): ApplicationCreateTransactionBuilder
+    public function localStateSchema(?StateSchema $localStateSchema): self
     {
         $this->applicationTransaction->localStateSchema = $localStateSchema;
 
@@ -40,7 +39,7 @@ class ApplicationCreateTransactionBuilder extends ApplicationUpdateTransactionBu
      * @param StateSchema|null $globalStateSchema
      * @return $this
      */
-    public function globalStateSchema(?StateSchema $globalStateSchema): ApplicationCreateTransactionBuilder
+    public function globalStateSchema(?StateSchema $globalStateSchema): self
     {
         $this->applicationTransaction->globalStateSchema = $globalStateSchema;
 
@@ -56,7 +55,7 @@ class ApplicationCreateTransactionBuilder extends ApplicationUpdateTransactionBu
      * @param int|null $extraPages
      * @return ApplicationCreateTransactionBuilder
      */
-    public function extraPages(?int $extraPages): ApplicationCreateTransactionBuilder
+    public function extraPages(?int $extraPages): self
     {
         $this->applicationTransaction->extraPages = $extraPages;
 

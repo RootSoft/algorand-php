@@ -25,5 +25,4 @@ class Buffer
     {
         return pack('C*', ...$buffer);
     }
-
 }

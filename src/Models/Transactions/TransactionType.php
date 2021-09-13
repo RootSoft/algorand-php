@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Transactions;
 
 use MyCLabs\Enum\Enum;
@@ -17,10 +16,16 @@ use MyCLabs\Enum\Enum;
 final class TransactionType extends Enum
 {
     private const RAW = '';
+
     private const PAYMENT = 'pay';
+
     private const KEY_REGISTRATION = 'keyreg';
+
     private const ASSET_CONFIG = 'acfg';
+
     private const ASSET_TRANSFER = 'axfer';
+
     private const ASSET_FREEZE = 'afrz';
+
     private const APPLICATION_CALL = 'appl';
 }

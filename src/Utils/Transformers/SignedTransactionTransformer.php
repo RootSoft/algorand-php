@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Utils\Transformers;
 
 use MessagePack\Packer;
@@ -75,6 +74,7 @@ class SignedTransactionTransformer implements CanPack, MessagePackTransformer
                 } else {
                     $txn = $this->factory->findTransformer(ApplicationBaseTransaction::class)->transform($className, $txn);
                 }
+
                 break;
         }
 
@@ -99,7 +99,7 @@ class SignedTransactionTransformer implements CanPack, MessagePackTransformer
 
     /**
      * Check if the transaction is an application create.
-     * TODO Rework to one ApplicationTransaction
+     * TODO Rework to one ApplicationTransaction.
      *
      * @param array $values
      * @return bool
@@ -111,7 +111,7 @@ class SignedTransactionTransformer implements CanPack, MessagePackTransformer
 
     /**
      * Check if the transaction is an application update.
-     * TODO Rework to one ApplicationTransaction
+     * TODO Rework to one ApplicationTransaction.
      *
      * @param array $values
      * @return bool

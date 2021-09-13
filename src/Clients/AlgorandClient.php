@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Clients;
 
 use GuzzleHttp\Client;
@@ -8,7 +7,6 @@ use Rootsoft\Algorand\Utils\AlgorandUtils;
 
 abstract class AlgorandClient
 {
-
     /**
      * The API rest endpoint url for Algod.
      * @var string
@@ -16,7 +14,7 @@ abstract class AlgorandClient
     private string $apiUrl;
 
     /**
-     * The API Key
+     * The API Key.
      * @var string|null
      */
     private ?string $apiKey;
@@ -69,7 +67,7 @@ abstract class AlgorandClient
      * @param string|null $apiKey
      * @return $this
      */
-    public function setApiKey(?string $apiKey): AlgorandClient
+    public function setApiKey(?string $apiKey): self
     {
         $this->apiKey = $apiKey;
 
@@ -132,5 +130,4 @@ abstract class AlgorandClient
     {
         return $this->version;
     }
-
 }

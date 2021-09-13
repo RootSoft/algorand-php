@@ -1,19 +1,18 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models;
 
 use MyCLabs\Enum\Enum;
 
 /**
- *
- * Class SignatureType
- * @package Rootsoft\Algorand\Models
+ * Class SignatureType.
  */
 final class SignatureType extends Enum
 {
     private const STANDARD = 'sig';
+
     private const MULTISIG = 'msig';
+
     private const LOGICSIG = 'lsig';
 
     /**
@@ -21,7 +20,7 @@ final class SignatureType extends Enum
      */
     public static function STANDARD()
     {
-        return new SignatureType(self::STANDARD());
+        return new self(self::STANDARD());
     }
 
     /**
@@ -29,7 +28,7 @@ final class SignatureType extends Enum
      */
     public static function MULTISIG()
     {
-        return new SignatureType(self::MULTISIG());
+        return new self(self::MULTISIG());
     }
 
     /**
@@ -37,6 +36,6 @@ final class SignatureType extends Enum
      */
     public static function LOGICSIG()
     {
-        return new SignatureType(self::LOGICSIG());
+        return new self(self::LOGICSIG());
     }
 }

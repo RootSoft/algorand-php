@@ -5,6 +5,7 @@ namespace Rootsoft\Algorand\Templates\Parameters;
 abstract class ParameterValue
 {
     private int $offset;
+
     private array $value;
 
     /**

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Tests\Unit\Crypto;
 
 use Orchestra\Testbench\TestCase;
@@ -17,7 +16,6 @@ class LogicSigTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-
     }
 
     public function testLogicSigCreation()

@@ -1,16 +1,15 @@
 <?php
 /**
  * DefaultApi
- * PHP version 7.3
+ * PHP version 7.3.
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
 /**
- * for KMD HTTP API
+ * for KMD HTTP API.
  *
  * API for KMD (Key Management Daemon)
  *
@@ -40,10 +39,9 @@ use Rootsoft\Algorand\KMD\HeaderSelector;
 use Rootsoft\Algorand\KMD\ObjectSerializer;
 
 /**
- * DefaultApi Class Doc Comment
+ * DefaultApi Class Doc Comment.
  *
  * @category Class
- * @package  Rootsoft\Algorand\KMD
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -88,7 +86,7 @@ class KmdApi
     }
 
     /**
-     * Set the host index
+     * Set the host index.
      *
      * @param int $hostIndex Host index (required)
      */
@@ -98,7 +96,7 @@ class KmdApi
     }
 
     /**
-     * Get the host index
+     * Get the host index.
      *
      * @return int Host index
      */
@@ -116,7 +114,7 @@ class KmdApi
     }
 
     /**
-     * Operation createWallet
+     * Operation createWallet.
      *
      * Create a wallet
      *
@@ -129,11 +127,12 @@ class KmdApi
     public function createWallet($create_wallet_request)
     {
         list($response) = $this->createWalletWithHttpInfo($create_wallet_request);
+
         return $response;
     }
 
     /**
-     * Operation createWalletWithHttpInfo
+     * Operation createWalletWithHttpInfo.
      *
      * Create a wallet
      *
@@ -149,6 +148,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -175,7 +175,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTWalletResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -186,7 +186,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTWalletResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -200,9 +200,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -212,14 +211,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation createWalletAsync
+     * Operation createWalletAsync.
      *
      * Create a wallet
      *
@@ -239,7 +240,7 @@ class KmdApi
     }
 
     /**
-     * Operation createWalletAsyncWithHttpInfo
+     * Operation createWalletAsyncWithHttpInfo.
      *
      * Create a wallet
      *
@@ -266,12 +267,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -287,7 +289,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'createWallet'
+     * Create request for operation 'createWallet'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\CreateWalletRequest $create_wallet_request (required)
      *
@@ -309,10 +311,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -340,16 +338,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -374,16 +370,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation deleteKey
+     * Operation deleteKey.
      *
      * Delete a key
      *
@@ -396,11 +393,12 @@ class KmdApi
     public function deleteKey($delete_key_request)
     {
         list($response) = $this->deleteKeyWithHttpInfo($delete_key_request);
+
         return $response;
     }
 
     /**
-     * Operation deleteKeyWithHttpInfo
+     * Operation deleteKeyWithHttpInfo.
      *
      * Delete a key
      *
@@ -416,6 +414,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -442,7 +441,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1DELETEKeyResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -453,7 +452,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1DELETEKeyResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -467,9 +466,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -479,14 +477,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation deleteKeyAsync
+     * Operation deleteKeyAsync.
      *
      * Delete a key
      *
@@ -506,7 +506,7 @@ class KmdApi
     }
 
     /**
-     * Operation deleteKeyAsyncWithHttpInfo
+     * Operation deleteKeyAsyncWithHttpInfo.
      *
      * Delete a key
      *
@@ -533,12 +533,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -554,7 +555,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'deleteKey'
+     * Create request for operation 'deleteKey'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\DeleteKeyRequest $delete_key_request (required)
      *
@@ -576,10 +577,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -607,16 +604,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -641,16 +636,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation deleteMultisig
+     * Operation deleteMultisig.
      *
      * Delete a multisig
      *
@@ -663,11 +659,12 @@ class KmdApi
     public function deleteMultisig($delete_multisig_request)
     {
         list($response) = $this->deleteMultisigWithHttpInfo($delete_multisig_request);
+
         return $response;
     }
 
     /**
-     * Operation deleteMultisigWithHttpInfo
+     * Operation deleteMultisigWithHttpInfo.
      *
      * Delete a multisig
      *
@@ -683,6 +680,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -709,7 +707,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1DELETEMultisigResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -720,7 +718,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1DELETEMultisigResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -734,9 +732,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -746,14 +743,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation deleteMultisigAsync
+     * Operation deleteMultisigAsync.
      *
      * Delete a multisig
      *
@@ -773,7 +772,7 @@ class KmdApi
     }
 
     /**
-     * Operation deleteMultisigAsyncWithHttpInfo
+     * Operation deleteMultisigAsyncWithHttpInfo.
      *
      * Delete a multisig
      *
@@ -800,12 +799,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -821,7 +821,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'deleteMultisig'
+     * Create request for operation 'deleteMultisig'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\DeleteMultisigRequest $delete_multisig_request (required)
      *
@@ -843,10 +843,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -874,16 +870,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -908,16 +902,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation exportKey
+     * Operation exportKey.
      *
      * Export a key
      *
@@ -930,11 +925,12 @@ class KmdApi
     public function exportKey($export_key_request)
     {
         list($response) = $this->exportKeyWithHttpInfo($export_key_request);
+
         return $response;
     }
 
     /**
-     * Operation exportKeyWithHttpInfo
+     * Operation exportKeyWithHttpInfo.
      *
      * Export a key
      *
@@ -950,6 +946,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -976,7 +973,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTKeyExportResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -987,7 +984,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTKeyExportResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -1001,9 +998,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -1013,14 +1009,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation exportKeyAsync
+     * Operation exportKeyAsync.
      *
      * Export a key
      *
@@ -1040,7 +1038,7 @@ class KmdApi
     }
 
     /**
-     * Operation exportKeyAsyncWithHttpInfo
+     * Operation exportKeyAsyncWithHttpInfo.
      *
      * Export a key
      *
@@ -1067,12 +1065,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -1088,7 +1087,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'exportKey'
+     * Create request for operation 'exportKey'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\ExportKeyRequest $export_key_request (required)
      *
@@ -1110,10 +1109,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1141,16 +1136,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -1175,16 +1168,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation exportMasterKey
+     * Operation exportMasterKey.
      *
      * Export the master derivation key from a wallet
      *
@@ -1197,11 +1191,12 @@ class KmdApi
     public function exportMasterKey($export_master_key_request)
     {
         list($response) = $this->exportMasterKeyWithHttpInfo($export_master_key_request);
+
         return $response;
     }
 
     /**
-     * Operation exportMasterKeyWithHttpInfo
+     * Operation exportMasterKeyWithHttpInfo.
      *
      * Export the master derivation key from a wallet
      *
@@ -1217,6 +1212,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -1243,7 +1239,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTMasterKeyExportResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -1254,7 +1250,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTMasterKeyExportResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -1268,9 +1264,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -1280,14 +1275,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation exportMasterKeyAsync
+     * Operation exportMasterKeyAsync.
      *
      * Export the master derivation key from a wallet
      *
@@ -1307,7 +1304,7 @@ class KmdApi
     }
 
     /**
-     * Operation exportMasterKeyAsyncWithHttpInfo
+     * Operation exportMasterKeyAsyncWithHttpInfo.
      *
      * Export the master derivation key from a wallet
      *
@@ -1334,12 +1331,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -1355,7 +1353,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'exportMasterKey'
+     * Create request for operation 'exportMasterKey'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\ExportMasterKeyRequest $export_master_key_request (required)
      *
@@ -1377,10 +1375,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1408,16 +1402,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -1442,16 +1434,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation exportMultisig
+     * Operation exportMultisig.
      *
      * Export multisig address metadata
      *
@@ -1464,11 +1457,12 @@ class KmdApi
     public function exportMultisig($export_multisig_request)
     {
         list($response) = $this->exportMultisigWithHttpInfo($export_multisig_request);
+
         return $response;
     }
 
     /**
-     * Operation exportMultisigWithHttpInfo
+     * Operation exportMultisigWithHttpInfo.
      *
      * Export multisig address metadata
      *
@@ -1484,6 +1478,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -1510,7 +1505,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTMultisigExportResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -1521,7 +1516,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTMultisigExportResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -1535,9 +1530,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -1547,14 +1541,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation exportMultisigAsync
+     * Operation exportMultisigAsync.
      *
      * Export multisig address metadata
      *
@@ -1574,7 +1570,7 @@ class KmdApi
     }
 
     /**
-     * Operation exportMultisigAsyncWithHttpInfo
+     * Operation exportMultisigAsyncWithHttpInfo.
      *
      * Export multisig address metadata
      *
@@ -1601,12 +1597,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -1622,7 +1619,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'exportMultisig'
+     * Create request for operation 'exportMultisig'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\ExportMultisigRequest $export_multisig_request (required)
      *
@@ -1644,10 +1641,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1675,16 +1668,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -1709,16 +1700,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation generateKey
+     * Operation generateKey.
      *
      * Generate a key
      *
@@ -1731,11 +1723,12 @@ class KmdApi
     public function generateKey($generate_key_request)
     {
         list($response) = $this->generateKeyWithHttpInfo($generate_key_request);
+
         return $response;
     }
 
     /**
-     * Operation generateKeyWithHttpInfo
+     * Operation generateKeyWithHttpInfo.
      *
      * Generate a key
      *
@@ -1751,6 +1744,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -1777,7 +1771,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTKeyResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -1788,7 +1782,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTKeyResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -1802,9 +1796,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -1814,14 +1807,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation generateKeyAsync
+     * Operation generateKeyAsync.
      *
      * Generate a key
      *
@@ -1841,7 +1836,7 @@ class KmdApi
     }
 
     /**
-     * Operation generateKeyAsyncWithHttpInfo
+     * Operation generateKeyAsyncWithHttpInfo.
      *
      * Generate a key
      *
@@ -1868,12 +1863,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -1889,7 +1885,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'generateKey'
+     * Create request for operation 'generateKey'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\GenerateKeyRequest $generate_key_request (required)
      *
@@ -1911,10 +1907,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1942,16 +1934,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -1976,16 +1966,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation getVersion
+     * Operation getVersion.
      *
      * Retrieves the current version
      *
@@ -1998,11 +1989,12 @@ class KmdApi
     public function getVersion($versions_request = null)
     {
         list($response) = $this->getVersionWithHttpInfo($versions_request);
+
         return $response;
     }
 
     /**
-     * Operation getVersionWithHttpInfo
+     * Operation getVersionWithHttpInfo.
      *
      * Retrieves the current version
      *
@@ -2018,6 +2010,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -2044,7 +2037,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\VersionsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -2055,7 +2048,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\VersionsResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -2069,9 +2062,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -2081,14 +2073,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation getVersionAsync
+     * Operation getVersionAsync.
      *
      * Retrieves the current version
      *
@@ -2108,7 +2102,7 @@ class KmdApi
     }
 
     /**
-     * Operation getVersionAsyncWithHttpInfo
+     * Operation getVersionAsyncWithHttpInfo.
      *
      * Retrieves the current version
      *
@@ -2135,12 +2129,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -2156,7 +2151,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'getVersion'
+     * Create request for operation 'getVersion'.
      *
      * @param  object $versions_request (optional)
      *
@@ -2165,17 +2160,12 @@ class KmdApi
      */
     public function getVersionRequest($versions_request = null)
     {
-
         $resourcePath = '/versions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2203,16 +2193,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -2237,16 +2225,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation getWalletInfo
+     * Operation getWalletInfo.
      *
      * Get wallet info
      *
@@ -2259,11 +2248,12 @@ class KmdApi
     public function getWalletInfo($get_wallet_info_request)
     {
         list($response) = $this->getWalletInfoWithHttpInfo($get_wallet_info_request);
+
         return $response;
     }
 
     /**
-     * Operation getWalletInfoWithHttpInfo
+     * Operation getWalletInfoWithHttpInfo.
      *
      * Get wallet info
      *
@@ -2279,6 +2269,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -2305,7 +2296,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTWalletInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -2316,7 +2307,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTWalletInfoResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -2330,9 +2321,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -2342,14 +2332,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation getWalletInfoAsync
+     * Operation getWalletInfoAsync.
      *
      * Get wallet info
      *
@@ -2369,7 +2361,7 @@ class KmdApi
     }
 
     /**
-     * Operation getWalletInfoAsyncWithHttpInfo
+     * Operation getWalletInfoAsyncWithHttpInfo.
      *
      * Get wallet info
      *
@@ -2396,12 +2388,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -2417,7 +2410,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'getWalletInfo'
+     * Create request for operation 'getWalletInfo'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\WalletInfoRequest $get_wallet_info_request (required)
      *
@@ -2439,10 +2432,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2470,16 +2459,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -2504,16 +2491,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation importKey
+     * Operation importKey.
      *
      * Import a key
      *
@@ -2526,11 +2514,12 @@ class KmdApi
     public function importKey($import_key_request)
     {
         list($response) = $this->importKeyWithHttpInfo($import_key_request);
+
         return $response;
     }
 
     /**
-     * Operation importKeyWithHttpInfo
+     * Operation importKeyWithHttpInfo.
      *
      * Import a key
      *
@@ -2546,6 +2535,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -2572,7 +2562,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTKeyImportResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -2583,7 +2573,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTKeyImportResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -2597,9 +2587,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -2609,14 +2598,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation importKeyAsync
+     * Operation importKeyAsync.
      *
      * Import a key
      *
@@ -2636,7 +2627,7 @@ class KmdApi
     }
 
     /**
-     * Operation importKeyAsyncWithHttpInfo
+     * Operation importKeyAsyncWithHttpInfo.
      *
      * Import a key
      *
@@ -2663,12 +2654,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -2684,7 +2676,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'importKey'
+     * Create request for operation 'importKey'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\ImportKeyRequest $import_key_request (required)
      *
@@ -2706,10 +2698,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2737,16 +2725,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -2771,16 +2757,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation importMultisig
+     * Operation importMultisig.
      *
      * Import a multisig account
      *
@@ -2793,11 +2780,12 @@ class KmdApi
     public function importMultisig($import_multisig_request)
     {
         list($response) = $this->importMultisigWithHttpInfo($import_multisig_request);
+
         return $response;
     }
 
     /**
-     * Operation importMultisigWithHttpInfo
+     * Operation importMultisigWithHttpInfo.
      *
      * Import a multisig account
      *
@@ -2813,6 +2801,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -2839,7 +2828,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTMultisigImportResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -2850,7 +2839,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTMultisigImportResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -2864,9 +2853,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -2876,14 +2864,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation importMultisigAsync
+     * Operation importMultisigAsync.
      *
      * Import a multisig account
      *
@@ -2903,7 +2893,7 @@ class KmdApi
     }
 
     /**
-     * Operation importMultisigAsyncWithHttpInfo
+     * Operation importMultisigAsyncWithHttpInfo.
      *
      * Import a multisig account
      *
@@ -2930,12 +2920,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -2951,7 +2942,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'importMultisig'
+     * Create request for operation 'importMultisig'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\ImportMultisigRequest $import_multisig_request (required)
      *
@@ -2973,10 +2964,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -3004,16 +2991,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -3038,16 +3023,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation initWalletHandleToken
+     * Operation initWalletHandleToken.
      *
      * Initialize a wallet handle token
      *
@@ -3060,11 +3046,12 @@ class KmdApi
     public function initWalletHandleToken($initialize_wallet_handle_token_request)
     {
         list($response) = $this->initWalletHandleTokenWithHttpInfo($initialize_wallet_handle_token_request);
+
         return $response;
     }
 
     /**
-     * Operation initWalletHandleTokenWithHttpInfo
+     * Operation initWalletHandleTokenWithHttpInfo.
      *
      * Initialize a wallet handle token
      *
@@ -3080,6 +3067,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -3106,7 +3094,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTWalletInitResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -3117,7 +3105,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTWalletInitResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -3131,9 +3119,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -3143,14 +3130,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation initWalletHandleTokenAsync
+     * Operation initWalletHandleTokenAsync.
      *
      * Initialize a wallet handle token
      *
@@ -3170,7 +3159,7 @@ class KmdApi
     }
 
     /**
-     * Operation initWalletHandleTokenAsyncWithHttpInfo
+     * Operation initWalletHandleTokenAsyncWithHttpInfo.
      *
      * Initialize a wallet handle token
      *
@@ -3197,12 +3186,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -3218,7 +3208,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'initWalletHandleToken'
+     * Create request for operation 'initWalletHandleToken'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\InitWalletHandleTokenRequest $initialize_wallet_handle_token_request (required)
      *
@@ -3240,10 +3230,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -3271,16 +3257,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -3305,16 +3289,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation listKeysInWallet
+     * Operation listKeysInWallet.
      *
      * List keys in wallet
      *
@@ -3327,11 +3312,12 @@ class KmdApi
     public function listKeysInWallet($list_keys_request)
     {
         list($response) = $this->listKeysInWalletWithHttpInfo($list_keys_request);
+
         return $response;
     }
 
     /**
-     * Operation listKeysInWalletWithHttpInfo
+     * Operation listKeysInWalletWithHttpInfo.
      *
      * List keys in wallet
      *
@@ -3347,6 +3333,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -3373,7 +3360,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTKeyListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -3384,7 +3371,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTKeyListResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -3398,9 +3385,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -3410,14 +3396,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation listKeysInWalletAsync
+     * Operation listKeysInWalletAsync.
      *
      * List keys in wallet
      *
@@ -3437,7 +3425,7 @@ class KmdApi
     }
 
     /**
-     * Operation listKeysInWalletAsyncWithHttpInfo
+     * Operation listKeysInWalletAsyncWithHttpInfo.
      *
      * List keys in wallet
      *
@@ -3464,12 +3452,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -3485,7 +3474,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'listKeysInWallet'
+     * Create request for operation 'listKeysInWallet'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\ListKeysRequest $list_keys_request (required)
      *
@@ -3507,10 +3496,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -3538,16 +3523,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -3572,16 +3555,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation listMultisg
+     * Operation listMultisg.
      *
      * List multisig accounts
      *
@@ -3594,11 +3578,12 @@ class KmdApi
     public function listMultisg($list_multisig_request)
     {
         list($response) = $this->listMultisgWithHttpInfo($list_multisig_request);
+
         return $response;
     }
 
     /**
-     * Operation listMultisgWithHttpInfo
+     * Operation listMultisgWithHttpInfo.
      *
      * List multisig accounts
      *
@@ -3614,6 +3599,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -3640,7 +3626,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTMultisigListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -3651,7 +3637,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTMultisigListResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -3665,9 +3651,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -3677,14 +3662,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation listMultisgAsync
+     * Operation listMultisgAsync.
      *
      * List multisig accounts
      *
@@ -3704,7 +3691,7 @@ class KmdApi
     }
 
     /**
-     * Operation listMultisgAsyncWithHttpInfo
+     * Operation listMultisgAsyncWithHttpInfo.
      *
      * List multisig accounts
      *
@@ -3731,12 +3718,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -3752,7 +3740,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'listMultisg'
+     * Create request for operation 'listMultisg'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\ListMultisigRequest $list_multisig_request (required)
      *
@@ -3774,10 +3762,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -3805,16 +3789,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -3839,16 +3821,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation listWallets
+     * Operation listWallets.
      *
      * List wallets
      *
@@ -3861,11 +3844,12 @@ class KmdApi
     public function listWallets($list_wallet_request = null)
     {
         list($response) = $this->listWalletsWithHttpInfo($list_wallet_request);
+
         return $response;
     }
 
     /**
-     * Operation listWalletsWithHttpInfo
+     * Operation listWalletsWithHttpInfo.
      *
      * List wallets
      *
@@ -3881,6 +3865,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -3907,7 +3892,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1GETWalletsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -3918,7 +3903,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1GETWalletsResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -3932,9 +3917,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -3944,14 +3928,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation listWalletsAsync
+     * Operation listWalletsAsync.
      *
      * List wallets
      *
@@ -3971,7 +3957,7 @@ class KmdApi
     }
 
     /**
-     * Operation listWalletsAsyncWithHttpInfo
+     * Operation listWalletsAsyncWithHttpInfo.
      *
      * List wallets
      *
@@ -3998,12 +3984,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -4019,7 +4006,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'listWallets'
+     * Create request for operation 'listWallets'.
      *
      * @param  object $list_wallet_request (optional)
      *
@@ -4028,17 +4015,12 @@ class KmdApi
      */
     public function listWalletsRequest($list_wallet_request = null)
     {
-
         $resourcePath = '/v1/wallets';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -4066,16 +4048,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -4100,16 +4080,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation releaseWalletHandleToken
+     * Operation releaseWalletHandleToken.
      *
      * Release a wallet handle token
      *
@@ -4122,11 +4103,12 @@ class KmdApi
     public function releaseWalletHandleToken($release_wallet_handle_token_request)
     {
         list($response) = $this->releaseWalletHandleTokenWithHttpInfo($release_wallet_handle_token_request);
+
         return $response;
     }
 
     /**
-     * Operation releaseWalletHandleTokenWithHttpInfo
+     * Operation releaseWalletHandleTokenWithHttpInfo.
      *
      * Release a wallet handle token
      *
@@ -4142,6 +4124,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -4168,7 +4151,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTWalletReleaseResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -4179,7 +4162,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTWalletReleaseResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -4193,9 +4176,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -4205,14 +4187,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation releaseWalletHandleTokenAsync
+     * Operation releaseWalletHandleTokenAsync.
      *
      * Release a wallet handle token
      *
@@ -4232,7 +4216,7 @@ class KmdApi
     }
 
     /**
-     * Operation releaseWalletHandleTokenAsyncWithHttpInfo
+     * Operation releaseWalletHandleTokenAsyncWithHttpInfo.
      *
      * Release a wallet handle token
      *
@@ -4259,12 +4243,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -4280,7 +4265,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'releaseWalletHandleToken'
+     * Create request for operation 'releaseWalletHandleToken'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\ReleaseWalletHandleTokenRequest $release_wallet_handle_token_request (required)
      *
@@ -4302,10 +4287,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -4333,16 +4314,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -4367,16 +4346,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation renameWallet
+     * Operation renameWallet.
      *
      * Rename a wallet
      *
@@ -4389,11 +4369,12 @@ class KmdApi
     public function renameWallet($rename_wallet_request)
     {
         list($response) = $this->renameWalletWithHttpInfo($rename_wallet_request);
+
         return $response;
     }
 
     /**
-     * Operation renameWalletWithHttpInfo
+     * Operation renameWalletWithHttpInfo.
      *
      * Rename a wallet
      *
@@ -4409,6 +4390,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -4435,7 +4417,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTWalletRenameResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -4446,7 +4428,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTWalletRenameResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -4460,9 +4442,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -4472,14 +4453,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation renameWalletAsync
+     * Operation renameWalletAsync.
      *
      * Rename a wallet
      *
@@ -4499,7 +4482,7 @@ class KmdApi
     }
 
     /**
-     * Operation renameWalletAsyncWithHttpInfo
+     * Operation renameWalletAsyncWithHttpInfo.
      *
      * Rename a wallet
      *
@@ -4526,12 +4509,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -4547,7 +4531,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'renameWallet'
+     * Create request for operation 'renameWallet'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\RenameWalletRequest $rename_wallet_request (required)
      *
@@ -4569,10 +4553,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -4600,16 +4580,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -4634,16 +4612,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation renewWalletHandleToken
+     * Operation renewWalletHandleToken.
      *
      * Renew a wallet handle token
      *
@@ -4656,11 +4635,12 @@ class KmdApi
     public function renewWalletHandleToken($renew_wallet_handle_token_request)
     {
         list($response) = $this->renewWalletHandleTokenWithHttpInfo($renew_wallet_handle_token_request);
+
         return $response;
     }
 
     /**
-     * Operation renewWalletHandleTokenWithHttpInfo
+     * Operation renewWalletHandleTokenWithHttpInfo.
      *
      * Renew a wallet handle token
      *
@@ -4676,6 +4656,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -4702,7 +4683,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTWalletRenewResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -4713,7 +4694,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTWalletRenewResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -4727,9 +4708,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -4739,14 +4719,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation renewWalletHandleTokenAsync
+     * Operation renewWalletHandleTokenAsync.
      *
      * Renew a wallet handle token
      *
@@ -4766,7 +4748,7 @@ class KmdApi
     }
 
     /**
-     * Operation renewWalletHandleTokenAsyncWithHttpInfo
+     * Operation renewWalletHandleTokenAsyncWithHttpInfo.
      *
      * Renew a wallet handle token
      *
@@ -4793,12 +4775,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -4814,7 +4797,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'renewWalletHandleToken'
+     * Create request for operation 'renewWalletHandleToken'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\RenewWalletHandleTokenRequest $renew_wallet_handle_token_request (required)
      *
@@ -4836,10 +4819,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -4867,16 +4846,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -4901,16 +4878,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation signMultisigProgram
+     * Operation signMultisigProgram.
      *
      * Sign a program for a multisig account
      *
@@ -4923,11 +4901,12 @@ class KmdApi
     public function signMultisigProgram($sign_multisig_program_request)
     {
         list($response) = $this->signMultisigProgramWithHttpInfo($sign_multisig_program_request);
+
         return $response;
     }
 
     /**
-     * Operation signMultisigProgramWithHttpInfo
+     * Operation signMultisigProgramWithHttpInfo.
      *
      * Sign a program for a multisig account
      *
@@ -4943,6 +4922,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -4969,7 +4949,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTMultisigProgramSignResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -4980,7 +4960,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTMultisigProgramSignResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -4994,9 +4974,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -5006,14 +4985,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation signMultisigProgramAsync
+     * Operation signMultisigProgramAsync.
      *
      * Sign a program for a multisig account
      *
@@ -5033,7 +5014,7 @@ class KmdApi
     }
 
     /**
-     * Operation signMultisigProgramAsyncWithHttpInfo
+     * Operation signMultisigProgramAsyncWithHttpInfo.
      *
      * Sign a program for a multisig account
      *
@@ -5060,12 +5041,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -5081,7 +5063,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'signMultisigProgram'
+     * Create request for operation 'signMultisigProgram'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\SignProgramMultisigRequest $sign_multisig_program_request (required)
      *
@@ -5103,10 +5085,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -5134,16 +5112,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -5168,16 +5144,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation signMultisigTransaction
+     * Operation signMultisigTransaction.
      *
      * Sign a multisig transaction
      *
@@ -5190,11 +5167,12 @@ class KmdApi
     public function signMultisigTransaction($sign_multisig_transaction_request)
     {
         list($response) = $this->signMultisigTransactionWithHttpInfo($sign_multisig_transaction_request);
+
         return $response;
     }
 
     /**
-     * Operation signMultisigTransactionWithHttpInfo
+     * Operation signMultisigTransactionWithHttpInfo.
      *
      * Sign a multisig transaction
      *
@@ -5210,6 +5188,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -5236,7 +5215,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTMultisigTransactionSignResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -5247,7 +5226,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTMultisigTransactionSignResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -5261,9 +5240,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -5273,14 +5251,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation signMultisigTransactionAsync
+     * Operation signMultisigTransactionAsync.
      *
      * Sign a multisig transaction
      *
@@ -5300,7 +5280,7 @@ class KmdApi
     }
 
     /**
-     * Operation signMultisigTransactionAsyncWithHttpInfo
+     * Operation signMultisigTransactionAsyncWithHttpInfo.
      *
      * Sign a multisig transaction
      *
@@ -5327,12 +5307,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -5348,7 +5329,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'signMultisigTransaction'
+     * Create request for operation 'signMultisigTransaction'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\SignMultisigRequest $sign_multisig_transaction_request (required)
      *
@@ -5370,10 +5351,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -5401,16 +5378,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -5435,16 +5410,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation signProgram
+     * Operation signProgram.
      *
      * Sign program
      *
@@ -5457,11 +5433,12 @@ class KmdApi
     public function signProgram($sign_program_request)
     {
         list($response) = $this->signProgramWithHttpInfo($sign_program_request);
+
         return $response;
     }
 
     /**
-     * Operation signProgramWithHttpInfo
+     * Operation signProgramWithHttpInfo.
      *
      * Sign program
      *
@@ -5477,6 +5454,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -5503,7 +5481,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTProgramSignResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -5514,7 +5492,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTProgramSignResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -5528,9 +5506,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -5540,14 +5517,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation signProgramAsync
+     * Operation signProgramAsync.
      *
      * Sign program
      *
@@ -5567,7 +5546,7 @@ class KmdApi
     }
 
     /**
-     * Operation signProgramAsyncWithHttpInfo
+     * Operation signProgramAsyncWithHttpInfo.
      *
      * Sign program
      *
@@ -5594,12 +5573,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -5615,7 +5595,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'signProgram'
+     * Create request for operation 'signProgram'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\SignProgramRequest $sign_program_request (required)
      *
@@ -5637,10 +5617,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -5668,16 +5644,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -5702,16 +5676,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation signTransaction
+     * Operation signTransaction.
      *
      * Sign a transaction
      *
@@ -5724,11 +5699,12 @@ class KmdApi
     public function signTransaction($sign_transaction_request)
     {
         list($response) = $this->signTransactionWithHttpInfo($sign_transaction_request);
+
         return $response;
     }
 
     /**
-     * Operation signTransactionWithHttpInfo
+     * Operation signTransactionWithHttpInfo.
      *
      * Sign a transaction
      *
@@ -5744,6 +5720,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -5770,7 +5747,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Rootsoft\Algorand\KMD\Model\APIV1POSTTransactionSignResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -5781,7 +5758,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, '\Rootsoft\Algorand\KMD\Model\APIV1POSTTransactionSignResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -5795,9 +5772,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -5807,14 +5783,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation signTransactionAsync
+     * Operation signTransactionAsync.
      *
      * Sign a transaction
      *
@@ -5834,7 +5812,7 @@ class KmdApi
     }
 
     /**
-     * Operation signTransactionAsyncWithHttpInfo
+     * Operation signTransactionAsyncWithHttpInfo.
      *
      * Sign a transaction
      *
@@ -5861,12 +5839,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -5882,7 +5861,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'signTransaction'
+     * Create request for operation 'signTransaction'.
      *
      * @param  \Rootsoft\Algorand\KMD\Model\SignTransactionRequest $sign_transaction_request (required)
      *
@@ -5904,10 +5883,6 @@ class KmdApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -5935,16 +5910,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -5969,16 +5942,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Operation swaggerHandler
+     * Operation swaggerHandler.
      *
      * Gets the current swagger spec.
      *
@@ -5990,11 +5964,12 @@ class KmdApi
     public function swaggerHandler()
     {
         list($response) = $this->swaggerHandlerWithHttpInfo();
+
         return $response;
     }
 
     /**
-     * Operation swaggerHandlerWithHttpInfo
+     * Operation swaggerHandlerWithHttpInfo.
      *
      * Gets the current swagger spec.
      *
@@ -6009,6 +5984,7 @@ class KmdApi
 
         try {
             $options = $this->createHttpClientOption();
+
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
@@ -6035,7 +6011,7 @@ class KmdApi
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('string' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -6046,7 +6022,7 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, 'string', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
             }
 
@@ -6060,9 +6036,8 @@ class KmdApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -6072,14 +6047,16 @@ class KmdApi
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
+
                     break;
             }
+
             throw $e;
         }
     }
 
     /**
-     * Operation swaggerHandlerAsync
+     * Operation swaggerHandlerAsync.
      *
      * Gets the current swagger spec.
      *
@@ -6098,7 +6075,7 @@ class KmdApi
     }
 
     /**
-     * Operation swaggerHandlerAsyncWithHttpInfo
+     * Operation swaggerHandlerAsyncWithHttpInfo.
      *
      * Gets the current swagger spec.
      *
@@ -6124,12 +6101,13 @@ class KmdApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
+
                     throw new ApiException(
                         sprintf(
                             '[%d] Error connecting to the API (%s)',
@@ -6145,7 +6123,7 @@ class KmdApi
     }
 
     /**
-     * Create request for operation 'swaggerHandler'
+     * Create request for operation 'swaggerHandler'.
      *
      *
      * @throws \InvalidArgumentException
@@ -6153,17 +6131,12 @@ class KmdApi
      */
     public function swaggerHandlerRequest()
     {
-
         $resourcePath = '/swagger.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-
-
-
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -6185,16 +6158,14 @@ class KmdApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
@@ -6219,16 +6190,17 @@ class KmdApi
         );
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHost().$resourcePath.($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
     }
 
     /**
-     * Create http client option
+     * Create http client option.
      *
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
@@ -6238,8 +6210,8 @@ class KmdApi
         $options = [];
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
-            if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+            if (! $options[RequestOptions::DEBUG]) {
+                throw new \RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());
             }
         }
 

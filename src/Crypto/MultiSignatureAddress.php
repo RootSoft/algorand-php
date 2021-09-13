@@ -25,13 +25,13 @@ use Rootsoft\Algorand\Utils\MessagePackable;
  */
 class MultiSignatureAddress implements MessagePackable
 {
-
     /**
      * The prefix for a MultiSig Address.
      */
-    const MULTISIG_PREFIX = 'MultisigAddr';
+    public const MULTISIG_PREFIX = 'MultisigAddr';
 
     private int $version;
+
     private int $threshold;
 
     /**
@@ -207,8 +207,8 @@ class MultiSignatureAddress implements MessagePackable
     {
         $address = '';
         $address .= utf8_encode(self::MULTISIG_PREFIX);
-        $address .= pack("C", $this->version);
-        $address .= pack("C", $this->threshold);
+        $address .= pack('C', $this->version);
+        $address .= pack('C', $this->threshold);
         foreach ($this->publicKeys as $publicKey) {
             $address .= $publicKey->bytes();
         }

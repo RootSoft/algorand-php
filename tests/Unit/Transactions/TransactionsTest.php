@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Tests\Unit\Transactions;
 
 use Brick\Math\BigInteger;
@@ -102,7 +101,7 @@ class TransactionsTest extends TestCase
             ->decimals(0)
             ->unitName('tst')
             ->assetName('testcoin')
-            ->url(join($url))
+            ->url(implode($url))
             ->metadataText('fACPO4nRgO55j1ndAK3W6Sgc4APkcyFh')
             ->managerAddress($address)
             ->reserveAddress($address)
@@ -146,7 +145,7 @@ class TransactionsTest extends TestCase
             ->decimals(1)
             ->unitName('tst')
             ->assetName('testcoin')
-            ->url(join($url))
+            ->url(implode($url))
             ->metadataText('fACPO4nRgO55j1ndAK3W6Sgc4APkcyFh')
             ->managerAddress($address)
             ->reserveAddress($address)

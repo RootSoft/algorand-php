@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Traits;
 
 use ParagonIE\Halite\Alerts\InvalidKey;
@@ -15,7 +14,7 @@ final class KeyPairGenerator
     /**
      * The length of the seed bytes.
      */
-    const SEED_BYTES_LENGTH = 32;
+    public const SEED_BYTES_LENGTH = 32;
 
     /**
      * Derive a key pair for public key digital signatures from a single key seed.

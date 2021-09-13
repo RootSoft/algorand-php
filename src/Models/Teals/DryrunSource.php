@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Rootsoft\Algorand\Models\Teals;
 
 /**
  * DryrunSource is TEAL source text that gets uploaded, compiled, and inserted into transactions or application state.
  *
  * Class DryrunSource
- * @package Rootsoft\Algorand\Models\Teals
  */
 class DryrunSource
 {
