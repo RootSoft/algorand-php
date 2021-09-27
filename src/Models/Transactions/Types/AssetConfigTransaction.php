@@ -133,7 +133,7 @@ class AssetConfigTransaction extends RawTransaction
             'un' => $this->unitName,
             'an' => $this->assetName,
             'au' => $this->url,
-            'am' => new Bin($this->metaData),
+            'am' => $this->metaData ? new Bin($this->metaData) : null,
             'm' => $this->managerAddress->address ?? null,
             'r' => $this->reserveAddress->address ?? null,
             'f' => $this->freezeAddress->address ?? null,
