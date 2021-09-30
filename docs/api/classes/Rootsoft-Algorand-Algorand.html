@@ -1,0 +1,2718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Documentation</a></h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/rootsoft.html">Rootsoft</a></h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/rootsoft-algorand.html">Algorand</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+                <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="packages/Application.html">Application</a></h4>
+
+                        </section>
+            
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -eight phpdocumentor-content">
+                    <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/rootsoft.html">Rootsoft</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/rootsoft-algorand.html">Algorand</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    Algorand
+
+    
+            <div class="phpdocumentor-element__package">
+            in package
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Application.html">Application</a></li>
+                            </ul>
+        </div>
+    
+    
+            <span class="phpdocumentor-element__extends">
+            Uses
+                            <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html"><abbr title="\Rootsoft\Algorand\Traits\MakesHttpRequests">MakesHttpRequests</abbr></a>,                             <a href="classes/Rootsoft-Algorand-Services-ManagesNodesV2.html"><abbr title="\Rootsoft\Algorand\Services\ManagesNodesV2">ManagesNodesV2</abbr></a>,                             <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html"><abbr title="\Rootsoft\Algorand\Services\ManagesTransactionsV2">ManagesTransactionsV2</abbr></a>,                             <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionParamsV2.html"><abbr title="\Rootsoft\Algorand\Services\ManagesTransactionParamsV2">ManagesTransactionParamsV2</abbr></a>,                             <a href="classes/Rootsoft-Algorand-Services-ManagesBalanceV2.html"><abbr title="\Rootsoft\Algorand\Services\ManagesBalanceV2">ManagesBalanceV2</abbr></a>,                             <a href="classes/Rootsoft-Algorand-Services-ManagesBlocksV2.html"><abbr title="\Rootsoft\Algorand\Services\ManagesBlocksV2">ManagesBlocksV2</abbr></a>,                             <a href="classes/Rootsoft-Algorand-Services-ManagesCatchupsV2.html"><abbr title="\Rootsoft\Algorand\Services\ManagesCatchupsV2">ManagesCatchupsV2</abbr></a>,                             <a href="classes/Rootsoft-Algorand-Services-ManagesLedgerV2.html"><abbr title="\Rootsoft\Algorand\Services\ManagesLedgerV2">ManagesLedgerV2</abbr></a>,                             <a href="classes/Rootsoft-Algorand-Services-ManagesParticipationV2.html"><abbr title="\Rootsoft\Algorand\Services\ManagesParticipationV2">ManagesParticipationV2</abbr></a>                    </span>
+    </h2>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">30</span>
+
+    </aside>
+
+            <p class="phpdocumentor-summary">Class Algorand.</p>
+
+
+
+
+
+
+
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+                <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#property_accountManager">$accountManager</a>
+    <span>
+                &nbsp;: <a href="classes/Rootsoft-Algorand-Managers-AccountManager.html"><abbr title="\Rootsoft\Algorand\Managers\AccountManager">AccountManager</abbr></a>            </span>
+</dt>
+<dd>Handles everything related to accounts.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#property_algodClient">$algodClient</a>
+    <span>
+                &nbsp;: <a href="classes/Rootsoft-Algorand-Clients-AlgodClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgodClient">AlgodClient</abbr></a>            </span>
+</dt>
+<dd>The Guzzle HTTP Client instance to interact with algod.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#property_applicationManager">$applicationManager</a>
+    <span>
+                &nbsp;: <a href="classes/Rootsoft-Algorand-Managers-ApplicationManager.html"><abbr title="\Rootsoft\Algorand\Managers\ApplicationManager">ApplicationManager</abbr></a>            </span>
+</dt>
+<dd>Handles everything related to applications.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#property_assetManager">$assetManager</a>
+    <span>
+                &nbsp;: <a href="classes/Rootsoft-Algorand-Managers-AssetManager.html"><abbr title="\Rootsoft\Algorand\Managers\AssetManager">AssetManager</abbr></a>            </span>
+</dt>
+<dd>Handles everything related to assets.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#property_indexer">$indexer</a>
+    <span>
+                &nbsp;: <a href="classes/Rootsoft-Algorand-Indexer-AlgorandIndexer.html"><abbr title="\Rootsoft\Algorand\Indexer\AlgorandIndexer">AlgorandIndexer</abbr></a>            </span>
+</dt>
+<dd>The AlgorandIndexer provides a set of REST API calls for searching blockchain Transactions, Accounts, Assets and Blocks.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#property_indexerClient">$indexerClient</a>
+    <span>
+                &nbsp;: <a href="classes/Rootsoft-Algorand-Clients-IndexerClient.html"><abbr title="\Rootsoft\Algorand\Clients\IndexerClient">IndexerClient</abbr></a>            </span>
+</dt>
+<dd>The Guzzle HTTP Client instance to interact with the indexer.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#property_jsonMapper">$jsonMapper</a>
+    <span>
+                &nbsp;: <abbr title="\JsonMapper\JsonMapperInterface">JsonMapperInterface</abbr>            </span>
+</dt>
+<dd>Mapping responses to models.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#property_kmdClient">$kmdClient</a>
+    <span>
+                &nbsp;: <a href="classes/Rootsoft-Algorand-Clients-KmdClient.html"><abbr title="\Rootsoft\Algorand\Clients\KmdClient">KmdClient</abbr></a>            </span>
+</dt>
+<dd>The Guzzle HTTP Client instance to interact with the key management daemon.</dd>
+
+                <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#method___construct">__construct()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Algorand constructor.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#method_accountManager">accountManager()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Managers-AccountManager.html"><abbr title="\Rootsoft\Algorand\Managers\AccountManager">AccountManager</abbr></a>    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#method_applicationManager">applicationManager()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Managers-ApplicationManager.html"><abbr title="\Rootsoft\Algorand\Managers\ApplicationManager">ApplicationManager</abbr></a>    </span>
+</dt>
+<dd>Manager related to everything regarding Applications.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#method_assetManager">assetManager()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Managers-AssetManager.html"><abbr title="\Rootsoft\Algorand\Managers\AssetManager">AssetManager</abbr></a>    </span>
+</dt>
+<dd>Manager related to everything regarding ASA.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#method_client">client()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Algorand.html"><abbr title="\Rootsoft\Algorand\Algorand">Algorand</abbr></a>    </span>
+</dt>
+<dd>Return the associated client used to perform queries.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesNodesV2.html#method_genesis">genesis()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-GenesisInformation.html"><abbr title="\Rootsoft\Algorand\Models\GenesisInformation">GenesisInformation</abbr></a>    </span>
+</dt>
+<dd>Gets the genesis information.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesBalanceV2.html#method_getBalance">getBalance()</a>
+    <span>
+                        &nbsp;: int    </span>
+</dt>
+<dd>Get the balance (in microAlgos) of the given address.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesBlocksV2.html#method_getBlock">getBlock()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-Blocks-BlockResult.html"><abbr title="\Rootsoft\Algorand\Models\Blocks\BlockResult">BlockResult</abbr></a>    </span>
+</dt>
+<dd>Get the block for the given round.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_getPendingTransactionById">getPendingTransactionById()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a>    </span>
+</dt>
+<dd>Get a specific pending transaction.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_getPendingTransactions">getPendingTransactions()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-PendingTransactionsResult.html"><abbr title="\Rootsoft\Algorand\Models\PendingTransactionsResult">PendingTransactionsResult</abbr></a>    </span>
+</dt>
+<dd>Get a list of unconfirmed transactions, currently in the transaction pool by address.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionParamsV2.html#method_getSuggestedTransactionParams">getSuggestedTransactionParams()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-Transactions-TransactionParams.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\TransactionParams">TransactionParams</abbr></a>    </span>
+</dt>
+<dd>Get the suggested parameters for constructing a new transaction.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesLedgerV2.html#method_getSupply">getSupply()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-Ledgers-LedgerSupplyResult.html"><abbr title="\Rootsoft\Algorand\Models\Ledgers\LedgerSupplyResult">LedgerSupplyResult</abbr></a>    </span>
+</dt>
+<dd>Get the current supply reported by the ledger.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_getTransactionById">getTransactionById()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-Transactions-TransactionResult.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\TransactionResult">TransactionResult</abbr></a>    </span>
+</dt>
+<dd>Lookup a single transaction by its id.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesNodesV2.html#method_health">health()</a>
+    <span>
+                        &nbsp;: bool    </span>
+</dt>
+<dd>Checks if the node is healthy.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#method_indexer">indexer()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Indexer-AlgorandIndexer.html"><abbr title="\Rootsoft\Algorand\Indexer\AlgorandIndexer">AlgorandIndexer</abbr></a>    </span>
+</dt>
+<dd>The AlgorandIndexer provides a set of REST API calls for searching blockchain Transactions, Accounts, Assets and Blocks.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#method_kmd">kmd()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-KMD-Api-KmdApi.html"><abbr title="\Rootsoft\Algorand\KMD\Api\KmdApi">KmdApi</abbr></a>    </span>
+</dt>
+<dd>The Key Management Daemon (kmd) is a low level wallet and key management tool.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesParticipationV2.html#method_registerOffline">registerOffline()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a>|string    </span>
+</dt>
+<dd>Register an account offline.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesParticipationV2.html#method_registerOnline">registerOnline()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a>|string    </span>
+</dt>
+<dd>Register an account online.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_sendPayment">sendPayment()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Send a payment to the given recipient with the recommended transaction parameters.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_sendTransaction">sendTransaction()</a>
+    <span>
+                        &nbsp;: string|<a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a>    </span>
+</dt>
+<dd>Broadcast a new (signed) transaction on the network.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_sendTransactions">sendTransactions()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Broadcast a new (signed) transaction on the network.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesCatchupsV2.html#method_startCatchup">startCatchup()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-Catchups-CatchupResult.html"><abbr title="\Rootsoft\Algorand\Models\Catchups\CatchupResult">CatchupResult</abbr></a>    </span>
+</dt>
+<dd>Starts a catchpoint catchup.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesNodesV2.html#method_status">status()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-NodeStatus.html"><abbr title="\Rootsoft\Algorand\Models\NodeStatus">NodeStatus</abbr></a>    </span>
+</dt>
+<dd>Gets the current node status.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesNodesV2.html#method_statusAfterRound">statusAfterRound()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-NodeStatus.html"><abbr title="\Rootsoft\Algorand\Models\NodeStatus">NodeStatus</abbr></a>    </span>
+</dt>
+<dd>Gets the node status after waiting for the given round.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Algorand.html#method_url">url()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Algorand.html"><abbr title="\Rootsoft\Algorand\Algorand">Algorand</abbr></a>    </span>
+</dt>
+<dd>Instantiate a new Algorand instance from the urls.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_waitForConfirmation">waitForConfirmation()</a>
+    <span>
+                        &nbsp;: <a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a>    </span>
+</dt>
+<dd>Utility function to wait on a transaction to be confirmed.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_delete">delete()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Make a DELETE request to Algorand nodes and return the response.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_get">get()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Make a GET request to Algorand nodes and return the response.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_handleRequestError">handleRequestError()</a>
+    <span>
+                        &nbsp;: void    </span>
+</dt>
+<dd>Handle the request error.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_post">post()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Make a POST request to Algorand nodes and return the response.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_put">put()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Make a PUT request to Algorand nodes and return the response.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_request">request()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Make request to Algorand nodes and return the response.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_buildOptions">buildOptions()</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_isOverspend">isOverspend()</a>
+    <span>
+                        &nbsp;: bool    </span>
+</dt>
+<dd>Check if the given transaction was overspend.</dd>
+
+        </dl>
+
+
+
+        
+
+        
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/Rootsoft-Algorand-Algorand.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_accountManager">
+        $accountManager
+        <a href="classes/Rootsoft-Algorand-Algorand.html#property_accountManager" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">75</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Handles everything related to accounts.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Rootsoft-Algorand-Managers-AccountManager.html"><abbr title="\Rootsoft\Algorand\Managers\AccountManager">AccountManager</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$accountManager</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_algodClient">
+        $algodClient
+        <a href="classes/Rootsoft-Algorand-Algorand.html#property_algodClient" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The Guzzle HTTP Client instance to interact with algod.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Rootsoft-Algorand-Clients-AlgodClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgodClient">AlgodClient</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$algodClient</span>
+    </code>
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_applicationManager">
+        $applicationManager
+        <a href="classes/Rootsoft-Algorand-Algorand.html#property_applicationManager" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">89</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Handles everything related to applications.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Rootsoft-Algorand-Managers-ApplicationManager.html"><abbr title="\Rootsoft\Algorand\Managers\ApplicationManager">ApplicationManager</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$applicationManager</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_assetManager">
+        $assetManager
+        <a href="classes/Rootsoft-Algorand-Algorand.html#property_assetManager" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">82</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Handles everything related to assets.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Rootsoft-Algorand-Managers-AssetManager.html"><abbr title="\Rootsoft\Algorand\Managers\AssetManager">AssetManager</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$assetManager</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_indexer">
+        $indexer
+        <a href="classes/Rootsoft-Algorand-Algorand.html#property_indexer" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">68</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The AlgorandIndexer provides a set of REST API calls for searching blockchain Transactions, Accounts, Assets and Blocks.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Rootsoft-Algorand-Indexer-AlgorandIndexer.html"><abbr title="\Rootsoft\Algorand\Indexer\AlgorandIndexer">AlgorandIndexer</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$indexer</span>
+    </code>
+
+        <section class="phpdocumentor-description"><p>Each of these calls also provides several filter parameters to support refining searches.</p>
+</section>
+
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_indexerClient">
+        $indexerClient
+        <a href="classes/Rootsoft-Algorand-Algorand.html#property_indexerClient" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The Guzzle HTTP Client instance to interact with the indexer.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Rootsoft-Algorand-Clients-IndexerClient.html"><abbr title="\Rootsoft\Algorand\Clients\IndexerClient">IndexerClient</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$indexerClient</span>
+    </code>
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_jsonMapper">
+        $jsonMapper
+        <a href="classes/Rootsoft-Algorand-Algorand.html#property_jsonMapper" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">60</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Mapping responses to models.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><abbr title="\JsonMapper\JsonMapperInterface">JsonMapperInterface</abbr></span>
+    <span class="phpdocumentor-signature__name">$jsonMapper</span>
+    </code>
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_kmdClient">
+        $kmdClient
+        <a href="classes/Rootsoft-Algorand-Algorand.html#property_kmdClient" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">55</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The Guzzle HTTP Client instance to interact with the key management daemon.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/Rootsoft-Algorand-Clients-KmdClient.html"><abbr title="\Rootsoft\Algorand\Clients\KmdClient">KmdClient</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$kmdClient</span>
+    </code>
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/Rootsoft-Algorand-Algorand.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/Rootsoft-Algorand-Algorand.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">98</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Algorand constructor.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-AlgodClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgodClient">AlgodClient</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$algodClient</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-IndexerClient.html"><abbr title="\Rootsoft\Algorand\Clients\IndexerClient">IndexerClient</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$indexerClient</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-KmdClient.html"><abbr title="\Rootsoft\Algorand\Clients\KmdClient">KmdClient</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$kmdClient</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$algodClient</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-AlgodClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgodClient">AlgodClient</abbr></a>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$indexerClient</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-IndexerClient.html"><abbr title="\Rootsoft\Algorand\Clients\IndexerClient">IndexerClient</abbr></a>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$kmdClient</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-KmdClient.html"><abbr title="\Rootsoft\Algorand\Clients\KmdClient">KmdClient</abbr></a>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_accountManager">
+        accountManager()
+        <a href="classes/Rootsoft-Algorand-Algorand.html#method_accountManager" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">170</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">accountManager</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Managers-AccountManager.html"><abbr title="\Rootsoft\Algorand\Managers\AccountManager">AccountManager</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Managers-AccountManager.html"><abbr title="\Rootsoft\Algorand\Managers\AccountManager">AccountManager</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_applicationManager">
+        applicationManager()
+        <a href="classes/Rootsoft-Algorand-Algorand.html#method_applicationManager" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">190</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Manager related to everything regarding Applications.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">applicationManager</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Managers-ApplicationManager.html"><abbr title="\Rootsoft\Algorand\Managers\ApplicationManager">ApplicationManager</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Managers-ApplicationManager.html"><abbr title="\Rootsoft\Algorand\Managers\ApplicationManager">ApplicationManager</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_assetManager">
+        assetManager()
+        <a href="classes/Rootsoft-Algorand-Algorand.html#method_assetManager" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">180</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Manager related to everything regarding ASA.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">assetManager</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Managers-AssetManager.html"><abbr title="\Rootsoft\Algorand\Managers\AssetManager">AssetManager</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Managers-AssetManager.html"><abbr title="\Rootsoft\Algorand\Managers\AssetManager">AssetManager</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_client">
+        client()
+        <a href="classes/Rootsoft-Algorand-Algorand.html#method_client" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">200</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the associated client used to perform queries.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">client</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Algorand.html"><abbr title="\Rootsoft\Algorand\Algorand">Algorand</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Algorand.html"><abbr title="\Rootsoft\Algorand\Algorand">Algorand</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_genesis">
+        genesis()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesNodesV2.html#method_genesis" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesNodesV2.php"><a href="files/algorand-php-src-services-managesnodesv2.html"><abbr title="algorand-php/src/Services/ManagesNodesV2.php">ManagesNodesV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">17</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets the genesis information.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">genesis</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-GenesisInformation.html"><abbr title="\Rootsoft\Algorand\Models\GenesisInformation">GenesisInformation</abbr></a></span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-GenesisInformation.html"><abbr title="\Rootsoft\Algorand\Models\GenesisInformation">GenesisInformation</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The entire genesis file.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getBalance">
+        getBalance()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesBalanceV2.html#method_getBalance" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesBalanceV2.php"><a href="files/algorand-php-src-services-managesbalancev2.html"><abbr title="algorand-php/src/Services/ManagesBalanceV2.php">ManagesBalanceV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">15</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the balance (in microAlgos) of the given address.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getBalance</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$address</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$address</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getBlock">
+        getBlock()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesBlocksV2.html#method_getBlock" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesBlocksV2.php"><a href="files/algorand-php-src-services-managesblocksv2.html"><abbr title="algorand-php/src/Services/ManagesBlocksV2.php">ManagesBlocksV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">15</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the block for the given round.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getBlock</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$round</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Blocks-BlockResult.html"><abbr title="\Rootsoft\Algorand\Models\Blocks\BlockResult">BlockResult</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$round</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The round from which to fetch block information.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Blocks-BlockResult.html"><abbr title="\Rootsoft\Algorand\Models\Blocks\BlockResult">BlockResult</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getPendingTransactionById">
+        getPendingTransactionById()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_getPendingTransactionById" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesTransactionsV2.php"><a href="files/algorand-php-src-services-managestransactionsv2.html"><abbr title="algorand-php/src/Services/ManagesTransactionsV2.php">ManagesTransactionsV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">150</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get a specific pending transaction.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getPendingTransactionById</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$transactionId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>Given a transaction id of a recently submitted transaction, it returns information about it.
+There are several cases when this might succeed:</p>
+<ul>
+<li>transaction committed (committed round &gt; 0)</li>
+<li>transaction still in the pool (committed round = 0, pool error = &quot;&quot;)
+(committed round = 0, pool error != &quot;&quot;)</li>
+</ul>
+<p>Or the transaction may have happened sufficiently long ago that the node
+no longer remembers it, and this will return an error.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$transactionId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getPendingTransactions">
+        getPendingTransactions()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_getPendingTransactions" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesTransactionsV2.php"><a href="files/algorand-php-src-services-managestransactionsv2.html"><abbr title="algorand-php/src/Services/ManagesTransactionsV2.php">ManagesTransactionsV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">125</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get a list of unconfirmed transactions, currently in the transaction pool by address.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getPendingTransactions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$address</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$max</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">10</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-PendingTransactionsResult.html"><abbr title="\Rootsoft\Algorand\Models\PendingTransactionsResult">PendingTransactionsResult</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>Get the list of pending transactions by address, sorted by priority, in decreasing order,
+truncated at the end at MAX.</p>
+<p>If MAX = 0, returns all pending transactions.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$address</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$max</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">10</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-PendingTransactionsResult.html"><abbr title="\Rootsoft\Algorand\Models\PendingTransactionsResult">PendingTransactionsResult</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getSuggestedTransactionParams">
+        getSuggestedTransactionParams()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionParamsV2.html#method_getSuggestedTransactionParams" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesTransactionParamsV2.php"><a href="files/algorand-php-src-services-managestransactionparamsv2.html"><abbr title="algorand-php/src/Services/ManagesTransactionParamsV2.php">ManagesTransactionParamsV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">17</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the suggested parameters for constructing a new transaction.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getSuggestedTransactionParams</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Transactions-TransactionParams.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\TransactionParams">TransactionParams</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Transactions-TransactionParams.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\TransactionParams">TransactionParams</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getSupply">
+        getSupply()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesLedgerV2.html#method_getSupply" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesLedgerV2.php"><a href="files/algorand-php-src-services-managesledgerv2.html"><abbr title="algorand-php/src/Services/ManagesLedgerV2.php">ManagesLedgerV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the current supply reported by the ledger.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getSupply</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Ledgers-LedgerSupplyResult.html"><abbr title="\Rootsoft\Algorand\Models\Ledgers\LedgerSupplyResult">LedgerSupplyResult</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>Supply represents the current supply of MicroAlgos in the system.</p>
+</section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Ledgers-LedgerSupplyResult.html"><abbr title="\Rootsoft\Algorand\Models\Ledgers\LedgerSupplyResult">LedgerSupplyResult</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getTransactionById">
+        getTransactionById()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_getTransactionById" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesTransactionsV2.php"><a href="files/algorand-php-src-services-managestransactionsv2.html"><abbr title="algorand-php/src/Services/ManagesTransactionsV2.php">ManagesTransactionsV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">59</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Lookup a single transaction by its id.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getTransactionById</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$transactionId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Transactions-TransactionResult.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\TransactionResult">TransactionResult</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$transactionId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Transactions-TransactionResult.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\TransactionResult">TransactionResult</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_health">
+        health()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesNodesV2.html#method_health" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesNodesV2.php"><a href="files/algorand-php-src-services-managesnodesv2.html"><abbr title="algorand-php/src/Services/ManagesNodesV2.php">ManagesNodesV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">33</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if the node is healthy.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">health</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>True if healthy.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_indexer">
+        indexer()
+        <a href="classes/Rootsoft-Algorand-Algorand.html#method_indexer" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">150</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The AlgorandIndexer provides a set of REST API calls for searching blockchain Transactions, Accounts, Assets and Blocks.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">indexer</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Indexer-AlgorandIndexer.html"><abbr title="\Rootsoft\Algorand\Indexer\AlgorandIndexer">AlgorandIndexer</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>Each of these calls also provides several filter parameters to support refining searches.</p>
+</section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Indexer-AlgorandIndexer.html"><abbr title="\Rootsoft\Algorand\Indexer\AlgorandIndexer">AlgorandIndexer</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_kmd">
+        kmd()
+        <a href="classes/Rootsoft-Algorand-Algorand.html#method_kmd" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">162</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The Key Management Daemon (kmd) is a low level wallet and key management tool.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">kmd</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-KMD-Api-KmdApi.html"><abbr title="\Rootsoft\Algorand\KMD\Api\KmdApi">KmdApi</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>It works in conjunction with algod and goal to keep secrets safe.
+kmd tries to ensure that secret keys never touch the disk unencrypted.</p>
+</section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-KMD-Api-KmdApi.html"><abbr title="\Rootsoft\Algorand\KMD\Api\KmdApi">KmdApi</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_registerOffline">
+        registerOffline()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesParticipationV2.html#method_registerOffline" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesParticipationV2.php"><a href="files/algorand-php-src-services-managesparticipationv2.html"><abbr title="algorand-php/src/Services/ManagesParticipationV2.php">ManagesParticipationV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">71</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Register an account offline.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">registerOffline</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Accounts-Account.html"><abbr title="\Rootsoft\Algorand\Models\Accounts\Account">Account</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$account</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$waitForConfirmation</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$timeout</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">5</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a>|string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$account</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Accounts-Account.html"><abbr title="\Rootsoft\Algorand\Models\Accounts\Account">Account</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$waitForConfirmation</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$timeout</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">5</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\SodiumException">SodiumException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a>|string</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_registerOnline">
+        registerOnline()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesParticipationV2.html#method_registerOnline" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesParticipationV2.php"><a href="files/algorand-php-src-services-managesparticipationv2.html"><abbr title="algorand-php/src/Services/ManagesParticipationV2.php">ManagesParticipationV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">29</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Register an account online.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">registerOnline</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Accounts-Account.html"><abbr title="\Rootsoft\Algorand\Models\Accounts\Account">Account</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$account</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Keys-ParticipationPublicKey.html"><abbr title="\Rootsoft\Algorand\Models\Keys\ParticipationPublicKey">ParticipationPublicKey</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$votePK</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Keys-VRFPublicKey.html"><abbr title="\Rootsoft\Algorand\Models\Keys\VRFPublicKey">VRFPublicKey</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selectionPK</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$voteFirst</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$voteLast</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$voteKeyDilution</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">10000</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$waitForConfirmation</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$timeout</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">5</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a>|string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$account</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Accounts-Account.html"><abbr title="\Rootsoft\Algorand\Models\Accounts\Account">Account</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$votePK</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Keys-ParticipationPublicKey.html"><abbr title="\Rootsoft\Algorand\Models\Keys\ParticipationPublicKey">ParticipationPublicKey</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$selectionPK</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Keys-VRFPublicKey.html"><abbr title="\Rootsoft\Algorand\Models\Keys\VRFPublicKey">VRFPublicKey</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$voteFirst</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$voteLast</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$voteKeyDilution</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">10000</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$waitForConfirmation</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$timeout</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">5</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\SodiumException">SodiumException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a>|string</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_sendPayment">
+        sendPayment()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_sendPayment" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesTransactionsV2.php"><a href="files/algorand-php-src-services-managestransactionsv2.html"><abbr title="algorand-php/src/Services/ManagesTransactionsV2.php">ManagesTransactionsV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">32</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Send a payment to the given recipient with the recommended transaction parameters.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">sendPayment</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Accounts-Account.html"><abbr title="\Rootsoft\Algorand\Models\Accounts\Account">Account</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$account</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Accounts-Address.html"><abbr title="\Rootsoft\Algorand\Models\Accounts\Address">Address</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$recipient</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$microAlgos</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$note</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$account</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Accounts-Account.html"><abbr title="\Rootsoft\Algorand\Models\Accounts\Account">Account</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The account that is sending &amp; authorizing the payment</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$recipient</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Accounts-Address.html"><abbr title="\Rootsoft\Algorand\Models\Accounts\Address">Address</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The recipient</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$microAlgos</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The amount of micro algos</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$note</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>An optional note to add</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\SodiumException">SodiumException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The transaction id.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_sendTransaction">
+        sendTransaction()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_sendTransaction" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesTransactionsV2.php"><a href="files/algorand-php-src-services-managestransactionsv2.html"><abbr title="algorand-php/src/Services/ManagesTransactionsV2.php">ManagesTransactionsV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Broadcast a new (signed) transaction on the network.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">sendTransaction</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Transactions-SignedTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\SignedTransaction">SignedTransaction</abbr></a>|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$transaction</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$waitForConfirmation</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$timeout</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">5</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|<a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$transaction</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Models-Transactions-SignedTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\SignedTransaction">SignedTransaction</abbr></a>|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$waitForConfirmation</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>True if you want to wait for confirmation.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$timeout</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">5</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>How many rounds do you wish to check pending transactions for.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string|<a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The id of the transaction
+or the pending transaction when using wait for confirmation.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_sendTransactions">
+        sendTransactions()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_sendTransactions" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesTransactionsV2.php"><a href="files/algorand-php-src-services-managestransactionsv2.html"><abbr title="algorand-php/src/Services/ManagesTransactionsV2.php">ManagesTransactionsV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">102</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Broadcast a new (signed) transaction on the network.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">sendTransactions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Rootsoft-Algorand-Models-Transactions-SignedTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\SignedTransaction">SignedTransaction</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$transactions</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$transactions</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Rootsoft-Algorand-Models-Transactions-SignedTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\SignedTransaction">SignedTransaction</abbr></a>&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The id of the transaction.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_startCatchup">
+        startCatchup()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesCatchupsV2.html#method_startCatchup" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesCatchupsV2.php"><a href="files/algorand-php-src-services-managescatchupsv2.html"><abbr title="algorand-php/src/Services/ManagesCatchupsV2.php">ManagesCatchupsV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">17</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Starts a catchpoint catchup.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">startCatchup</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$catchpoint</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Catchups-CatchupResult.html"><abbr title="\Rootsoft\Algorand\Models\Catchups\CatchupResult">CatchupResult</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>Given a catchpoint, it starts catching up to this catchpoint.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$catchpoint</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A catch point.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Catchups-CatchupResult.html"><abbr title="\Rootsoft\Algorand\Models\Catchups\CatchupResult">CatchupResult</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_status">
+        status()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesNodesV2.html#method_status" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesNodesV2.php"><a href="files/algorand-php-src-services-managesnodesv2.html"><abbr title="algorand-php/src/Services/ManagesNodesV2.php">ManagesNodesV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">46</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets the current node status.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">status</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-NodeStatus.html"><abbr title="\Rootsoft\Algorand\Models\NodeStatus">NodeStatus</abbr></a></span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-NodeStatus.html"><abbr title="\Rootsoft\Algorand\Models\NodeStatus">NodeStatus</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The status of the Node.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_statusAfterRound">
+        statusAfterRound()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesNodesV2.html#method_statusAfterRound" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesNodesV2.php"><a href="files/algorand-php-src-services-managesnodesv2.html"><abbr title="algorand-php/src/Services/ManagesNodesV2.php">ManagesNodesV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">64</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets the node status after waiting for the given round.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">statusAfterRound</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$round</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-NodeStatus.html"><abbr title="\Rootsoft\Algorand\Models\NodeStatus">NodeStatus</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>Waits for a block to appear after round {round} and returns the node's status at the time.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$round</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The round to wait until returning status</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-NodeStatus.html"><abbr title="\Rootsoft\Algorand\Models\NodeStatus">NodeStatus</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The status of the Node.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_url">
+        url()
+        <a href="classes/Rootsoft-Algorand-Algorand.html#method_url" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Algorand.php"><a href="files/algorand-php-src-algorand.html"><abbr title="algorand-php/src/Algorand.php">Algorand.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">129</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Instantiate a new Algorand instance from the urls.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">url</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$algodUrl</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$indexerUrl</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$apiKey</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$algodTokenKey</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">AlgodClient::ALGOD_API_TOKEN</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$indexerTokenKey</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">IndexerClient::INDEXER_API_TOKEN</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Algorand.html"><abbr title="\Rootsoft\Algorand\Algorand">Algorand</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$algodUrl</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$indexerUrl</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$apiKey</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$algodTokenKey</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">AlgodClient::ALGOD_API_TOKEN</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$indexerTokenKey</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">IndexerClient::INDEXER_API_TOKEN</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Algorand.html"><abbr title="\Rootsoft\Algorand\Algorand">Algorand</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_waitForConfirmation">
+        waitForConfirmation()
+        <a href="classes/Rootsoft-Algorand-Services-ManagesTransactionsV2.html#method_waitForConfirmation" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Services/ManagesTransactionsV2.php"><a href="files/algorand-php-src-services-managestransactionsv2.html"><abbr title="algorand-php/src/Services/ManagesTransactionsV2.php">ManagesTransactionsV2.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">174</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Utility function to wait on a transaction to be confirmed.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">waitForConfirmation</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$transactionId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$timeout</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">5</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>The timeout parameter indicates how many rounds do you wish to check pending transactions for.</p>
+<p>On Algorand, transactions are final as soon as they are incorporated into a block and blocks are produced,
+on average, every 5 seconds.</p>
+<p>This means that transactions are confirmed, on average, in 5 seconds</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$transactionId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$timeout</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">5</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Rootsoft-Algorand-Models-Transactions-PendingTransaction.html"><abbr title="\Rootsoft\Algorand\Models\Transactions\PendingTransaction">PendingTransaction</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_delete">
+        delete()
+        <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_delete" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Traits/MakesHttpRequests.php"><a href="files/algorand-php-src-traits-makeshttprequests.html"><abbr title="algorand-php/src/Traits/MakesHttpRequests.php">MakesHttpRequests.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">69</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Make a DELETE request to Algorand nodes and return the response.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">delete</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-AlgorandClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgorandClient">AlgorandClient</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$client</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$uri</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$payload</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$client</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-AlgorandClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgorandClient">AlgorandClient</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$uri</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$payload</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_get">
+        get()
+        <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_get" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Traits/MakesHttpRequests.php"><a href="files/algorand-php-src-traits-makeshttprequests.html"><abbr title="algorand-php/src/Traits/MakesHttpRequests.php">MakesHttpRequests.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">25</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Make a GET request to Algorand nodes and return the response.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-AlgorandClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgorandClient">AlgorandClient</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$client</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$uri</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$client</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-AlgorandClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgorandClient">AlgorandClient</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$uri</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$params</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_handleRequestError">
+        handleRequestError()
+        <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_handleRequestError" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Traits/MakesHttpRequests.php"><a href="files/algorand-php-src-traits-makeshttprequests.html"><abbr title="algorand-php/src/Traits/MakesHttpRequests.php">MakesHttpRequests.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">121</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Handle the request error.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">handleRequestError</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$response</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_post">
+        post()
+        <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_post" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Traits/MakesHttpRequests.php"><a href="files/algorand-php-src-traits-makeshttprequests.html"><abbr title="algorand-php/src/Traits/MakesHttpRequests.php">MakesHttpRequests.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">41</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Make a POST request to Algorand nodes and return the response.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">post</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-AlgorandClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgorandClient">AlgorandClient</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$client</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$uri</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$queryParams</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$payload</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$client</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-AlgorandClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgorandClient">AlgorandClient</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$uri</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$queryParams</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$payload</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$headers</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_put">
+        put()
+        <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_put" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Traits/MakesHttpRequests.php"><a href="files/algorand-php-src-traits-makeshttprequests.html"><abbr title="algorand-php/src/Traits/MakesHttpRequests.php">MakesHttpRequests.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">55</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Make a PUT request to Algorand nodes and return the response.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">put</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-AlgorandClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgorandClient">AlgorandClient</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$client</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$uri</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$payload</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$client</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-AlgorandClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgorandClient">AlgorandClient</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$uri</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$payload</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_request">
+        request()
+        <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_request" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Traits/MakesHttpRequests.php"><a href="files/algorand-php-src-traits-makeshttprequests.html"><abbr title="algorand-php/src/Traits/MakesHttpRequests.php">MakesHttpRequests.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">86</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Make request to Algorand nodes and return the response.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                <span class="phpdocumentor-signature__name">request</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-AlgorandClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgorandClient">AlgorandClient</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$client</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$verb</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$uri</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$queryParams</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$payload</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$client</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Rootsoft-Algorand-Clients-AlgorandClient.html"><abbr title="\Rootsoft\Algorand\Clients\AlgorandClient">AlgorandClient</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$verb</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$uri</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$queryParams</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$payload</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$headers</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Rootsoft-Algorand-Exceptions-AlgorandException.html"><abbr title="\Rootsoft\Algorand\Exceptions\AlgorandException">AlgorandException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_buildOptions">
+        buildOptions()
+        <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_buildOptions" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Traits/MakesHttpRequests.php"><a href="files/algorand-php-src-traits-makeshttprequests.html"><abbr title="algorand-php/src/Traits/MakesHttpRequests.php">MakesHttpRequests.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">149</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">buildOptions</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;get&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$queryParams</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$payload</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$method</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;get&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$queryParams</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$payload</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$headers</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isOverspend">
+        isOverspend()
+        <a href="classes/Rootsoft-Algorand-Traits-MakesHttpRequests.html#method_isOverspend" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="algorand-php/src/Traits/MakesHttpRequests.php"><a href="files/algorand-php-src-traits-makeshttprequests.html"><abbr title="algorand-php/src/Traits/MakesHttpRequests.php">MakesHttpRequests.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">183</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if the given transaction was overspend.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">isOverspend</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$response</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+        
+    
+</article>
+            </section>
+
+        
+    <script type="text/javascript">
+        function loadExternalCodeSnippets(line) {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                pre.setAttribute('data-line', line)
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        var modals = document.querySelectorAll("[data-modal]");
+
+        modals.forEach(function (trigger) {
+            trigger.addEventListener("click", function (event) {
+                //event.preventDefault();
+                const modal = document.getElementById(trigger.dataset.modal);
+                modal.classList.add("phpdocumentor-modal__open");
+                loadExternalCodeSnippets(trigger.dataset.line)
+                const exits = modal.querySelectorAll("[data-exit-button]");
+                exits.forEach(function (exit) {
+                    exit.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        modal.classList.remove("phpdocumentor-modal__open");
+                    });
+                });
+            });
+        });
+    </script>
+
+    </article>
+                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+            </div>
+        </div>
+        <a href="classes/Rootsoft-Algorand-Algorand.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>
