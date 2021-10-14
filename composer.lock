@@ -814,14 +814,14 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/RootSoft/JsonMapper.git",
-                "reference": "537e38ba7a8aaf6149e09a5e6e2c00c67737af86"
+                "reference": "e105ec1cb323119dff7ceaa5b7cf775a89f2d489"
             },
             "require": {
                 "ext-json": "*",
                 "myclabs/php-enum": "^1.7",
                 "nikic/php-parser": "^4.13",
                 "php": "^7.1 || ^8.0",
-                "psr/log": "^1.1|^2.0",
+                "psr/log": "^1.1 || ^2.0 || ^3.0",
                 "psr/simple-cache": "^1.0",
                 "symfony/polyfill-php73": "^1.18"
             },
@@ -885,7 +885,7 @@
                 "source": "https://github.com/JsonMapper/JsonMapper",
                 "docs": "https://jsonmapper.net"
             },
-            "time": "2021-10-14T10:08:38+00:00"
+            "time": "2021-10-14T10:23:08+00:00"
         },
         {
             "name": "laravel/framework",
