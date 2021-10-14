@@ -24,7 +24,7 @@
         "guzzlehttp/psr7": "^1.8.2|^2.1.0",
         "illuminate/container": "~5.0|^6.0|^7.0|^8.0",
         "illuminate/support": "~5.0|^6.0|^7.0|^8.0",
-        "json-mapper/json-mapper": "^2.3",
+        "json-mapper/json-mapper": "dev-develop",
         "myclabs/php-enum": "^1.8",
         "paragonie/constant_time_encoding": "^2.4",
         "paragonie/halite": "^4",
@@ -36,6 +36,12 @@
         "phpunit/phpunit": "^9.5",
         "spatie/ray": "^1.10"
     },
+    "repositories": [
+        {
+            "url": "https://github.com/RootSoft/JsonMapper.git",
+            "type": "git"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Rootsoft\\Algorand\\": "src"
