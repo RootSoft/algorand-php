@@ -19,9 +19,9 @@ return [
     |
     */
     'algod' => [
-        'api_url' => 'https://testnet.algoexplorerapi.io',
-        'api_key' => '',
-        'api_token_header' => 'X-Algo-API-Token',
+        'api_url' => env('ALGORAND_API_URL', 'https://testnet.algoexplorerapi.io'),
+        'api_key' => env('ALGORAND_API_KEY', ''),
+        'api_token_header' => env('ALGORAND_API_HEADER', 'X-Algo-API-Token'),
     ],
 
     /*
@@ -41,9 +41,9 @@ return [
     |
     */
     'indexer' => [
-        'api_url' => 'https://testnet.algoexplorerapi.io/idx2',
-        'api_key' => '',
-        'api_token_header' => 'X-Indexer-API-Token',
+        'api_url' => env('ALGORAND_INDEXER_URL', 'https://testnet.algoexplorerapi.io/idx2'),
+        'api_key' => env('ALGORAND_INDEXER_KEY', env('ALGORAND_API_KEY', '')),
+        'api_token_header' => env('ALGORAND_INDEXER_HEADER', 'X-Indexer-API-Token'),
     ],
 
     /*
@@ -61,9 +61,9 @@ return [
     |
     */
     'kmd' => [
-        'api_url' => '127.0.0.1',
-        'api_key' => '',
-        'api_token_header' => 'X-KMD-API-Token',
+        'api_url' => env('ALGORAND_KMD_URL', '127.0.0.1'),
+        'api_key' => env('ALGORAND_KMD_KEY', ''),
+        'api_token_header' => ('ALGORAND_KMD_HEADER', 'X-KMD-API-Token'),
     ],
 
 ];
