@@ -7,13 +7,18 @@ use ParagonIE\ConstantTime\Base32;
 use Rootsoft\Algorand\Crypto\Signature;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Applications\TEALProgram;
+use Rootsoft\Algorand\Utils\Buffer;
 use Rootsoft\Algorand\Utils\CryptoUtils;
+use Rootsoft\Algorand\Utils\Encoder\BigIntEncoder;
 use SodiumException;
 
 class Address
 {
-    /// Prefix for signing bytes
+    // Prefix for signing bytes
     public const BYTES_SIGN_PREFIX = 'MX';
+
+    // Prefix for signing bytes
+    public const APP_ID_PREFIX = 'appID';
 
     public const PUBLIC_KEY_LENGTH = 32;
 
@@ -115,7 +120,7 @@ class Address
         $signPrefix = utf8_encode(self::BYTES_SIGN_PREFIX);
 
         // Merge the bytes
-        $buffer = $signPrefix.$data;
+        $buffer = $signPrefix . $data;
 
         return CryptoUtils::verify($buffer, $signature->bytes(), $this->address);
     }
@@ -136,7 +141,7 @@ class Address
 
         // Take the last 4 bytes and append to addr
         $checksum = substr($hashedAddress, -4);
-        $encodedAddress = Base32::encodeUpperUnpadded($address.$checksum);
+        $encodedAddress = Base32::encodeUpperUnpadded($address . $checksum);
 
         return $encodedAddress;
     }
@@ -162,7 +167,7 @@ class Address
         $publicKey = substr($checksumAddress, 0, self::PUBLIC_KEY_LENGTH);
         $checksum = substr($checksumAddress, self::PUBLIC_KEY_LENGTH, self::ALGORAND_CHECKSUM_BYTE_LENGTH);
 
-        if (! $publicKey) {
+        if (!$publicKey) {
             throw new AlgorandException('Invalid Algorand address - unable to parse');
         }
 
@@ -191,5 +196,21 @@ class Address
         } catch (Exception $ex) {
             return false;
         }
+    }
+
+    /**
+     * @throws SodiumException
+     */
+    public static function forApplication(int $applicationId): Address
+    {
+        // Merge the bytes
+        $buffer = [
+            ...Buffer::toArray(utf8_encode(self::APP_ID_PREFIX)),
+            ...BigIntEncoder::getInstance()->encodeUint64($applicationId),
+        ];
+
+        $digest = CryptoUtils::sha512256(Buffer::toBinaryString($buffer));
+
+        return Address::fromPublicKey($digest);
     }
 }
