@@ -169,7 +169,7 @@ class RawTransaction
     public function sign(Account $account): SignedTransaction
     {
         $secretKey = $account->getPrivateKeyPair()->getSecretKey();
-        if (! ($secretKey instanceof SignatureSecretKey)) {
+        if (!($secretKey instanceof SignatureSecretKey)) {
             throw new AlgorandException('Private key is not a valid signing key.');
         }
 
@@ -202,7 +202,7 @@ class RawTransaction
 
         // Prepend the transaction prefix
         $txBytes = (implode(unpack('H*', 'TX')));
-        $encodedTx = hex2bin($txBytes).$encodedTx;
+        $encodedTx = hex2bin($txBytes) . $encodedTx;
 
         return $encodedTx;
     }
@@ -288,5 +288,15 @@ class RawTransaction
     public function toBase64(): string
     {
         return Base64::encode(Encoder::getInstance()->encodeMessagePack($this->toMessagePack()));
+    }
+
+    /**
+     * Get the bytes of this signed transaction.
+     *
+     * @return false|string
+     */
+    public function toBytes()
+    {
+        return Encoder::getInstance()->encodeMessagePack($this->toMessagePack());
     }
 }
