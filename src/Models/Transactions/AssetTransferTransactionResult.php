@@ -24,6 +24,13 @@ class AssetTransferTransactionResult
     public ?int $closeAmount = null;
 
     /**
+     * Indicates that the asset should be removed from the account's Assets map, and specifies where the remaining
+     * asset holdings should be transferred. It's always valid to transfer remaining asset holdings to the creator
+     * account.
+     */
+    public ?string $closeTo = null;
+
+    /**
      * Recipient address of the transfer.
      * @var string
      * @required
@@ -32,7 +39,7 @@ class AssetTransferTransactionResult
 
     /**
      * The effective sender during a clawback transactions.
-     * @var string
+     * @var string|null
      */
     public ?string $sender = null;
 }

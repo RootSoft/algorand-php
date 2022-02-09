@@ -8,13 +8,13 @@ class AssetConfigTransactionResult
 {
     /**
      * The id of the asset.
-     * @var int
+     * @var int|null
      */
-    public int $assetId;
+    public ?int $assetId = null;
 
     /**
      * The parameters for the asset config transaction.
      * @var AssetParams|null
      */
-    public $params = null;
+    public ?AssetParams $params = null;
 }
