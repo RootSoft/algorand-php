@@ -27,7 +27,7 @@
         "json-mapper/json-mapper": "dev-develop",
         "myclabs/php-enum": "^1.8",
         "paragonie/constant_time_encoding": "^2.4",
-        "paragonie/halite": "^4",
+        "paragonie/halite": "^5.0.0",
         "rybakit/msgpack": "^0.7.2"
     },
     "require-dev": {
