@@ -8,13 +8,13 @@ class ApplicationLogsResult
      * Application index
      * @var int|null
      */
-    public ?int $applicationId;
+    public ?int $applicationId = null;
 
     /**
      * Round at which the results were computed.
      * @var int|null
      */
-    public ?int $currentRound;
+    public ?int $currentRound = null;
 
     /**
      * A list of assets.
@@ -22,5 +22,5 @@ class ApplicationLogsResult
      */
     public array $logData;
 
-    public ?string $nextToken;
+    public ?string $nextToken = null;
 }

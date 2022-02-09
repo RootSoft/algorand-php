@@ -15,5 +15,5 @@ class ApplicationLogData
      * The transaction id.
      * @var string|null
      */
-    public ?string $txid;
+    public ?string $txid = null;
 }
