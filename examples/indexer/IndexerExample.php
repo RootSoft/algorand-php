@@ -25,7 +25,15 @@ class IndexerExample
         prettyPrint('Account: ' . $account->getPublicAddress());
 
         // Get the account information
-        self::getAccountInformation($algorand, $account);
+        self::findApplicationLogsById($algorand, $account);
+
+        $params = $algorand->getSuggestedTransactionParams();
+
+        $resposne = $algorand->indexer()
+            ->transactions()
+            ->whereTransactionType(TransactionType::ASSET_TRANSFER())
+            ->afterMinRound($params->lastRound - 1000)
+            ->search(100);
     }
 
     public static function getAccountInformation(Algorand $algorand, Account $account)
@@ -85,7 +93,14 @@ class IndexerExample
 
     public static function findApplicationById(Algorand $algorand, Account $account)
     {
-        $response = $algorand->applicationManager()->getApplicationById(15974179);
+        $response = $algorand->indexer()->applicationManager()->getApplicationById(15974179);
+
+        prettyPrint(json_encode($response));
+    }
+
+    public static function findApplicationLogsById(Algorand $algorand, Account $account)
+    {
+        $response = $algorand->indexer()->getApplicationLogsById(15974179);
 
         prettyPrint(json_encode($response));
     }

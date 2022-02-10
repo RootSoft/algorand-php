@@ -2,6 +2,9 @@
 
 namespace Rootsoft\Algorand\Models\Transactions;
 
+use Rootsoft\Algorand\Models\Applications\AccountStateDelta;
+use Rootsoft\Algorand\Models\Applications\EvalDeltaKeyValue;
+
 /**
  * Given a transaction id of a recently submitted transaction, it returns
  * information about it.
@@ -21,6 +24,12 @@ class PendingTransaction
      * @var int|null
      */
     public ?int $applicationIndex = null;
+
+    /**
+     * The number of the asset's unit that were transferred to the close-to address.
+     * @var int|null
+     */
+    public ?int $assetClosingAmount = null;
 
     /**
      * The asset index if the transaction was found and it created an asset.
@@ -45,6 +54,30 @@ class PendingTransaction
      * @var int|null
      */
     public ?int $confirmedRound = null;
+
+    /**
+     * Global state key/value changes for the application being executed by this transaction.
+     * @var array|EvalDeltaKeyValue
+     */
+    public array $globalStateDelta = [];
+
+    /**
+     * Inner transactions produced by application execution.
+     * @var array|PendingTransaction[]
+     */
+    public array $innerTxns = [];
+
+    /**
+     * Local state key/value changes for the application being executed by this transaction.
+     * @var array|AccountStateDelta[]
+     */
+    public array $localStateDelta = [];
+
+    /**
+     * Logs for the application being executed by this transaction.
+     * @var array|string[]
+     */
+    public array $logs = [];
 
     /**
      * Indicates that the transaction was kicked out of this node's transaction pool  (and specifies why that happened).

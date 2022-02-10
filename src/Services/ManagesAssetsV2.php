@@ -174,7 +174,8 @@ trait ManagesAssetsV2
             ->assetId(BigInteger::of($assetId))
             ->sender($address)
             ->suggestedParams($params)
-            ->destroy();
+            ->destroy()
+            ->build();
 
         // Sign the transaction
         $signedTransaction = $transaction->sign($account);

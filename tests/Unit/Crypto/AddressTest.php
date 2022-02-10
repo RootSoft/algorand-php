@@ -31,4 +31,12 @@ class AddressTest extends TestCase
         $address = Address::fromPublicKey($b);
         $this->assertEquals($address->encodedAddress, $golden);
     }
+
+    public function testAddressForApplication()
+    {
+        $applicationId = 77;
+        $actual = Address::forApplication($applicationId);
+        $expected = Address::fromAlgorandAddress('PCYUFPA2ZTOYWTP43MX2MOX2OWAIAXUDNC2WFCXAGMRUZ3DYD6BWFDL5YM');
+        $this->assertEquals($expected->encodedAddress, $actual->encodedAddress);
+    }
 }

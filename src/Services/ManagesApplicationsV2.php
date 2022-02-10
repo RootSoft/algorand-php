@@ -6,6 +6,7 @@ use Brick\Math\BigInteger;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Application;
+use Rootsoft\Algorand\Models\Applications\ApplicationLogsResult;
 use Rootsoft\Algorand\Models\Applications\StateSchema;
 use Rootsoft\Algorand\Models\Applications\TEALProgram;
 use Rootsoft\Algorand\Models\Teals\DryrunRequest;
@@ -38,6 +39,23 @@ trait ManagesApplicationsV2
         $this->jsonMapper->mapObject($response, $application);
 
         return $application;
+    }
+
+    /**
+     * Lookup application logs by a given application id.
+     *
+     * @param int $applicationId
+     * @return \Rootsoft\Algorand\Models\Applications\ApplicationLogsResult
+     * @throws AlgorandException
+     */
+    public function getApplicationLogsById(int $applicationId): ApplicationLogsResult
+    {
+        $response = $this->get($this->algodClient, "/v2/applications/$applicationId/logs");
+
+        $result = new ApplicationLogsResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
     }
 
     /**
@@ -99,14 +117,15 @@ trait ManagesApplicationsV2
      * @throws \SodiumException
      */
     public function createApplication(
-        Account $account,
+        Account     $account,
         TEALProgram $approvalProgram,
         TEALProgram $clearProgram,
         StateSchema $globalStateSchema,
         StateSchema $localStateSchema,
-        bool $waitForConfirmation = false,
-        int $timeout = 5
-    ) {
+        bool        $waitForConfirmation = false,
+        int         $timeout = 5
+    )
+    {
         $address = $account->getAddress();
 
         // Get the suggested transaction params
@@ -151,11 +170,12 @@ trait ManagesApplicationsV2
      * @throws \SodiumException
      */
     public function optIn(
-        Account $account,
+        Account    $account,
         BigInteger $applicationId,
-        bool $waitForConfirmation = false,
-        int $timeout = 5
-    ) {
+        bool       $waitForConfirmation = false,
+        int        $timeout = 5
+    )
+    {
         $address = $account->getAddress();
 
         // Get the suggested transaction params
@@ -202,12 +222,13 @@ trait ManagesApplicationsV2
      * @throws \SodiumException
      */
     public function call(
-        Account $account,
+        Account    $account,
         BigInteger $applicationId,
-        array $arguments,
-        bool $waitForConfirmation = false,
-        int $timeout = 5
-    ) {
+        array      $arguments,
+        bool       $waitForConfirmation = false,
+        int        $timeout = 5
+    )
+    {
         $address = $account->getAddress();
 
         // Get the suggested transaction params
@@ -254,14 +275,15 @@ trait ManagesApplicationsV2
      * @throws \SodiumException
      */
     public function update(
-        Account $account,
-        BigInteger $applicationId,
+        Account     $account,
+        BigInteger  $applicationId,
         TEALProgram $approvalProgram,
         TEALProgram $clearStateProgram,
-        ?array $arguments = null,
-        bool $waitForConfirmation = false,
-        int $timeout = 5
-    ) {
+        ?array      $arguments = null,
+        bool        $waitForConfirmation = false,
+        int         $timeout = 5
+    )
+    {
         $address = $account->getAddress();
 
         // Get the suggested transaction params
@@ -303,11 +325,12 @@ trait ManagesApplicationsV2
      * @throws \SodiumException
      */
     public function closeOut(
-        Account $account,
+        Account    $account,
         BigInteger $applicationId,
-        bool $waitForConfirmation = false,
-        int $timeout = 5
-    ) {
+        bool       $waitForConfirmation = false,
+        int        $timeout = 5
+    )
+    {
         $address = $account->getAddress();
 
         // Get the suggested transaction params
@@ -348,11 +371,12 @@ trait ManagesApplicationsV2
      * @throws \SodiumException
      */
     public function deleteApplication(
-        Account $account,
+        Account    $account,
         BigInteger $applicationId,
-        bool $waitForConfirmation = false,
-        int $timeout = 5
-    ) {
+        bool       $waitForConfirmation = false,
+        int        $timeout = 5
+    )
+    {
         $address = $account->getAddress();
 
         // Get the suggested transaction params
@@ -389,11 +413,12 @@ trait ManagesApplicationsV2
      * @throws \SodiumException
      */
     public function clearState(
-        Account $account,
+        Account    $account,
         BigInteger $applicationId,
-        bool $waitForConfirmation = false,
-        int $timeout = 5
-    ) {
+        bool       $waitForConfirmation = false,
+        int        $timeout = 5
+    )
+    {
         $address = $account->getAddress();
 
         // Get the suggested transaction params

@@ -235,13 +235,13 @@ class AssetConfigTransactionBuilder extends RawTransactionBuilder
      * To destroy an existing asset on Algorand, the original creator must be in possession of all units of the asset
      * and the manager must send and therefore authorize the transaction.
      *
-     * @return AssetConfigTransaction
+     * @return $this
      */
-    public function destroy(): AssetConfigTransaction
+    public function destroy(): self
     {
         $this->assetTransaction->destroy = true;
 
-        return $this->assetTransaction;
+        return $this;
     }
 
     /**

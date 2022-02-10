@@ -1,0 +1,60 @@
+#pragma version 5
+txn ApplicationID
+int 0
+==
+bnz main_l14
+txn OnCompletion
+int DeleteApplication
+==
+bnz main_l13
+txn OnCompletion
+int UpdateApplication
+==
+bnz main_l12
+txn OnCompletion
+int CloseOut
+==
+bnz main_l11
+txn OnCompletion
+int OptIn
+==
+bnz main_l10
+txn NumAppArgs
+int 0
+>
+bnz main_l9
+txn NumAppArgs
+int 0
+==
+bnz main_l8
+err
+main_l8:
+int 1
+return
+main_l9:
+txna ApplicationArgs 0
+txna ApplicationArgs 1
+txn Sender
+ed25519verify
+pop
+int 1
+return
+main_l10:
+int 1
+return
+main_l11:
+int 1
+return
+main_l12:
+txn Sender
+global CreatorAddress
+==
+return
+main_l13:
+txn Sender
+global CreatorAddress
+==
+return
+main_l14:
+int 1
+return

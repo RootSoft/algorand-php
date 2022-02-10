@@ -9,7 +9,7 @@ class Buffer
      * @param string $data
      * @return array
      */
-    public static function toArray(string $data) : array
+    public static function toArray(string $data): array
     {
         $buffer = unpack('C*', $data);
 
@@ -21,8 +21,13 @@ class Buffer
      * @param array $buffer
      * @return string
      */
-    public static function toBinaryString(array $buffer) : string
+    public static function toBinaryString(array $buffer): string
     {
         return pack('C*', ...$buffer);
+    }
+
+    public static function setRange(array $buffer, int $start, int $end, array $replacement): array
+    {
+        return array_splice($buffer, $start, count($buffer), $replacement);
     }
 }

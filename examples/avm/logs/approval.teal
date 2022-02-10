@@ -1,0 +1,128 @@
+#pragma version 5
+txn ApplicationID
+int 0
+==
+bnz main_l15
+txn OnCompletion
+int DeleteApplication
+==
+bnz main_l14
+txn OnCompletion
+int UpdateApplication
+==
+bnz main_l13
+txn OnCompletion
+int CloseOut
+==
+bnz main_l12
+txn OnCompletion
+int OptIn
+==
+bnz main_l11
+txn OnCompletion
+int NoOp
+==
+bnz main_l7
+err
+main_l7:
+int 99
+store 0
+main_l8:
+load 0
+int 97
+>
+bnz main_l10
+int 1
+return
+main_l10:
+load 0
+callsub sub2
+load 0
+int 1
+-
+store 0
+b main_l8
+main_l11:
+int 1
+return
+main_l12:
+int 1
+return
+main_l13:
+txn Sender
+global CreatorAddress
+==
+return
+main_l14:
+txn Sender
+global CreatorAddress
+==
+return
+main_l15:
+int 1
+return
+sub0: // int_to_ascii
+store 3
+byte "0123456789"
+load 3
+load 3
+int 1
++
+substring3
+retsub
+sub1: // itoa
+store 2
+load 2
+int 0
+==
+bnz sub1_l5
+load 2
+int 10
+/
+int 0
+>
+bnz sub1_l4
+byte ""
+sub1_l3:
+load 2
+int 10
+%
+callsub sub0
+concat
+b sub1_l6
+sub1_l4:
+load 2
+int 10
+/
+load 2
+swap
+callsub sub1
+swap
+store 2
+b sub1_l3
+sub1_l5:
+byte "0"
+sub1_l6:
+retsub
+sub2: // sing
+store 1
+load 1
+callsub sub1
+byte " Bottles of beer on the wall"
+concat
+log
+load 1
+callsub sub1
+byte " Bottles of beer"
+concat
+log
+byte "Take one down, pass it around"
+log
+load 1
+int 1
+-
+callsub sub1
+byte " Bottles of beer on the wall"
+concat
+log
+retsub

@@ -54,11 +54,12 @@ class SignedTransaction implements MessagePackable
      * @param MultiSignature|null $multiSignature
      */
     public function __construct(
-        RawTransaction $transaction,
-        ?Signature $signature = null,
+        RawTransaction  $transaction,
+        ?Signature      $signature = null,
         ?LogicSignature $logicSignature = null,
         ?MultiSignature $multiSignature = null
-    ) {
+    )
+    {
         $this->transaction = $transaction;
         $this->signature = $signature;
         $this->logicSignature = $logicSignature;
@@ -99,7 +100,8 @@ class SignedTransaction implements MessagePackable
     public static function fromMultiSignature(
         RawTransaction $transaction,
         MultiSignature $multiSignature
-    ): self {
+    ): self
+    {
         return new self($transaction, null, null, $multiSignature);
     }
 
@@ -185,5 +187,15 @@ class SignedTransaction implements MessagePackable
     public function toBase64(): string
     {
         return Base64::encode(Encoder::getInstance()->encodeMessagePack($this->toMessagePack()));
+    }
+
+    /**
+     * Get the bytes of this signed transaction.
+     *
+     * @return false|string
+     */
+    public function toBytes()
+    {
+        return Encoder::getInstance()->encodeMessagePack($this->toMessagePack());
     }
 }

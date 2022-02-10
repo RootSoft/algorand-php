@@ -28,7 +28,7 @@ class AlgorandUtils
         ksort($data);
 
         // Omit empty, 0 and false fields
-        return array_filter($data, fn ($value) => ! is_null($value) && $value !== '' && $value !== false && $value !== 0);
+        return array_filter($data, fn($value) => !is_null($value) && $value !== '' && $value !== false && $value !== 0 && !empty($value));
     }
 
     /**
@@ -89,7 +89,7 @@ class AlgorandUtils
 
     public static function format_url(string $baseUrl)
     {
-        return rtrim($baseUrl, '/').'/';
+        return rtrim($baseUrl, '/') . '/';
     }
 
     /**

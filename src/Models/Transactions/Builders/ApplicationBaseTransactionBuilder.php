@@ -18,8 +18,9 @@ class ApplicationBaseTransactionBuilder extends RawTransactionBuilder
      */
     public function __construct(
         ?ApplicationBaseTransaction $applicationTransaction = null,
-        ?OnCompletion $onCompletion = null
-    ) {
+        ?OnCompletion               $onCompletion = null
+    )
+    {
         $this->applicationTransaction = $applicationTransaction ?? new ApplicationBaseTransaction();
         $this->applicationTransaction->onCompletion = $onCompletion ?? OnCompletion::NO_OP_OC();
         parent::__construct(TransactionType::APPLICATION_CALL(), $this->applicationTransaction);
@@ -51,16 +52,18 @@ class ApplicationBaseTransactionBuilder extends RawTransactionBuilder
      * ApplicationID is the application being interacted with,
      * or 0 if creating a new application.
      *
-     * @param BigInteger|null $applicationId
+     * @param BigInteger|int|null $applicationId
      *
      * @return $this
      * @throws AlgorandException
      */
-    public function applicationId(?BigInteger $applicationId): self
+    public function applicationId($applicationId): self
     {
         if (is_null($applicationId)) {
             return $this;
         }
+
+        $applicationId = $applicationId instanceof BigInteger ? $applicationId : BigInteger::of($applicationId);
 
         if ($applicationId->isLessThan(0)) {
             throw new AlgorandException('Application id cant be smaller than 0');

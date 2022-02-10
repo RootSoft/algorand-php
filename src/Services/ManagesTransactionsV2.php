@@ -86,7 +86,7 @@ trait ManagesTransactionsV2
 
         $response = $this->post($this->algodClient, '/v2/transactions', [], ['body' => $encodedTxBytes], ['Content-Type' => 'application/x-binary']);
 
-        if (! $waitForConfirmation) {
+        if (!$waitForConfirmation) {
             return $response->txId;
         }
 
@@ -97,9 +97,10 @@ trait ManagesTransactionsV2
      * Broadcast a new (signed) transaction on the network.
      *
      * @param \Rootsoft\Algorand\Models\Transactions\SignedTransaction[] $transactions
-     * @return string The id of the transaction.
+     * @return PendingTransaction|string
+     * @throws AlgorandException
      */
-    public function sendTransactions(array $transactions)
+    public function sendTransactions(array $transactions, bool $waitForConfirmation = false, int $timeout = 5)
     {
         $encodedTxBytes = '';
         foreach ($transactions as $transaction) {
@@ -108,7 +109,11 @@ trait ManagesTransactionsV2
 
         $response = $this->post($this->algodClient, '/v2/transactions', [], ['body' => $encodedTxBytes], ['Content-Type' => 'application/x-binary']);
 
-        return $response->txId;
+        if (!$waitForConfirmation) {
+            return $response->txId;
+        }
+
+        return $this->waitForConfirmation($response->txId, $timeout);
     }
 
     /**

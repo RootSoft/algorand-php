@@ -33,7 +33,7 @@ class StateSchema implements MessagePackable
      * @param int $numUint
      * @param int $numByteSlice
      */
-    public function __construct(int $numUint, int $numByteSlice)
+    public function __construct(int $numUint = 0, int $numByteSlice = 0)
     {
         $this->numUint = $numUint;
         $this->numByteSlice = $numByteSlice;

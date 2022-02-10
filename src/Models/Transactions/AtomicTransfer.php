@@ -45,7 +45,7 @@ class AtomicTransfer
      *
      * @param RawTransaction[] $transactions
      * @param Address|null $address optional sender address specifying which transaction return
-     * @return array
+     * @return array|RawTransaction[]
      * @throws AlgorandException
      */
     public static function group(array $transactions, ?Address $address = null)
@@ -77,7 +77,7 @@ class AtomicTransfer
         }
 
         if (count($transactions) > self::MAX_TRANSACTION_GROUP_SIZE) {
-            throw new AlgorandException('Max. group size is '.self::MAX_TRANSACTION_GROUP_SIZE);
+            throw new AlgorandException('Max. group size is ' . self::MAX_TRANSACTION_GROUP_SIZE);
         }
 
         // Calculate the transaction ids for every transaction
@@ -95,7 +95,7 @@ class AtomicTransfer
 
         // Prepend the transaction group prefix
         $txBytes = implode(unpack('H*', self::TG_PREFIX));
-        $encodedTx = hex2bin($txBytes).$encodedTx;
+        $encodedTx = hex2bin($txBytes) . $encodedTx;
 
         return AlgorandUtils::hash($encodedTx);
     }

@@ -1,70 +1,76 @@
 {
-    "name": "rootsoft/algorand-php",
-    "description": "Community SDK to interact with the Algorand network, in PHP & Laravel",
-    "keywords": [
-        "rootsoft",
-        "algorand-php",
-        "algorand",
-        "blockchain"
-    ],
-    "homepage": "https://github.com/rootsoft/algorand-php",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Tomas Verhelst",
-            "email": "tomasverhelst@gmail.com",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": "^7.4|^8.0",
-        "ext-json": "*",
-        "brick/math": "^0.9.3",
-        "guzzlehttp/guzzle": "^7.3",
-        "guzzlehttp/psr7": "^1.8.2",
-        "illuminate/container": "~5.0|^6.0|^7.0|^8.0",
-        "illuminate/support": "~5.0|^6.0|^7.0|^8.0",
-        "json-mapper/json-mapper": "^2.3",
-        "myclabs/php-enum": "^1.8",
-        "paragonie/constant_time_encoding": "^2.4",
-        "paragonie/halite": "^4",
-        "rybakit/msgpack": "^0.7.2"
-    },
-    "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.1",
-        "orchestra/testbench": "^6.12",
-        "phpunit/phpunit": "^9.5",
-        "spatie/ray": "^1.10"
-    },
-    "autoload": {
-        "psr-4": {
-            "Rootsoft\\Algorand\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Rootsoft\\Algorand\\Tests\\": "tests"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Rootsoft\\Algorand\\AlgorandServiceProvider"
-            ],
-            "aliases": {
-                "Algorand": "Rootsoft\\Algorand\\Facades\\AlgorandFacade"
-            }
-        }
-    },
-    "scripts": {
-        "psalm": "vendor/bin/psalm",
-        "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
-        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+  "name": "rootsoft/algorand-php",
+  "description": "Community SDK to interact with the Algorand network, in PHP & Laravel",
+  "keywords": [
+    "rootsoft",
+    "algorand-php",
+    "algorand",
+    "blockchain"
+  ],
+  "homepage": "https://github.com/rootsoft/algorand-php",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tomas Verhelst",
+      "email": "tomasverhelst@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.4|^8.0",
+    "ext-json": "*",
+    "brick/math": "^0.9.3",
+    "guzzlehttp/guzzle": "^7.4.1",
+    "guzzlehttp/psr7": "^1.8.2|^2.1.0",
+    "illuminate/container": "~5.0|^6.0|^7.0|^8.0",
+    "illuminate/support": "~5.0|^6.0|^7.0|^8.0",
+    "json-mapper/json-mapper": "dev-develop",
+    "myclabs/php-enum": "^1.8",
+    "paragonie/constant_time_encoding": "^2.4",
+    "paragonie/halite": "^5.0.0",
+    "rybakit/msgpack": "^0.7.2"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.1",
+    "orchestra/testbench": "^6.12",
+    "phpunit/phpunit": "^9.5",
+    "spatie/ray": "^1.10"
+  },
+  "repositories": [
+    {
+      "url": "https://github.com/RootSoft/JsonMapper.git",
+      "type": "git"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Rootsoft\\Algorand\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Rootsoft\\Algorand\\Tests\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Rootsoft\\Algorand\\AlgorandServiceProvider"
+      ],
+      "aliases": {
+        "Algorand": "Rootsoft\\Algorand\\Facades\\AlgorandFacade"
+      }
+    }
+  },
+  "scripts": {
+    "psalm": "vendor/bin/psalm",
+    "test": "vendor/bin/phpunit",
+    "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+    "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }

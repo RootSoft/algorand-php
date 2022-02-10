@@ -1,0 +1,73 @@
+#pragma version 5
+txn ApplicationID
+int 0
+==
+bnz main_l12
+txn OnCompletion
+int DeleteApplication
+==
+bnz main_l11
+txn OnCompletion
+int UpdateApplication
+==
+bnz main_l10
+txn OnCompletion
+int CloseOut
+==
+bnz main_l9
+txn OnCompletion
+int OptIn
+==
+bnz main_l8
+txn OnCompletion
+int NoOp
+==
+bnz main_l7
+err
+main_l7:
+txn Sender
+global CreatorAddress
+==
+itxn_begin
+int acfg
+itxn_field TypeEnum
+txna ApplicationArgs 0
+itxn_field ConfigAssetName
+txna ApplicationArgs 1
+itxn_field ConfigAssetUnitName
+global CurrentApplicationAddress
+itxn_field ConfigAssetManager
+global CurrentApplicationAddress
+itxn_field ConfigAssetClawback
+global CurrentApplicationAddress
+itxn_field ConfigAssetReserve
+global CurrentApplicationAddress
+itxn_field ConfigAssetFreeze
+txna ApplicationArgs 2
+btoi
+itxn_field ConfigAssetTotal
+int 0
+itxn_field ConfigAssetDecimals
+itxn_submit
+int 1
+&&
+return
+main_l8:
+int 1
+return
+main_l9:
+int 1
+return
+main_l10:
+txn Sender
+global CreatorAddress
+==
+return
+main_l11:
+txn Sender
+global CreatorAddress
+==
+return
+main_l12:
+int 1
+return
