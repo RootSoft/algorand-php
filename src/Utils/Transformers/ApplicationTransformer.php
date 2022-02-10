@@ -15,7 +15,7 @@ class ApplicationTransformer extends BaseTransactionTransformer
     {
         $baseTransaction = parent::transform($className, $value);
         $applicationId = ArrayUtils::findValueOrNull($value, 'apid');
-        $onCompletion = OnCompletion::from(ArrayUtils::findValueOrNull($value, 'apan') ?? 0);
+        $onCompletion = new OnCompletion(ArrayUtils::findValueOrNull($value, 'apan') ?? 0);
         $arguments = ArrayUtils::findValueOrNull($value, 'apaa');
         $accounts = ArrayUtils::findValueOrNull($value, 'apat') ?? [];
         $foreignApps = ArrayUtils::findValueOrNull($value, 'apfa');
@@ -26,7 +26,7 @@ class ApplicationTransformer extends BaseTransactionTransformer
             ->applicationId(EncoderUtils::toBigInteger($applicationId))
             ->onCompletion($onCompletion)
             ->arguments($arguments)
-            ->accounts(array_map(fn (string $address) => Address::fromPublicKey($address), $accounts))
+            ->accounts(array_map(fn(string $address) => Address::fromPublicKey($address), $accounts))
             ->foreignApps($foreignApps)
             ->foreignAssets($foreignAssets)
             ->build();
