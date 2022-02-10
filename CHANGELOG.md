@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.7 - 2022-02-10
+
+- Support for TEAL 5 & AVM 1
+- Utility methods
+- Updated dependencies
+- Added AVM examples
+- Bugfixes and code cleanup
+
 ## 0.0.6 - 2021-09-13
 
 - Added support for KMD
