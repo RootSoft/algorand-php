@@ -3,8 +3,8 @@
 namespace Rootsoft\Algorand\Indexer\Services;
 
 use Rootsoft\Algorand\Exceptions\AlgorandException;
-use Rootsoft\Algorand\Models\Application;
 use Rootsoft\Algorand\Models\Applications\ApplicationLogsResult;
+use Rootsoft\Algorand\Models\Applications\ApplicationResult;
 use Rootsoft\Algorand\Models\Applications\SearchApplicationsResult;
 
 trait ManagesIndexerApplicationsV2
@@ -17,14 +17,14 @@ trait ManagesIndexerApplicationsV2
      * global and local schemas, and global state.
      *
      * @param int $applicationId
-     * @return \Rootsoft\Algorand\Models\Application
+     * @return \Rootsoft\Algorand\Models\Applications\Application
      * @throws AlgorandException
      */
     public function getApplicationById(int $applicationId)
     {
         $response = $this->get($this->indexerClient, "/v2/applications/$applicationId");
 
-        $application = new Application();
+        $application = new ApplicationResult();
         $this->jsonMapper->mapObject($response, $application);
 
         return $application;
