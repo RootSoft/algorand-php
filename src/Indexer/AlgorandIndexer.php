@@ -8,6 +8,7 @@ use Rootsoft\Algorand\Indexer\Builders\AccountQueryBuilder;
 use Rootsoft\Algorand\Indexer\Builders\ApplicationQueryBuilder;
 use Rootsoft\Algorand\Indexer\Builders\AssetQueryBuilder;
 use Rootsoft\Algorand\Indexer\Builders\TransactionQueryBuilder;
+use Rootsoft\Algorand\Indexer\Services\ManagesIndexerApplicationsV2;
 use Rootsoft\Algorand\Indexer\Services\ManagesIndexerV2;
 use Rootsoft\Algorand\Services\ManagesBlocksV2;
 use Rootsoft\Algorand\Traits\MakesHttpRequests;
@@ -17,6 +18,7 @@ class AlgorandIndexer
     use MakesHttpRequests;
     use ManagesIndexerV2;
     use ManagesBlocksV2;
+    use ManagesIndexerApplicationsV2;
 
     /**
      * Client used to perform indexing operations.
@@ -47,7 +49,7 @@ class AlgorandIndexer
      *
      * @return TransactionQueryBuilder
      */
-    public function transactions() : TransactionQueryBuilder
+    public function transactions(): TransactionQueryBuilder
     {
         return new TransactionQueryBuilder($this->indexerClient, $this->jsonMapper);
     }
@@ -58,7 +60,7 @@ class AlgorandIndexer
      *
      * @return AssetQueryBuilder
      */
-    public function assets() : AssetQueryBuilder
+    public function assets(): AssetQueryBuilder
     {
         return new AssetQueryBuilder($this->indexerClient, $this->jsonMapper);
     }
@@ -69,7 +71,7 @@ class AlgorandIndexer
      *
      * @return AccountQueryBuilder
      */
-    public function accounts() : AccountQueryBuilder
+    public function accounts(): AccountQueryBuilder
     {
         return new AccountQueryBuilder($this->indexerClient, $this->jsonMapper);
     }
@@ -80,7 +82,7 @@ class AlgorandIndexer
      *
      * @return ApplicationQueryBuilder
      */
-    public function applications() : ApplicationQueryBuilder
+    public function applications(): ApplicationQueryBuilder
     {
         return new ApplicationQueryBuilder($this->indexerClient, $this->jsonMapper);
     }

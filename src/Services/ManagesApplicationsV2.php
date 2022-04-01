@@ -6,7 +6,6 @@ use Brick\Math\BigInteger;
 use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\Account;
 use Rootsoft\Algorand\Models\Application;
-use Rootsoft\Algorand\Models\Applications\ApplicationLogsResult;
 use Rootsoft\Algorand\Models\Applications\StateSchema;
 use Rootsoft\Algorand\Models\Applications\TEALProgram;
 use Rootsoft\Algorand\Models\Teals\DryrunRequest;
@@ -39,23 +38,6 @@ trait ManagesApplicationsV2
         $this->jsonMapper->mapObject($response, $application);
 
         return $application;
-    }
-
-    /**
-     * Lookup application logs by a given application id.
-     *
-     * @param int $applicationId
-     * @return \Rootsoft\Algorand\Models\Applications\ApplicationLogsResult
-     * @throws AlgorandException
-     */
-    public function getApplicationLogsById(int $applicationId): ApplicationLogsResult
-    {
-        $response = $this->get($this->algodClient, "/v2/applications/$applicationId/logs");
-
-        $result = new ApplicationLogsResult();
-        $this->jsonMapper->mapObject($response, $result);
-
-        return $result;
     }
 
     /**
