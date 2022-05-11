@@ -63,7 +63,7 @@ class PaymentTransactionBuilder extends RawTransactionBuilder
      */
     public function amount(?int $amount): self
     {
-        $this->paymentTransaction->amount = BigInteger::of($amount);
+        $this->paymentTransaction->amount = BigInteger::of($amount ?? 0);
 
         return $this;
     }
