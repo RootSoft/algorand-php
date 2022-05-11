@@ -2,10 +2,31 @@
 
 namespace Rootsoft\Algorand\Indexer\Services;
 
+use Rootsoft\Algorand\Exceptions\AlgorandException;
 use Rootsoft\Algorand\Models\Accounts\SearchAccountsResult;
+use Rootsoft\Algorand\Models\Assets\SearchAssetsResult;
 
 trait ManagesIndexerAccountsV2
 {
+
+    /**
+     * Get the created assets for the given address.
+     *
+     * @param string $address
+     * @param array $params
+     * @return \Rootsoft\Algorand\Models\Assets\SearchAssetsResult
+     * @throws AlgorandException
+     */
+    public function getCreatedAssets(string $address, array $params = []): SearchAssetsResult
+    {
+        $response = $this->get($this->indexerClient, "/v2/accounts/$address/created-assets", $params);
+
+        $result = new SearchAssetsResult();
+        $this->jsonMapper->mapObject($response, $result);
+
+        return $result;
+    }
+
     /**
      * Search accounts using the indexer.
      *

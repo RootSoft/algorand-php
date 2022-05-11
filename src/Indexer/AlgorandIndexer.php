@@ -8,6 +8,7 @@ use Rootsoft\Algorand\Indexer\Builders\AccountQueryBuilder;
 use Rootsoft\Algorand\Indexer\Builders\ApplicationQueryBuilder;
 use Rootsoft\Algorand\Indexer\Builders\AssetQueryBuilder;
 use Rootsoft\Algorand\Indexer\Builders\TransactionQueryBuilder;
+use Rootsoft\Algorand\Indexer\Services\ManagesIndexerAccountsV2;
 use Rootsoft\Algorand\Indexer\Services\ManagesIndexerApplicationsV2;
 use Rootsoft\Algorand\Indexer\Services\ManagesIndexerV2;
 use Rootsoft\Algorand\Services\ManagesBlocksV2;
@@ -18,6 +19,7 @@ class AlgorandIndexer
     use MakesHttpRequests;
     use ManagesIndexerV2;
     use ManagesBlocksV2;
+    use ManagesIndexerAccountsV2;
     use ManagesIndexerApplicationsV2;
 
     /**
